@@ -1,0 +1,1 @@
+This is a Inventory Management System for convenience stores and other Microcompanies
