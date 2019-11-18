@@ -1,4 +1,5 @@
 This software is an administrative tool to manage and organize the inventory of convenience store type business (mostly micro)
+This system of inventory management is based on the FIFO system
 
 	The following requirements pertain to version 1.0
 Basic requirements:
