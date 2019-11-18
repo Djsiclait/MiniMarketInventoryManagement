@@ -1,0 +1,26 @@
+This software is an administrative tool to manage and organize the inventory of convenience store type business (mostly micro)
+
+	The following requirements pertain to version 1.0
+Basic requirements:
+1. Register and modify product inventory 
+	a. product registration for new products
+	b. register purchase of products for restocking
+	c. register sale of products for outgoing stock
+	d. modify product stock levels base on purchases and sales
+2. Product Compendium for quick searches of products and prices
+	a. available without system permissions
+	b. brief summary of product name, brand, price, and stock availability
+3. Segmented Inventory for Broken, Lost, Damaged, Discontinued, Personal Use of products
+
+Advances Requirements:
+1. Administriative backdoor for configurations and analytic features
+	a. backdoor login
+	b. super admin account
+	c. admin creation
+2. Inventory and product edit (limited to stock level and basic informations)
+3. Financial Reports for distinct fiscal periods
+	a. Sales Report
+	b. Cost Report
+	c. Estado de Resultados 
+	d. Balance General 
+4. Financial Charts 
