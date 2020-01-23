@@ -57,5 +57,9 @@ namespace GeneralStoreInventoryManagementSystem
         // This form displays all registered users of the system and their status: username, name, status, last login
         // Only available to admins
         public static UsersRegistryForm usersRegistryForm = new UsersRegistryForm();
+
+        // This form shows all products added to make a sale
+        // Allows the user delete and modify the amout of itmes they want, does not allow adding new items
+        public static ViewCartForm viewCartForm = new ViewCartForm();
     }
 }

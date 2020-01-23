@@ -121,6 +121,12 @@
     <Compile Include="UsersRegistryForm.Designer.cs">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewCartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewCartForm.Designer.cs">
+      <DependentUpon>ViewCartForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ActivitiesLogForm.resx">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UsersRegistryForm.resx">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewCartForm.resx">
+      <DependentUpon>ViewCartForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
