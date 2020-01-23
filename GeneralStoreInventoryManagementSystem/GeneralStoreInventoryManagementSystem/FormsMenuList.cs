@@ -17,12 +17,17 @@ namespace GeneralStoreInventoryManagementSystem
         // This form is used to log in to begin a new user session 
         public static LoginForm loginForm = new LoginForm();
 
-        // This form is dedicated to view the recent sales depending the requested time interval
-        public static SalesRecordForm salesRecordForm = new SalesRecordForm();
+        // This window form allows users to registe new products according to FIFO/LIFO standards
+        // Only available to admins
+        public static RegisterNewProduct registerNewProduct = new RegisterNewProduct();
 
         // This form is to register a new sale of products
         // Only allows to sell products that are instock ( > 0) and are not discontinued 
         // This form of viewing the inventory is not organized according to FIFO/LIFO
         public static RegisterSaleFrom registerSaleForm = new RegisterSaleFrom();
+
+        // This form is dedicated to view the recent sales depending the requested time interval
+        // Displays sales record information according to users' access level 
+        public static SalesRecordForm salesRecordForm = new SalesRecordForm();
     }
 }
