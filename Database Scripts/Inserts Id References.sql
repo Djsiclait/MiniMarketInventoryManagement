@@ -1,7 +1,7 @@
-INSERT INTO tbl_id_refrence_logs
+INSERT INTO tbl_id_reference_logs
 (
-	fld_id_refrence_id,
-	fld_id_refrence_table
+	fld_id_reference_id,
+	fld_id_reference_table
 )
 Values
 (
