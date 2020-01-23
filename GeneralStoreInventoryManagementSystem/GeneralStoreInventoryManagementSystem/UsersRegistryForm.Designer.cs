@@ -1,6 +1,6 @@
 ﻿namespace GeneralStoreInventoryManagementSystem
 {
-    partial class RestockProductsForm
+    partial class UsersRegistryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,9 +35,7 @@
             this.viewSalesMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.makeSaleMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.adminMenuOption = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageUsersMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewUsersOption = new System.Windows.Forms.ToolStripMenuItem();
-            this.registerNewUserOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegisterNewUserMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.statisticsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewGraphsIOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewReportsOption = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,6 +45,7 @@
             this.productsMenuOption = new System.Windows.Forms.ToolStripMenuItem();
             this.browseProductsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.registerNewProductMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.restockProductsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,33 +106,18 @@
             // adminMenuOption
             // 
             this.adminMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manageUsersMenuSubOption,
+            this.RegisterNewUserMenuSubOption,
             this.statisticsMenuSubOption,
             this.logsMenuSubOption});
             this.adminMenuOption.Name = "adminMenuOption";
             this.adminMenuOption.Size = new System.Drawing.Size(55, 20);
             this.adminMenuOption.Text = "Admin";
             // 
-            // manageUsersMenuSubOption
+            // RegisterNewUserMenuSubOption
             // 
-            this.manageUsersMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewUsersOption,
-            this.registerNewUserOption});
-            this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(152, 22);
-            this.manageUsersMenuSubOption.Text = "Manage Users";
-            // 
-            // viewUsersOption
-            // 
-            this.viewUsersOption.Name = "viewUsersOption";
-            this.viewUsersOption.Size = new System.Drawing.Size(169, 22);
-            this.viewUsersOption.Text = "View Users";
-            // 
-            // registerNewUserOption
-            // 
-            this.registerNewUserOption.Name = "registerNewUserOption";
-            this.registerNewUserOption.Size = new System.Drawing.Size(169, 22);
-            this.registerNewUserOption.Text = "Register New User";
+            this.RegisterNewUserMenuSubOption.Name = "RegisterNewUserMenuSubOption";
+            this.RegisterNewUserMenuSubOption.Size = new System.Drawing.Size(169, 22);
+            this.RegisterNewUserMenuSubOption.Text = "Register New User";
             // 
             // statisticsMenuSubOption
             // 
@@ -141,19 +125,19 @@
             this.viewGraphsIOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(169, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsIOption
             // 
             this.viewGraphsIOption.Name = "viewGraphsIOption";
-            this.viewGraphsIOption.Size = new System.Drawing.Size(142, 22);
+            this.viewGraphsIOption.Size = new System.Drawing.Size(152, 22);
             this.viewGraphsIOption.Text = "View Graphs";
             // 
             // viewReportsOption
             // 
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
+            this.viewReportsOption.Size = new System.Drawing.Size(152, 22);
             this.viewReportsOption.Text = "View Reports";
             // 
             // logsMenuSubOption
@@ -162,7 +146,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(169, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
@@ -181,7 +165,8 @@
             // 
             this.productsMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.browseProductsMenuSubOption,
-            this.registerNewProductMenuSubOption});
+            this.registerNewProductMenuSubOption,
+            this.restockProductsMenuSubOption});
             this.productsMenuOption.Name = "productsMenuOption";
             this.productsMenuOption.Size = new System.Drawing.Size(66, 20);
             this.productsMenuOption.Text = "Products";
@@ -198,7 +183,13 @@
             this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(188, 22);
             this.registerNewProductMenuSubOption.Text = "Register New Product";
             // 
-            // RestockProductsForm
+            // restockProductsMenuSubOption
+            // 
+            this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
+            this.restockProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
+            this.restockProductsMenuSubOption.Text = "Restock Products";
+            // 
+            // UsersRegistryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -206,8 +197,8 @@
             this.Controls.Add(this.ViewCartLabel);
             this.Controls.Add(this.LogOutLabel);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "RestockProductsForm";
-            this.Text = "Restock Products";
+            this.Name = "UsersRegistryForm";
+            this.Text = "Registered Users";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -224,9 +215,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewSalesMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem makeSaleMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem adminMenuOption;
-        private System.Windows.Forms.ToolStripMenuItem manageUsersMenuSubOption;
-        private System.Windows.Forms.ToolStripMenuItem viewUsersOption;
-        private System.Windows.Forms.ToolStripMenuItem registerNewUserOption;
+        private System.Windows.Forms.ToolStripMenuItem RegisterNewUserMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem statisticsMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem viewGraphsIOption;
         private System.Windows.Forms.ToolStripMenuItem viewReportsOption;
@@ -236,5 +225,6 @@
         private System.Windows.Forms.ToolStripMenuItem productsMenuOption;
         private System.Windows.Forms.ToolStripMenuItem browseProductsMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem registerNewProductMenuSubOption;
+        private System.Windows.Forms.ToolStripMenuItem restockProductsMenuSubOption;
     }
 }

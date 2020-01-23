@@ -85,6 +85,12 @@
     <Compile Include="SalesRecordForm.Designer.cs">
       <DependentUpon>SalesRecordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UsersRegistryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersRegistryForm.Designer.cs">
+      <DependentUpon>UsersRegistryForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="InventorySearchForm.resx">
       <DependentUpon>InventorySearchForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SalesRecordForm.resx">
       <DependentUpon>SalesRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersRegistryForm.resx">
+      <DependentUpon>UsersRegistryForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

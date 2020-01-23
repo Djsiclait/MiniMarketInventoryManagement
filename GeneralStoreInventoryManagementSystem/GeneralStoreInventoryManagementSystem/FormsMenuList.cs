@@ -33,5 +33,9 @@ namespace GeneralStoreInventoryManagementSystem
         // This form is dedicated to view the recent sales depending the requested time interval
         // Displays sales record information according to users' access level 
         public static SalesRecordForm salesRecordForm = new SalesRecordForm();
+
+        // This form displays all registered users of the system and their status: username, name, status, last login
+        // Only available to admins
+        public static UsersRegistryForm usersRegistryForm = new UsersRegistryForm();
     }
 }
