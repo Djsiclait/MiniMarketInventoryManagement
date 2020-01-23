@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormsMenuList.cs" />
+    <Compile Include="GraphsAnaliticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphsAnaliticsForm.Designer.cs">
+      <DependentUpon>GraphsAnaliticsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventorySearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     <Compile Include="UsersRegistryForm.Designer.cs">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GraphsAnaliticsForm.resx">
+      <DependentUpon>GraphsAnaliticsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InventorySearchForm.resx">
       <DependentUpon>InventorySearchForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -8,6 +8,10 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public class FormsMenuList
     {
+        // This window displays all important statistics of the inventory and sales
+        // Only available to admins
+        public static GraphsAnaliticsForm graphsAnaliticsForm = new GraphsAnaliticsForm();
+
         // This is to create the forms used to browse the inventory in search of a product
         // This is not used to make add products to the cart nor register purchases or restock products
         // This form displays the basic information of products such as name, brand, category, cost*, price, and number of units instock 
