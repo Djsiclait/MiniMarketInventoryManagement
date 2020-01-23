@@ -26,6 +26,10 @@ namespace GeneralStoreInventoryManagementSystem
         // This form of viewing the inventory is not organized according to FIFO/LIFO
         public static RegisterSaleFrom registerSaleForm = new RegisterSaleFrom();
 
+        // This form is used to restock products in the inventory, taking into account FIFO/LIFO
+        // Only available to admins
+        public static RestockProductsForm restockProductsFrom = new RestockProductsForm();
+
         // This form is dedicated to view the recent sales depending the requested time interval
         // Displays sales record information according to users' access level 
         public static SalesRecordForm salesRecordForm = new SalesRecordForm();
