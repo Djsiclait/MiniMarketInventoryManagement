@@ -52,7 +52,6 @@ declare @message varchar(300)
 
 exec SP_Register_New_User 'super.admin', '', '', 'super.admin', 0, @message output
 select @message
-
 exec SP_Register_New_User 'djsiclait', 'Djidjelly', 'Siclait', 'super.admin', 1, @message output
 select @message
 exec SP_Register_New_User 'bsiclait', 'Biderka', 'Siclait', 'djsiclait', 2, @message output
