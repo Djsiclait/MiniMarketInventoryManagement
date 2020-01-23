@@ -8,6 +8,10 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public class FormsMenuList
     {
+        // This form displays all activities that have transpired durring a session, also displays errors
+        // Only available to admins
+        public static ActivitiesLogForm activitiesLogForm = new ActivitiesLogForm();
+
         // This window displays all important statistics of the inventory and sales
         // Only available to admins
         public static GraphsAnalyticsForm graphsAnaliticsForm = new GraphsAnalyticsForm();

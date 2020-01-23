@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivitiesLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivitiesLogForm.Designer.cs">
+      <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsMenuList.cs" />
     <Compile Include="GraphsAnalyticsForm.cs">
       <SubType>Form</SubType>
@@ -109,6 +115,9 @@
     <Compile Include="UsersRegistryForm.Designer.cs">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ActivitiesLogForm.resx">
+      <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GraphsAnalyticsForm.resx">
       <DependentUpon>GraphsAnalyticsForm.cs</DependentUpon>
     </EmbeddedResource>
