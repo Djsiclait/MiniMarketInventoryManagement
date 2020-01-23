@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GeneralStoreInventoryManagementSystem
 {
-    public partial class RegisterNewProduct : Form
+    public partial class RegisterNewUserForm : Form
     {
-        public RegisterNewProduct()
+        public RegisterNewUserForm()
         {
             InitializeComponent();
         }

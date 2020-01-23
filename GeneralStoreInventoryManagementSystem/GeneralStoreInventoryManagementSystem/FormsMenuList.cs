@@ -19,7 +19,11 @@ namespace GeneralStoreInventoryManagementSystem
 
         // This window form allows users to registe new products according to FIFO/LIFO standards
         // Only available to admins
-        public static RegisterNewProduct registerNewProduct = new RegisterNewProduct();
+        public static RegisterNewProductForm registerNewProduct = new RegisterNewProductForm();
+
+        // This window is to register any new users for the system
+        // Only available to admins
+        public static RegisterNewUserForm registerNewUserForm = new RegisterNewUserForm();
 
         // This form is to register a new sale of products
         // Only allows to sell products that are instock ( > 0) and are not discontinued 

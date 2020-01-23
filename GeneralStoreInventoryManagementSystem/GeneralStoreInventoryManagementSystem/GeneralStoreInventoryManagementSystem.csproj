@@ -61,11 +61,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterNewProduct.cs">
+    <Compile Include="RegisterNewProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterNewProduct.Designer.cs">
-      <DependentUpon>RegisterNewProduct.cs</DependentUpon>
+    <Compile Include="RegisterNewProductForm.Designer.cs">
+      <DependentUpon>RegisterNewProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterNewUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterNewUserForm.Designer.cs">
+      <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RegisterSaleFrom.cs">
       <SubType>Form</SubType>
@@ -106,8 +112,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RegisterNewProduct.resx">
-      <DependentUpon>RegisterNewProduct.cs</DependentUpon>
+    <EmbeddedResource Include="RegisterNewProductForm.resx">
+      <DependentUpon>RegisterNewProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterNewUserForm.resx">
+      <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterSaleFrom.resx">
       <DependentUpon>RegisterSaleFrom.cs</DependentUpon>
