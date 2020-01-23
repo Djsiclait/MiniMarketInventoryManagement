@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormsMenuList.cs" />
-    <Compile Include="GraphsAnaliticsForm.cs">
+    <Compile Include="GraphsAnalyticsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GraphsAnaliticsForm.Designer.cs">
-      <DependentUpon>GraphsAnaliticsForm.cs</DependentUpon>
+    <Compile Include="GraphsAnalyticsForm.Designer.cs">
+      <DependentUpon>GraphsAnalyticsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InventorySearchForm.cs">
       <SubType>Form</SubType>
@@ -85,6 +85,12 @@
     <Compile Include="RegisterSaleFrom.Designer.cs">
       <DependentUpon>RegisterSaleFrom.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportsAnalyticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportsAnalyticsForm.Designer.cs">
+      <DependentUpon>ReportsAnalyticsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RestockProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,8 +109,8 @@
     <Compile Include="UsersRegistryForm.Designer.cs">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GraphsAnaliticsForm.resx">
-      <DependentUpon>GraphsAnaliticsForm.cs</DependentUpon>
+    <EmbeddedResource Include="GraphsAnalyticsForm.resx">
+      <DependentUpon>GraphsAnalyticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventorySearchForm.resx">
       <DependentUpon>InventorySearchForm.cs</DependentUpon>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterSaleFrom.resx">
       <DependentUpon>RegisterSaleFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportsAnalyticsForm.resx">
+      <DependentUpon>ReportsAnalyticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RestockProductsForm.resx">
       <DependentUpon>RestockProductsForm.cs</DependentUpon>

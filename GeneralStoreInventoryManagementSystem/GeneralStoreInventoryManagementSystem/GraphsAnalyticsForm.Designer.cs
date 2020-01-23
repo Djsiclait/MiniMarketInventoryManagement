@@ -1,6 +1,6 @@
 ﻿namespace GeneralStoreInventoryManagementSystem
 {
-    partial class GraphsAnaliticsForm
+    partial class GraphsAnalyticsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -147,7 +147,7 @@
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
@@ -165,7 +165,7 @@
             // viewReportsMenuSubOption
             // 
             this.viewReportsMenuSubOption.Name = "viewReportsMenuSubOption";
-            this.viewReportsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.viewReportsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.viewReportsMenuSubOption.Text = "View Reports";
             // 
             // logsMenuSubOption
@@ -174,7 +174,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
@@ -189,7 +189,7 @@
             this.viewErrorLogsOption.Size = new System.Drawing.Size(170, 22);
             this.viewErrorLogsOption.Text = "View Error Logs";
             // 
-            // GraphsAnaliticsForm
+            // GraphsAnalyticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,8 +197,8 @@
             this.Controls.Add(this.ViewCartLabel);
             this.Controls.Add(this.LogOutLabel);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "GraphsAnaliticsForm";
-            this.Text = "Analitics --- Graphs";
+            this.Name = "GraphsAnalyticsForm";
+            this.Text = "Analytics --- Graphs";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

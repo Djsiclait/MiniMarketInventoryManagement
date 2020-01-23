@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GeneralStoreInventoryManagementSystem
 {
-    public partial class GraphsAnaliticsForm : Form
+    public partial class ReportsAnalyticsForm : Form
     {
-        public GraphsAnaliticsForm()
+        public ReportsAnalyticsForm()
         {
             InitializeComponent();
         }

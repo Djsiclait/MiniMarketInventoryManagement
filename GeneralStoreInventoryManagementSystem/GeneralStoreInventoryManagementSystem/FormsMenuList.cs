@@ -10,7 +10,7 @@ namespace GeneralStoreInventoryManagementSystem
     {
         // This window displays all important statistics of the inventory and sales
         // Only available to admins
-        public static GraphsAnaliticsForm graphsAnaliticsForm = new GraphsAnaliticsForm();
+        public static GraphsAnalyticsForm graphsAnaliticsForm = new GraphsAnalyticsForm();
 
         // This is to create the forms used to browse the inventory in search of a product
         // This is not used to make add products to the cart nor register purchases or restock products
@@ -33,6 +33,10 @@ namespace GeneralStoreInventoryManagementSystem
         // Only allows to sell products that are instock ( > 0) and are not discontinued 
         // This form of viewing the inventory is not organized according to FIFO/LIFO
         public static RegisterSaleFrom registerSaleForm = new RegisterSaleFrom();
+
+        // This window displays all important reports of the inventory and sales
+        // Only available to admins
+        public static ReportsAnalyticsForm reportsAnalyticsForm = new ReportsAnalyticsForm();
 
         // This form is used to restock products in the inventory, taking into account FIFO/LIFO
         // Only available to admins
