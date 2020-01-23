@@ -46,14 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormsMenuList.cs" />
+    <Compile Include="InventorySearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="InventorySearchForm.Designer.cs">
+      <DependentUpon>InventorySearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InventorySearchForm.resx">
+      <DependentUpon>InventorySearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +79,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryManagementBusinessLayer\InventoryManagementBusinessLayer.csproj">
+      <Project>{ffa050a3-8abf-4f87-bb18-b465c87e6062}</Project>
+      <Name>InventoryManagementBusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryManagementDataLayer\InventoryManagementDataLayer.csproj">
+      <Project>{a82f2156-8fbb-449d-8f0e-2da935aa7096}</Project>
+      <Name>InventoryManagementDataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryManagementEntityLayer\InventoryManagementEntityLayer.csproj">
+      <Project>{c8586729-0bbd-4d6b-bf95-5b509708d14e}</Project>
+      <Name>InventoryManagementEntityLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
