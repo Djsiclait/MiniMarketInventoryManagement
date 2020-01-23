@@ -12,6 +12,10 @@ namespace GeneralStoreInventoryManagementSystem
         // Only available to admins
         public static ActivitiesLogForm activitiesLogForm = new ActivitiesLogForm();
 
+        // This form exclusively displays all errors that have occured durring a session
+        // Only available to admins
+        public static ErrorsLogForm errorsLogForm = new ErrorsLogForm();
+
         // This window displays all important statistics of the inventory and sales
         // Only available to admins
         public static GraphsAnalyticsForm graphsAnaliticsForm = new GraphsAnalyticsForm();

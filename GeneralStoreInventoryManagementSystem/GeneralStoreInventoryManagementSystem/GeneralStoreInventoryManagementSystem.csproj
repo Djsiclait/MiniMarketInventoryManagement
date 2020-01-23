@@ -52,6 +52,12 @@
     <Compile Include="ActivitiesLogForm.Designer.cs">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ErrorsLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorsLogForm.Designer.cs">
+      <DependentUpon>ErrorsLogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsMenuList.cs" />
     <Compile Include="GraphsAnalyticsForm.cs">
       <SubType>Form</SubType>
@@ -117,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="ActivitiesLogForm.resx">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorsLogForm.resx">
+      <DependentUpon>ErrorsLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GraphsAnalyticsForm.resx">
       <DependentUpon>GraphsAnalyticsForm.cs</DependentUpon>
