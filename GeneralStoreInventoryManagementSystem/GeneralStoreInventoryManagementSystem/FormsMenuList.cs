@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeneralStoreInventoryManagementSystem
 {
-    public class FormsMenuList
+    public static class FormsMenuList
     {
         // This form displays all activities that have transpired durring a session, also displays errors
         // Only available to admins

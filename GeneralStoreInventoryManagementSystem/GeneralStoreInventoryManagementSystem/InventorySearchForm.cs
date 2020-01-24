@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Custom Libraries
+using InventoryManagementBusinessLayer;
+using InventoryManagementEntityLayer;
+
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class InventorySearchForm : Form
@@ -17,15 +21,18 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
-        // Form Load Logic 
+////////// Form Load Logic 
         private void InventorySearchForm_Load(object sender, EventArgs e)
         {
             // TEMPORARY
             // TODO: ancor the application to the splash page
             FormsMenuList.inventorySearchForm = this; // Ancorging this form as the application instance 
-        }
 
-        // Menu Bar Options
+            PopulateProductListDataGrid(); // Initializing the data grid upon load
+        }
+////////// END Form Load Logic
+
+////////// Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // TEMPORARY
@@ -177,5 +184,21 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.inventorySearchForm.logOutLabel.ForeColor = Color.Black;
         }
+////////// END Menu Bar Options
+
+        // Data Grid Logic
+        private void PopulateProductListDataGrid()
+        {
+            // TODO: Fetch data grid values from business layer
+            List<Product> inventory = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("Admin");
+
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine("Inventory Items: " + inventory.Count);
+            foreach(Product product in inventory)
+                Console.WriteLine("Item: " + product.Name);
+            Console.WriteLine("\n\n\n");
+        }
+        // END Data Grid Logic
+
     }
 }

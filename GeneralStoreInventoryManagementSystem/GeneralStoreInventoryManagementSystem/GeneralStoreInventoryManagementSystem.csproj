@@ -193,10 +193,6 @@
       <Project>{ffa050a3-8abf-4f87-bb18-b465c87e6062}</Project>
       <Name>InventoryManagementBusinessLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InventoryManagementDataLayer\InventoryManagementDataLayer.csproj">
-      <Project>{a82f2156-8fbb-449d-8f0e-2da935aa7096}</Project>
-      <Name>InventoryManagementDataLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\InventoryManagementEntityLayer\InventoryManagementEntityLayer.csproj">
       <Project>{c8586729-0bbd-4d6b-bf95-5b509708d14e}</Project>
       <Name>InventoryManagementEntityLayer</Name>
