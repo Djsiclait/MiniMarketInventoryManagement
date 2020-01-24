@@ -17,6 +17,7 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
+        // Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
@@ -33,8 +34,8 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewProduct.Dispose();
 
             // Summon Register New Sale Form
-            FormsMenuList.registerSaleForm = new RegisterSaleFrom();
-            FormsMenuList.registerSaleForm.Show();
+            FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
+            FormsMenuList.registerNewSaleForm.Show();
         }
 
         private void BrowseProductsMenuSubOption_Click(object sender, EventArgs e)

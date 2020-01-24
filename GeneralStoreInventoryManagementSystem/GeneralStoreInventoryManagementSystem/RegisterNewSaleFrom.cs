@@ -10,38 +10,28 @@ using System.Windows.Forms;
 
 namespace GeneralStoreInventoryManagementSystem
 {
-    public partial class RegisterNewUserForm : Form
+    public partial class RegisterNewSaleFrom : Form
     {
-        public RegisterNewUserForm()
+        public RegisterNewSaleFrom()
         {
             InitializeComponent();
         }
 
         // Menu Bar Options
-        private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
+        private void ViewSalesMenuOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon Sales Registry Form
             FormsMenuList.salesRecordForm = new SalesRecordForm();
             FormsMenuList.salesRecordForm.Show();
         }
 
-        private void MakeSaleMenuSubOption_Click(object sender, EventArgs e)
-        {
-            // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
-
-            // Summon Register New Sale Form
-            FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
-            FormsMenuList.registerNewSaleForm.Show();
-        }
-
         private void BrowseProductsMenuSubOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon Product Browser Form
             FormsMenuList.inventorySearchForm.Show(); // TODO: instanciate this form after removing the application ancor
@@ -50,7 +40,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void RegisterNewProductMenuSubOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon Register New Product Form
             FormsMenuList.registerNewProduct = new RegisterNewProductForm();
@@ -60,27 +50,37 @@ namespace GeneralStoreInventoryManagementSystem
         private void RestockProductsMenuSubOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon Restock Products Form
             FormsMenuList.restockProductsFrom = new RestockProductsForm();
             FormsMenuList.restockProductsFrom.Show();
         }
 
-        private void ViewUsersMenuSubOption_Click(object sender, EventArgs e)
+        private void ViewUsersOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon Users Registry Form
             FormsMenuList.usersRegistryForm = new UsersRegistryForm();
             FormsMenuList.usersRegistryForm.Show();
         }
 
+        private void RegisterNewUserOption_Click(object sender, EventArgs e)
+        {
+            // Closing form while freeing system resources
+            FormsMenuList.registerNewSaleForm.Dispose();
+
+            // Summon Register New User Form
+            FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
+            FormsMenuList.registerNewUserForm.Show();
+        }
+
         private void ViewGraphsOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon Graphs Analytics Form
             FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
@@ -90,7 +90,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ViewReportsOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon Reports Analytics Form
             FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
@@ -100,7 +100,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ViewActivityLogsOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon Activity Logs Form
             FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
@@ -110,7 +110,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ViewErrorLogsOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon Error Logs Form
             FormsMenuList.errorsLogForm = new ErrorsLogForm();
@@ -120,7 +120,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ViewCartLabel_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Summon View Cart Form
             FormsMenuList.viewCartForm = new ViewCartForm();
@@ -129,18 +129,18 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewCartLabel_MouseHover(object sender, EventArgs e)
         {
-            FormsMenuList.registerNewUserForm.viewCartLabel.ForeColor = Color.Blue;
+            FormsMenuList.registerNewSaleForm.viewCartLabel.ForeColor = Color.Blue;
         }
 
         private void ViewCartLabel_MouseLeave(object sender, EventArgs e)
         {
-            FormsMenuList.registerNewUserForm.viewCartLabel.ForeColor = Color.Black;
+            FormsMenuList.registerNewSaleForm.viewCartLabel.ForeColor = Color.Black;
         }
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
-            FormsMenuList.registerNewUserForm.Dispose();
+            FormsMenuList.registerNewSaleForm.Dispose();
 
             // Log out of current session
             FormsMenuList.loginForm = new LoginForm(); // TODO: Remove this instantiation and leave the Show() function
@@ -149,12 +149,12 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_MouseHover(object sender, EventArgs e)
         {
-            FormsMenuList.registerNewUserForm.ForeColor = Color.Red;
+            FormsMenuList.registerNewSaleForm.ForeColor = Color.Red;
         }
 
         private void LogOutLabel_MouseLeave(object sender, EventArgs e)
         {
-            FormsMenuList.registerNewUserForm.ForeColor = Color.Black;
+            FormsMenuList.registerNewSaleForm.ForeColor = Color.Black;
         }
     }
 }

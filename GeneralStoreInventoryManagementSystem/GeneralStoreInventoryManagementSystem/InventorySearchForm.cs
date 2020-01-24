@@ -44,8 +44,8 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
 
             // Summon Register New Sale Form
-            FormsMenuList.registerSaleForm = new RegisterSaleFrom();
-            FormsMenuList.registerSaleForm.Show();
+            FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
+            FormsMenuList.registerNewSaleForm.Show();
         }
         
         private void RegisterNewProductMenuSubOption_Click(object sender, EventArgs e)

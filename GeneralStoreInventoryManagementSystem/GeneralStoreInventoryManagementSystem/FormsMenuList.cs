@@ -33,14 +33,14 @@ namespace GeneralStoreInventoryManagementSystem
         // Only available to admins
         public static RegisterNewProductForm registerNewProduct = new RegisterNewProductForm();
 
-        // This window is to register any new users for the system
-        // Only available to admins
-        public static RegisterNewUserForm registerNewUserForm = new RegisterNewUserForm();
-
         // This form is to register a new sale of products
         // Only allows to sell products that are instock ( > 0) and are not discontinued 
         // This form of viewing the inventory is not organized according to FIFO/LIFO
-        public static RegisterSaleFrom registerSaleForm = new RegisterSaleFrom();
+        public static RegisterNewSaleFrom registerNewSaleForm = new RegisterNewSaleFrom();
+
+        // This window is to register any new users for the system
+        // Only available to admins
+        public static RegisterNewUserForm registerNewUserForm = new RegisterNewUserForm();
 
         // This window displays all important reports of the inventory and sales
         // Only available to admins

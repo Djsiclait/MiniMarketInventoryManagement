@@ -91,11 +91,11 @@
     <Compile Include="RegisterNewUserForm.Designer.cs">
       <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegisterSaleFrom.cs">
+    <Compile Include="RegisterNewSaleFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterSaleFrom.Designer.cs">
-      <DependentUpon>RegisterSaleFrom.cs</DependentUpon>
+    <Compile Include="RegisterNewSaleFrom.Designer.cs">
+      <DependentUpon>RegisterNewSaleFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportsAnalyticsForm.cs">
       <SubType>Form</SubType>
@@ -157,8 +157,8 @@
     <EmbeddedResource Include="RegisterNewUserForm.resx">
       <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegisterSaleFrom.resx">
-      <DependentUpon>RegisterSaleFrom.cs</DependentUpon>
+    <EmbeddedResource Include="RegisterNewSaleFrom.resx">
+      <DependentUpon>RegisterNewSaleFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportsAnalyticsForm.resx">
       <DependentUpon>ReportsAnalyticsForm.cs</DependentUpon>
