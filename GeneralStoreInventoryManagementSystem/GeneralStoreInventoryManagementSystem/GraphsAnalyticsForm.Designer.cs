@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ViewCartLabel = new System.Windows.Forms.Label();
-            this.LogOutLabel = new System.Windows.Forms.Label();
+            this.viewCartLabel = new System.Windows.Forms.Label();
+            this.logOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.salesMenuOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSalesMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,25 +49,31 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ViewCartLabel
+            // viewCartLabel
             // 
-            this.ViewCartLabel.AutoSize = true;
-            this.ViewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ViewCartLabel.Location = new System.Drawing.Point(522, 9);
-            this.ViewCartLabel.Name = "ViewCartLabel";
-            this.ViewCartLabel.Size = new System.Drawing.Size(52, 13);
-            this.ViewCartLabel.TabIndex = 9;
-            this.ViewCartLabel.Text = "View Cart";
+            this.viewCartLabel.AutoSize = true;
+            this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Name = "viewCartLabel";
+            this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
+            this.viewCartLabel.TabIndex = 9;
+            this.viewCartLabel.Text = "View Cart";
+            this.viewCartLabel.Click += new System.EventHandler(this.ViewCartLabel_Click);
+            this.viewCartLabel.MouseLeave += new System.EventHandler(this.ViewCartLabel_MouseLeave);
+            this.viewCartLabel.MouseHover += new System.EventHandler(this.ViewCartLabel_MouseHover);
             // 
-            // LogOutLabel
+            // logOutLabel
             // 
-            this.LogOutLabel.AutoSize = true;
-            this.LogOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.LogOutLabel.Location = new System.Drawing.Point(627, 9);
-            this.LogOutLabel.Name = "LogOutLabel";
-            this.LogOutLabel.Size = new System.Drawing.Size(45, 13);
-            this.LogOutLabel.TabIndex = 8;
-            this.LogOutLabel.Text = "Log Out";
+            this.logOutLabel.AutoSize = true;
+            this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.logOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.logOutLabel.Name = "logOutLabel";
+            this.logOutLabel.Size = new System.Drawing.Size(45, 13);
+            this.logOutLabel.TabIndex = 8;
+            this.logOutLabel.Text = "Log Out";
+            this.logOutLabel.Click += new System.EventHandler(this.LogOutLabel_Click);
+            this.logOutLabel.MouseLeave += new System.EventHandler(this.LogOutLabel_MouseLeave);
+            this.logOutLabel.MouseHover += new System.EventHandler(this.logOutLabel_MouseHover);
             // 
             // menuStrip1
             // 
@@ -96,12 +102,14 @@
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
             this.viewSalesMenuSubOption.Size = new System.Drawing.Size(128, 22);
             this.viewSalesMenuSubOption.Text = "View Sales";
+            this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
             // makeSaleMenuSubOption
             // 
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
             this.makeSaleMenuSubOption.Size = new System.Drawing.Size(128, 22);
             this.makeSaleMenuSubOption.Text = "Make Sale";
+            this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
             // productsMenuOption
             // 
@@ -118,18 +126,21 @@
             this.browseProductsMenuSubOption.Name = "browseProductsMenuSubOption";
             this.browseProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
             this.browseProductsMenuSubOption.Text = "Browse Products";
+            this.browseProductsMenuSubOption.Click += new System.EventHandler(this.BrowseProductsMenuSubOption_Click);
             // 
             // registerNewProductMenuSubOption
             // 
             this.registerNewProductMenuSubOption.Name = "registerNewProductMenuSubOption";
             this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(188, 22);
             this.registerNewProductMenuSubOption.Text = "Register New Product";
+            this.registerNewProductMenuSubOption.Click += new System.EventHandler(this.RegisterNewProductMenuSubOption_Click);
             // 
             // restockProductsMenuSubOption
             // 
             this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
             this.restockProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
             this.restockProductsMenuSubOption.Text = "Restock Products";
+            this.restockProductsMenuSubOption.Click += new System.EventHandler(this.RestockProductsMenuSubOption_Click);
             // 
             // adminMenuOption
             // 
@@ -155,18 +166,21 @@
             this.viewUsersOption.Name = "viewUsersOption";
             this.viewUsersOption.Size = new System.Drawing.Size(169, 22);
             this.viewUsersOption.Text = "View Users";
+            this.viewUsersOption.Click += new System.EventHandler(this.ViewUsersOption_Click);
             // 
             // registerNewUserOption
             // 
             this.registerNewUserOption.Name = "registerNewUserOption";
             this.registerNewUserOption.Size = new System.Drawing.Size(169, 22);
             this.registerNewUserOption.Text = "Register New User";
+            this.registerNewUserOption.Click += new System.EventHandler(this.RegisterNewUserOption_Click);
             // 
             // viewReportsMenuSubOption
             // 
             this.viewReportsMenuSubOption.Name = "viewReportsMenuSubOption";
             this.viewReportsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.viewReportsMenuSubOption.Text = "View Reports";
+            this.viewReportsMenuSubOption.Click += new System.EventHandler(this.ViewReportsMenuSubOption_Click);
             // 
             // logsMenuSubOption
             // 
@@ -182,20 +196,22 @@
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
             this.viewActivityLogsOption.Size = new System.Drawing.Size(170, 22);
             this.viewActivityLogsOption.Text = "View Activity Logs";
+            this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
             this.viewErrorLogsOption.Size = new System.Drawing.Size(170, 22);
             this.viewErrorLogsOption.Text = "View Error Logs";
+            this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // GraphsAnalyticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 462);
-            this.Controls.Add(this.ViewCartLabel);
-            this.Controls.Add(this.LogOutLabel);
+            this.Controls.Add(this.viewCartLabel);
+            this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
             this.Name = "GraphsAnalyticsForm";
             this.Text = "Analytics --- Graphs";
@@ -208,8 +224,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label ViewCartLabel;
-        private System.Windows.Forms.Label LogOutLabel;
+        private System.Windows.Forms.Label viewCartLabel;
+        private System.Windows.Forms.Label logOutLabel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem salesMenuOption;
         private System.Windows.Forms.ToolStripMenuItem viewSalesMenuSubOption;

@@ -85,17 +85,17 @@
     <Compile Include="RegisterNewProductForm.Designer.cs">
       <DependentUpon>RegisterNewProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegisterNewSaleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterNewSaleForm.Designer.cs">
+      <DependentUpon>RegisterNewSaleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterNewUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RegisterNewUserForm.Designer.cs">
       <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterSaleFrom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegisterSaleFrom.Designer.cs">
-      <DependentUpon>RegisterSaleFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportsAnalyticsForm.cs">
       <SubType>Form</SubType>
@@ -154,11 +154,11 @@
     <EmbeddedResource Include="RegisterNewProductForm.resx">
       <DependentUpon>RegisterNewProductForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterNewSaleForm.resx">
+      <DependentUpon>RegisterNewSaleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterNewUserForm.resx">
       <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RegisterSaleFrom.resx">
-      <DependentUpon>RegisterSaleFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportsAnalyticsForm.resx">
       <DependentUpon>ReportsAnalyticsForm.cs</DependentUpon>

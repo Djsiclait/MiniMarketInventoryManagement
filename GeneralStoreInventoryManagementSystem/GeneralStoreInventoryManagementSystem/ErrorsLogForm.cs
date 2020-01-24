@@ -34,8 +34,8 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.errorsLogForm.Dispose();
 
             // Summon Register New Sale Form
-            FormsMenuList.registerSaleForm = new RegisterSaleFrom();
-            FormsMenuList.registerSaleForm.Show();
+            FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
+            FormsMenuList.registerNewSaleForm.Show();
         }
 
         private void BrowseProductsMenuSubOption_Click(object sender, EventArgs e)
