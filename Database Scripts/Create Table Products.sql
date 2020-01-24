@@ -2,6 +2,7 @@ CREATE TABLE Tbl_Products
 (
 	fld_product_id varchar(10) NOT NULL, -- Automatic and random generation of product identification number for internal system usage; also needed for FIFO/LIFO accounting 
 	fld_product_key varchar(100) Default '', -- User assigned product identification number for non accounting purposes
+	fld_product_name varchar(300) Not Null, -- name of the product not including company brand
 	fld_product_brand varchar(10) NOT NULL, -- Semi/automatic generated product brand company code
 	fld_product_supplier varchar(10) NOT NULL, -- Semi/automatic generated product supplier code
 	fld_product_unit varchar(30) Default '', -- Unit of measurment for product (i.e. unit, pack, 12oz, lb)  
