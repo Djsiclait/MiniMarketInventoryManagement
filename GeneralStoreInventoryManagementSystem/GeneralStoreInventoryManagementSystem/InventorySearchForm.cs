@@ -156,12 +156,12 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewCartLabel_MouseHover(object sender, EventArgs e)
         {
-            FormsMenuList.inventorySearchForm.viewCartLabel.ForeColor = System.Drawing.Color.Blue;
+            viewCartLabel.ForeColor = System.Drawing.Color.Blue;
         }
 
         private void ViewCartLabel_MouseLeave(object sender, EventArgs e)
         {
-            FormsMenuList.inventorySearchForm.viewCartLabel.ForeColor = Color.Black;
+            viewCartLabel.ForeColor = Color.Black;
         }
 
         private void LogOutLabel_Click(object sender, EventArgs e)
@@ -177,12 +177,12 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_MouseHover(object sender, EventArgs e)
         {
-            FormsMenuList.inventorySearchForm.logOutLabel.ForeColor = Color.Red;
+            logOutLabel.ForeColor = Color.Red;
         }
 
         private void LogOutLabel_MouseLeave(object sender, EventArgs e)
         {
-            FormsMenuList.inventorySearchForm.logOutLabel.ForeColor = Color.Black;
+            logOutLabel.ForeColor = Color.Black;
         }
 ////////// END Menu Bar Options
 
@@ -190,13 +190,17 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateProductListDataGrid()
         {
             // TODO: Fetch data grid values from business layer
-            List<Product> inventory = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("Admin");
+            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("Admin");
 
-            Console.WriteLine("\n\n\n");
-            Console.WriteLine("Inventory Items: " + inventory.Count);
-            foreach(Product product in inventory)
-                Console.WriteLine("Item: " + product.Name);
-            Console.WriteLine("\n\n\n");
+            productList.Columns["Category"].Visible = false;
+            productList.Columns["Type"].Visible = false;
+            productList.Columns["MinimumQuantity"].Visible = false;
+            productList.Columns["MaximumQuantity"].Visible = false;
+            productList.Columns["RegisteredBy"].Visible = false;
+            productList.Columns["RegistrationDate"].Visible = false;
+            productList.Columns["ModifiedBy"].Visible = false;
+            productList.Columns["ModificationDate"].Visible = false;
+
         }
         // END Data Grid Logic
 

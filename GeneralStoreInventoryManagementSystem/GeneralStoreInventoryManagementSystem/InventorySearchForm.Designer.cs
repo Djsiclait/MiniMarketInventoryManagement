@@ -84,9 +84,10 @@
             // 
             this.productList.AllowUserToOrderColumns = true;
             this.productList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productList.Location = new System.Drawing.Point(12, 79);
+            this.productList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.productList.Location = new System.Drawing.Point(12, 70);
             this.productList.Name = "productList";
-            this.productList.Size = new System.Drawing.Size(653, 400);
+            this.productList.Size = new System.Drawing.Size(930, 444);
             this.productList.TabIndex = 3;
             // 
             // menuStrip1
@@ -98,7 +99,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(954, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -257,7 +258,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 491);
+            this.ClientSize = new System.Drawing.Size(954, 562);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.productList);
@@ -267,7 +268,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(700, 500);
+            this.MinimumSize = new System.Drawing.Size(970, 600);
             this.Name = "InventorySearchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Browser";
