@@ -17,6 +17,7 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
+        // Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
