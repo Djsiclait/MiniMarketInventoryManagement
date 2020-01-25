@@ -61,6 +61,7 @@
             this.inventorySearchBox.Name = "inventorySearchBox";
             this.inventorySearchBox.Size = new System.Drawing.Size(285, 20);
             this.inventorySearchBox.TabIndex = 1;
+            this.inventorySearchBox.TextChanged += new System.EventHandler(this.inventorySearchBox_TextChanged);
             // 
             // browserFormTitle
             // 

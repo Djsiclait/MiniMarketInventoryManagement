@@ -18,11 +18,11 @@ namespace InventoryManagementBusinessLayer
         /// </summary>
         /// <param name="userPermission">User's role which defines his level of access to the information</param>
         /// <returns>a list of products registered with the system</returns>
-        public static List<Product> FetchProductListInformation(String userPermission)
+        public static List<Product> FetchProductListInformation(String userPermission, String keyWord)
         {
             // TODO: separate results based on user role protocols
 
-            return InventoryManagementDataLayer.ConsultData.FetchProductListData(userPermission); // Fetching and returning the information from data layer og this system 
+            return InventoryManagementDataLayer.ConsultData.FetchProductListData(userPermission, keyWord); // Fetching and returning the information from data layer og this system 
         }
     }
 }

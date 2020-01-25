@@ -186,11 +186,17 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// END Menu Bar Options
 
+        // 
+        private void inventorySearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateProductListDataGrid();
+        }
+
         // Data Grid Logic
         private void PopulateProductListDataGrid()
         {
             // TODO: Fetch data grid values from business layer
-            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("User");
+            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("Admin", inventorySearchBox.Text);
 
             productList.Columns["Category"].Visible = false;
             productList.Columns["Type"].Visible = false;
