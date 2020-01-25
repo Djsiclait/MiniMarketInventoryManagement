@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.InventorySearchButton = new System.Windows.Forms.Button();
             this.inventorySearchBox = new System.Windows.Forms.TextBox();
             this.browserFormTitle = new System.Windows.Forms.Label();
             this.productList = new System.Windows.Forms.DataGridView();
@@ -51,24 +50,16 @@
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.viewCartLabel = new System.Windows.Forms.Label();
+            this.searchLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productList)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // InventorySearchButton
-            // 
-            this.InventorySearchButton.Location = new System.Drawing.Point(590, 41);
-            this.InventorySearchButton.Name = "InventorySearchButton";
-            this.InventorySearchButton.Size = new System.Drawing.Size(75, 23);
-            this.InventorySearchButton.TabIndex = 0;
-            this.InventorySearchButton.Text = "Search";
-            this.InventorySearchButton.UseVisualStyleBackColor = true;
-            // 
             // inventorySearchBox
             // 
-            this.inventorySearchBox.Location = new System.Drawing.Point(339, 41);
+            this.inventorySearchBox.Location = new System.Drawing.Point(670, 44);
             this.inventorySearchBox.Name = "inventorySearchBox";
-            this.inventorySearchBox.Size = new System.Drawing.Size(245, 20);
+            this.inventorySearchBox.Size = new System.Drawing.Size(285, 20);
             this.inventorySearchBox.TabIndex = 1;
             // 
             // browserFormTitle
@@ -87,7 +78,7 @@
             this.productList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.productList.Location = new System.Drawing.Point(12, 70);
             this.productList.Name = "productList";
-            this.productList.Size = new System.Drawing.Size(930, 444);
+            this.productList.Size = new System.Drawing.Size(943, 444);
             this.productList.TabIndex = 3;
             // 
             // menuStrip1
@@ -99,7 +90,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(954, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(967, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -232,7 +223,7 @@
             // 
             this.logOutLabel.AutoSize = true;
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.logOutLabel.Location = new System.Drawing.Point(910, 9);
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(45, 13);
             this.logOutLabel.TabIndex = 5;
@@ -245,7 +236,7 @@
             // 
             this.viewCartLabel.AutoSize = true;
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Location = new System.Drawing.Point(805, 9);
             this.viewCartLabel.Name = "viewCartLabel";
             this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
             this.viewCartLabel.TabIndex = 6;
@@ -254,21 +245,30 @@
             this.viewCartLabel.MouseLeave += new System.EventHandler(this.ViewCartLabel_MouseLeave);
             this.viewCartLabel.MouseHover += new System.EventHandler(this.ViewCartLabel_MouseHover);
             // 
+            // searchLabel
+            // 
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Location = new System.Drawing.Point(623, 47);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(41, 13);
+            this.searchLabel.TabIndex = 7;
+            this.searchLabel.Text = "Search";
+            // 
             // InventorySearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 562);
+            this.ClientSize = new System.Drawing.Size(967, 562);
+            this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.productList);
             this.Controls.Add(this.browserFormTitle);
             this.Controls.Add(this.inventorySearchBox);
-            this.Controls.Add(this.InventorySearchButton);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(970, 600);
+            this.MinimumSize = new System.Drawing.Size(983, 600);
             this.Name = "InventorySearchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Browser";
@@ -282,8 +282,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button InventorySearchButton;
         private System.Windows.Forms.TextBox inventorySearchBox;
         private System.Windows.Forms.Label browserFormTitle;
         private System.Windows.Forms.DataGridView productList;
@@ -306,5 +304,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewErrorLogsOption;
         private System.Windows.Forms.Label logOutLabel;
         private System.Windows.Forms.Label viewCartLabel;
+        private System.Windows.Forms.Label searchLabel;
     }
 }

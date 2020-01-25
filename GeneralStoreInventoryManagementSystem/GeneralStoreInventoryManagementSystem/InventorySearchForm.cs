@@ -190,7 +190,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateProductListDataGrid()
         {
             // TODO: Fetch data grid values from business layer
-            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("Admin");
+            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("User");
 
             productList.Columns["Category"].Visible = false;
             productList.Columns["Type"].Visible = false;
