@@ -18,9 +18,9 @@ AS
 			Where
 				fld_product_discontinued = 0
 			and (
-				A.fld_product_key Like  @key_word + '%' or
-				A.fld_product_name Like @key_word + '%' or
-				B.fld_brand_name Like @key_word + '%'
+				A.fld_product_key Like '%' + @key_word + '%' or
+				A.fld_product_name Like '%' + @key_word + '%' or
+				B.fld_brand_name Like '%' + @key_word + '%'
 				)
 		ELSE IF @user_permission = 'Admin' or @user_permission = 'Super'
 			Select 
@@ -38,10 +38,10 @@ AS
 			left join Tbl_Product_Brands as B on B.fld_brand_id = A.fld_product_brand
 			left join Tbl_Suppliers as S on S.fld_supplier_id = A.fld_product_supplier
 			Where (
-				A.fld_product_key Like  @key_word + '%' or
-				A.fld_product_name Like @key_word + '%' or
-				B.fld_brand_name Like @key_word + '%' or
-				S.fld_supplier_name Like @key_word + '%'
+				A.fld_product_key Like  '%' + @key_word + '%' or
+				A.fld_product_name Like '%' + @key_word + '%' or
+				B.fld_brand_name Like '%' + @key_word + '%' or
+				S.fld_supplier_name Like '%' + @key_word + '%'
 				)
 
 	END
