@@ -15,8 +15,10 @@ namespace InventoryManagementBusinessLayer
         /// <summary>
         /// This Function binds to the data layer of the system to retrieve the information needed for the product list, according to the user's role
         /// No verification/authentification/rejection is required at this point in developpement (This may be subject to change at a later date)
+        /// It also allows the user to specify key words loosely to filter the information via product key, product name, brand name, and supplier
         /// </summary>
-        /// <param name="userPermission">User's role which defines his level of access to the information</param>
+        /// <param name="userPermission">User's role which defines his level of access to the data</param>
+        /// <param name="keyWord">Key word to enable specific filtered searhs</param>
         /// <returns>a list of products registered with the system</returns>
         public static List<Product> FetchProductListInformation(String userPermission, String keyWord)
         {

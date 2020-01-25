@@ -186,13 +186,14 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// END Menu Bar Options
 
-        // 
-        private void inventorySearchBox_TextChanged(object sender, EventArgs e)
+        // Inventory Seach Text Box Logic
+        private void InventorySearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateProductListDataGrid();
         }
+        // END Inventory Seach Text Box Logic
 
-        // Data Grid Logic
+        // Function used to populate the data grid with products from the registered inventory
         private void PopulateProductListDataGrid()
         {
             // TODO: Fetch data grid values from business layer
@@ -208,7 +209,7 @@ namespace GeneralStoreInventoryManagementSystem
             productList.Columns["ModificationDate"].Visible = false;
 
         }
-        // END Data Grid Logic
+        // END Function PopulateProductListDataGrid
 
     }
 }

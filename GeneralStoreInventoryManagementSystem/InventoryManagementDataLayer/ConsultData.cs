@@ -15,8 +15,10 @@ namespace InventoryManagementDataLayer
     {
         /// <summary>
         /// This function returns all products from the inventory, filtering the columns of data according to the user's role
+        /// It also allows the use of specific key words to filter the inventory via loose regular expressions
         /// </summary>
         /// <param name="userPermission">User's role which defines his level of access to the data</param>
+        /// <param name="keyWord">Key word to enable specific filtered searhs</param>
         /// <returns>a list of products registered with the system</returns>
         public static List<Product> FetchProductListData(String userPermission, String keyWord)
         {
@@ -31,7 +33,7 @@ namespace InventoryManagementDataLayer
 
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission; // variable to verify the user's role
-            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 300).Value = keyWord; 
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 300).Value = keyWord; // key word to filter the result set based on regular expressions
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
