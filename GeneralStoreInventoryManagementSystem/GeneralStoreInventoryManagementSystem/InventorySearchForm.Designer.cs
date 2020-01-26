@@ -74,11 +74,15 @@
             // 
             // productList
             // 
-            this.productList.AllowUserToOrderColumns = true;
+            this.productList.AllowUserToAddRows = false;
+            this.productList.AllowUserToDeleteRows = false;
+            this.productList.AllowUserToResizeColumns = false;
+            this.productList.AllowUserToResizeRows = false;
             this.productList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.productList.Location = new System.Drawing.Point(12, 70);
             this.productList.Name = "productList";
+            this.productList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.productList.Size = new System.Drawing.Size(943, 444);
             this.productList.TabIndex = 3;
             // 

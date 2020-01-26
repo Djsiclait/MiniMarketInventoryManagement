@@ -22,7 +22,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         // This is to create the forms used to browse the inventory in search of a product
         // This is not used to make add products to the cart nor register purchases or restock products
-        // This form displays the basic information of products such as name, brand, category, cost*, price, and number of units instock 
+        // This form displays the basic information of products such as name, brand, supplier*, cost*, price, and number of units instock 
         // The inventory will be organized according to FIFO/LIFO for admin users
         public static InventorySearchForm inventorySearchForm = new InventorySearchForm();
         
