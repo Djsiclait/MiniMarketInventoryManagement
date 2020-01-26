@@ -196,8 +196,18 @@ namespace GeneralStoreInventoryManagementSystem
         // Function used to populate the data grid with products from the registered inventory
         private void PopulateProductListDataGrid()
         {
-            // TODO: Fetch data grid values from business layer
+            // TODO: Filter data grid columns based on user's role
             productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("Admin", inventorySearchBox.Text);
+
+            //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
+            //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Name"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Brand"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Supplier"].SortMode = DataGridViewColumnSortMode.Automatic;
+
+            // TODO: Fix sortable mode on inventory browser
+            foreach (DataGridViewColumn column in productList.Columns)
+                column.SortMode = DataGridViewColumnSortMode.Automatic;
 
             productList.Columns["Category"].Visible = false;
             productList.Columns["Type"].Visible = false;
