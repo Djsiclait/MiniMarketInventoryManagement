@@ -26,5 +26,16 @@ namespace InventoryManagementBusinessLayer
 
             return InventoryManagementDataLayer.ConsultData.FetchProductListData(userPermission, keyWord); // Fetching and returning the information from data layer og this system 
         }
+
+        /// <summary>
+        /// This function fetches all information associated to a registered product 
+        /// No verification/authentification/rejection is required at this point in developpement (This may be subject to change at a later date)
+        /// </summary>
+        /// <param name="productId">product's internal system identification number</param>
+        /// <returns>a product object with all extracted information for that specific product id</returns>
+        public static Product FetchProductInformationByID(String productId)
+        {
+            return InventoryManagementDataLayer.ConsultData.FetchProductDataByID(productId); // Fetching and returning requested information for a product
+        }
     }
 }

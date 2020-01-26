@@ -6,6 +6,7 @@ AS
 		
 		IF @user_permission = 'User'
 			Select 
+				A.fld_product_id,
 				A.fld_product_key,
 				A.fld_product_name,
 				B.fld_brand_name,
@@ -24,6 +25,7 @@ AS
 				)
 		ELSE IF @user_permission = 'Admin' or @user_permission = 'Super'
 			Select 
+				A.fld_product_id,
 				A.fld_product_key,
 				A.fld_product_name,
 				B.fld_brand_name,

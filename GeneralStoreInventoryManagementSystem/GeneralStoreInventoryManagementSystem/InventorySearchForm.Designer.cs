@@ -88,6 +88,7 @@
             this.productList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productList.Size = new System.Drawing.Size(903, 444);
             this.productList.TabIndex = 3;
+            this.productList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductList_CellDoubleClick);
             // 
             // menuStrip1
             // 
