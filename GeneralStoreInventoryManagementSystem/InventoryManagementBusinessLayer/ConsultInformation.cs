@@ -37,5 +37,10 @@ namespace InventoryManagementBusinessLayer
         {
             return InventoryManagementDataLayer.ConsultData.FetchProductDataByID(productId); // Fetching and returning requested information for a product
         }
+
+        public static bool CheckUsernameAvailability(String username)
+        {
+            return InventoryManagementDataLayer.ConsultData.CheckUsernameAvailability(username);
+        }
     }
 }

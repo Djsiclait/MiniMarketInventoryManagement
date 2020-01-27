@@ -51,10 +51,11 @@ namespace InventoryManagementDataLayer
                 product.Brand = sqlDataReader["fld_brand_name"].ToString();
                 product.Unit = sqlDataReader["fld_product_unit"].ToString();
                 product.UnitPrice = FormatToFloat(sqlDataReader["fld_product_unit_price"].ToString());
-				product.Quantity = FormatToInt(sqlDataReader["fld_product_quantity"].ToString());
+                product.Quantity = FormatToInt(sqlDataReader["fld_product_quantity"].ToString());
 
                 // Data exclusive to higher level access users
-                if (userPermission != "User"){
+                if (userPermission != "User")
+                {
                     product.Supplier = sqlDataReader["fld_supplier_name"].ToString();
                     product.UnitCost = FormatToFloat(sqlDataReader["fld_product_unit_cost"].ToString());
                     product.Discontinued = FormatToBoolean(sqlDataReader["fld_product_discontinued"].ToString());
@@ -62,7 +63,7 @@ namespace InventoryManagementDataLayer
 
                 inventory.Add(product); // Adding the new product to the inventory list
             }
-            
+
             DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
 
             return inventory; // returning the resulting inenvtory
@@ -97,7 +98,7 @@ namespace InventoryManagementDataLayer
                 // Assigning the corresponding values to their variables
                 product.Key = sqlDataReader["fld_product_key"].ToString();
                 product.Name = sqlDataReader["fld_product_name"].ToString();
-			    product.Brand = sqlDataReader["fld_brand_name"].ToString();
+                product.Brand = sqlDataReader["fld_brand_name"].ToString();
                 product.Supplier = sqlDataReader["fld_supplier_name"].ToString();
                 product.Unit = sqlDataReader["fld_product_unit"].ToString();
                 product.Category = sqlDataReader["fld_category_description"].ToString();
@@ -117,7 +118,26 @@ namespace InventoryManagementDataLayer
             DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
 
             return product; // returning the resulting product
-        } 
+        }
+
+        public static bool CheckUsernameAvailability(String username)
+        {
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Username_Exists",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+
+            SqlParameter result = new SqlParameter("@result", SqlDbType.Bit);
+            result.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(result);
+
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+            return FormatToBoolean(cmd.Parameters["@result"].Value.ToString());
+        }
 
         // Axiliary Functions
         // Function to convert strings to floats

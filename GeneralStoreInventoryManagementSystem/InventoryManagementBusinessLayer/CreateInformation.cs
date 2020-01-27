@@ -4,9 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Custom Library
+using InventoryManagementDataLayer;
+using InventoryManagementEntityLayer;
+
 namespace InventoryManagementBusinessLayer
 {
-    class CreateInformation
+    public static class CreateInformation
     {
+        public static String CreateNewUserProfileInformation(User newUser)
+        {
+            return InventoryManagementDataLayer.CreateData.CreateNewUserProfileData(newUser);
+        }
     }
 }
