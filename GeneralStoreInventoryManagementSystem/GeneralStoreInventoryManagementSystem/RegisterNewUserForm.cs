@@ -24,6 +24,8 @@ namespace GeneralStoreInventoryManagementSystem
         private void RegisterNewUserForm_Load(object sender, EventArgs e)
         {
             messageLabel.Text = "";
+            usernameErrorLable.Visible = false;
+            passwordErrorLabel.Visible = false;
         }
 
         ////////// Menu Bar Options
@@ -167,16 +169,36 @@ namespace GeneralStoreInventoryManagementSystem
         }
         ////////// Menu Bar Options
 
-        private void createNewUserButton_Click(object sender, EventArgs e)
+        private void UsernameTextBox_TextChanged(object sender, EventArgs e)
         {
-            bool availability = InventoryManagementBusinessLayer.ConsultInformation.CheckUsernameAvailability("super.admin");
-
-            messageLabel.Text = InventoryManagementBusinessLayer.CreateInformation.CreateNewUserProfileInformation(CreateUserProfile());
+            if(InventoryManagementBusinessLayer.ConsultInformation.CheckUsernameAvailability(usernameTextBox.Text))
+                usernameErrorLable.Visible = false;
+            else
+                usernameErrorLable.Visible = true;
         }
 
-        private void createAndReturnButton_Click(object sender, EventArgs e)
+        private void ConfirmPasswordTextBox_TextChanged(object sender, EventArgs e)
         {
-            bool availability = InventoryManagementBusinessLayer.ConsultInformation.CheckUsernameAvailability("super.admin");
+            if (passwordTextBox.Text != confirmPasswordTextBox.Text)
+                passwordErrorLabel.Visible = true;
+            else
+                passwordErrorLabel.Visible = false;
+        }
+
+        private void CreateNewUserButton_Click(object sender, EventArgs e)
+        {
+            bool availability = InventoryManagementBusinessLayer.ConsultInformation.CheckUsernameAvailability(usernameTextBox.Text);
+
+            messageLabel.Text = InventoryManagementBusinessLayer.CreateInformation.CreateNewUserProfileInformation(CreateUserProfile());
+
+            ClearTextBoxBuffers();
+        }
+
+        private void CreateAndReturnButton_Click(object sender, EventArgs e)
+        {
+            bool availability = InventoryManagementBusinessLayer.ConsultInformation.CheckUsernameAvailability(usernameTextBox.Text );
+
+            ClearTextBoxBuffers();
 
             messageLabel.Text = InventoryManagementBusinessLayer.CreateInformation.CreateNewUserProfileInformation(CreateUserProfile());
             // Closing form while freeing system resources
@@ -186,7 +208,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.usersRegistryForm = new UsersRegistryForm();
             FormsMenuList.usersRegistryForm.Show();
         }
-
+        
         private UserProfile CreateUserProfile()
         {
             UserProfile profile = new UserProfile();
@@ -199,6 +221,41 @@ namespace GeneralStoreInventoryManagementSystem
             profile.Creator = "super.admin"; // TODO: Replaxce with profile of user currently in session
 
             return profile;
+        }
+
+        private void ClearTextBoxBuffers()
+        {
+            usernameTextBox.Text = "";
+            firstNameTextBox.Text = "";
+            lastNameTextBox.Text = "";
+            passwordTextBox.Text = "";
+            confirmPasswordTextBox.Text = "";
+            grantAdminCheckbox.Checked = false;
+        }
+
+        private bool ValidateUserInput()
+        {
+            bool validate = true;
+
+            if (usernameTextBox.Text == "")
+                validate = false;
+
+            if (firstNameTextBox.Text == "")
+                validate = false;
+
+            if (lastNameTextBox.Text == "")
+                validate = false;
+
+            if (passwordTextBox.Text == "")
+                validate = false;
+
+            if (confirmPasswordTextBox.Text == "")
+                validate = false;
+
+            if (passwordTextBox.Text != confirmPasswordTextBox.Text)
+                validate = false;
+
+            return validate;
         }
     }
 }

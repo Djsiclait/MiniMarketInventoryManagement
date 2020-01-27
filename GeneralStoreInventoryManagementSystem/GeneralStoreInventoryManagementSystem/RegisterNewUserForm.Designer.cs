@@ -61,6 +61,8 @@
             this.createNewUserButton = new System.Windows.Forms.Button();
             this.createAndReturnButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
+            this.usernameErrorLable = new System.Windows.Forms.Label();
+            this.passwordErrorLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -245,6 +247,7 @@
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(261, 20);
             this.usernameTextBox.TabIndex = 15;
+            this.usernameTextBox.TextChanged += new System.EventHandler(this.UsernameTextBox_TextChanged);
             // 
             // firstNameLabel
             // 
@@ -311,6 +314,7 @@
             this.confirmPasswordTextBox.PasswordChar = '*';
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(261, 20);
             this.confirmPasswordTextBox.TabIndex = 23;
+            this.confirmPasswordTextBox.TextChanged += new System.EventHandler(this.ConfirmPasswordTextBox_TextChanged);
             // 
             // grantAdminCheckbox
             // 
@@ -330,7 +334,7 @@
             this.createNewUserButton.TabIndex = 25;
             this.createNewUserButton.Text = "Create New User";
             this.createNewUserButton.UseVisualStyleBackColor = true;
-            this.createNewUserButton.Click += new System.EventHandler(this.createNewUserButton_Click);
+            this.createNewUserButton.Click += new System.EventHandler(this.CreateNewUserButton_Click);
             // 
             // createAndReturnButton
             // 
@@ -340,23 +344,45 @@
             this.createAndReturnButton.TabIndex = 26;
             this.createAndReturnButton.Text = "Create and Return to User Registry";
             this.createAndReturnButton.UseVisualStyleBackColor = true;
-            this.createAndReturnButton.Click += new System.EventHandler(this.createAndReturnButton_Click);
+            this.createAndReturnButton.Click += new System.EventHandler(this.CreateAndReturnButton_Click);
             // 
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageLabel.Location = new System.Drawing.Point(450, 507);
+            this.messageLabel.Location = new System.Drawing.Point(330, 510);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(46, 17);
             this.messageLabel.TabIndex = 27;
             this.messageLabel.Text = "label1";
+            // 
+            // usernameErrorLable
+            // 
+            this.usernameErrorLable.AutoSize = true;
+            this.usernameErrorLable.ForeColor = System.Drawing.Color.Red;
+            this.usernameErrorLable.Location = new System.Drawing.Point(600, 116);
+            this.usernameErrorLable.Name = "usernameErrorLable";
+            this.usernameErrorLable.Size = new System.Drawing.Size(122, 13);
+            this.usernameErrorLable.TabIndex = 28;
+            this.usernameErrorLable.Text = "Username is unavailable";
+            // 
+            // passwordErrorLabel
+            // 
+            this.passwordErrorLabel.AutoSize = true;
+            this.passwordErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.passwordErrorLabel.Location = new System.Drawing.Point(600, 337);
+            this.passwordErrorLabel.Name = "passwordErrorLabel";
+            this.passwordErrorLabel.Size = new System.Drawing.Size(275, 13);
+            this.passwordErrorLabel.TabIndex = 29;
+            this.passwordErrorLabel.Text = "Confirmation password does not match chosen password";
             // 
             // RegisterNewUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.passwordErrorLabel);
+            this.Controls.Add(this.usernameErrorLable);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.createAndReturnButton);
             this.Controls.Add(this.createNewUserButton);
@@ -422,5 +448,7 @@
         private System.Windows.Forms.Button createNewUserButton;
         private System.Windows.Forms.Button createAndReturnButton;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.Label usernameErrorLable;
+        private System.Windows.Forms.Label passwordErrorLabel;
     }
 }
