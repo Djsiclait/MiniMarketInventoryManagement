@@ -46,6 +46,20 @@
             this.logsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewActivityLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.usernameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.confirmPasswordLabel = new System.Windows.Forms.Label();
+            this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.grantAdminCheckbox = new System.Windows.Forms.CheckBox();
+            this.createNewUserButton = new System.Windows.Forms.Button();
+            this.createAndReturnButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +67,7 @@
             // 
             this.viewCartLabel.AutoSize = true;
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
             this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
             this.viewCartLabel.TabIndex = 12;
@@ -66,7 +80,7 @@
             // 
             this.LogOutLabel.AutoSize = true;
             this.LogOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.LogOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.LogOutLabel.Location = new System.Drawing.Point(870, 9);
             this.LogOutLabel.Name = "LogOutLabel";
             this.LogOutLabel.Size = new System.Drawing.Size(45, 13);
             this.LogOutLabel.TabIndex = 11;
@@ -84,7 +98,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -155,7 +169,7 @@
             // viewUsersMenuSubOption
             // 
             this.viewUsersMenuSubOption.Name = "viewUsersMenuSubOption";
-            this.viewUsersMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.viewUsersMenuSubOption.Size = new System.Drawing.Size(130, 22);
             this.viewUsersMenuSubOption.Text = "View Users";
             this.viewUsersMenuSubOption.Click += new System.EventHandler(this.ViewUsersMenuSubOption_Click);
             // 
@@ -165,20 +179,20 @@
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(130, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
             // 
             this.viewGraphsOption.Name = "viewGraphsOption";
-            this.viewGraphsOption.Size = new System.Drawing.Size(152, 22);
+            this.viewGraphsOption.Size = new System.Drawing.Size(142, 22);
             this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(152, 22);
+            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
             this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
@@ -188,7 +202,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(130, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
@@ -205,15 +219,151 @@
             this.viewErrorLogsOption.Text = "View Error Logs";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(356, 54);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(215, 20);
+            this.titleLabel.TabIndex = 13;
+            this.titleLabel.Text = "Register New User Profile";
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Location = new System.Drawing.Point(297, 97);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(61, 13);
+            this.usernameLabel.TabIndex = 14;
+            this.usernameLabel.Text = "Username: ";
+            // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.Location = new System.Drawing.Point(333, 113);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(261, 20);
+            this.usernameTextBox.TabIndex = 15;
+            // 
+            // firstNameLabel
+            // 
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Location = new System.Drawing.Point(297, 156);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(63, 13);
+            this.firstNameLabel.TabIndex = 16;
+            this.firstNameLabel.Text = "First Name: ";
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Location = new System.Drawing.Point(333, 173);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(261, 20);
+            this.firstNameTextBox.TabIndex = 17;
+            // 
+            // lastNameLabel
+            // 
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Location = new System.Drawing.Point(297, 213);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(64, 13);
+            this.lastNameLabel.TabIndex = 18;
+            this.lastNameLabel.Text = "Last Name: ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(333, 230);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(261, 20);
+            this.textBox1.TabIndex = 19;
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(300, 267);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(56, 13);
+            this.passwordLabel.TabIndex = 20;
+            this.passwordLabel.Text = "Password:";
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(333, 284);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
+            this.passwordTextBox.Size = new System.Drawing.Size(261, 20);
+            this.passwordTextBox.TabIndex = 21;
+            // 
+            // confirmPasswordLabel
+            // 
+            this.confirmPasswordLabel.AutoSize = true;
+            this.confirmPasswordLabel.Location = new System.Drawing.Point(303, 317);
+            this.confirmPasswordLabel.Name = "confirmPasswordLabel";
+            this.confirmPasswordLabel.Size = new System.Drawing.Size(94, 13);
+            this.confirmPasswordLabel.TabIndex = 22;
+            this.confirmPasswordLabel.Text = "Confirm Password:";
+            // 
+            // confirmPasswordTextBox
+            // 
+            this.confirmPasswordTextBox.Location = new System.Drawing.Point(333, 334);
+            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            this.confirmPasswordTextBox.PasswordChar = '*';
+            this.confirmPasswordTextBox.Size = new System.Drawing.Size(261, 20);
+            this.confirmPasswordTextBox.TabIndex = 23;
+            // 
+            // grantAdminCheckbox
+            // 
+            this.grantAdminCheckbox.AutoSize = true;
+            this.grantAdminCheckbox.Location = new System.Drawing.Point(391, 377);
+            this.grantAdminCheckbox.Name = "grantAdminCheckbox";
+            this.grantAdminCheckbox.Size = new System.Drawing.Size(125, 17);
+            this.grantAdminCheckbox.TabIndex = 24;
+            this.grantAdminCheckbox.Text = "Grant Admin Controls";
+            this.grantAdminCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // createNewUserButton
+            // 
+            this.createNewUserButton.Location = new System.Drawing.Point(333, 421);
+            this.createNewUserButton.Name = "createNewUserButton";
+            this.createNewUserButton.Size = new System.Drawing.Size(261, 23);
+            this.createNewUserButton.TabIndex = 25;
+            this.createNewUserButton.Text = "Create New User";
+            this.createNewUserButton.UseVisualStyleBackColor = true;
+            // 
+            // createAndReturnButton
+            // 
+            this.createAndReturnButton.Location = new System.Drawing.Point(333, 459);
+            this.createAndReturnButton.Name = "createAndReturnButton";
+            this.createAndReturnButton.Size = new System.Drawing.Size(261, 23);
+            this.createAndReturnButton.TabIndex = 26;
+            this.createAndReturnButton.Text = "Create and Return to User Registry";
+            this.createAndReturnButton.UseVisualStyleBackColor = true;
+            // 
             // RegisterNewUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 462);
+            this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.createAndReturnButton);
+            this.Controls.Add(this.createNewUserButton);
+            this.Controls.Add(this.grantAdminCheckbox);
+            this.Controls.Add(this.confirmPasswordTextBox);
+            this.Controls.Add(this.confirmPasswordLabel);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lastNameLabel);
+            this.Controls.Add(this.firstNameTextBox);
+            this.Controls.Add(this.firstNameLabel);
+            this.Controls.Add(this.usernameTextBox);
+            this.Controls.Add(this.usernameLabel);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.LogOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "RegisterNewUserForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New User";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -242,5 +392,19 @@
         private System.Windows.Forms.ToolStripMenuItem logsMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem viewActivityLogsOption;
         private System.Windows.Forms.ToolStripMenuItem viewErrorLogsOption;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label usernameLabel;
+        private System.Windows.Forms.TextBox usernameTextBox;
+        private System.Windows.Forms.Label firstNameLabel;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.Label lastNameLabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Label confirmPasswordLabel;
+        private System.Windows.Forms.TextBox confirmPasswordTextBox;
+        private System.Windows.Forms.CheckBox grantAdminCheckbox;
+        private System.Windows.Forms.Button createNewUserButton;
+        private System.Windows.Forms.Button createAndReturnButton;
     }
 }

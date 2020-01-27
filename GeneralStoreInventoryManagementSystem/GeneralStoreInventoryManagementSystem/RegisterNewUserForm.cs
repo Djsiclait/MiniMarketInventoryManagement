@@ -17,7 +17,7 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
-        // Menu Bar Options
+////////// Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
@@ -149,12 +149,13 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_MouseHover(object sender, EventArgs e)
         {
-            FormsMenuList.registerNewUserForm.ForeColor = Color.Red;
+            FormsMenuList.registerNewUserForm.LogOutLabel.ForeColor = Color.Red;
         }
 
         private void LogOutLabel_MouseLeave(object sender, EventArgs e)
         {
-            FormsMenuList.registerNewUserForm.ForeColor = Color.Black;
+            FormsMenuList.registerNewUserForm.LogOutLabel.ForeColor = Color.Black;
         }
+////////// Menu Bar Options
     }
 }
