@@ -28,7 +28,6 @@ namespace InventoryManagementDataLayer
             SqlCommand cmd = new SqlCommand(
                     "SP_Fetch_Product_List_Data", // Stored procedure incharged of fetching required data 
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
-
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
@@ -82,7 +81,6 @@ namespace InventoryManagementDataLayer
             SqlCommand cmd = new SqlCommand(
                     "SP_Fetch_Product_Information_By_ID", // Stored procedure incharged of fetching required data  
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
-
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
@@ -120,23 +118,34 @@ namespace InventoryManagementDataLayer
             return product; // returning the resulting product
         }
 
+        /// <summary>
+        /// This Function executes a query to check the availability of a username 
+        /// </summary>
+        /// <param name="username">requested username</param>
+        /// <returns>true or false depending if the username exists or not</returns>
         public static bool CheckUsernameAvailability(String username)
         {
+            // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Username_Exists",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                    "SP_Username_Exists", // Stored procedure incharged of fetching required data 
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // username requesting availability
 
-            SqlParameter result = new SqlParameter("@result", SqlDbType.Bit);
-            result.Direction = ParameterDirection.Output;
-            cmd.Parameters.Add(result);
+            // Declaring an output variable
+            SqlParameter result = new SqlParameter("@result", SqlDbType.Bit); // defining the output message variable
+            result.Direction = ParameterDirection.Output; // Confirming the output direction
+            cmd.Parameters.Add(result); // Confirming the output direction
 
             Int32 reply;
-            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
 
-            return !FormatToBoolean(cmd.Parameters["@result"].Value.ToString());
+            // Given that the stored procedure only ask if the username exists, to answer the question of availability the result must be negated
+            // Yes, the username exists = No, there is no availability
+            // No, the username does not exists = Yes, there is availability
+            return !FormatToBoolean(cmd.Parameters["@result"].Value.ToString()); 
         }
 
         // Axiliary Functions

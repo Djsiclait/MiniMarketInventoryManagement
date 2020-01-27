@@ -38,6 +38,11 @@ namespace InventoryManagementBusinessLayer
             return InventoryManagementDataLayer.ConsultData.FetchProductDataByID(productId); // Fetching and returning requested information for a product
         }
 
+        /// <summary>
+        /// This Function checks for the availability of a username 
+        /// </summary>
+        /// <param name="username">requested username</param>
+        /// <returns>true or false depending if the username exists or not</returns>
         public static bool CheckUsernameAvailability(String username)
         {
             return InventoryManagementDataLayer.ConsultData.CheckUsernameAvailability(username);
