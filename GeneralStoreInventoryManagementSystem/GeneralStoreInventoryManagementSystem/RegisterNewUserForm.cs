@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Custom Libraries
+using InventoryManagementBusinessLayer;
+using InventoryManagementEntityLayer;
+
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class RegisterNewUserForm : Form
@@ -17,7 +21,12 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
-////////// Menu Bar Options
+        private void RegisterNewUserForm_Load(object sender, EventArgs e)
+        {
+            messageLabel.Text = "";
+        }
+
+        ////////// Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
@@ -156,6 +165,40 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.registerNewUserForm.LogOutLabel.ForeColor = Color.Black;
         }
-////////// Menu Bar Options
+        ////////// Menu Bar Options
+
+        private void createNewUserButton_Click(object sender, EventArgs e)
+        {
+            bool availability = InventoryManagementBusinessLayer.ConsultInformation.CheckUsernameAvailability("super.admin");
+
+            messageLabel.Text = InventoryManagementBusinessLayer.CreateInformation.CreateNewUserProfileInformation(CreateUserProfile());
+        }
+
+        private void createAndReturnButton_Click(object sender, EventArgs e)
+        {
+            bool availability = InventoryManagementBusinessLayer.ConsultInformation.CheckUsernameAvailability("super.admin");
+
+            messageLabel.Text = InventoryManagementBusinessLayer.CreateInformation.CreateNewUserProfileInformation(CreateUserProfile());
+            // Closing form while freeing system resources
+            FormsMenuList.registerNewUserForm.Dispose();
+
+            // Summon Users Registry Form
+            FormsMenuList.usersRegistryForm = new UsersRegistryForm();
+            FormsMenuList.usersRegistryForm.Show();
+        }
+
+        private UserProfile CreateUserProfile()
+        {
+            UserProfile profile = new UserProfile();
+
+            profile.Username = usernameTextBox.Text;
+            profile.Password = passwordTextBox.Text;
+            profile.FirstName = firstNameTextBox.Text;
+            profile.LastName = lastNameTextBox.Text;
+            profile.Role = grantAdminCheckbox.Checked ? "Admin" : "User";
+            profile.Creator = "super.admin"; // TODO: Replaxce with profile of user currently in session
+
+            return profile;
+        }
     }
 }

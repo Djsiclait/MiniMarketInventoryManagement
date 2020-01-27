@@ -52,7 +52,7 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.confirmPasswordLabel = new System.Windows.Forms.Label();
@@ -60,6 +60,7 @@
             this.grantAdminCheckbox = new System.Windows.Forms.CheckBox();
             this.createNewUserButton = new System.Windows.Forms.Button();
             this.createAndReturnButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -270,12 +271,12 @@
             this.lastNameLabel.TabIndex = 18;
             this.lastNameLabel.Text = "Last Name: ";
             // 
-            // textBox1
+            // lastNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(333, 230);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(261, 20);
-            this.textBox1.TabIndex = 19;
+            this.lastNameTextBox.Location = new System.Drawing.Point(333, 230);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(261, 20);
+            this.lastNameTextBox.TabIndex = 19;
             // 
             // passwordLabel
             // 
@@ -329,6 +330,7 @@
             this.createNewUserButton.TabIndex = 25;
             this.createNewUserButton.Text = "Create New User";
             this.createNewUserButton.UseVisualStyleBackColor = true;
+            this.createNewUserButton.Click += new System.EventHandler(this.createNewUserButton_Click);
             // 
             // createAndReturnButton
             // 
@@ -338,12 +340,24 @@
             this.createAndReturnButton.TabIndex = 26;
             this.createAndReturnButton.Text = "Create and Return to User Registry";
             this.createAndReturnButton.UseVisualStyleBackColor = true;
+            this.createAndReturnButton.Click += new System.EventHandler(this.createAndReturnButton_Click);
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLabel.Location = new System.Drawing.Point(450, 507);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(46, 17);
+            this.messageLabel.TabIndex = 27;
+            this.messageLabel.Text = "label1";
             // 
             // RegisterNewUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.createAndReturnButton);
             this.Controls.Add(this.createNewUserButton);
             this.Controls.Add(this.grantAdminCheckbox);
@@ -351,7 +365,7 @@
             this.Controls.Add(this.confirmPasswordLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.lastNameLabel);
             this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.firstNameLabel);
@@ -365,6 +379,7 @@
             this.Name = "RegisterNewUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New User";
+            this.Load += new System.EventHandler(this.RegisterNewUserForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -398,7 +413,7 @@
         private System.Windows.Forms.Label firstNameLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Label lastNameLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label confirmPasswordLabel;
@@ -406,5 +421,6 @@
         private System.Windows.Forms.CheckBox grantAdminCheckbox;
         private System.Windows.Forms.Button createNewUserButton;
         private System.Windows.Forms.Button createAndReturnButton;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

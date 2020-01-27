@@ -13,7 +13,7 @@ namespace InventoryManagementDataLayer
 {
     public static class CreateData
     {
-        public static String CreateNewUserProfileData(User newUser)
+        public static String CreateNewUserProfileData(UserProfile newUser)
         {
             SqlCommand cmd = new SqlCommand(
                     "SP_Create_New_User",

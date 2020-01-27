@@ -12,7 +12,7 @@ namespace InventoryManagementBusinessLayer
 {
     public static class CreateInformation
     {
-        public static String CreateNewUserProfileInformation(User newUser)
+        public static String CreateNewUserProfileInformation(UserProfile newUser)
         {
             return InventoryManagementDataLayer.CreateData.CreateNewUserProfileData(newUser);
         }

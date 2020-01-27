@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagementEntityLayer
 {
-    public class User
+    public class UserProfile
     {
         private String username; // username of user profile
         private String password; // password associated to the profile

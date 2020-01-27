@@ -136,7 +136,7 @@ namespace InventoryManagementDataLayer
             Int32 reply;
             reply = Convert.ToInt32(cmd.ExecuteNonQuery());
 
-            return FormatToBoolean(cmd.Parameters["@result"].Value.ToString());
+            return !FormatToBoolean(cmd.Parameters["@result"].Value.ToString());
         }
 
         // Axiliary Functions
