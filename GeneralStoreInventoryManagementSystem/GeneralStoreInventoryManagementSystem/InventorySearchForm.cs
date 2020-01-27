@@ -186,12 +186,31 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// END Menu Bar Options
 
-        // Data Grid Logic
+////////// Inventory Seach Text Box Logic
+        private void InventorySearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateProductListDataGrid();
+        }
+////////// END Inventory Seach Text Box Logic
+
+////////// Function used to populate the data grid with products from the registered inventory
         private void PopulateProductListDataGrid()
         {
-            // TODO: Fetch data grid values from business layer
-            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("Admin");
+            // TODO: Filter data grid columns based on user's role
+            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("Admin", inventorySearchBox.Text);
 
+            //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
+            //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Name"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Brand"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Supplier"].SortMode = DataGridViewColumnSortMode.Automatic;
+
+            // TODO: Fix sortable mode on inventory browser
+            foreach (DataGridViewColumn column in productList.Columns)
+                column.SortMode = DataGridViewColumnSortMode.Automatic;
+
+            // Remove unnecesary information from the datagrid display
+            productList.Columns["Id"].Visible = false;
             productList.Columns["Category"].Visible = false;
             productList.Columns["Type"].Visible = false;
             productList.Columns["MinimumQuantity"].Visible = false;
@@ -202,7 +221,15 @@ namespace GeneralStoreInventoryManagementSystem
             productList.Columns["ModificationDate"].Visible = false;
 
         }
-        // END Data Grid Logic
+////////// END Function PopulateProductListDataGrid
 
+////////// Function that allows users to view the quick summary of a selected product
+        private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Declare an non oficial auxiliary form to display product information, given a product's internal identification number
+            ProductInformationTemplateForm productInformationForm = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
+            productInformationForm.Show(); // Summon the temporary summary form 
+        }
+////////// END Function ProductList_CellDoubleClick
     }
 }

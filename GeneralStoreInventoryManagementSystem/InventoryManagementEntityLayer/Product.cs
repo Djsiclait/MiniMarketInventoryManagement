@@ -8,6 +8,7 @@ namespace InventoryManagementEntityLayer
 {
     public class Product
     {
+        private String id; // System generated identification number for product for internal use
         private String key; // User assigned product identification number for non accounting purposes
         private String name; // name of the product not including company brand
         private String brand; // product brand company
@@ -27,6 +28,19 @@ namespace InventoryManagementEntityLayer
         private Boolean discontinued; // State of product within the general store
 
         // Gets and Sets
+        public string Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
         public string Key
         {
             get
