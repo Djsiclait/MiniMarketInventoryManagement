@@ -1,6 +1,7 @@
-CREATE PROC SP_Fetch_User_List_Data
+ALTER PROC SP_Fetch_User_List_Data
 	@username varchar(50),
-	@user_permission varchar(100)
+	@user_permission varchar(100),
+	@key_word varchar(100)
 AS
 	BEGIN
 		
@@ -16,6 +17,14 @@ AS
 				Tbl_Users
 			Where
 				fld_user_username <> @username
+			and
+				(
+				fld_user_username Like '%' + @key_word + '%' or
+				fld_user_first_name Like '%' + @key_word + '%' or
+				fld_user_last_name Like '%' + @key_word + '%' or 
+				fld_user_role Like '%' + @key_word + '%' or
+				fld_user_status  Like '%' + @key_word + '%'
+				)
 		ELSE IF @user_permission = 'Admin'
 			Select
 				fld_user_username,
@@ -30,12 +39,20 @@ AS
 				fld_user_username <> @username
 			and
 				fld_user_username <> 'super.admin'
+			and
+				(
+				fld_user_username Like '%' + @key_word + '%' or
+				fld_user_first_name Like '%' + @key_word + '%' or
+				fld_user_last_name Like '%' + @key_word + '%' or 
+				fld_user_role Like '%' + @key_word + '%' or
+				fld_user_status  Like '%' + @key_word + '%'
+				)
 
 	END
 
 go
 
-exec SP_Fetch_User_List_Data 'p.siclait', 'Admin'
+exec SP_Fetch_User_List_Data 'p.siclait', 'Admin', 'ad'
 
 
 
