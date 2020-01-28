@@ -62,6 +62,7 @@
             this.createAndReturnButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
             this.usernameErrorLable = new System.Windows.Forms.Label();
+            this.confirmationPasswordErrorLabel = new System.Windows.Forms.Label();
             this.passwordErrorLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -264,6 +265,7 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(261, 20);
             this.firstNameTextBox.TabIndex = 17;
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextChanged);
             // 
             // lastNameLabel
             // 
@@ -280,6 +282,7 @@
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(261, 20);
             this.lastNameTextBox.TabIndex = 19;
+            this.lastNameTextBox.TextChanged += new System.EventHandler(this.LastNameTextBox_TextChanged);
             // 
             // passwordLabel
             // 
@@ -297,6 +300,7 @@
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(261, 20);
             this.passwordTextBox.TabIndex = 21;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             // 
             // confirmPasswordLabel
             // 
@@ -366,15 +370,26 @@
             this.usernameErrorLable.TabIndex = 28;
             this.usernameErrorLable.Text = "Username is unavailable";
             // 
+            // confirmationPasswordErrorLabel
+            // 
+            this.confirmationPasswordErrorLabel.AutoSize = true;
+            this.confirmationPasswordErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.confirmationPasswordErrorLabel.Location = new System.Drawing.Point(600, 337);
+            this.confirmationPasswordErrorLabel.Name = "confirmationPasswordErrorLabel";
+            this.confirmationPasswordErrorLabel.Size = new System.Drawing.Size(275, 13);
+            this.confirmationPasswordErrorLabel.TabIndex = 29;
+            this.confirmationPasswordErrorLabel.Text = "Confirmation password does not match chosen password";
+            // 
             // passwordErrorLabel
             // 
             this.passwordErrorLabel.AutoSize = true;
             this.passwordErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.passwordErrorLabel.Location = new System.Drawing.Point(600, 337);
+            this.passwordErrorLabel.Location = new System.Drawing.Point(600, 287);
             this.passwordErrorLabel.Name = "passwordErrorLabel";
-            this.passwordErrorLabel.Size = new System.Drawing.Size(275, 13);
-            this.passwordErrorLabel.TabIndex = 29;
-            this.passwordErrorLabel.Text = "Confirmation password does not match chosen password";
+            this.passwordErrorLabel.Size = new System.Drawing.Size(87, 13);
+            this.passwordErrorLabel.TabIndex = 30;
+            this.passwordErrorLabel.Text = "Invalid Password";
+            this.passwordErrorLabel.Visible = false;
             // 
             // RegisterNewUserForm
             // 
@@ -382,6 +397,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 562);
             this.Controls.Add(this.passwordErrorLabel);
+            this.Controls.Add(this.confirmationPasswordErrorLabel);
             this.Controls.Add(this.usernameErrorLable);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.createAndReturnButton);
@@ -449,6 +465,7 @@
         private System.Windows.Forms.Button createAndReturnButton;
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Label usernameErrorLable;
+        private System.Windows.Forms.Label confirmationPasswordErrorLabel;
         private System.Windows.Forms.Label passwordErrorLabel;
     }
 }
