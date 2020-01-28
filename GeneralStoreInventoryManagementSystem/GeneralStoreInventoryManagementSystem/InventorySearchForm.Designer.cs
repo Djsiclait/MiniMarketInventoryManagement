@@ -277,6 +277,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "InventorySearchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

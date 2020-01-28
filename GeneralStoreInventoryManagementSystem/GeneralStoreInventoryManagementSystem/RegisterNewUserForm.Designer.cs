@@ -417,6 +417,7 @@
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.LogOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "RegisterNewUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

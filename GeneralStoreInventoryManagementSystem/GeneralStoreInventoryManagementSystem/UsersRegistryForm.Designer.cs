@@ -241,6 +241,7 @@
             this.userList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.userList.Size = new System.Drawing.Size(603, 209);
             this.userList.TabIndex = 12;
+            this.userList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserList_CellDoubleClick);
             // 
             // browserFormTitle
             // 
@@ -328,6 +329,7 @@
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.LogOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "UsersRegistryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

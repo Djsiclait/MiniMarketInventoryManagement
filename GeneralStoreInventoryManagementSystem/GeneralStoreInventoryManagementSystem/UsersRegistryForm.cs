@@ -194,5 +194,11 @@ namespace GeneralStoreInventoryManagementSystem
         {
             // TODO: show user's personal profile information after session implementation
         }
+
+        private void UserList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(userList.SelectedCells[0].Value.ToString());
+            userInformationForm.Show();
+        }
     }
 }

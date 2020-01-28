@@ -121,6 +121,12 @@
     <Compile Include="SalesRecordForm.Designer.cs">
       <DependentUpon>SalesRecordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInformationTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInformationTemplateForm.Designer.cs">
+      <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersRegistryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SalesRecordForm.resx">
       <DependentUpon>SalesRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInformationTemplateForm.resx">
+      <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsersRegistryForm.resx">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>

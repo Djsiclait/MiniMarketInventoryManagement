@@ -185,6 +185,37 @@ namespace InventoryManagementDataLayer
             return userList;
         }
 
+        public static UserProfile FetchUserDataByUsername(String username)
+        {
+            UserProfile user = new UserProfile();
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_User_Data_By_Username",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                user.Username = sqlDataReader["fld_user_username"].ToString();
+                user.FirstName = sqlDataReader["fld_user_first_name"].ToString();
+                user.LastName = sqlDataReader["fld_user_last_name"].ToString();
+                user.Role = sqlDataReader["fld_user_role"].ToString();
+                user.Status = sqlDataReader["fld_user_status"].ToString();
+                user.Creator = sqlDataReader["fld_user_creator"].ToString();// Not required to convert to int given the variable's getter ans setter already have internal conversion
+                user.RegistrationDate = DateTime.Parse(sqlDataReader["fld_user_registration_date"].ToString());
+
+                if (sqlDataReader["fld_user_last_login_timestamp"].ToString() != "")
+                    user.LastLogin = DateTime.Parse(sqlDataReader["fld_user_last_login_timestamp"].ToString());
+            }
+
+            return user;
+        }
+
         // Axiliary Functions
         // Function to convert strings to floats
         private static float FormatToFloat(String value)

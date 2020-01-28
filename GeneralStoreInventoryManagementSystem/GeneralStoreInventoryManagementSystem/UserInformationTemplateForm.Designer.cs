@@ -38,13 +38,13 @@
             this.roleLabel = new System.Windows.Forms.Label();
             this.roleTextBox = new System.Windows.Forms.TextBox();
             this.creatorLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.creatorTextBox = new System.Windows.Forms.TextBox();
             this.statusLabel = new System.Windows.Forms.Label();
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.registrationDateLabel = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.registrationDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lastLoginLabel = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.lastLoginDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // userTitleLabel
@@ -134,13 +134,13 @@
             this.creatorLabel.TabIndex = 9;
             this.creatorLabel.Text = "Creator:";
             // 
-            // textBox1
+            // creatorTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(49, 269);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(165, 20);
-            this.textBox1.TabIndex = 10;
+            this.creatorTextBox.Location = new System.Drawing.Point(49, 269);
+            this.creatorTextBox.Name = "creatorTextBox";
+            this.creatorTextBox.ReadOnly = true;
+            this.creatorTextBox.Size = new System.Drawing.Size(165, 20);
+            this.creatorTextBox.TabIndex = 10;
             // 
             // statusLabel
             // 
@@ -168,12 +168,13 @@
             this.registrationDateLabel.TabIndex = 13;
             this.registrationDateLabel.Text = "Created on: ";
             // 
-            // dateTimePicker1
+            // registrationDateDateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(16, 372);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(124, 20);
-            this.dateTimePicker1.TabIndex = 14;
+            this.registrationDateDateTimePicker.Enabled = false;
+            this.registrationDateDateTimePicker.Location = new System.Drawing.Point(16, 372);
+            this.registrationDateDateTimePicker.Name = "registrationDateDateTimePicker";
+            this.registrationDateDateTimePicker.Size = new System.Drawing.Size(124, 20);
+            this.registrationDateDateTimePicker.TabIndex = 14;
             // 
             // lastLoginLabel
             // 
@@ -184,25 +185,26 @@
             this.lastLoginLabel.TabIndex = 15;
             this.lastLoginLabel.Text = "Last Login:";
             // 
-            // dateTimePicker2
+            // lastLoginDateTimePicker
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(156, 372);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(121, 20);
-            this.dateTimePicker2.TabIndex = 16;
+            this.lastLoginDateTimePicker.Enabled = false;
+            this.lastLoginDateTimePicker.Location = new System.Drawing.Point(156, 372);
+            this.lastLoginDateTimePicker.Name = "lastLoginDateTimePicker";
+            this.lastLoginDateTimePicker.Size = new System.Drawing.Size(121, 20);
+            this.lastLoginDateTimePicker.TabIndex = 16;
             // 
             // UserInformationTemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(329, 413);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.lastLoginDateTimePicker);
             this.Controls.Add(this.lastLoginLabel);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.registrationDateDateTimePicker);
             this.Controls.Add(this.registrationDateLabel);
             this.Controls.Add(this.statusTextBox);
             this.Controls.Add(this.statusLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.creatorTextBox);
             this.Controls.Add(this.creatorLabel);
             this.Controls.Add(this.roleTextBox);
             this.Controls.Add(this.roleLabel);
@@ -216,6 +218,7 @@
             this.MaximizeBox = false;
             this.Name = "UserInformationTemplateForm";
             this.Text = "UserInformationTemplateForm";
+            this.Load += new System.EventHandler(this.UserInformationTemplateForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,12 +236,12 @@
         private System.Windows.Forms.Label roleLabel;
         private System.Windows.Forms.TextBox roleTextBox;
         private System.Windows.Forms.Label creatorLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox creatorTextBox;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.TextBox statusTextBox;
         private System.Windows.Forms.Label registrationDateLabel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker registrationDateDateTimePicker;
         private System.Windows.Forms.Label lastLoginLabel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker lastLoginDateTimePicker;
     }
 }
