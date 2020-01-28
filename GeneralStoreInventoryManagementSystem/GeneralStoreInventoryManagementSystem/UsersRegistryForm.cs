@@ -171,9 +171,14 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// Menu Bar Options
 
+        private void UserSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateUserResigtryDataGrid(); // REMINDER, to search for active and inactive useres use 0, 1, etc.
+        }
+
         private void PopulateUserResigtryDataGrid()
         {
-            userList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchUserListInformation("p.siclait", "Admin"); // TODO: replace static paramaters with session variables after implementation
+            userList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchUserListInformation("super.admin", "Super", userSearchBox.Text); // TODO: replace static paramaters with session variables after implementation
 
             userList.Columns["Password"].Visible = false;
             userList.Columns["Creator"].Visible = false;
@@ -185,7 +190,7 @@ namespace GeneralStoreInventoryManagementSystem
             // TODO: Populate the grid with user activity login/logout (etc.) for 24 hours after session and log implementations
         }
 
-        private void profileButton_Click(object sender, EventArgs e)
+        private void ProfileButton_Click(object sender, EventArgs e)
         {
             // TODO: show user's personal profile information after session implementation
         }

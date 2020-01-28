@@ -257,6 +257,7 @@
             this.userSearchBox.Name = "userSearchBox";
             this.userSearchBox.Size = new System.Drawing.Size(128, 20);
             this.userSearchBox.TabIndex = 10;
+            this.userSearchBox.TextChanged += new System.EventHandler(this.UserSearchBox_TextChanged);
             // 
             // profileButton
             // 
@@ -266,7 +267,7 @@
             this.profileButton.TabIndex = 14;
             this.profileButton.Text = "View My Profile";
             this.profileButton.UseVisualStyleBackColor = true;
-            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
+            this.profileButton.Click += new System.EventHandler(this.ProfileButton_Click);
             // 
             // activityList
             // 

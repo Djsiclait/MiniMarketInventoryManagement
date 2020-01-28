@@ -148,7 +148,7 @@ namespace InventoryManagementDataLayer
             return !FormatToBoolean(cmd.Parameters["@result"].Value.ToString()); 
         }
 
-        public static List<UserProfile> FetchUserListData(String username, String userPermission)
+        public static List<UserProfile> FetchUserListData(String username, String userPermission, String keyWord)
         {
             List<UserProfile> userList = new List<UserProfile>();
 
@@ -159,6 +159,7 @@ namespace InventoryManagementDataLayer
 
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
             cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
 
             SqlDataReader sqlDataReader;
             sqlDataReader = cmd.ExecuteReader();
