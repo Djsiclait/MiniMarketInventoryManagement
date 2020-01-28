@@ -22,7 +22,8 @@ AS
 				fld_user_first_name,
 				fld_user_last_name,
 				fld_user_role,
-				fld_user_last_login_timestamp
+				fld_user_last_login_timestamp,
+				fld_user_status
 			From
 				Tbl_Users
 			Where

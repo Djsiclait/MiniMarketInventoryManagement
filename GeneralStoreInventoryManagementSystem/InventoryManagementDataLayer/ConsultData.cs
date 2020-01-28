@@ -148,6 +148,42 @@ namespace InventoryManagementDataLayer
             return !FormatToBoolean(cmd.Parameters["@result"].Value.ToString()); 
         }
 
+        public static List<UserProfile> FetchUserListData(String username, String userPermission)
+        {
+            List<UserProfile> userList = new List<UserProfile>();
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_User_List_Data",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;
+
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                UserProfile user = new UserProfile();
+
+                user.Username = sqlDataReader["fld_user_username"].ToString();
+                user.FirstName = sqlDataReader["fld_user_first_name"].ToString();
+                user.LastName = sqlDataReader["fld_user_last_name"].ToString();
+                user.Role = sqlDataReader["fld_user_role"].ToString();
+                user.Status = sqlDataReader["fld_user_status"].ToString(); // Not required to convert to int given the variable's getter ans setter already have internal conversion
+
+                if (sqlDataReader["fld_user_last_login_timestamp"].ToString() != "")
+                    user.LastLogin = DateTime.Parse(sqlDataReader["fld_user_last_login_timestamp"].ToString());
+
+                userList.Add(user);
+            }
+
+            DatabaseManager.DisconnectToDatabase();
+
+            return userList;
+        }
+
         // Axiliary Functions
         // Function to convert strings to floats
         private static float FormatToFloat(String value)

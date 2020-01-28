@@ -233,19 +233,19 @@
             this.userList.AllowUserToResizeRows = false;
             this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.userList.Location = new System.Drawing.Point(12, 73);
+            this.userList.Location = new System.Drawing.Point(167, 72);
             this.userList.MultiSelect = false;
             this.userList.Name = "userList";
             this.userList.RowHeadersVisible = false;
             this.userList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.userList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.userList.Size = new System.Drawing.Size(903, 209);
+            this.userList.Size = new System.Drawing.Size(603, 209);
             this.userList.TabIndex = 12;
             // 
             // browserFormTitle
             // 
             this.browserFormTitle.AutoSize = true;
-            this.browserFormTitle.Location = new System.Drawing.Point(66, 49);
+            this.browserFormTitle.Location = new System.Drawing.Point(164, 49);
             this.browserFormTitle.Name = "browserFormTitle";
             this.browserFormTitle.Size = new System.Drawing.Size(88, 13);
             this.browserFormTitle.TabIndex = 11;
@@ -255,17 +255,18 @@
             // 
             this.userSearchBox.Location = new System.Drawing.Point(642, 46);
             this.userSearchBox.Name = "userSearchBox";
-            this.userSearchBox.Size = new System.Drawing.Size(273, 20);
+            this.userSearchBox.Size = new System.Drawing.Size(128, 20);
             this.userSearchBox.TabIndex = 10;
             // 
             // profileButton
             // 
-            this.profileButton.Location = new System.Drawing.Point(13, 289);
+            this.profileButton.Location = new System.Drawing.Point(30, 155);
             this.profileButton.Name = "profileButton";
             this.profileButton.Size = new System.Drawing.Size(117, 23);
             this.profileButton.TabIndex = 14;
             this.profileButton.Text = "View My Profile";
             this.profileButton.UseVisualStyleBackColor = true;
+            this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
             // 
             // activityList
             // 
@@ -328,7 +329,9 @@
             this.Controls.Add(this.menuStrip1);
             this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "UsersRegistryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Registry";
+            this.Load += new System.EventHandler(this.UsersRegistryForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();

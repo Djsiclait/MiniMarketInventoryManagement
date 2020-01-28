@@ -110,16 +110,30 @@ namespace InventoryManagementEntityLayer
             }
         }
 
-        public int Status
+        public String Status // Contains internal conversion due to native tinyint nature of the values 
         {
             get
             {
-                return status;
+                switch (status) // conversion fron native machine legible int values to human legible string values
+                {
+                    case 0:
+                        return "Active";
+                    case 1:
+                        return "Inactive";
+                    case 2:
+                        return "Suspended";
+                    default:
+                        return "";
+                }
             }
 
-            set
+            set // Conversion from database returned string value to machine legible int values
             {
-                status = value;
+                int num;
+
+                int.TryParse(value, out num);
+
+                status = num;
             }
         }
 

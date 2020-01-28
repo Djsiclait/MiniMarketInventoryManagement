@@ -47,5 +47,10 @@ namespace InventoryManagementBusinessLayer
         {
             return InventoryManagementDataLayer.ConsultData.CheckUsernameAvailability(username);
         }
+
+        public static List<UserProfile> FetchUserListInformation(String username, String userPermission)
+        {
+            return InventoryManagementDataLayer.ConsultData.FetchUserListData(username, userPermission);
+        }
     }
 }
