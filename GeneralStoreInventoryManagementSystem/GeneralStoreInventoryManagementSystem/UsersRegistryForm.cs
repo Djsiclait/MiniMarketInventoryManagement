@@ -149,12 +149,12 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_MouseHover(object sender, EventArgs e)
         {
-            FormsMenuList.usersRegistryForm.logsMenuSubOption.ForeColor = Color.Red;
+            FormsMenuList.usersRegistryForm.LogOutLabel.ForeColor = Color.Red;
         }
 
         private void LogOutLabel_MouseLeave(object sender, EventArgs e)
         {
-            FormsMenuList.usersRegistryForm.logsMenuSubOption.ForeColor = Color.Black;
+            FormsMenuList.usersRegistryForm.LogOutLabel.ForeColor = Color.Black;
         }
     }
 }

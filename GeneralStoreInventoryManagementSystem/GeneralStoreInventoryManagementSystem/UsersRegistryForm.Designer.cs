@@ -46,14 +46,25 @@
             this.logsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewActivityLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchLabel = new System.Windows.Forms.Label();
+            this.userList = new System.Windows.Forms.DataGridView();
+            this.browserFormTitle = new System.Windows.Forms.Label();
+            this.userSearchBox = new System.Windows.Forms.TextBox();
+            this.profileButton = new System.Windows.Forms.Button();
+            this.activityList = new System.Windows.Forms.DataGridView();
+            this.activityTitleLabel = new System.Windows.Forms.Label();
+            this.searchActivityLabel = new System.Windows.Forms.Label();
+            this.activitySearchBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activityList)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
             // 
             this.viewCartLabel.AutoSize = true;
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
             this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
             this.viewCartLabel.TabIndex = 9;
@@ -66,7 +77,7 @@
             // 
             this.LogOutLabel.AutoSize = true;
             this.LogOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.LogOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.LogOutLabel.Location = new System.Drawing.Point(870, 9);
             this.LogOutLabel.Name = "LogOutLabel";
             this.LogOutLabel.Size = new System.Drawing.Size(45, 13);
             this.LogOutLabel.TabIndex = 8;
@@ -84,7 +95,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -171,14 +182,14 @@
             // viewGraphsOption
             // 
             this.viewGraphsOption.Name = "viewGraphsOption";
-            this.viewGraphsOption.Size = new System.Drawing.Size(152, 22);
+            this.viewGraphsOption.Size = new System.Drawing.Size(142, 22);
             this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(152, 22);
+            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
             this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
@@ -205,18 +216,123 @@
             this.viewErrorLogsOption.Text = "View Error Logs";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
+            // searchLabel
+            // 
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Location = new System.Drawing.Point(570, 49);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(66, 13);
+            this.searchLabel.TabIndex = 13;
+            this.searchLabel.Text = "Search User";
+            // 
+            // userList
+            // 
+            this.userList.AllowUserToAddRows = false;
+            this.userList.AllowUserToDeleteRows = false;
+            this.userList.AllowUserToResizeColumns = false;
+            this.userList.AllowUserToResizeRows = false;
+            this.userList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.userList.Location = new System.Drawing.Point(12, 73);
+            this.userList.MultiSelect = false;
+            this.userList.Name = "userList";
+            this.userList.RowHeadersVisible = false;
+            this.userList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.userList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.userList.Size = new System.Drawing.Size(903, 209);
+            this.userList.TabIndex = 12;
+            // 
+            // browserFormTitle
+            // 
+            this.browserFormTitle.AutoSize = true;
+            this.browserFormTitle.Location = new System.Drawing.Point(66, 49);
+            this.browserFormTitle.Name = "browserFormTitle";
+            this.browserFormTitle.Size = new System.Drawing.Size(88, 13);
+            this.browserFormTitle.TabIndex = 11;
+            this.browserFormTitle.Text = "Registered Users";
+            // 
+            // userSearchBox
+            // 
+            this.userSearchBox.Location = new System.Drawing.Point(642, 46);
+            this.userSearchBox.Name = "userSearchBox";
+            this.userSearchBox.Size = new System.Drawing.Size(273, 20);
+            this.userSearchBox.TabIndex = 10;
+            // 
+            // profileButton
+            // 
+            this.profileButton.Location = new System.Drawing.Point(13, 289);
+            this.profileButton.Name = "profileButton";
+            this.profileButton.Size = new System.Drawing.Size(117, 23);
+            this.profileButton.TabIndex = 14;
+            this.profileButton.Text = "View My Profile";
+            this.profileButton.UseVisualStyleBackColor = true;
+            // 
+            // activityList
+            // 
+            this.activityList.AllowUserToAddRows = false;
+            this.activityList.AllowUserToDeleteRows = false;
+            this.activityList.AllowUserToResizeColumns = false;
+            this.activityList.AllowUserToResizeRows = false;
+            this.activityList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.activityList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.activityList.Location = new System.Drawing.Point(12, 341);
+            this.activityList.MultiSelect = false;
+            this.activityList.Name = "activityList";
+            this.activityList.RowHeadersVisible = false;
+            this.activityList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.activityList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.activityList.Size = new System.Drawing.Size(903, 209);
+            this.activityList.TabIndex = 15;
+            // 
+            // activityTitleLabel
+            // 
+            this.activityTitleLabel.AutoSize = true;
+            this.activityTitleLabel.Location = new System.Drawing.Point(164, 318);
+            this.activityTitleLabel.Name = "activityTitleLabel";
+            this.activityTitleLabel.Size = new System.Drawing.Size(232, 13);
+            this.activityTitleLabel.TabIndex = 16;
+            this.activityTitleLabel.Text = "Recent User Activities Within the Last 24 Hours";
+            // 
+            // searchActivityLabel
+            // 
+            this.searchActivityLabel.AutoSize = true;
+            this.searchActivityLabel.Location = new System.Drawing.Point(558, 318);
+            this.searchActivityLabel.Name = "searchActivityLabel";
+            this.searchActivityLabel.Size = new System.Drawing.Size(78, 13);
+            this.searchActivityLabel.TabIndex = 18;
+            this.searchActivityLabel.Text = "Search Activity";
+            // 
+            // activitySearchBox
+            // 
+            this.activitySearchBox.Location = new System.Drawing.Point(642, 315);
+            this.activitySearchBox.Name = "activitySearchBox";
+            this.activitySearchBox.Size = new System.Drawing.Size(273, 20);
+            this.activitySearchBox.TabIndex = 17;
+            // 
             // UsersRegistryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 462);
+            this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.searchActivityLabel);
+            this.Controls.Add(this.activitySearchBox);
+            this.Controls.Add(this.activityTitleLabel);
+            this.Controls.Add(this.activityList);
+            this.Controls.Add(this.profileButton);
+            this.Controls.Add(this.searchLabel);
+            this.Controls.Add(this.userList);
+            this.Controls.Add(this.browserFormTitle);
+            this.Controls.Add(this.userSearchBox);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.LogOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "UsersRegistryForm";
             this.Text = "User Registry";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activityList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +358,14 @@
         private System.Windows.Forms.ToolStripMenuItem browseProductsMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem registerNewProductMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem restockProductsMenuSubOption;
+        private System.Windows.Forms.Label searchLabel;
+        private System.Windows.Forms.DataGridView userList;
+        private System.Windows.Forms.Label browserFormTitle;
+        private System.Windows.Forms.TextBox userSearchBox;
+        private System.Windows.Forms.Button profileButton;
+        private System.Windows.Forms.DataGridView activityList;
+        private System.Windows.Forms.Label activityTitleLabel;
+        private System.Windows.Forms.Label searchActivityLabel;
+        private System.Windows.Forms.TextBox activitySearchBox;
     }
 }
