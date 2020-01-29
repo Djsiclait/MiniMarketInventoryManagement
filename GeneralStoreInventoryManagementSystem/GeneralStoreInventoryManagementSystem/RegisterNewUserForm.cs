@@ -259,7 +259,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                 if (message == "User created") // Creation process has been successful
                 {
-                    messageLabel.Text = "User has been created succesfully!";
+                    messageLabel.Text = "User " + usernameTextBox.Text + " has been created succesfully!";
                     ClearTextBoxBuffers(); // cleaning textboxes
                 }
                 else
