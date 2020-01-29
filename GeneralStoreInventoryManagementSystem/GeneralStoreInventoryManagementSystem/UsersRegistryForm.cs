@@ -193,6 +193,8 @@ namespace GeneralStoreInventoryManagementSystem
         private void ProfileButton_Click(object sender, EventArgs e)
         {
             // TODO: show user's personal profile information after session implementation
+            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm("super.admin");
+            userInformationForm.Show();
         }
 
         private void UserList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
