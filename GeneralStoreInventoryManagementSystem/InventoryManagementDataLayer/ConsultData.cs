@@ -216,6 +216,27 @@ namespace InventoryManagementDataLayer
             return user;
         }
 
+        public static String ValidateUserCredentialsData(String username, String password)
+        {
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Validate_User_Credentials_Data",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+            cmd.Parameters.Add("@password", SqlDbType.VarChar, 30).Value = password;
+
+            SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300);
+            message.Direction = ParameterDirection.Output;
+
+            cmd.Parameters.Add(message);
+
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+            return cmd.Parameters["@message"].Value.ToString();
+        }
+
         // Axiliary Functions
         // Function to convert strings to floats
         private static float FormatToFloat(String value)

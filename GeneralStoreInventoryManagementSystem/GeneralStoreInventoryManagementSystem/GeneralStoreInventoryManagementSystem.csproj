@@ -52,6 +52,7 @@
     <Compile Include="ActivitiesLogForm.Designer.cs">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CollectiveResources.cs" />
     <Compile Include="ErrorsLogForm.cs">
       <SubType>Form</SubType>
     </Compile>
