@@ -17,6 +17,14 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+            // TEMPORARY
+            // TODO: ancor the application to the splash page
+            FormsMenuList.loginForm = this;
+        }
+
         private void LogInButton_Click(object sender, EventArgs e)
         {
             String message = InventoryManagementBusinessLayer.ConsultInformation.ValidateUserCredentialsInformation(usernameTextBox.Text, passwordTextBox.Text);
@@ -39,11 +47,12 @@ namespace GeneralStoreInventoryManagementSystem
             else
             {
                 CollectiveResources.BeginUserSession(usernameTextBox.Text);
-                //Console.WriteLine(CollectiveResources.UserInSession.Username);
+                ClearTextBoxBuffer();
 
                 FormsMenuList.loginForm.Hide();
 
-                // TODO: Initialize the homepage;
+                // Summon Product Browser Form
+                FormsMenuList.inventorySearchForm = new InventorySearchForm();
                 FormsMenuList.inventorySearchForm.Show();
             }
         }

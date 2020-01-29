@@ -16,7 +16,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InventorySearchForm());
+            Application.Run(new LoginForm());
         }
     }
 }

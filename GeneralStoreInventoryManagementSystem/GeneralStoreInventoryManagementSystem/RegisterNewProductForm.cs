@@ -44,7 +44,8 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewProduct.Dispose();
 
             // Summon Product Browser Form
-            FormsMenuList.inventorySearchForm.Show(); // TODO: instanciate this form after removing the application ancor
+            FormsMenuList.inventorySearchForm = new InventorySearchForm();
+            FormsMenuList.inventorySearchForm.Show();
         }
 
         private void RestockProductsMenuSubOption_Click(object sender, EventArgs e)
@@ -143,7 +144,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewProduct.Dispose();
 
             // Log out of current session
-            FormsMenuList.loginForm = new LoginForm(); // TODO: Remove this instantiation and leave the Show() function
+            CollectiveResources.EndUserSession();
             FormsMenuList.loginForm.Show();
         }
 

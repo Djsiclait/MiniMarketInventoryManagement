@@ -24,10 +24,6 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Form Load Logic 
         private void InventorySearchForm_Load(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: ancor the application to the splash page
-            FormsMenuList.inventorySearchForm = this; // Ancorging this form as the application instance 
-
             PopulateProductListDataGrid(); // Initializing the data grid upon load
         }
 ////////// END Form Load Logic
@@ -35,9 +31,7 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose(); 
 
             // Summon Sales Registry Form
             FormsMenuList.salesRecordForm = new SalesRecordForm();
@@ -46,9 +40,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void MakeSaleMenuSubOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Register New Sale Form
             FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
@@ -57,9 +49,7 @@ namespace GeneralStoreInventoryManagementSystem
         
         private void RegisterNewProductMenuSubOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Register New Product Form
             FormsMenuList.registerNewProduct = new RegisterNewProductForm();
@@ -68,9 +58,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void RestockProductsMenuSubOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Restock Products Form
             FormsMenuList.restockProductsFrom = new RestockProductsForm();
@@ -79,9 +67,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewUsersOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Users Registry Form
             FormsMenuList.usersRegistryForm = new UsersRegistryForm();
@@ -90,9 +76,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void RegisterNewUserOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Register New User Form
             FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
@@ -101,9 +85,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewGraphsOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Graphs Analytics Form
             FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
@@ -112,9 +94,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewReportsOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Reports Analytics Form
             FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
@@ -123,9 +103,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewActivityLogsOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Activity Logs Form
             FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
@@ -134,9 +112,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewErrorLogsOption_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Error Logs Form
             FormsMenuList.errorsLogForm = new ErrorsLogForm();
@@ -145,9 +121,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewCartLabel_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon View Cart Form
             FormsMenuList.viewCartForm = new ViewCartForm();
@@ -166,12 +140,10 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
-            // TEMPORARY
-            // TODO: hide the application using the splash page; replace this hid with a Dispose()
-            FormsMenuList.inventorySearchForm.Hide(); // hiding the application ancor to avoid ending the system
+            FormsMenuList.inventorySearchForm.Dispose();
 
             // Log out of current session
-            FormsMenuList.loginForm = new LoginForm(); // TODO: Remove this instantiation and leave the Show() function
+            CollectiveResources.EndUserSession();
             FormsMenuList.loginForm.Show();
         }
 
