@@ -77,6 +77,12 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductInformationTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductInformationTemplateForm.Designer.cs">
+      <DependentUpon>ProductInformationTemplateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterNewProductForm.cs">
@@ -115,6 +121,12 @@
     <Compile Include="SalesRecordForm.Designer.cs">
       <DependentUpon>SalesRecordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInformationTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInformationTemplateForm.Designer.cs">
+      <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersRegistryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductInformationTemplateForm.resx">
+      <DependentUpon>ProductInformationTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -169,6 +184,9 @@
     <EmbeddedResource Include="SalesRecordForm.resx">
       <DependentUpon>SalesRecordForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInformationTemplateForm.resx">
+      <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsersRegistryForm.resx">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,10 +210,6 @@
     <ProjectReference Include="..\InventoryManagementBusinessLayer\InventoryManagementBusinessLayer.csproj">
       <Project>{ffa050a3-8abf-4f87-bb18-b465c87e6062}</Project>
       <Name>InventoryManagementBusinessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InventoryManagementDataLayer\InventoryManagementDataLayer.csproj">
-      <Project>{a82f2156-8fbb-449d-8f0e-2da935aa7096}</Project>
-      <Name>InventoryManagementDataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\InventoryManagementEntityLayer\InventoryManagementEntityLayer.csproj">
       <Project>{c8586729-0bbd-4d6b-bf95-5b509708d14e}</Project>

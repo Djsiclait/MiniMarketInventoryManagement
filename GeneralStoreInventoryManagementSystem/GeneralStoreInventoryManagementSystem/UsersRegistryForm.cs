@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Custom Libraries
+using InventoryManagementBusinessLayer;
+using InventoryManagementEntityLayer;
+
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class UsersRegistryForm : Form
@@ -16,8 +20,17 @@ namespace GeneralStoreInventoryManagementSystem
         {
             InitializeComponent();
         }
+    
+////////// Load Form Logic
+        private void UsersRegistryForm_Load(object sender, EventArgs e)
+        {
+            PopulateUserResigtryDataGrid();
 
-        // Menu Bar Options
+            PopulateActicityListDataGrid();
+        }
+////////// END Load Form Logic
+
+////////// Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
@@ -149,12 +162,45 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_MouseHover(object sender, EventArgs e)
         {
-            FormsMenuList.usersRegistryForm.logsMenuSubOption.ForeColor = Color.Red;
+            FormsMenuList.usersRegistryForm.LogOutLabel.ForeColor = Color.Red;
         }
 
         private void LogOutLabel_MouseLeave(object sender, EventArgs e)
         {
-            FormsMenuList.usersRegistryForm.logsMenuSubOption.ForeColor = Color.Black;
+            FormsMenuList.usersRegistryForm.LogOutLabel.ForeColor = Color.Black;
+        }
+////////// Menu Bar Options
+
+        private void UserSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateUserResigtryDataGrid(); // REMINDER, to search for active and inactive useres use 0, 1, etc.
+        }
+
+        private void PopulateUserResigtryDataGrid()
+        {
+            userList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchUserListInformation("super.admin", "Super", userSearchBox.Text); // TODO: replace static paramaters with session variables after implementation
+
+            userList.Columns["Password"].Visible = false;
+            userList.Columns["Creator"].Visible = false;
+            userList.Columns["RegistrationDate"].Visible = false;
+        }
+
+        private void PopulateActicityListDataGrid()
+        {
+            // TODO: Populate the grid with user activity login/logout (etc.) for 24 hours after session and log implementations
+        }
+
+        private void ProfileButton_Click(object sender, EventArgs e)
+        {
+            // TODO: show user's personal profile information after session implementation
+            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm("super.admin");
+            userInformationForm.Show();
+        }
+
+        private void UserList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(userList.SelectedCells[0].Value.ToString());
+            userInformationForm.Show();
         }
     }
 }
