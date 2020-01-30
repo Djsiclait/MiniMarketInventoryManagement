@@ -19,7 +19,6 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
             // TEMPORARY
             // TODO: ancor the application to the splash page
             FormsMenuList.loginForm = this;
