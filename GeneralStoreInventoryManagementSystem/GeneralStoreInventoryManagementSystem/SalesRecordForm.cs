@@ -17,6 +17,7 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
+        // Load Form Logic
         private void SalesRecordForm_Load(object sender, EventArgs e)
         {
             // Limiting option according to current user's access level
@@ -33,116 +34,117 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Enabled = false;
             }
         }
+        // END Load Form Logic
 
         // Menubar Options
         private void MakeSaleMenuOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Register New Sale Form
             FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
             FormsMenuList.registerNewSaleForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void BrowseProductsMenuSubOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Product Browser Form
             FormsMenuList.inventorySearchForm = new InventorySearchForm();
             FormsMenuList.inventorySearchForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void RegisterNewProductMenuSubOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Register New Product Form
             FormsMenuList.registerNewProduct = new RegisterNewProductForm();
             FormsMenuList.registerNewProduct.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void RestockProductsMenuSubOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Restock Products Form
             FormsMenuList.restockProductsFrom = new RestockProductsForm();
             FormsMenuList.restockProductsFrom.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void ViewUsersOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Users Registry Form
             FormsMenuList.usersRegistryForm = new UsersRegistryForm();
             FormsMenuList.usersRegistryForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void RegisterNewUserOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Register New User Form
             FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
             FormsMenuList.registerNewUserForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void ViewGraphsOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Graphs Analytics Form
             FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
             FormsMenuList.graphsAnaliticsForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void ViewReportsOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Reports Analytics Form
             FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
             FormsMenuList.reportsAnalyticsForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void ViewActivityLogsOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Activity Logs Form
             FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
             FormsMenuList.activitiesLogForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void ViewErrorLogsOption_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon Error Logs Form
             FormsMenuList.errorsLogForm = new ErrorsLogForm();
             FormsMenuList.errorsLogForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void ViewCartLabel_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Summon View Cart Form
             FormsMenuList.viewCartForm = new ViewCartForm();
             FormsMenuList.viewCartForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void ViewCartLabel_MouseHover(object sender, EventArgs e)
@@ -157,12 +159,12 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
-            // Closing form while freeing system resources
-            FormsMenuList.salesRecordForm.Dispose();
-
             // Log out of current session
             CollectiveResources.EndUserSession();
             FormsMenuList.loginForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
         }
 
         private void LogOutLabel_MouseHover(object sender, EventArgs e)
