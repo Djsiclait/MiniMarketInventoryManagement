@@ -31,6 +31,7 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose(); 
 
             // Summon Sales Registry Form
@@ -40,6 +41,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void MakeSaleMenuSubOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Register New Sale Form
@@ -49,6 +51,7 @@ namespace GeneralStoreInventoryManagementSystem
         
         private void RegisterNewProductMenuSubOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Register New Product Form
@@ -58,6 +61,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void RestockProductsMenuSubOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Restock Products Form
@@ -67,6 +71,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewUsersOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Users Registry Form
@@ -76,6 +81,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void RegisterNewUserOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Register New User Form
@@ -85,6 +91,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewGraphsOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Graphs Analytics Form
@@ -94,6 +101,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewReportsOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Reports Analytics Form
@@ -103,6 +111,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewActivityLogsOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Activity Logs Form
@@ -112,6 +121,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewErrorLogsOption_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon Error Logs Form
@@ -121,6 +131,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewCartLabel_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Summon View Cart Form
@@ -140,6 +151,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
+            // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
 
             // Log out of current session
@@ -168,8 +180,7 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Function used to populate the data grid with products from the registered inventory
         private void PopulateProductListDataGrid()
         {
-            // TODO: Filter data grid columns based on user's role
-            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation("Admin", inventorySearchBox.Text);
+            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation(CollectiveResources.UserInSession.Role, inventorySearchBox.Text);
 
             //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
             //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
@@ -202,6 +213,6 @@ namespace GeneralStoreInventoryManagementSystem
             ProductInformationTemplateForm productInformationForm = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
             productInformationForm.Show(); // Summon the temporary summary form 
         }
-////////// END Function ProductList_CellDoubleClick
+        ////////// END Function ProductList_CellDoubleClick
     }
 }

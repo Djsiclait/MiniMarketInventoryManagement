@@ -179,7 +179,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void PopulateUserResigtryDataGrid()
         {
-            userList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchUserListInformation("super.admin", "Super", userSearchBox.Text); // TODO: replace static paramaters with session variables after implementation
+            userList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchUserListInformation(CollectiveResources.UserInSession.Username, CollectiveResources.UserInSession.Role, userSearchBox.Text);
 
             userList.Columns["Password"].Visible = false;
             userList.Columns["Creator"].Visible = false;
@@ -193,8 +193,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ProfileButton_Click(object sender, EventArgs e)
         {
-            // TODO: show user's personal profile information after session implementation
-            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm("super.admin");
+            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(CollectiveResources.UserInSession.Username);
             userInformationForm.Show();
         }
 
