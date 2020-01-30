@@ -311,6 +311,7 @@
             this.activitySearchBox.Name = "activitySearchBox";
             this.activitySearchBox.Size = new System.Drawing.Size(273, 20);
             this.activitySearchBox.TabIndex = 17;
+            this.activitySearchBox.TextChanged += new System.EventHandler(this.activitySearchBox_TextChanged);
             // 
             // UsersRegistryForm
             // 

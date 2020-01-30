@@ -216,7 +216,10 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void PopulateActicityListDataGrid()
         {
-            // TODO: Populate the grid with user activity login/logout (etc.) for 24 hours after session and log implementations
+            activityList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchActivityListInformation(CollectiveResources.UserInSession.Role, activitySearchBox.Text, true);
+
+            activityList.Columns["Description"].Width = 550;
+            activityList.Columns["Timestamp"].Width = 200;
         }
 
         private void ProfileButton_Click(object sender, EventArgs e)
@@ -229,6 +232,11 @@ namespace GeneralStoreInventoryManagementSystem
         {
             UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(userList.SelectedCells[0].Value.ToString());
             userInformationForm.Show();
+        }
+
+        private void activitySearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateActicityListDataGrid();
         }
     }
 }

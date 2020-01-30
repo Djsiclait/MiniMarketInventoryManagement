@@ -63,9 +63,9 @@ namespace InventoryManagementBusinessLayer
             return InventoryManagementDataLayer.ConsultData.ValidateUserCredentialsData(username, password);
         }
 
-        public static List<Activity> FetchActivityListInformation(String userPermission, String keyWord)
+        public static List<Activity> FetchActivityListInformation(String userPermission, String keyWord, bool last24Hours)
         {
-            return InventoryManagementDataLayer.ConsultData.FetchActivityListData(userPermission, keyWord);
+            return InventoryManagementDataLayer.ConsultData.FetchActivityListData(userPermission, keyWord, last24Hours);
         }
     }
 }

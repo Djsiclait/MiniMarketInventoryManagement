@@ -239,12 +239,12 @@ namespace InventoryManagementDataLayer
             return cmd.Parameters["@message"].Value.ToString();
         }
 
-        public static List<Activity> FetchActivityListData(String userPermission, String keyWord)
+        public static List<Activity> FetchActivityListData(String userPermission, String keyWord, bool last24Hours)
         {
             List<Activity> activities = new List<Activity>();
 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Users_Activities_Data",
+                    last24Hours ? "SP_Fetch_Last_24_Hours_Users_Activities_Data" : "SP_Fetch_Users_Activities_Data",
                     DatabaseManager.ActiveSqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
 
