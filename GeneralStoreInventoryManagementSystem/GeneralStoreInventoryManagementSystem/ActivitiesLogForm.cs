@@ -16,6 +16,22 @@ namespace GeneralStoreInventoryManagementSystem
         {
             InitializeComponent();
         }
+        private void ActivitiesLogForm_Load(object sender, EventArgs e)
+        {
+            // Limiting option according to current user's access level
+            if (CollectiveResources.UserInSession.Role == "User")
+            {
+                // Disabling the entire Products option given the remainder of options are prohibited for a basic user
+                registerNewProductMenuSubOption.Visible = false;
+                registerNewProductMenuSubOption.Enabled = false;
+                restockProductsMenuSubOption.Visible = false;
+                restockProductsMenuSubOption.Enabled = false;
+
+                // Disabling all admin options
+                adminMenuOption.Visible = false;
+                adminMenuOption.Enabled = false;
+            }
+        }
 
         // Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
@@ -143,7 +159,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.activitiesLogForm.Dispose();
 
             // Log out of current session
-            FormsMenuList.loginForm = new LoginForm(); // TODO: Remove this instantiation and leave the Show() function
+            CollectiveResources.EndUserSession();
             FormsMenuList.loginForm.Show();
         }
 
@@ -156,5 +172,6 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.activitiesLogForm.logOutLabel.ForeColor = Color.Black;
         }
+        // END Menubar Options
     }
 }

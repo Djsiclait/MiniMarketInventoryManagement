@@ -19,7 +19,19 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ViewCartForm_Load(object sender, EventArgs e)
         {
+            // Limiting option according to current user's access level
+            if (CollectiveResources.UserInSession.Role == "User")
+            {
+                // Disabling the other Products option 
+                registerNewProductMenuSubOption.Visible = false;
+                registerNewProductMenuSubOption.Enabled = false;
+                restockProductsMenuSubOption.Visible = false;
+                restockProductsMenuSubOption.Enabled = false;
 
+                // Disabling all admin options
+                adminMenuOption.Visible = false;
+                adminMenuOption.Enabled = false;
+            }
         }
 
         // Menu Bar Options

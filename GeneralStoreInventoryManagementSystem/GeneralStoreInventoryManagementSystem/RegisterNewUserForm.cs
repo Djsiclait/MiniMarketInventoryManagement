@@ -24,6 +24,20 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Load Form Logic
         private void RegisterNewUserForm_Load(object sender, EventArgs e)
         {
+            // Limiting option according to current user's access level
+            if (CollectiveResources.UserInSession.Role == "User")
+            {
+                // Disabling the other Products option 
+                registerNewProductMenuSubOption.Visible = false;
+                registerNewProductMenuSubOption.Enabled = false;
+                restockProductsMenuSubOption.Visible = false;
+                restockProductsMenuSubOption.Enabled = false;
+
+                // Disabling all admin options
+                adminMenuOption.Visible = false;
+                adminMenuOption.Enabled = false;
+            }
+
             // Inictializing message labels
             messageLabel.Text = "";
             usernameErrorLable.Visible = false;

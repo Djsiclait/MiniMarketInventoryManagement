@@ -187,14 +187,14 @@
             // viewGraphsOption
             // 
             this.viewGraphsOption.Name = "viewGraphsOption";
-            this.viewGraphsOption.Size = new System.Drawing.Size(152, 22);
+            this.viewGraphsOption.Size = new System.Drawing.Size(142, 22);
             this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(152, 22);
+            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
             this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
@@ -215,6 +215,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "ErrorsLogForm";
             this.Text = "Error Logs";
+            this.Load += new System.EventHandler(this.ErrorsLogForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

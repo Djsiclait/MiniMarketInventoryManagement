@@ -17,6 +17,21 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
+        private void RestockProductsForm_Load(object sender, EventArgs e)
+        {
+            // Limiting option according to current user's access level
+            if (CollectiveResources.UserInSession.Role == "User")
+            {
+                // Disabling the other Products option 
+                registerNewProductMenuSubOption.Visible = false;
+                registerNewProductMenuSubOption.Enabled = false;
+
+                // Disabling all admin options
+                adminMenuOption.Visible = false;
+                adminMenuOption.Enabled = false;
+            }
+        }
+
         // Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
@@ -157,5 +172,6 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.restockProductsFrom.logOutLabel.ForeColor = Color.Black;
         }
+        // END Menubar Options
     }
 }

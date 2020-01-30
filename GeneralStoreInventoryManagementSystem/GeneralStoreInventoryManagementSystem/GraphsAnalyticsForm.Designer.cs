@@ -215,6 +215,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "GraphsAnalyticsForm";
             this.Text = "Analytics --- Graphs";
+            this.Load += new System.EventHandler(this.GraphsAnalyticsForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

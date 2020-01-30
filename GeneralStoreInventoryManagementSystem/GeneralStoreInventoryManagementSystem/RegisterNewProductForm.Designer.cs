@@ -151,7 +151,7 @@
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
@@ -174,20 +174,20 @@
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
             // 
             this.viewGraphsOption.Name = "viewGraphsOption";
-            this.viewGraphsOption.Size = new System.Drawing.Size(152, 22);
+            this.viewGraphsOption.Size = new System.Drawing.Size(142, 22);
             this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(152, 22);
+            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
             this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
@@ -197,7 +197,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
@@ -224,6 +224,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "RegisterNewProductForm";
             this.Text = "Register New Product";
+            this.Load += new System.EventHandler(this.RegisterNewProductForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

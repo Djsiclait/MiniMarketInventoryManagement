@@ -24,6 +24,18 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Form Load Logic 
         private void InventorySearchForm_Load(object sender, EventArgs e)
         {
+            // Limiting option according to current user's access level
+            if (CollectiveResources.UserInSession.Role == "User")
+            {
+                // Disabling the entire Products option given the remainder of options are prohibited for a basic user
+                productsMenuOption.Visible = false;
+                productsMenuOption.Enabled = false;
+
+                // Disabling all admin options
+                adminMenuOption.Visible = false;
+                adminMenuOption.Enabled = false;
+            }
+
             PopulateProductListDataGrid(); // Initializing the data grid upon load
         }
 ////////// END Form Load Logic

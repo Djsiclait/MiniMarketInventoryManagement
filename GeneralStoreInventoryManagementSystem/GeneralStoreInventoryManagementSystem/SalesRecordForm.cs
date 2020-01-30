@@ -17,6 +17,24 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
+        private void SalesRecordForm_Load(object sender, EventArgs e)
+        {
+            // Limiting option according to current user's access level
+            if (CollectiveResources.UserInSession.Role == "User")
+            {
+                // Disabling the other Products option 
+                registerNewProductMenuSubOption.Visible = false;
+                registerNewProductMenuSubOption.Enabled = false;
+                restockProductsMenuSubOption.Visible = false;
+                restockProductsMenuSubOption.Enabled = false;
+
+                // Disabling all admin options
+                adminMenuOption.Visible = false;
+                adminMenuOption.Enabled = false;
+            }
+        }
+
+        // Menubar Options
         private void MakeSaleMenuOption_Click(object sender, EventArgs e)
         {
             // Closing form while freeing system resources
@@ -156,5 +174,6 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.salesRecordForm.logOutLabel.ForeColor = Color.Black;
         }
+        // END Menubar Options
     }
 }

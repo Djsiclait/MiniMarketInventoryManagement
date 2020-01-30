@@ -151,7 +151,7 @@
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
@@ -174,7 +174,7 @@
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
@@ -197,7 +197,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
@@ -224,6 +224,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "RestockProductsForm";
             this.Text = "Restock Products";
+            this.Load += new System.EventHandler(this.RestockProductsForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

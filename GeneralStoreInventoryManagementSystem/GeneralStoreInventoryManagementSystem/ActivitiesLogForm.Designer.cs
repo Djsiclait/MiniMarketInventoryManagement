@@ -215,6 +215,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "ActivitiesLogForm";
             this.Text = "Activity Logs";
+            this.Load += new System.EventHandler(this.ActivitiesLogForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

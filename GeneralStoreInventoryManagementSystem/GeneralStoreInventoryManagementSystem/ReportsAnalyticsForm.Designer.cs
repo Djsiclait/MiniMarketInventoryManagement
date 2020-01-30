@@ -158,7 +158,7 @@
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
@@ -178,7 +178,7 @@
             // viewGraphsMenuSubOption
             // 
             this.viewGraphsMenuSubOption.Name = "viewGraphsMenuSubOption";
-            this.viewGraphsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.viewGraphsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.viewGraphsMenuSubOption.Text = "View Graphs";
             this.viewGraphsMenuSubOption.Click += new System.EventHandler(this.ViewGraphsMenuSubOption_Click);
             // 
@@ -188,7 +188,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
@@ -215,6 +215,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "ReportsAnalyticsForm";
             this.Text = "Analytics --- Reports";
+            this.Load += new System.EventHandler(this.ReportsAnalyticsForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
