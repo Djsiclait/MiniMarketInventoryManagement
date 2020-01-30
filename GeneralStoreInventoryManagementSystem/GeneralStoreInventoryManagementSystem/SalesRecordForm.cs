@@ -32,7 +32,18 @@ namespace GeneralStoreInventoryManagementSystem
                 // Disabling all admin options
                 adminMenuOption.Visible = false;
                 adminMenuOption.Enabled = false;
+
+                CollectiveResources.RecordActivity(
+                    CollectiveResources.UserInSession.Username,
+                    CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed their sales records",
+                    "BASIC ACCESS");
             }
+            else
+                CollectiveResources.RecordActivity(
+                    CollectiveResources.UserInSession.Username,
+                    CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed all sales records",
+                    "ADMIN ACCESS");
+
         }
 ////////// END Load Form Logic
 

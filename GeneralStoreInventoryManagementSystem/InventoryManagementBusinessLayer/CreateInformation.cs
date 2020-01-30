@@ -21,5 +21,10 @@ namespace InventoryManagementBusinessLayer
         {
             return InventoryManagementDataLayer.CreateData.CreateNewUserProfileData(newUser);
         }
+
+        public static void RegisterNewUserActivityInformation(Activity activity)
+        {
+            InventoryManagementDataLayer.CreateData.RegisterNewUserActivityData(activity);
+        }
     }
 }

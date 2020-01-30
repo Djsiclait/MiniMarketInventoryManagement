@@ -35,6 +35,11 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             PopulateActivityListDataGrid();
+
+            CollectiveResources.RecordActivity(
+                CollectiveResources.UserInSession.Username,
+                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the activities logs",
+                "ADMIN ACCESS");
         }
 ////////// END Load Logic Form
 

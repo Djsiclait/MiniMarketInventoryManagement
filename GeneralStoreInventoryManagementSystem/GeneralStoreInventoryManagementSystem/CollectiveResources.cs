@@ -18,12 +18,27 @@ namespace GeneralStoreInventoryManagementSystem
         public static void BeginUserSession(String username)
         {
             userInSession = InventoryManagementBusinessLayer.ConsultInformation.FetchUserInformationByUsername(username);
+
+            RecordActivity(
+                userInSession.Username, 
+                userInSession.Role + ", " + userInSession.Username + ", has successfully logged in",
+                "LOG IN");
         }
 
         // Function used to end the session variable; must be executed once before logging out of every session 
         public static void EndUserSession()
         {
+            RecordActivity(
+                userInSession.Username,
+                userInSession.Role + ", " + userInSession.Username + ", has successfully logged out",
+                "LOG OUT");
+
             userInSession = null;
+        }
+
+        public static void RecordActivity(String username, String Description, String Type)
+        {
+            InventoryManagementBusinessLayer.CreateInformation.RegisterNewUserActivityInformation(new Activity(username, Description, Type));
         }
 
         // Getters and setters

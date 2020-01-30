@@ -37,6 +37,11 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             PopulateProductListDataGrid(); // Initializing the data grid upon load
+
+            CollectiveResources.RecordActivity(
+                CollectiveResources.UserInSession.Username,
+                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the inventory browser",
+                "BASIC ACCESS");
         }
 ////////// END Form Load Logic
 

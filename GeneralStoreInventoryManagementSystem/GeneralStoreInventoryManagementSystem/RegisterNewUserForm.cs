@@ -44,6 +44,11 @@ namespace GeneralStoreInventoryManagementSystem
             passwordErrorLabel.Text = "Invalid Password";
             passwordErrorLabel.Visible = false;
             confirmationPasswordErrorLabel.Visible = false;
+
+            CollectiveResources.RecordActivity(
+                CollectiveResources.UserInSession.Username,
+                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the form to register new users",
+                "ADMIN ACCESS");
         }
 ////////// END Load Form Logic
 

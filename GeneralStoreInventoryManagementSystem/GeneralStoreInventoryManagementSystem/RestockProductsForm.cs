@@ -31,6 +31,11 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Visible = false;
                 adminMenuOption.Enabled = false;
             }
+
+            CollectiveResources.RecordActivity(
+                CollectiveResources.UserInSession.Username,
+                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the form to restock products",
+                "ADMIN ACCESS");
         }
 ////////// END Form Logic
 

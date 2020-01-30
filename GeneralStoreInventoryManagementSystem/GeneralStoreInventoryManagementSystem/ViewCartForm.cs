@@ -33,6 +33,11 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Visible = false;
                 adminMenuOption.Enabled = false;
             }
+
+            CollectiveResources.RecordActivity(
+                CollectiveResources.UserInSession.Username,
+                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the cart view",
+                "BASIC ACCESS");
         }
 ////////// END Load Form Logic
 

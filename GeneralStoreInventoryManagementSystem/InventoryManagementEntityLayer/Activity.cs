@@ -13,6 +13,18 @@ namespace InventoryManagementEntityLayer
         private String type;
         private DateTime timestamp;
 
+        public Activity()
+        {
+
+        }
+
+        public Activity(String username, String description, String type)
+        {
+            this.username = username;
+            this.description = description;
+            this.type = type;
+        }
+
         // Getters and Setters
         public string Username
         {
