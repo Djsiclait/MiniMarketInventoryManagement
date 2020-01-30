@@ -213,6 +213,8 @@ namespace InventoryManagementDataLayer
                     user.LastLogin = DateTime.Parse(sqlDataReader["fld_user_last_login_timestamp"].ToString());
             }
 
+            DatabaseManager.DisconnectToDatabase();
+
             return user;
         }
 
@@ -235,6 +237,37 @@ namespace InventoryManagementDataLayer
             reply = Convert.ToInt32(cmd.ExecuteNonQuery());
 
             return cmd.Parameters["@message"].Value.ToString();
+        }
+
+        public static List<Activity> FetchActivityListData(String userPermission)
+        {
+            List<Activity> activities = new List<Activity>();
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Users_Activities_Data",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;
+
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                Activity activity = new Activity();
+
+                activity.Username = sqlDataReader["fld_user_activity_username"].ToString();
+                activity.Description = sqlDataReader["fld_user_activity_description"].ToString();
+                activity.Type = sqlDataReader["fld_user_activity_type"].ToString();
+                activity.Timestamp = DateTime.Parse(sqlDataReader["fld_user_activity_timestamp"].ToString()); 
+
+                activities.Add(activity);
+            }
+
+            DatabaseManager.DisconnectToDatabase();
+
+            return activities;
         }
 
         // Axiliary Functions

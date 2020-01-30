@@ -11,6 +11,8 @@ AS
 				fld_user_activity_timestamp
 			From
 				Tbl_User_Activity_Logs
+			Order by 
+				fld_user_activity_timestamp Desc
 		ELSE IF @user_permission = 'Admin'
 			Select
 				fld_user_activity_username,
@@ -21,6 +23,8 @@ AS
 				Tbl_User_Activity_Logs
 			Where
 				fld_user_activity_username <> 'super.admin'
+			Order by 
+				fld_user_activity_timestamp Desc
 
 	END
 

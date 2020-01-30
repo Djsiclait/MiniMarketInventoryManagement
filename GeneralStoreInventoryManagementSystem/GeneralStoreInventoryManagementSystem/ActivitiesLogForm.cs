@@ -33,6 +33,8 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Visible = false;
                 adminMenuOption.Enabled = false;
             }
+
+            PopulateActivityListDataGrid();
         }
 ////////// END Load Logic Form
 
@@ -191,5 +193,13 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.activitiesLogForm.logOutLabel.ForeColor = Color.Black;
         }
 ////////// END Menubar Options
+
+        private void PopulateActivityListDataGrid()
+        {
+            activityList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchActivityListInformation(CollectiveResources.UserInSession.Role);
+
+            activityList.Columns["Description"].Width = 550;
+            activityList.Columns["Timestamp"].Width = 200;
+        }
     }
 }
