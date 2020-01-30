@@ -40,8 +40,8 @@ namespace GeneralStoreInventoryManagementSystem
             }
             else if (message == "Password is incorrect")
             {
-                passwordTextBox.BackColor = Color.Red;
                 passwordTextBox.Text = "";
+                passwordTextBox.BackColor = Color.Red;
             }
             else
             {

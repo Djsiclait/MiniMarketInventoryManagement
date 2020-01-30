@@ -17,7 +17,7 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
-        // Load Form Logic
+////////// Load Form Logic
         private void SalesRecordForm_Load(object sender, EventArgs e)
         {
             // Limiting option according to current user's access level
@@ -34,9 +34,23 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Enabled = false;
             }
         }
-        // END Load Form Logic
+////////// END Load Form Logic
 
-        // Menubar Options
+////////// On Form Closing Override
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            // Log out of current session
+            CollectiveResources.EndUserSession();
+            FormsMenuList.loginForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.salesRecordForm.Dispose();
+        }
+////////// END On Form Closing Override
+
+////////// Menubar Options
         private void MakeSaleMenuOption_Click(object sender, EventArgs e)
         {
             // Summon Register New Sale Form
@@ -176,6 +190,6 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.salesRecordForm.logOutLabel.ForeColor = Color.Black;
         }
-        // END Menubar Options
+////////// END Menubar Options
     }
 }

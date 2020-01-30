@@ -36,6 +36,20 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// END Load Logic Form
 
+////////// On Form Closing Override
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            // Log out of current session
+            CollectiveResources.EndUserSession();
+            FormsMenuList.loginForm.Show();
+
+            // Closing form while freeing system resources
+            FormsMenuList.activitiesLogForm.Dispose();
+        }
+////////// END On Form Closing Override
+
 ////////// Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
@@ -176,6 +190,6 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.activitiesLogForm.logOutLabel.ForeColor = Color.Black;
         }
-        // END Menubar Options
+////////// END Menubar Options
     }
 }
