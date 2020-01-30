@@ -239,7 +239,7 @@ namespace InventoryManagementDataLayer
             return cmd.Parameters["@message"].Value.ToString();
         }
 
-        public static List<Activity> FetchActivityListData(String userPermission)
+        public static List<Activity> FetchActivityListData(String userPermission, String keyWord)
         {
             List<Activity> activities = new List<Activity>();
 
@@ -249,6 +249,7 @@ namespace InventoryManagementDataLayer
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
 
             SqlDataReader sqlDataReader;
             sqlDataReader = cmd.ExecuteReader();

@@ -251,6 +251,7 @@
             this.activitySearchBox.Name = "activitySearchBox";
             this.activitySearchBox.Size = new System.Drawing.Size(273, 20);
             this.activitySearchBox.TabIndex = 10;
+            this.activitySearchBox.TextChanged += new System.EventHandler(this.ActivitySearchBox_TextChanged);
             // 
             // ActivitiesLogForm
             // 

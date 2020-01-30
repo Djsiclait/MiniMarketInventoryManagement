@@ -196,10 +196,15 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void PopulateActivityListDataGrid()
         {
-            activityList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchActivityListInformation(CollectiveResources.UserInSession.Role);
+            activityList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchActivityListInformation(CollectiveResources.UserInSession.Role, activitySearchBox.Text);
 
             activityList.Columns["Description"].Width = 550;
             activityList.Columns["Timestamp"].Width = 200;
+        }
+
+        private void ActivitySearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateActivityListDataGrid();
         }
     }
 }
