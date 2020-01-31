@@ -50,6 +50,7 @@
             this.activityList = new System.Windows.Forms.DataGridView();
             this.changePasswordButton = new System.Windows.Forms.Button();
             this.changeAccessLevelButtom = new System.Windows.Forms.Button();
+            this.suspendUserButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.activityList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,25 +238,36 @@
             // 
             this.changePasswordButton.Location = new System.Drawing.Point(302, 320);
             this.changePasswordButton.Name = "changePasswordButton";
-            this.changePasswordButton.Size = new System.Drawing.Size(160, 23);
+            this.changePasswordButton.Size = new System.Drawing.Size(118, 23);
             this.changePasswordButton.TabIndex = 22;
             this.changePasswordButton.Text = "Change Password";
             this.changePasswordButton.UseVisualStyleBackColor = true;
+            this.changePasswordButton.Click += new System.EventHandler(this.ChangePasswordButton_Click);
             // 
             // changeAccessLevelButtom
             // 
-            this.changeAccessLevelButtom.Location = new System.Drawing.Point(535, 320);
+            this.changeAccessLevelButtom.Location = new System.Drawing.Point(575, 320);
             this.changeAccessLevelButtom.Name = "changeAccessLevelButtom";
-            this.changeAccessLevelButtom.Size = new System.Drawing.Size(160, 23);
+            this.changeAccessLevelButtom.Size = new System.Drawing.Size(120, 23);
             this.changeAccessLevelButtom.TabIndex = 23;
             this.changeAccessLevelButtom.Text = "Change Access Level";
             this.changeAccessLevelButtom.UseVisualStyleBackColor = true;
+            // 
+            // suspendUserButton
+            // 
+            this.suspendUserButton.Location = new System.Drawing.Point(444, 320);
+            this.suspendUserButton.Name = "suspendUserButton";
+            this.suspendUserButton.Size = new System.Drawing.Size(110, 23);
+            this.suspendUserButton.TabIndex = 24;
+            this.suspendUserButton.Text = "Suspend User";
+            this.suspendUserButton.UseVisualStyleBackColor = true;
             // 
             // UserInformationTemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 412);
+            this.Controls.Add(this.suspendUserButton);
             this.Controls.Add(this.changeAccessLevelButtom);
             this.Controls.Add(this.changePasswordButton);
             this.Controls.Add(this.searchActivityLabel);
@@ -312,5 +324,6 @@
         private System.Windows.Forms.DataGridView activityList;
         private System.Windows.Forms.Button changePasswordButton;
         private System.Windows.Forms.Button changeAccessLevelButtom;
+        private System.Windows.Forms.Button suspendUserButton;
     }
 }

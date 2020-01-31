@@ -29,6 +29,26 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void UserInformationTemplateForm_Load(object sender, EventArgs e)
         {
+            if (user.Username != CollectiveResources.UserInSession.Username && user.Role == CollectiveResources.UserInSession.Role)
+            {
+                changeAccessLevelButtom.Visible = false;
+                changeAccessLevelButtom.Enabled = false;
+                changePasswordButton.Visible = false;
+                changePasswordButton.Enabled = false;
+            }
+            else if (user.Username == CollectiveResources.UserInSession.Username)
+            {
+                changeAccessLevelButtom.Visible = false;
+                changeAccessLevelButtom.Enabled = false;
+                suspendUserButton.Visible = false;
+                suspendUserButton.Enabled = false;
+            }
+            else
+            {
+                changePasswordButton.Visible = false;
+                changePasswordButton.Enabled = false;
+            }
+
             usernameTextBox.Text = user.Username;
             firstNameTextBox.Text = user.FirstName;
             lastNameTextBox.Text = user.LastName;
@@ -47,12 +67,18 @@ namespace GeneralStoreInventoryManagementSystem
             activityList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchActivityListInformationByUsername(CollectiveResources.UserInSession.Role, user.Username, activitySearchBox.Text);
 
             activityList.Columns["Username"].Visible = false;
-            activityList.Columns["Description"].Width = 100;
+            activityList.Columns["Description"].Width = 170;
+            activityList.Columns["Timestamp"].Width = 130;
         }
 
         private void ActivitySearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateActivityList();
+        }
+
+        private void ChangePasswordButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

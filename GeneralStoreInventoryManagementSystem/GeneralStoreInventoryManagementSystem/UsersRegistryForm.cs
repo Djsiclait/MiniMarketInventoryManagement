@@ -217,6 +217,9 @@ namespace GeneralStoreInventoryManagementSystem
             userList.Columns["Password"].Visible = false;
             userList.Columns["Creator"].Visible = false;
             userList.Columns["RegistrationDate"].Visible = false;
+
+            userList.Columns["Status"].Width = 70;
+            userList.Columns["LastLogin"].Width = 130;
         }
 
         private void PopulateActicityListDataGrid()
