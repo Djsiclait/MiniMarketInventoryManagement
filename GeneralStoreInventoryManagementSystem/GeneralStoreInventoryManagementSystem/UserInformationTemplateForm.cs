@@ -78,7 +78,8 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ChangePasswordButton_Click(object sender, EventArgs e)
         {
-
+            ChangePasswordMiniForm changePasswordMiniForm = new ChangePasswordMiniForm(CollectiveResources.UserInSession.Username);
+            changePasswordMiniForm.Show();
         }
     }
 }

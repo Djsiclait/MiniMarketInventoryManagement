@@ -52,6 +52,12 @@
     <Compile Include="ActivitiesLogForm.Designer.cs">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangePasswordMiniForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePasswordMiniForm.Designer.cs">
+      <DependentUpon>ChangePasswordMiniForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CollectiveResources.cs" />
     <Compile Include="ErrorsLogForm.cs">
       <SubType>Form</SubType>
@@ -142,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="ActivitiesLogForm.resx">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePasswordMiniForm.resx">
+      <DependentUpon>ChangePasswordMiniForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorsLogForm.resx">
       <DependentUpon>ErrorsLogForm.cs</DependentUpon>
