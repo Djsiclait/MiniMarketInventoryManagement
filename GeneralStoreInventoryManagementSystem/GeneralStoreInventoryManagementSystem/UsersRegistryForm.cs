@@ -40,12 +40,12 @@ namespace GeneralStoreInventoryManagementSystem
 
             PopulateUserResigtryDataGrid();
 
-            PopulateActicityListDataGrid();
-
             CollectiveResources.RecordActivity(
                 CollectiveResources.UserInSession.Username,
                 CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the user registry",
                 "ADMIN ACCESS");
+
+            PopulateActicityListDataGrid();
         }
 ////////// END Load Form Logic
 
