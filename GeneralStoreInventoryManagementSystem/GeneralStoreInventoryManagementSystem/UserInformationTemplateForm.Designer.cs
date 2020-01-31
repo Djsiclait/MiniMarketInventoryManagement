@@ -214,6 +214,7 @@
             this.activitySearchBox.Name = "activitySearchBox";
             this.activitySearchBox.Size = new System.Drawing.Size(153, 20);
             this.activitySearchBox.TabIndex = 20;
+            this.activitySearchBox.TextChanged += new System.EventHandler(this.ActivitySearchBox_TextChanged);
             // 
             // activityList
             // 

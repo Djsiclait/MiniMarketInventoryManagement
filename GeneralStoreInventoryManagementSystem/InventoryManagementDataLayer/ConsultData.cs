@@ -271,6 +271,38 @@ namespace InventoryManagementDataLayer
             return activities;
         }
 
+        public static List<Activity> FetchActivityListDataByUsername(String userPermission, String username, String keyWord)
+        {
+            List<Activity> activities = new List<Activity>();
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_User_Activity_By_Username",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
+
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                Activity activity = new Activity();
+                
+                activity.Description = sqlDataReader["fld_user_activity_description"].ToString();
+                activity.Type = sqlDataReader["fld_user_activity_type"].ToString();
+                activity.Timestamp = DateTime.Parse(sqlDataReader["fld_user_activity_timestamp"].ToString());
+
+                activities.Add(activity);
+            }
+
+            DatabaseManager.DisconnectToDatabase();
+
+            return activities;
+        }
+
         // Axiliary Functions
         // Function to convert strings to floats
         private static float FormatToFloat(String value)

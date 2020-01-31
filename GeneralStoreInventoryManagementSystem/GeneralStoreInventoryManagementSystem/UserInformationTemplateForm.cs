@@ -38,6 +38,20 @@ namespace GeneralStoreInventoryManagementSystem
             registrationDateDateTimePicker.Text = user.RegistrationDate.ToString();
             lastLoginDateTimePicker.Text = user.LastLogin.ToString();
 
+            PopulateActivityList();
+
+        }
+
+        private void PopulateActivityList()
+        {
+            activityList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchActivityListInformationByUsername(CollectiveResources.UserInSession.Role, user.Username, activitySearchBox.Text);
+
+            activityList.Columns["Username"].Visible = false;
+        }
+
+        private void ActivitySearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateActivityList();
         }
     }
 }

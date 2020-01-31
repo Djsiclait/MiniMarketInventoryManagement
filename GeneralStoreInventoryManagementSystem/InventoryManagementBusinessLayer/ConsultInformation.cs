@@ -67,5 +67,10 @@ namespace InventoryManagementBusinessLayer
         {
             return InventoryManagementDataLayer.ConsultData.FetchActivityListData(userPermission, keyWord, last24Hours);
         }
+
+        public static List<Activity> FetchActivityListInformationByUsername(String userPermission, String username, String keyWord)
+        {
+            return InventoryManagementDataLayer.ConsultData.FetchActivityListDataByUsername(userPermission, username, keyWord);
+        }
     }
 }
