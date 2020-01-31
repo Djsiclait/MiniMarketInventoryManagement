@@ -51,5 +51,19 @@ namespace InventoryManagementDataLayer
             reply = Convert.ToInt32(cmd.ExecuteNonQuery());
         }
 
+        public static void ChangeTargerUserStatusData(String targetUser, int newStatus)
+        {
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Change_User_Status",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@target_user", SqlDbType.VarChar, 50).Value = targetUser;
+            cmd.Parameters.Add("@new_status", SqlDbType.TinyInt).Value = newStatus;
+
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+        }
+
     }
 }

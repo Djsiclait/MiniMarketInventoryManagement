@@ -25,5 +25,10 @@ namespace InventoryManagementBusinessLayer
         {
             InventoryManagementDataLayer.UpdateData.ChangeTargetUserAccessLevelData(targetUser, newAccessLevel);
         }
+
+        public static void ChangeTargerUserStatusInformation(String targetUser, int newStatus)
+        {
+            InventoryManagementDataLayer.UpdateData.ChangeTargerUserStatusData(targetUser, newStatus);
+        }
     }
 }

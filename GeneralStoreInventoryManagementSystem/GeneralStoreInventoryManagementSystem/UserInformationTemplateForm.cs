@@ -50,6 +50,7 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             changeAccessLevelButtom.Text = user.Role == "Admin" ? "Demote to User Level" : "Promote to Admin Level";
+            suspendUserButton.Text = user.Status == "Active" ? "Suspend User" : "Reinstate User";
 
             usernameTextBox.Text = user.Username;
             firstNameTextBox.Text = user.FirstName;
@@ -103,6 +104,21 @@ namespace GeneralStoreInventoryManagementSystem
                 CollectiveResources.UserInSession.Username,
                 CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", changed " + user.Username + "'s user access level to: " + user.Role,
                 user.Role == "Admin" ? "ADMIN PROMOTION" : "USER DEMOTION");
+
+            FormsMenuList.usersRegistryForm.RefreshDatagridInformation();
+        }
+
+        private void suspendUserButton_Click(object sender, EventArgs e)
+        {
+            InventoryManagementBusinessLayer.UpdateInformation.ChangeTargerUserStatusInformation(user.Username, user.Status == "Active" ? 1 : 0);
+            user.Status = user.Status == "Active" ? "1" : "0";
+            statusTextBox.Text = user.Status;
+            suspendUserButton.Text = user.Status == "Active" ? "Suspend User" : "ReinstateUser";
+
+            CollectiveResources.RecordActivity(
+                CollectiveResources.UserInSession.Username,
+                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", " + (user.Status == "Active" ? "reinstated " : "suspended") + " user account, " + user.Username,
+                user.Status == "Active" ? "ACTIVATE " : "SUSPEND");
 
             FormsMenuList.usersRegistryForm.RefreshDatagridInformation();
         }

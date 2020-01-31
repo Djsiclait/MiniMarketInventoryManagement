@@ -262,6 +262,7 @@
             this.suspendUserButton.TabIndex = 24;
             this.suspendUserButton.Text = "Suspend User";
             this.suspendUserButton.UseVisualStyleBackColor = true;
+            this.suspendUserButton.Click += new System.EventHandler(this.suspendUserButton_Click);
             // 
             // UserInformationTemplateForm
             // 
