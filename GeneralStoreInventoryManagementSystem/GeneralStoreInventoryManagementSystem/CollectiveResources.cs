@@ -19,6 +19,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             userInSession = InventoryManagementBusinessLayer.ConsultInformation.FetchUserInformationByUsername(username);
 
+            InventoryManagementBusinessLayer.UpdateInformation.UpdateUserLastLoginInformation(userInSession.Username);
+
             RecordActivity(
                 userInSession.Username, 
                 userInSession.Role + ", " + userInSession.Username + ", has successfully logged in",
@@ -32,6 +34,8 @@ namespace GeneralStoreInventoryManagementSystem
                 userInSession.Username,
                 userInSession.Role + ", " + userInSession.Username + ", has successfully logged out",
                 "LOG OUT");
+
+            InventoryManagementBusinessLayer.UpdateInformation.UpdateUserLastLoginInformation(userInSession.Username);
 
             userInSession = null;
         }

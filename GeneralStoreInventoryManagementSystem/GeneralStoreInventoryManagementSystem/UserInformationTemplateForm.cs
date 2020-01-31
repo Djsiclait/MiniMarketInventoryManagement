@@ -47,6 +47,7 @@ namespace GeneralStoreInventoryManagementSystem
             activityList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchActivityListInformationByUsername(CollectiveResources.UserInSession.Role, user.Username, activitySearchBox.Text);
 
             activityList.Columns["Username"].Visible = false;
+            activityList.Columns["Description"].Width = 100;
         }
 
         private void ActivitySearchBox_TextChanged(object sender, EventArgs e)
