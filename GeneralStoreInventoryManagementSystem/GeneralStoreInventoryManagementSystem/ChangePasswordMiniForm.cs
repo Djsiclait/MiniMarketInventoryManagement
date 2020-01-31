@@ -76,7 +76,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             if (ValidateUserInput())
             {
-                InventoryManagementBusinessLayer.UpdateInformation.UpdateUserPasswordInformation(username, passwordTextBox.Text);
+                InventoryManagementBusinessLayer.UpdateInformation.ChangeUserPasswordInformation(username, passwordTextBox.Text);
 
                 CollectiveResources.RecordActivity(
                     CollectiveResources.UserInSession.Username,

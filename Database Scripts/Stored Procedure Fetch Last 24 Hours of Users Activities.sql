@@ -51,5 +51,5 @@ go
 
 exec SP_Fetch_Last_24_Hours_Users_Activities_Data 'Admin', ''
 
-Select fld_user_activity_type, DATEDIFF(hour, fld_user_activity_timestamp, GETDATE()) As Hours from Tbl_User_Activity_Logs
+Select fld_user_activity_type, DATEDIFF(hour, fld_user_activity_timestamp, GETDATE()) As Hours, fld_user_activity_timestamp from Tbl_User_Activity_Logs
 

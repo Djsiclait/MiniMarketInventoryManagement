@@ -16,9 +16,14 @@ namespace InventoryManagementBusinessLayer
             InventoryManagementDataLayer.UpdateData.UpdateUserLastLoginData(username);
         }
 
-        public static void UpdateUserPasswordInformation(String username, String newPassword)
+        public static void ChangeUserPasswordInformation(String username, String newPassword)
         {
-            InventoryManagementDataLayer.UpdateData.UpdateUserPasswordData(username, newPassword);
+            InventoryManagementDataLayer.UpdateData.ChangeUserPasswordData(username, newPassword);
+        }
+
+        public static void ChangeTargetUserAccessLevelData(String targetUser, String newAccessLevel)
+        {
+            InventoryManagementDataLayer.UpdateData.ChangeTargetUserAccessLevelData(targetUser, newAccessLevel);
         }
     }
 }

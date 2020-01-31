@@ -246,5 +246,11 @@ namespace GeneralStoreInventoryManagementSystem
         {
             PopulateActicityListDataGrid();
         }
+
+        public void RefreshDatagridInformation()
+        {
+            PopulateUserResigtryDataGrid();
+            PopulateActicityListDataGrid();
+        }
     }
 }

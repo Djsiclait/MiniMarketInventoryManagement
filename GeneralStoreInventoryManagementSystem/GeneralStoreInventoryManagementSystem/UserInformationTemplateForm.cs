@@ -49,6 +49,8 @@ namespace GeneralStoreInventoryManagementSystem
                 changePasswordButton.Enabled = false;
             }
 
+            changeAccessLevelButtom.Text = user.Role == "Admin" ? "Demote to User Level" : "Promote to Admin Level";
+
             usernameTextBox.Text = user.Username;
             firstNameTextBox.Text = user.FirstName;
             lastNameTextBox.Text = user.LastName;
@@ -80,6 +82,29 @@ namespace GeneralStoreInventoryManagementSystem
         {
             ChangePasswordMiniForm changePasswordMiniForm = new ChangePasswordMiniForm(CollectiveResources.UserInSession.Username);
             changePasswordMiniForm.Show();
+        }
+
+        private void ChangeAccessLevelButtom_Click(object sender, EventArgs e)
+        {
+            InventoryManagementBusinessLayer.UpdateInformation.ChangeTargetUserAccessLevelData(user.Username, user.Role == "Admin" ? "User" : "Admin");
+            user.Role = user.Role == "Admin" ? "User" : "Admin";
+            roleTextBox.Text = user.Role;
+            changeAccessLevelButtom.Text = user.Role == "Admin" ? "Demote to User Level" : "Promote to Admin Level";
+
+            if (user.Username != CollectiveResources.UserInSession.Username && user.Role == CollectiveResources.UserInSession.Role)
+            {
+                changeAccessLevelButtom.Visible = false;
+                changeAccessLevelButtom.Enabled = false;
+                changePasswordButton.Visible = false;
+                changePasswordButton.Enabled = false;
+            }
+
+            CollectiveResources.RecordActivity(
+                CollectiveResources.UserInSession.Username,
+                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", changed " + user.Username + "'s user access level to: " + user.Role,
+                user.Role == "Admin" ? "ADMIN PROMOTION" : "USER DEMOTION");
+
+            FormsMenuList.usersRegistryForm.RefreshDatagridInformation();
         }
     }
 }

@@ -238,7 +238,7 @@
             // 
             this.changePasswordButton.Location = new System.Drawing.Point(302, 320);
             this.changePasswordButton.Name = "changePasswordButton";
-            this.changePasswordButton.Size = new System.Drawing.Size(118, 23);
+            this.changePasswordButton.Size = new System.Drawing.Size(136, 23);
             this.changePasswordButton.TabIndex = 22;
             this.changePasswordButton.Text = "Change Password";
             this.changePasswordButton.UseVisualStyleBackColor = true;
@@ -246,12 +246,13 @@
             // 
             // changeAccessLevelButtom
             // 
-            this.changeAccessLevelButtom.Location = new System.Drawing.Point(575, 320);
+            this.changeAccessLevelButtom.Location = new System.Drawing.Point(560, 320);
             this.changeAccessLevelButtom.Name = "changeAccessLevelButtom";
-            this.changeAccessLevelButtom.Size = new System.Drawing.Size(120, 23);
+            this.changeAccessLevelButtom.Size = new System.Drawing.Size(135, 23);
             this.changeAccessLevelButtom.TabIndex = 23;
             this.changeAccessLevelButtom.Text = "Change Access Level";
             this.changeAccessLevelButtom.UseVisualStyleBackColor = true;
+            this.changeAccessLevelButtom.Click += new System.EventHandler(this.ChangeAccessLevelButtom_Click);
             // 
             // suspendUserButton
             // 
