@@ -35,7 +35,13 @@ namespace GeneralStoreInventoryManagementSystem
             }
             else if (message == "User profile is currently inactive")
             {
-                // TODO: Add a prompt
+                MessageBox.Show("This user has been deacivated, please try with a different account.");
+
+                CollectiveResources.RecordActivity(
+                    usernameTextBox.Text,
+                    "Deactivated account, " + usernameTextBox.Text + ", attemped to log into the system",
+                    "LOGIN FAILIER");
+
                 ClearTextBoxBuffer();
             }
             else if (message == "Password is incorrect")
