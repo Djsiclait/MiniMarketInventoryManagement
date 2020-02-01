@@ -59,5 +59,25 @@ namespace InventoryManagementDataLayer
             Int32 reply;
             reply = Convert.ToInt32(cmd.ExecuteNonQuery());
         }
+
+        public static String RegisterNewProductBrandData(String name)
+        {
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Register_New_Brand_Data",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@name", SqlDbType.VarChar, 100).Value = name;
+
+            SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300);
+            message.Direction = ParameterDirection.Output;
+
+            cmd.Parameters.Add(message);
+
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+            return cmd.Parameters["@message"].Value.ToString();
+        }
     }
 }

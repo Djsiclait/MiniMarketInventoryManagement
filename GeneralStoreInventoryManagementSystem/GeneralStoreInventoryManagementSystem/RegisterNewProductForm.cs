@@ -211,5 +211,18 @@ namespace GeneralStoreInventoryManagementSystem
         {
             PopulateBrandListBox();
         }
+
+        private void AddNewBrandButton_Click(object sender, EventArgs e)
+        {
+            String message = InventoryManagementBusinessLayer.CreateInformation.RegisterNewProductBrandInformation(brandSearchBox.Text);
+
+            if (message == "Brand has been registered successfully!")
+            {
+                brandSearchBox.Text = "";
+                PopulateBrandListBox();
+            }
+            else
+                MessageBox.Show("This product already exists");
+        }
     }
 }

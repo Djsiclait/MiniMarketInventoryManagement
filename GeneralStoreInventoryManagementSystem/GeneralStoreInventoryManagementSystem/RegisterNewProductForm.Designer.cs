@@ -327,6 +327,7 @@
             this.addNewBrandButton.TabIndex = 18;
             this.addNewBrandButton.Text = "+";
             this.addNewBrandButton.UseVisualStyleBackColor = true;
+            this.addNewBrandButton.Click += new System.EventHandler(this.AddNewBrandButton_Click);
             // 
             // supplierLabel
             // 
