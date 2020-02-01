@@ -72,5 +72,10 @@ namespace InventoryManagementBusinessLayer
         {
             return InventoryManagementDataLayer.ConsultData.FetchActivityListDataByUsername(userPermission, username, keyWord);
         }
+
+        public static List<String> FetchBrandListInformation(String keyWord)
+        {
+            return InventoryManagementDataLayer.ConsultData.FetchBrandListData(keyWord);
+        }
     }
 }

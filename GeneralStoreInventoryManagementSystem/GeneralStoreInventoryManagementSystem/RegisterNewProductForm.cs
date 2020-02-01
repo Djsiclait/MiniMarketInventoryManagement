@@ -32,6 +32,8 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Enabled = false;
             }
 
+            PopulateBrandListBox();
+
             CollectiveResources.RecordActivity(
                 CollectiveResources.UserInSession.Username,
                 CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the for to register new products",
@@ -199,5 +201,15 @@ namespace GeneralStoreInventoryManagementSystem
 
         }
         ////////// END Menubar Options
+
+        private void PopulateBrandListBox()
+        {
+            brandListBox.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchBrandListInformation(brandSearchBox.Text);
+        }
+
+        private void BrandSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateBrandListBox();
+        }
     }
 }

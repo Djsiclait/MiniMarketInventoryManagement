@@ -316,6 +316,7 @@
             this.brandSearchBox.Name = "brandSearchBox";
             this.brandSearchBox.Size = new System.Drawing.Size(186, 20);
             this.brandSearchBox.TabIndex = 17;
+            this.brandSearchBox.TextChanged += new System.EventHandler(this.BrandSearchBox_TextChanged);
             // 
             // addNewBrandButton
             // 

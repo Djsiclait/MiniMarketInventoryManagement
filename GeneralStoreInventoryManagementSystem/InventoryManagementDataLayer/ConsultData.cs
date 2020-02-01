@@ -303,6 +303,35 @@ namespace InventoryManagementDataLayer
             return activities;
         }
 
+        public static List<String> FetchBrandListData(String keyWord)
+        {
+            List<String> brands = new List<String>();
+            brands.Add("<None>");
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Registered_Brand_Names_Data",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
+
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                String brand;
+
+                brand = sqlDataReader["fld_brand_name"].ToString();
+
+                brands.Add(brand);
+            }
+
+            DatabaseManager.DisconnectToDatabase();
+
+            return brands;
+        }
+
         // Axiliary Functions
         // Function to convert strings to floats
         private static float FormatToFloat(String value)
