@@ -34,12 +34,12 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Enabled = false;
             }
 
-            PopulateActivityListDataGrid();
-
             CollectiveResources.RecordActivity(
                 CollectiveResources.UserInSession.Username,
                 CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the activities logs",
                 "ADMIN ACCESS");
+
+            PopulateActivityListDataGrid();
         }
 ////////// END Load Logic Form
 
