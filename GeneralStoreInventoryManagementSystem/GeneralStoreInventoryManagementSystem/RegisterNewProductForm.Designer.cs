@@ -47,14 +47,50 @@
             this.logsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewActivityLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerNewProductTitleLabel = new System.Windows.Forms.Label();
+            this.keyLabel = new System.Windows.Forms.Label();
+            this.keyTextBox = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.brandLabel = new System.Windows.Forms.Label();
+            this.brandListBox = new System.Windows.Forms.ListBox();
+            this.brandSearchBox = new System.Windows.Forms.TextBox();
+            this.addNewBrandButton = new System.Windows.Forms.Button();
+            this.supplierLabel = new System.Windows.Forms.Label();
+            this.supplierListBox = new System.Windows.Forms.ListBox();
+            this.supplierSearchBox = new System.Windows.Forms.TextBox();
+            this.categoryLabel = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.addNewSupplierButton = new System.Windows.Forms.Button();
+            this.unitLabel = new System.Windows.Forms.Label();
+            this.unitTextBox = new System.Windows.Forms.TextBox();
+            this.costLabel = new System.Windows.Forms.Label();
+            this.costNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.priceLabel = new System.Windows.Forms.Label();
+            this.priceNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.quantityLabel = new System.Windows.Forms.Label();
+            this.quantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.minimumLabel = new System.Windows.Forms.Label();
+            this.minimumNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.maximumLabel = new System.Windows.Forms.Label();
+            this.maximumNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.createButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimumNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximumNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
             // 
             this.viewCartLabel.AutoSize = true;
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
             this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
             this.viewCartLabel.TabIndex = 9;
@@ -67,7 +103,7 @@
             // 
             this.logOutLabel.AutoSize = true;
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.logOutLabel.Location = new System.Drawing.Point(870, 9);
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(45, 13);
             this.logOutLabel.TabIndex = 8;
@@ -85,7 +121,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -214,19 +250,408 @@
             this.viewErrorLogsOption.Text = "View Error Logs";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
+            // registerNewProductTitleLabel
+            // 
+            this.registerNewProductTitleLabel.AutoSize = true;
+            this.registerNewProductTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerNewProductTitleLabel.Location = new System.Drawing.Point(357, 36);
+            this.registerNewProductTitleLabel.Name = "registerNewProductTitleLabel";
+            this.registerNewProductTitleLabel.Size = new System.Drawing.Size(183, 20);
+            this.registerNewProductTitleLabel.TabIndex = 10;
+            this.registerNewProductTitleLabel.Text = "Register New Product";
+            // 
+            // keyLabel
+            // 
+            this.keyLabel.AutoSize = true;
+            this.keyLabel.Location = new System.Drawing.Point(180, 72);
+            this.keyLabel.Name = "keyLabel";
+            this.keyLabel.Size = new System.Drawing.Size(68, 13);
+            this.keyLabel.TabIndex = 11;
+            this.keyLabel.Text = "Product Key:";
+            // 
+            // keyTextBox
+            // 
+            this.keyTextBox.Location = new System.Drawing.Point(201, 88);
+            this.keyTextBox.Name = "keyTextBox";
+            this.keyTextBox.Size = new System.Drawing.Size(206, 20);
+            this.keyTextBox.TabIndex = 12;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(484, 72);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(78, 13);
+            this.nameLabel.TabIndex = 13;
+            this.nameLabel.Text = "Product Name:";
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(505, 88);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(206, 20);
+            this.nameTextBox.TabIndex = 14;
+            // 
+            // brandLabel
+            // 
+            this.brandLabel.AutoSize = true;
+            this.brandLabel.Location = new System.Drawing.Point(180, 137);
+            this.brandLabel.Name = "brandLabel";
+            this.brandLabel.Size = new System.Drawing.Size(38, 13);
+            this.brandLabel.TabIndex = 15;
+            this.brandLabel.Text = "Brand:";
+            // 
+            // brandListBox
+            // 
+            this.brandListBox.FormattingEnabled = true;
+            this.brandListBox.Location = new System.Drawing.Point(186, 162);
+            this.brandListBox.Name = "brandListBox";
+            this.brandListBox.Size = new System.Drawing.Size(221, 121);
+            this.brandListBox.TabIndex = 16;
+            // 
+            // brandSearchBox
+            // 
+            this.brandSearchBox.Location = new System.Drawing.Point(221, 134);
+            this.brandSearchBox.Name = "brandSearchBox";
+            this.brandSearchBox.Size = new System.Drawing.Size(186, 20);
+            this.brandSearchBox.TabIndex = 17;
+            // 
+            // addNewBrandButton
+            // 
+            this.addNewBrandButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNewBrandButton.Location = new System.Drawing.Point(153, 204);
+            this.addNewBrandButton.Name = "addNewBrandButton";
+            this.addNewBrandButton.Size = new System.Drawing.Size(27, 23);
+            this.addNewBrandButton.TabIndex = 18;
+            this.addNewBrandButton.Text = "+";
+            this.addNewBrandButton.UseVisualStyleBackColor = true;
+            // 
+            // supplierLabel
+            // 
+            this.supplierLabel.AutoSize = true;
+            this.supplierLabel.Location = new System.Drawing.Point(484, 137);
+            this.supplierLabel.Name = "supplierLabel";
+            this.supplierLabel.Size = new System.Drawing.Size(48, 13);
+            this.supplierLabel.TabIndex = 19;
+            this.supplierLabel.Text = "Supplier:";
+            // 
+            // supplierListBox
+            // 
+            this.supplierListBox.FormattingEnabled = true;
+            this.supplierListBox.Location = new System.Drawing.Point(487, 162);
+            this.supplierListBox.Name = "supplierListBox";
+            this.supplierListBox.Size = new System.Drawing.Size(224, 121);
+            this.supplierListBox.TabIndex = 20;
+            // 
+            // supplierSearchBox
+            // 
+            this.supplierSearchBox.Location = new System.Drawing.Point(535, 134);
+            this.supplierSearchBox.Name = "supplierSearchBox";
+            this.supplierSearchBox.Size = new System.Drawing.Size(176, 20);
+            this.supplierSearchBox.TabIndex = 21;
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.AutoSize = true;
+            this.categoryLabel.Location = new System.Drawing.Point(180, 307);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(52, 13);
+            this.categoryLabel.TabIndex = 22;
+            this.categoryLabel.Text = "Category:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(201, 324);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(206, 21);
+            this.comboBox1.TabIndex = 23;
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Location = new System.Drawing.Point(484, 307);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(34, 13);
+            this.typeLabel.TabIndex = 24;
+            this.typeLabel.Text = "Type:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(505, 324);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(206, 21);
+            this.comboBox2.TabIndex = 25;
+            // 
+            // addNewSupplierButton
+            // 
+            this.addNewSupplierButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addNewSupplierButton.Location = new System.Drawing.Point(454, 204);
+            this.addNewSupplierButton.Name = "addNewSupplierButton";
+            this.addNewSupplierButton.Size = new System.Drawing.Size(27, 23);
+            this.addNewSupplierButton.TabIndex = 26;
+            this.addNewSupplierButton.Text = "+";
+            this.addNewSupplierButton.UseVisualStyleBackColor = true;
+            // 
+            // unitLabel
+            // 
+            this.unitLabel.AutoSize = true;
+            this.unitLabel.Location = new System.Drawing.Point(180, 372);
+            this.unitLabel.Name = "unitLabel";
+            this.unitLabel.Size = new System.Drawing.Size(108, 13);
+            this.unitLabel.TabIndex = 27;
+            this.unitLabel.Text = "Unit of Measurement:";
+            // 
+            // unitTextBox
+            // 
+            this.unitTextBox.Location = new System.Drawing.Point(201, 389);
+            this.unitTextBox.Name = "unitTextBox";
+            this.unitTextBox.Size = new System.Drawing.Size(136, 20);
+            this.unitTextBox.TabIndex = 28;
+            // 
+            // costLabel
+            // 
+            this.costLabel.AutoSize = true;
+            this.costLabel.Location = new System.Drawing.Point(362, 371);
+            this.costLabel.Name = "costLabel";
+            this.costLabel.Size = new System.Drawing.Size(53, 13);
+            this.costLabel.TabIndex = 29;
+            this.costLabel.Text = "Unit Cost:";
+            // 
+            // costNumericUpDown
+            // 
+            this.costNumericUpDown.DecimalPlaces = 2;
+            this.costNumericUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.costNumericUpDown.Location = new System.Drawing.Point(382, 387);
+            this.costNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.costNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.costNumericUpDown.Name = "costNumericUpDown";
+            this.costNumericUpDown.Size = new System.Drawing.Size(136, 20);
+            this.costNumericUpDown.TabIndex = 30;
+            this.costNumericUpDown.ThousandsSeparator = true;
+            this.costNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            // 
+            // priceLabel
+            // 
+            this.priceLabel.AutoSize = true;
+            this.priceLabel.Location = new System.Drawing.Point(553, 370);
+            this.priceLabel.Name = "priceLabel";
+            this.priceLabel.Size = new System.Drawing.Size(56, 13);
+            this.priceLabel.TabIndex = 31;
+            this.priceLabel.Text = "Unit Price:";
+            this.priceLabel.Click += new System.EventHandler(this.priceLabel_Click);
+            // 
+            // priceNumericUpDown
+            // 
+            this.priceNumericUpDown.DecimalPlaces = 2;
+            this.priceNumericUpDown.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.priceNumericUpDown.Location = new System.Drawing.Point(575, 387);
+            this.priceNumericUpDown.Maximum = new decimal(new int[] {
+            1215752192,
+            23,
+            0,
+            0});
+            this.priceNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.priceNumericUpDown.Name = "priceNumericUpDown";
+            this.priceNumericUpDown.Size = new System.Drawing.Size(136, 20);
+            this.priceNumericUpDown.TabIndex = 32;
+            this.priceNumericUpDown.ThousandsSeparator = true;
+            this.priceNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            // 
+            // quantityLabel
+            // 
+            this.quantityLabel.AutoSize = true;
+            this.quantityLabel.Location = new System.Drawing.Point(180, 434);
+            this.quantityLabel.Name = "quantityLabel";
+            this.quantityLabel.Size = new System.Drawing.Size(49, 13);
+            this.quantityLabel.TabIndex = 33;
+            this.quantityLabel.Text = "Quantity:";
+            // 
+            // quantityNumericUpDown
+            // 
+            this.quantityNumericUpDown.Location = new System.Drawing.Point(201, 451);
+            this.quantityNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.quantityNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.quantityNumericUpDown.Name = "quantityNumericUpDown";
+            this.quantityNumericUpDown.Size = new System.Drawing.Size(136, 20);
+            this.quantityNumericUpDown.TabIndex = 34;
+            this.quantityNumericUpDown.ThousandsSeparator = true;
+            this.quantityNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // minimumLabel
+            // 
+            this.minimumLabel.AutoSize = true;
+            this.minimumLabel.Location = new System.Drawing.Point(365, 433);
+            this.minimumLabel.Name = "minimumLabel";
+            this.minimumLabel.Size = new System.Drawing.Size(111, 13);
+            this.minimumLabel.TabIndex = 35;
+            this.minimumLabel.Text = "Minimum Stock Level:";
+            // 
+            // minimumNumericUpDown
+            // 
+            this.minimumNumericUpDown.Location = new System.Drawing.Point(382, 451);
+            this.minimumNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.minimumNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.minimumNumericUpDown.Name = "minimumNumericUpDown";
+            this.minimumNumericUpDown.Size = new System.Drawing.Size(136, 20);
+            this.minimumNumericUpDown.TabIndex = 36;
+            this.minimumNumericUpDown.ThousandsSeparator = true;
+            this.minimumNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // maximumLabel
+            // 
+            this.maximumLabel.AutoSize = true;
+            this.maximumLabel.Location = new System.Drawing.Point(556, 433);
+            this.maximumLabel.Name = "maximumLabel";
+            this.maximumLabel.Size = new System.Drawing.Size(114, 13);
+            this.maximumLabel.TabIndex = 37;
+            this.maximumLabel.Text = "Maximum Stock Level:";
+            // 
+            // maximumNumericUpDown
+            // 
+            this.maximumNumericUpDown.Location = new System.Drawing.Point(575, 451);
+            this.maximumNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.maximumNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.maximumNumericUpDown.Name = "maximumNumericUpDown";
+            this.maximumNumericUpDown.Size = new System.Drawing.Size(136, 20);
+            this.maximumNumericUpDown.TabIndex = 38;
+            this.maximumNumericUpDown.ThousandsSeparator = true;
+            this.maximumNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // createButton
+            // 
+            this.createButton.Location = new System.Drawing.Point(535, 510);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(176, 23);
+            this.createButton.TabIndex = 39;
+            this.createButton.Text = "Create New Product";
+            this.createButton.UseVisualStyleBackColor = true;
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(382, 509);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(136, 23);
+            this.clearButton.TabIndex = 40;
+            this.clearButton.Text = "Clear Information";
+            this.clearButton.UseVisualStyleBackColor = true;
+            // 
             // RegisterNewProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 462);
+            this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.createButton);
+            this.Controls.Add(this.maximumNumericUpDown);
+            this.Controls.Add(this.maximumLabel);
+            this.Controls.Add(this.minimumNumericUpDown);
+            this.Controls.Add(this.minimumLabel);
+            this.Controls.Add(this.quantityNumericUpDown);
+            this.Controls.Add(this.quantityLabel);
+            this.Controls.Add(this.priceNumericUpDown);
+            this.Controls.Add(this.priceLabel);
+            this.Controls.Add(this.costNumericUpDown);
+            this.Controls.Add(this.costLabel);
+            this.Controls.Add(this.unitTextBox);
+            this.Controls.Add(this.unitLabel);
+            this.Controls.Add(this.addNewSupplierButton);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.typeLabel);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.categoryLabel);
+            this.Controls.Add(this.supplierSearchBox);
+            this.Controls.Add(this.supplierListBox);
+            this.Controls.Add(this.supplierLabel);
+            this.Controls.Add(this.addNewBrandButton);
+            this.Controls.Add(this.brandSearchBox);
+            this.Controls.Add(this.brandListBox);
+            this.Controls.Add(this.brandLabel);
+            this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.keyTextBox);
+            this.Controls.Add(this.keyLabel);
+            this.Controls.Add(this.registerNewProductTitleLabel);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "RegisterNewProductForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New Product";
             this.Load += new System.EventHandler(this.RegisterNewProductForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimumNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximumNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,5 +678,36 @@
         private System.Windows.Forms.ToolStripMenuItem logsMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem viewActivityLogsOption;
         private System.Windows.Forms.ToolStripMenuItem viewErrorLogsOption;
+        private System.Windows.Forms.Label registerNewProductTitleLabel;
+        private System.Windows.Forms.Label keyLabel;
+        private System.Windows.Forms.TextBox keyTextBox;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label brandLabel;
+        private System.Windows.Forms.ListBox brandListBox;
+        private System.Windows.Forms.TextBox brandSearchBox;
+        private System.Windows.Forms.Button addNewBrandButton;
+        private System.Windows.Forms.Label supplierLabel;
+        private System.Windows.Forms.ListBox supplierListBox;
+        private System.Windows.Forms.TextBox supplierSearchBox;
+        private System.Windows.Forms.Label categoryLabel;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button addNewSupplierButton;
+        private System.Windows.Forms.Label unitLabel;
+        private System.Windows.Forms.TextBox unitTextBox;
+        private System.Windows.Forms.Label costLabel;
+        private System.Windows.Forms.NumericUpDown costNumericUpDown;
+        private System.Windows.Forms.Label priceLabel;
+        private System.Windows.Forms.NumericUpDown priceNumericUpDown;
+        private System.Windows.Forms.Label quantityLabel;
+        private System.Windows.Forms.NumericUpDown quantityNumericUpDown;
+        private System.Windows.Forms.Label minimumLabel;
+        private System.Windows.Forms.NumericUpDown minimumNumericUpDown;
+        private System.Windows.Forms.Label maximumLabel;
+        private System.Windows.Forms.NumericUpDown maximumNumericUpDown;
+        private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.Button clearButton;
     }
 }

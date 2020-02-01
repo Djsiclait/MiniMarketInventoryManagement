@@ -193,6 +193,11 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.registerNewProduct.ForeColor = Color.Black;
         }
-////////// END Menubar Options
+
+        private void priceLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+        ////////// END Menubar Options
     }
 }
