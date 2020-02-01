@@ -78,6 +78,8 @@
             this.maximumNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.createButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.profitMarginLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).BeginInit();
@@ -578,7 +580,7 @@
             this.maximumNumericUpDown.TabIndex = 38;
             this.maximumNumericUpDown.ThousandsSeparator = true;
             this.maximumNumericUpDown.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -601,11 +603,31 @@
             this.clearButton.Text = "Clear Information";
             this.clearButton.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(188, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "label1";
+            // 
+            // profitMarginLabel
+            // 
+            this.profitMarginLabel.AutoSize = true;
+            this.profitMarginLabel.Location = new System.Drawing.Point(718, 389);
+            this.profitMarginLabel.Name = "profitMarginLabel";
+            this.profitMarginLabel.Size = new System.Drawing.Size(21, 13);
+            this.profitMarginLabel.TabIndex = 42;
+            this.profitMarginLabel.Text = "0%";
+            // 
             // RegisterNewProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.profitMarginLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.maximumNumericUpDown);
@@ -709,5 +731,7 @@
         private System.Windows.Forms.NumericUpDown maximumNumericUpDown;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label profitMarginLabel;
     }
 }
