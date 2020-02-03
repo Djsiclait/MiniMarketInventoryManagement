@@ -31,5 +31,10 @@ namespace InventoryManagementBusinessLayer
         {
             return InventoryManagementDataLayer.CreateData.RegisterNewProductBrandData(name);
         }
+
+        public static String RegisterNewProductSupplierInformation(String name, String phoneNumber, String email)
+        {
+            return InventoryManagementDataLayer.CreateData.RegisterNewProductSupplierData(name, phoneNumber, email);
+        }
     }
 }

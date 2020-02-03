@@ -352,6 +352,7 @@
             this.supplierSearchBox.Name = "supplierSearchBox";
             this.supplierSearchBox.Size = new System.Drawing.Size(176, 20);
             this.supplierSearchBox.TabIndex = 21;
+            this.supplierSearchBox.TextChanged += new System.EventHandler(this.SupplierSearchBox_TextChanged);
             // 
             // categoryLabel
             // 
@@ -396,6 +397,7 @@
             this.addNewSupplierButton.TabIndex = 26;
             this.addNewSupplierButton.Text = "+";
             this.addNewSupplierButton.UseVisualStyleBackColor = true;
+            this.addNewSupplierButton.Click += new System.EventHandler(this.AddNewSupplierButton_Click);
             // 
             // unitLabel
             // 

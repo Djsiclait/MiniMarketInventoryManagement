@@ -332,6 +332,35 @@ namespace InventoryManagementDataLayer
             return brands;
         }
 
+        public static List<String> FetchSupplierListData(String keyWord)
+        {
+            List<String> suppliers = new List<string>();
+            suppliers.Add("<None>");
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Registered_Supplier_Names",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
+
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                String supplier;
+
+                supplier = sqlDataReader["fld_supplier_name"].ToString();
+
+                suppliers.Add(supplier);
+            }
+
+            DatabaseManager.DisconnectToDatabase();
+
+            return suppliers;
+        }
+
         // Axiliary Functions
         // Function to convert strings to floats
         private static float FormatToFloat(String value)

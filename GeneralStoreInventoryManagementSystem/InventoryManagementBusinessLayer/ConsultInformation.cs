@@ -77,5 +77,10 @@ namespace InventoryManagementBusinessLayer
         {
             return InventoryManagementDataLayer.ConsultData.FetchBrandListData(keyWord);
         }
+
+        public static List<String> FetchSupplierListInformation(String keyWord)
+        {
+            return InventoryManagementDataLayer.ConsultData.FetchSupplierListData(keyWord);
+        }
     }
 }

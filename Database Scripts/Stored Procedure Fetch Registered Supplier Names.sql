@@ -8,6 +8,8 @@ AS
 		From
 			Tbl_Suppliers
 		Where
+			fld_supplier_name <> ''
+		and
 			fld_supplier_name Like '%' + @key_word + '%'
 
 	END

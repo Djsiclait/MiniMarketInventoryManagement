@@ -33,6 +33,7 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             PopulateBrandListBox();
+            PopulateSupplierListBox();
 
             CollectiveResources.RecordActivity(
                 CollectiveResources.UserInSession.Username,
@@ -223,6 +224,29 @@ namespace GeneralStoreInventoryManagementSystem
             }
             else
                 MessageBox.Show("This product already exists");
+        }
+
+        private void PopulateSupplierListBox()
+        {
+            supplierListBox.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchSupplierListInformation(supplierSearchBox.Text);
+        }
+
+        private void SupplierSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateSupplierListBox();
+        }
+
+        private void AddNewSupplierButton_Click(object sender, EventArgs e)
+        {
+            String message = InventoryManagementBusinessLayer.CreateInformation.RegisterNewProductSupplierInformation(supplierSearchBox.Text, "", "");
+
+            if (message == "Supplier has been registered successfully!")
+            {
+                supplierSearchBox.Text = "";
+                PopulateSupplierListBox();
+            }
+            else
+                MessageBox.Show("This supplier already exists");
         }
     }
 }

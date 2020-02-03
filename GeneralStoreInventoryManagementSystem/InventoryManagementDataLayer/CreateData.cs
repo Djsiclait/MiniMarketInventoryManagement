@@ -79,5 +79,27 @@ namespace InventoryManagementDataLayer
 
             return cmd.Parameters["@message"].Value.ToString();
         }
+
+        public static String RegisterNewProductSupplierData(String name, String phoneNumber, String email)
+        {
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Register_New_Supplier_Data",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@name", SqlDbType.VarChar, 100).Value = name;
+            cmd.Parameters.Add("@phone_number", SqlDbType.VarChar, 100).Value = phoneNumber;
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 200).Value = email;
+
+            SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300);
+            message.Direction = ParameterDirection.Output;
+
+            cmd.Parameters.Add(message);
+
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+            return cmd.Parameters["@message"].Value.ToString();
+        }
     }
 }
