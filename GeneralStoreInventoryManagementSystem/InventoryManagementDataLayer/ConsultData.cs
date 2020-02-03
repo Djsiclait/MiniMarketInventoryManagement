@@ -361,6 +361,30 @@ namespace InventoryManagementDataLayer
             return suppliers;
         }
 
+        public static List<String> FetchCategoryComboBoxData()
+        {
+            List<String> categories = new List<string>();
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Product_Category_Data",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                String category = sqlDataReader["fld_category_description"].ToString();
+
+                categories.Add(category);
+            }
+
+            DatabaseManager.DisconnectToDatabase();
+
+            return categories;
+        }
+
         // Axiliary Functions
         // Function to convert strings to floats
         private static float FormatToFloat(String value)

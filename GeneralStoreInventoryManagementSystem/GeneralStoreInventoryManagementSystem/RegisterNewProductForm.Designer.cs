@@ -60,9 +60,9 @@
             this.supplierListBox = new System.Windows.Forms.ListBox();
             this.supplierSearchBox = new System.Windows.Forms.TextBox();
             this.categoryLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.typeLabel = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.typeComboBox = new System.Windows.Forms.ComboBox();
             this.addNewSupplierButton = new System.Windows.Forms.Button();
             this.unitLabel = new System.Windows.Forms.Label();
             this.unitTextBox = new System.Windows.Forms.TextBox();
@@ -363,13 +363,13 @@
             this.categoryLabel.TabIndex = 22;
             this.categoryLabel.Text = "Category:";
             // 
-            // comboBox1
+            // categoryComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(201, 324);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(206, 21);
-            this.comboBox1.TabIndex = 23;
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(201, 324);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(206, 21);
+            this.categoryComboBox.TabIndex = 23;
             // 
             // typeLabel
             // 
@@ -380,13 +380,13 @@
             this.typeLabel.TabIndex = 24;
             this.typeLabel.Text = "Type:";
             // 
-            // comboBox2
+            // typeComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(505, 324);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(206, 21);
-            this.comboBox2.TabIndex = 25;
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.Location = new System.Drawing.Point(505, 324);
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(206, 21);
+            this.typeComboBox.TabIndex = 25;
             // 
             // addNewSupplierButton
             // 
@@ -636,9 +636,9 @@
             this.Controls.Add(this.unitTextBox);
             this.Controls.Add(this.unitLabel);
             this.Controls.Add(this.addNewSupplierButton);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.typeComboBox);
             this.Controls.Add(this.typeLabel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.categoryLabel);
             this.Controls.Add(this.supplierSearchBox);
             this.Controls.Add(this.supplierListBox);
@@ -706,9 +706,9 @@
         private System.Windows.Forms.ListBox supplierListBox;
         private System.Windows.Forms.TextBox supplierSearchBox;
         private System.Windows.Forms.Label categoryLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.Label typeLabel;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox typeComboBox;
         private System.Windows.Forms.Button addNewSupplierButton;
         private System.Windows.Forms.Label unitLabel;
         private System.Windows.Forms.TextBox unitTextBox;

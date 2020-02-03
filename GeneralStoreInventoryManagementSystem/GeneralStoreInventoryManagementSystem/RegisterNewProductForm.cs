@@ -34,6 +34,7 @@ namespace GeneralStoreInventoryManagementSystem
 
             PopulateBrandListBox();
             PopulateSupplierListBox();
+            PopulateCategoryComboBox();
 
             CollectiveResources.RecordActivity(
                 CollectiveResources.UserInSession.Username,
@@ -247,6 +248,11 @@ namespace GeneralStoreInventoryManagementSystem
             }
             else
                 MessageBox.Show("This supplier already exists");
+        }
+
+        private void PopulateCategoryComboBox()
+        {
+            categoryComboBox.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchCategoryComboBoxInformation();
         }
     }
 }

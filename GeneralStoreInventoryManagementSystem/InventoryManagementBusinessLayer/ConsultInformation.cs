@@ -82,5 +82,10 @@ namespace InventoryManagementBusinessLayer
         {
             return InventoryManagementDataLayer.ConsultData.FetchSupplierListData(keyWord);
         }
+
+        public static List<String> FetchCategoryComboBoxInformation()
+        {
+            return InventoryManagementDataLayer.ConsultData.FetchCategoryComboBoxData();
+        }
     }
 }
