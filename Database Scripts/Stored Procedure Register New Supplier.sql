@@ -39,6 +39,8 @@ go
 
 Declare @message varchar(300)
 
+--exec SP_Register_New_Supplier_Data '', '', '', @message output
+--select @message
 exec SP_Register_New_Supplier_Data 'Rica', '', 'rica@gmail.com', @message output
 select @message
 exec SP_Register_New_Supplier_Data 'Maggi', '', '', @message output
