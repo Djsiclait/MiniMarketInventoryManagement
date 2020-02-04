@@ -1,4 +1,4 @@
-CREATE PROC SP_Register_New_Category_Data
+Alter PROC SP_Register_New_Category_Data
 	@description varchar(50),
 	@message varchar(300) output
 AS
@@ -20,7 +20,7 @@ AS
 				Values 
 				(
 					@new_category_id,
-					@description
+					UPPER(@description)
 				)
 
 				set @message = 'Supplier has been registered successfully!'
@@ -42,7 +42,7 @@ exec SP_Register_New_Category_Data 'Cereal', @message output
 select @message 
 exec SP_Register_New_Category_Data 'Pasta', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Bebida Alcoholicas', @message output
+exec SP_Register_New_Category_Data 'Bebida Alcoholica', @message output
 select @message 
 exec SP_Register_New_Category_Data 'Galleta', @message output
 select @message 
