@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Custom Library
+using InventoryManagementBusinessLayer;
+
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class RegisterNewSaleFrom : Form
@@ -20,8 +23,8 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Load Form Logic
         private void RegisterNewSaleFrom_Load(object sender, EventArgs e)
         {
-            // Limiting option according to current user's access level
-            if (CollectiveResources.UserInSession.Role == "User")
+            // Identifying correct protocol for current user in session
+            if (SystemProtocols.ApplySessionsProtocols())
             {
                 // Disabling the other Products option 
                 registerNewProductMenuSubOption.Visible = false;
@@ -32,12 +35,11 @@ namespace GeneralStoreInventoryManagementSystem
                 // Disabling all admin options
                 adminMenuOption.Visible = false;
                 adminMenuOption.Enabled = false;
-            }
 
-            CollectiveResources.RecordActivity(
-                CollectiveResources.UserInSession.Username,
-                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the form to register new sales",
-                "BASIC ACCESS");
+                SystemProtocols.ApplyActivityProtocols("SAL1", null);
+            }
+            else
+                SystemProtocols.ApplyActivityProtocols("SAL4", null);
         }
 ////////// END Load Form Logic
 
@@ -46,8 +48,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -178,8 +180,8 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources

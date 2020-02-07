@@ -52,9 +52,57 @@ namespace InventoryManagementBusinessLayer
                 case "LOG0": // Registering a failed log in 
 
                     SystemResources.RecordActivity(
-                        meta, // provided username that failed the lof in
+                        meta, // provided username that failed the log in
                         "Deactivated account, " + meta + ", attemped to log into the system", // description of activity
                         "LOGIN FAILIER"); // type of activity
+                    break;
+
+                case "PRO1":
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the form to restock products", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
+                case "REP1": // Registering user access to reports analytics
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the reports analytics", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
+                case "SAL1": // Registering user access to the sales registration form as basic user
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the form to register new sales", // description of activity
+                        "BASIC ACCESS"); // type of activity
+                    break;
+
+                case "SAL2": // Registering user access to the sales registry form as basic user
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed their sales records", // description of activity
+                        "BASIC ACCESS"); // type of activity
+                    break;
+
+                case "SAL3": // Registering user access to the sales registry form as admin user
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed all sales records", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
+                case "SAL4": // Registering user access to the sales registration form as admin user
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the form to register new sales", // description of activity
+                        "ADMIN ACCESS"); // type of activity
                     break;
 
                 case "SEP1": // Registering a password change
