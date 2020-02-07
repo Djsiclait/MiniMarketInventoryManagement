@@ -58,7 +58,6 @@ namespace InventoryManagementBusinessLayer
         /// This function retrieves the information needed for the product list, according to the user's role
         /// It also allows the user to specify key words loosely to filter the information via product key, product name, brand name, and supplier
         /// </summary>
-        /// <param name="userPermission">User's role which defines his level of access to the data</param>
         /// <param name="keyWord">Key word to enable specific filtered searches</param>
         /// <returns>A list of products registered with the system</returns>
         public static List<Product> FetchProductListInformation(String keyWord)
@@ -77,11 +76,21 @@ namespace InventoryManagementBusinessLayer
         /// <returns></returns>
         public static UserProfile FetchUserInformationByUsername(String username)
         {
+            return ConsultData.FetchUserDataByUsername(username); // NO need to take into account user status given no current user has logged in at this point
+        }
+
+        /// <summary>
+        /// This function fetches the information of all registered users in the system
+        /// </summary>
+        /// <param name="keyWord">Key word to enable specific filtered searches</param>
+        /// <returns>A list of users registered with the system</returns>
+        public static List<UserProfile> FetchUserListInformation(String keyWord)
+        {
             // Verifying user's status before providing requested information
             if (SystemResources.UserInSession.Status == "Active")
-                return ConsultData.FetchUserDataByUsername(username);
+                return ConsultData.FetchUserListData(SystemResources.UserInSession.Username, SystemResources.UserInSession.Role, keyWord);
             else
-                return new UserProfile();
+                return new List<UserProfile>(); // returning an empty list given invalid user status
         }
 
         /// <summary>
@@ -92,11 +101,6 @@ namespace InventoryManagementBusinessLayer
         public static bool CheckUsernameAvailability(String username)
         {
             return InventoryManagementDataLayer.ConsultData.CheckUsernameAvailability(username);
-        }
-
-        public static List<UserProfile> FetchUserListInformation(String username, String userPermission, String keyWord)
-        {
-            return InventoryManagementDataLayer.ConsultData.FetchUserListData(username, userPermission, keyWord);
         }
 
         public static String ValidateUserCredentialsInformation(String username, String password)

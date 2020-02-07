@@ -24,8 +24,8 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Load Form Logic
         private void UsersRegistryForm_Load(object sender, EventArgs e)
         {
-            // Limiting option according to current user's access level
-            if (CollectiveResources.UserInSession.Role == "User")
+            // Identifying correct protocol for current user in session
+            if (SystemProtocols.ApplySessionsProtocols())
             {
                 // Disabling the other Products option 
                 registerNewProductMenuSubOption.Visible = false;
@@ -40,10 +40,8 @@ namespace GeneralStoreInventoryManagementSystem
 
             PopulateUserResigtryDataGrid();
 
-            CollectiveResources.RecordActivity(
-                CollectiveResources.UserInSession.Username,
-                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the user registry",
-                "ADMIN ACCESS");
+            // Executing correct activity according to given code
+            SystemProtocols.ApplyActivityProtocols("USE1", null, null);
 
             PopulateActicityListDataGrid();
         }
@@ -54,8 +52,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -186,8 +184,8 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -205,48 +203,69 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// Menu Bar Options
 
+////////// Text Changed Logic
         private void UserSearchBox_TextChanged(object sender, EventArgs e)
         {
-            PopulateUserResigtryDataGrid(); // REMINDER, to search for active and inactive useres use 0, 1, etc.
-        }
-
-        private void PopulateUserResigtryDataGrid()
-        {
-            userList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchUserListInformation(CollectiveResources.UserInSession.Username, CollectiveResources.UserInSession.Role, userSearchBox.Text);
-
-            userList.Columns["Password"].Visible = false;
-            userList.Columns["Creator"].Visible = false;
-            userList.Columns["RegistrationDate"].Visible = false;
-
-            userList.Columns["Status"].Width = 70;
-            userList.Columns["LastLogin"].Width = 130;
-        }
-
-        private void PopulateActicityListDataGrid()
-        {
-            activityList.DataSource = ConsultInformation.FetchActivityListInformation(activitySearchBox.Text, true);
-
-            activityList.Columns["Description"].Width = 550;
-            activityList.Columns["Timestamp"].Width = 200;
-        }
-
-        private void ProfileButton_Click(object sender, EventArgs e)
-        {
-            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(CollectiveResources.UserInSession.Username);
-            userInformationForm.Show();
-        }
-
-        private void UserList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(userList.SelectedCells[0].Value.ToString());
-            userInformationForm.Show();
+            PopulateUserResigtryDataGrid(); // REMINDER, to search for active and inactive users use 0, 1, etc.
         }
 
         private void activitySearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateActicityListDataGrid();
         }
+////////// END Text Changed Logic
 
+////////// Button Click Logic
+        private void ProfileButton_Click(object sender, EventArgs e)
+        {
+            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(SystemResources.UserInSession.Username);
+            userInformationForm.Show();
+        }
+////////// END Button Click Logic
+
+////////// Cell Double Click Logic
+        private void UserList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(userList.SelectedCells[0].Value.ToString());
+            userInformationForm.Show();
+        }
+////////// Cell Double Click Logic
+
+////////// Auxiliary Functions
+        /// <summary>
+        /// Fucntion to populate the user registry data grid
+        /// </summary>
+        private void PopulateUserResigtryDataGrid()
+        {
+            // Requestion information to fill data grid
+            userList.DataSource = ConsultInformation.FetchUserListInformation(userSearchBox.Text);
+
+            // Hiding unnecessary fields
+            userList.Columns["Password"].Visible = false;
+            userList.Columns["Creator"].Visible = false;
+            userList.Columns["RegistrationDate"].Visible = false;
+
+            // Modifying data grid
+            userList.Columns["Status"].Width = 70;
+            userList.Columns["LastLogin"].Width = 130;
+        }
+
+        /// <summary>
+        /// Function to populate the activity log for the last 24 hours
+        /// </summary>
+        private void PopulateActicityListDataGrid()
+        {
+            // Requesting information to fill activity log data grid
+            activityList.DataSource = ConsultInformation.FetchActivityListInformation(activitySearchBox.Text, true);
+
+            // Modifying data grid
+            activityList.Columns["Description"].Width = 550;
+            activityList.Columns["Timestamp"].Width = 200;
+        }
+
+        /// <summary>
+        /// Function to refres all data grid in the form
+        /// </summary>
         public void RefreshDatagridInformation()
         {
             PopulateUserResigtryDataGrid();

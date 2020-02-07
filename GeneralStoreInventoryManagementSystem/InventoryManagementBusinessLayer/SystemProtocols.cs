@@ -137,6 +137,14 @@ namespace InventoryManagementBusinessLayer
                         meta2 == "Active" ? "ACTIVATE " : "SUSPEND"); // type of activity
                     break;
 
+                case "USE1": // Registering user access to the users registry form
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the user registry", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
                 default:
                     break;
             }
