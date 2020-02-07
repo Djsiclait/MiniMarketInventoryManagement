@@ -41,6 +41,14 @@ namespace InventoryManagementBusinessLayer
                         "ADMIN ACCESS"); // type of activity
                     break;
 
+                case "ERR2": // Registering user account creation error
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the errors logs", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
                 case "GRA1": // Registering user access to graphs analytics
 
                     SystemResources.RecordActivity(
@@ -143,6 +151,22 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Username, // username of user in session 
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the user registry", // description of activity
                         "ADMIN ACCESS"); // type of activity
+                    break;
+
+                case "USE2": // Registering user access to the user registration form
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the form to register new users", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
+                case "USE3": // Registering the creation of a new user account
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has created a new user account for, " + meta1, // description of activity
+                        "USER CREATION"); // type of activity
                     break;
 
                 default:

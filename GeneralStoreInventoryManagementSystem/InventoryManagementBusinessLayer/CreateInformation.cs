@@ -19,12 +19,26 @@ namespace InventoryManagementBusinessLayer
         /// <returns>A message that confirms or denies the user profile creation process</returns>
         public static String CreateNewUserProfileInformation(UserProfile newUser)
         {
-            return InventoryManagementDataLayer.CreateData.CreateNewUserProfileData(newUser);
+            // Requesting creation of new user account
+            String message = CreateData.CreateNewUserProfileData(newUser);
+
+            if (message == "User created")
+            {
+                // Executing correct activity according to given code
+                SystemProtocols.ApplyActivityProtocols("USE3", newUser.Username, null);
+                return "SUCCESS";
+            }
+            else
+                return "";
         }
 
+        /// <summary>
+        /// This function registeres any system or user activity
+        /// </summary>
+        /// <param name="activity">Activity entity with necessary information</param>
         public static void RegisterNewUserActivityInformation(Activity activity)
         {
-            InventoryManagementDataLayer.CreateData.RegisterNewUserActivityData(activity);
+            CreateData.RegisterNewUserActivityData(activity);
         }
 
         public static String RegisterNewProductBrandInformation(String name)

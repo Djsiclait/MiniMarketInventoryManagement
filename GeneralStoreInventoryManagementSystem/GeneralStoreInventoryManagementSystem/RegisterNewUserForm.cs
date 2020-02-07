@@ -24,8 +24,8 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Load Form Logic
         private void RegisterNewUserForm_Load(object sender, EventArgs e)
         {
-            // Limiting option according to current user's access level
-            if (CollectiveResources.UserInSession.Role == "User")
+            // Identifying correct protocol for current user in session
+            if (SystemProtocols.ApplySessionsProtocols())
             {
                 // Disabling the other Products option 
                 registerNewProductMenuSubOption.Visible = false;
@@ -45,10 +45,8 @@ namespace GeneralStoreInventoryManagementSystem
             passwordErrorLabel.Visible = false;
             confirmationPasswordErrorLabel.Visible = false;
 
-            CollectiveResources.RecordActivity(
-                CollectiveResources.UserInSession.Username,
-                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the form to register new users",
-                "ADMIN ACCESS");
+            // Executing correct activity according to given code
+            SystemProtocols.ApplyActivityProtocols("USE2", null, null);
         }
 ////////// END Load Form Logic
 
@@ -57,8 +55,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -189,8 +187,8 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -208,7 +206,7 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// Menu Bar Options
 
-////////// Username Validation Function
+////////// Text Changed Logic
         private void UsernameTextBox_TextChanged(object sender, EventArgs e)
         {
             usernameTextBox.BackColor = Color.White;
@@ -223,9 +221,7 @@ namespace GeneralStoreInventoryManagementSystem
             else if(InventoryManagementBusinessLayer.ConsultInformation.CheckUsernameAvailability(usernameTextBox.Text))
                 usernameErrorLable.Visible = false; // username is available and validated so error message is hidden
         }
-////////// END Username Validation Function
 
-////////// Style formating
         private void FirstNameTextBox_TextChanged(object sender, EventArgs e)
         {
             firstNameTextBox.BackColor = Color.White;
@@ -235,9 +231,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             lastNameTextBox.BackColor = Color.White;
         }
-////////// END Style formating
 
-////////// Validating password
         private void PasswordTextBox_TextChanged(object sender, EventArgs e)
         {
             passwordTextBox.BackColor = Color.White; // Formating color 
@@ -269,9 +263,7 @@ namespace GeneralStoreInventoryManagementSystem
             else
                 confirmationPasswordErrorLabel.Visible = false; // passwords are the same
         }
-////////// END Validating password
 
-////////// Validating confirmation password
         private void ConfirmPasswordTextBox_TextChanged(object sender, EventArgs e)
         {
             confirmPasswordTextBox.BackColor = Color.White; // Formating color
@@ -282,36 +274,38 @@ namespace GeneralStoreInventoryManagementSystem
             else
                 confirmationPasswordErrorLabel.Visible = false; // passwords are the same
         }
-////////// END Validating confirmation password
+////////// END Text Changed Logic
 
-////////// Submit New User for Creation
+////////// Button Click Logic
         private void CreateNewUserButton_Click(object sender, EventArgs e)
         {
             if (ValidateUserInput()) // Verifying if user input confirm with all requirements
             {
-                String message = InventoryManagementBusinessLayer.CreateInformation.CreateNewUserProfileInformation(CreateUserProfile()); // Confimring the user creation process
+                String message = CreateInformation.CreateNewUserProfileInformation(CreateUserProfile()); // Confimring the user creation process
 
-                if (message == "User created") // Creation process has been successful
+                if (message == "SUCCESS") // Creation process has been successful
                 {
                     messageLabel.Text = "User " + usernameTextBox.Text + " has been created succesfully!";
                     ClearTextBoxBuffers(); // cleaning textboxes
                 }
                 else
+                {
+                    // Executing correct activity according to given code
+                    SystemProtocols.ApplyActivityProtocols("ERR2", null, null);
                     messageLabel.Text = "A Fatal Error has occured!"; // The new user profile has not been created due to en error
+                }
             }
             else
                 messageLabel.Text = "Please fill in every information correctly"; // user input has not been validated
         }
-////////// END Submit New User for Creation
 
-////////// Submit New User and Return to User Registry
         private void CreateAndReturnButton_Click(object sender, EventArgs e)
         {
             if (ValidateUserInput()) // Verifying if user input confirm with all requirements
             {
-                String message = InventoryManagementBusinessLayer.CreateInformation.CreateNewUserProfileInformation(CreateUserProfile()); // Confimring the user creation process
+                String message = CreateInformation.CreateNewUserProfileInformation(CreateUserProfile()); // Confimring the user creation process
 
-                if (message == "User created") // Creation process has been successful
+                if (message == "SUCCESS") // Creation process has been successful
                 {
                     messageLabel.Text = "User has been created succesfully!";
                     ClearTextBoxBuffers(); // cleaning textboxes
@@ -324,30 +318,21 @@ namespace GeneralStoreInventoryManagementSystem
                     FormsMenuList.usersRegistryForm.Show();
                 }
                 else
+                {
+                    // Executing correct activity according to given code
+                    SystemProtocols.ApplyActivityProtocols("ERR2", null, null);
                     messageLabel.Text = "A Fatal Error has occured!"; // The new user profile has not been created due to en error
+                }
             }
             else
                 messageLabel.Text = "Please fill in every information correctly"; // user input has not been validated
         }
 ////////// END Submit New User and Return to User Registry
 
-////////// Fucntion to create a user profile object with user input values
-        private UserProfile CreateUserProfile()
-        {
-            UserProfile profile = new UserProfile();
-
-            profile.Username = usernameTextBox.Text;
-            profile.Password = passwordTextBox.Text;
-            profile.FirstName = firstNameTextBox.Text;
-            profile.LastName = lastNameTextBox.Text;
-            profile.Role = grantAdminCheckbox.Checked ? "Admin" : "User";
-            profile.Creator = "super.admin"; // TODO: Replaxce with profile of user currently in session
-
-            return profile;
-        }
-////////// END Fucntion to create a user profile
-
-////////// Clearing TextBox Function
+////////// Auxiliary Functions
+        /// <summary>
+        /// Function to clean user input buffers
+        /// </summary>
         private void ClearTextBoxBuffers()
         {
             usernameTextBox.Text = "";
@@ -360,9 +345,46 @@ namespace GeneralStoreInventoryManagementSystem
             usernameErrorLable.Visible = false;
             passwordErrorLabel.Visible = false;
         }
-////////// END Clearing TextBox Function
 
-////////// Validating user input for correct format and standards
+        /// <summary>
+        /// Fucntion to create a user profile object with user input values
+        /// </summary>
+        /// <returns>A user profile object with corresponding information</returns>
+        private UserProfile CreateUserProfile()
+        {
+            UserProfile profile = new UserProfile();
+
+            // capturing user input to store information
+            profile.Username = usernameTextBox.Text;
+            profile.Password = passwordTextBox.Text;
+            profile.FirstName = firstNameTextBox.Text;
+            profile.LastName = lastNameTextBox.Text;
+            profile.Role = grantAdminCheckbox.Checked ? "Admin" : "User";
+            profile.Creator = SystemResources.UserInSession.Username;
+
+            return profile;
+        }
+
+        /// <summary>
+        /// Function to prevent the creation of username with space
+        /// </summary>
+        /// <returns>True or False</returns>
+        private bool UsernameHasEmptySpace()
+        {
+            bool result = false;
+
+            string[] words = usernameTextBox.Text.Split(' '); // detecting white spaces
+
+            if (words.Count() > 1) // if white spaces are detected the username will be split into multiple words
+                result = true;
+
+            return result;
+        }
+
+        /// <summary>
+        /// Function to validate user inputs
+        /// </summary>
+        /// <returns>True or False</returns>
         private bool ValidateUserInput()
         {
             bool validate = true; // No error has been detected
@@ -423,20 +445,5 @@ namespace GeneralStoreInventoryManagementSystem
 
             return validate; // returning respons to the validation analysis
         }
-/////////// END Validating user input
-
-////////// Function to ensure usernames are only composed of one word
-        private bool UsernameHasEmptySpace()
-        {
-            bool result = false;
-
-            string[] words = usernameTextBox.Text.Split(' '); // detecting white spaces
-
-            if (words.Count() > 1) // if white spaces are detected the username will be split into multiple words
-                result = true;
-
-            return result;
-        }
-/////////// END Function
     }
 }

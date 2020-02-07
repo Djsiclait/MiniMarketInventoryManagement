@@ -76,7 +76,7 @@ namespace InventoryManagementBusinessLayer
         /// <returns></returns>
         public static UserProfile FetchUserInformationByUsername(String username)
         {
-            return ConsultData.FetchUserDataByUsername(username); // NO need to take into account user status given no current user has logged in at this point
+            return ConsultData.FetchUserDataByUsername(username); // No need to take into account user status given no current user has logged in at this point
         }
 
         /// <summary>

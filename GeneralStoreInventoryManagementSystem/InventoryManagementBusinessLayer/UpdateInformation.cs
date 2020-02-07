@@ -35,7 +35,7 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// FUnction used to change target user's status to activite, inactive, etc.
+        /// Function used to change target user's status to activite, inactive, etc.
         /// </summary>
         /// <param name="targetUser">Username of target user</param>
         /// <param name="newStatus">New user status</param>
@@ -45,7 +45,7 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// FUnction used to log a user's last log in timestamp
+        /// Function used to log a user's last log in timestamp
         /// </summary>
         /// <param name="username">Username of target user</param>
         public static void UpdateUserLastLoginInformation(String username)
