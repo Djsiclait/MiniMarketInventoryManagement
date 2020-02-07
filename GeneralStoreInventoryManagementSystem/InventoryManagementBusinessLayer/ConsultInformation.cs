@@ -13,13 +13,28 @@ namespace InventoryManagementBusinessLayer
     public static class ConsultInformation
     {
         /// <summary>
-        /// This Function binds to the data layer of the system to retrieve the information needed for the product list, according to the user's role
-        /// No verification/authentification/rejection is required at this point in developpement (This may be subject to change at a later date)
+        /// This function retrieves the information needed for the activity log list, according to the user's role
+        /// It also allows the user to specify key words loosely to filter the information via username, description, and type
+        /// </summary>
+        /// <param name="keyWord">Key word to enable specific filtered searches</param>
+        /// <param name="last24Hours">Indicator to specify if searches should be limmited to the last 24 hours of activity</param>
+        /// <returns>A list of activities registered in the system</returns>
+        public static List<Activity> FetchActivityListInformation(String keyWord, bool last24Hours)
+        {
+            // Verifying user's status before providing requested information
+            if (SystemResources.UserInSession.Status == "Active")
+                return ConsultData.FetchActivityListData(SystemResources.UserInSession.Role, keyWord, last24Hours);
+            else
+                return new List<Activity>(); // returning an empty list given invalid user status
+        }
+
+        /// <summary>
+        /// This function retrieves the information needed for the product list, according to the user's role
         /// It also allows the user to specify key words loosely to filter the information via product key, product name, brand name, and supplier
         /// </summary>
         /// <param name="userPermission">User's role which defines his level of access to the data</param>
-        /// <param name="keyWord">Key word to enable specific filtered searhs</param>
-        /// <returns>a list of products registered with the system</returns>
+        /// <param name="keyWord">Key word to enable specific filtered searches</param>
+        /// <returns>A list of products registered with the system</returns>
         public static List<Product> FetchProductListInformation(String keyWord)
         {
             // Verifying user's status before providing requested information
@@ -63,11 +78,6 @@ namespace InventoryManagementBusinessLayer
         public static String ValidateUserCredentialsInformation(String username, String password)
         {
             return InventoryManagementDataLayer.ConsultData.ValidateUserCredentialsData(username, password);
-        }
-
-        public static List<Activity> FetchActivityListInformation(String userPermission, String keyWord, bool last24Hours)
-        {
-            return InventoryManagementDataLayer.ConsultData.FetchActivityListData(userPermission, keyWord, last24Hours);
         }
 
         public static List<Activity> FetchActivityListInformationByUsername(String userPermission, String username, String keyWord)

@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Custom Library
+using InventoryManagementBusinessLayer;
+
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class ActivitiesLogForm : Form
@@ -21,7 +24,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ActivitiesLogForm_Load(object sender, EventArgs e)
         {
             // Limiting option according to current user's access level
-            if (CollectiveResources.UserInSession.Role == "User")
+            if (SystemProtocols.ApplySessionsProtocols())
             {
                 // Disabling the entire Products option given the remainder of options are prohibited for a basic user
                 registerNewProductMenuSubOption.Visible = false;
@@ -34,10 +37,8 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Enabled = false;
             }
 
-            CollectiveResources.RecordActivity(
-                CollectiveResources.UserInSession.Username,
-                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the activities logs",
-                "ADMIN ACCESS");
+            // Executing correct activity according to given code
+            SystemProtocols.ApplyActivityProtocols("ACT1", null);
 
             PopulateActivityListDataGrid();
         }
@@ -48,8 +49,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -180,8 +181,8 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -199,17 +200,24 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// END Menubar Options
 
-        private void PopulateActivityListDataGrid()
-        {
-            activityList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchActivityListInformation(CollectiveResources.UserInSession.Role, activitySearchBox.Text, false);
-
-            activityList.Columns["Description"].Width = 550;
-            activityList.Columns["Timestamp"].Width = 200;
-        }
-
+////////// Text Changed Logic
         private void ActivitySearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateActivityListDataGrid();
+        }
+////////// END Text Changed Logic
+
+////////// Auxiliary Function
+        /// <summary>
+        /// Function to populate the activity log
+        /// </summary>
+        private void PopulateActivityListDataGrid()
+        {
+            activityList.DataSource = ConsultInformation.FetchActivityListInformation(activitySearchBox.Text, false);
+
+            // Hiding unnecessary fields
+            activityList.Columns["Description"].Width = 550;
+            activityList.Columns["Timestamp"].Width = 200;
         }
     }
 }

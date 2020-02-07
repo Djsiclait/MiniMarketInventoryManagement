@@ -224,7 +224,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void PopulateActicityListDataGrid()
         {
-            activityList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchActivityListInformation(CollectiveResources.UserInSession.Role, activitySearchBox.Text, true);
+            activityList.DataSource = ConsultInformation.FetchActivityListInformation(activitySearchBox.Text, true);
 
             activityList.Columns["Description"].Width = 550;
             activityList.Columns["Timestamp"].Width = 200;

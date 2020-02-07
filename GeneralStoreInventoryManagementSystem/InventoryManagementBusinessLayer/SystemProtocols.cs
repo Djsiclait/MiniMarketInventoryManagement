@@ -17,6 +17,14 @@ namespace InventoryManagementBusinessLayer
         {
             switch (code)
             {
+                case "ACT1": // Registering user access to activity logs
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the activities logs", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
                 case "INV1": // Registering user access to the inventory view
 
                     SystemResources.RecordActivity(
