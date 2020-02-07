@@ -1,4 +1,4 @@
-Alter PROC SP_Register_New_Category_Data
+CREATE PROC SP_Register_New_Category_Data
 	@description varchar(50),
 	@message varchar(300) output
 AS
