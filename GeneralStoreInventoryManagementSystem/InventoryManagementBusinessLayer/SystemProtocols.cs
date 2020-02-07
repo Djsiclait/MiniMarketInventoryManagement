@@ -25,6 +25,14 @@ namespace InventoryManagementBusinessLayer
                         "ADMIN ACCESS"); // type of activity
                     break;
 
+                case "CAR1": // Registering user access to cart
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the cart view", // description of activity
+                        "BASIC ACCESS"); // type of activity
+                    break;
+
                 case "ERR1": // Registering user access to error logs
 
                     SystemResources.RecordActivity(
@@ -57,7 +65,7 @@ namespace InventoryManagementBusinessLayer
                         "LOGIN FAILIER"); // type of activity
                     break;
 
-                case "PRO1":
+                case "PRO1": // Registering user access to product restock form
 
                     SystemResources.RecordActivity(
                         SystemResources.UserInSession.Username, // username of user in session 
