@@ -461,7 +461,6 @@
             this.priceLabel.Size = new System.Drawing.Size(56, 13);
             this.priceLabel.TabIndex = 31;
             this.priceLabel.Text = "Unit Price:";
-            this.priceLabel.Click += new System.EventHandler(this.priceLabel_Click);
             // 
             // priceNumericUpDown
             // 

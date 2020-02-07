@@ -81,6 +81,22 @@ namespace InventoryManagementBusinessLayer
                         "ADMIN ACCESS"); // type of activity
                     break;
 
+                case "PRO2": // Registering user access to product registration form
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the for to register new products", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
+                case "PRO3": // Registering the creation of a new product brand
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new brand: " + meta1, // description of activity
+                        "BRAND CREATION"); // type of activity
+                    break;
+
                 case "REP1": // Registering user access to reports analytics
 
                     SystemResources.RecordActivity(
@@ -143,6 +159,22 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Username, // username of user in session 
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", " + (meta2 == "Active" ? "reinstated " : "suspended") + " user account, " + meta1, // description of activity
                         meta2 == "Active" ? "ACTIVATE " : "SUSPEND"); // type of activity
+                    break;
+
+                case "SPE4": // Registering a new supplier with incomplete information
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has incompletly registered a new supplier: " + meta1, // description of activity
+                        "INCOMPLETE CREATION"); // type of activity
+                    break;
+
+                case "SUP1": // Registering a new supplier with complete information
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new supplier: " + meta1, // description of activity
+                        "SUPPLIER CREATION"); // type of activity
                     break;
 
                 case "USE1": // Registering user access to the users registry form

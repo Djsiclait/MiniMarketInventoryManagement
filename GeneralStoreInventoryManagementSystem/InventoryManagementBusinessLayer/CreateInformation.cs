@@ -33,7 +33,27 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// This function registeres any system or user activity
+        /// This function registers new brands for product classification
+        /// </summary>
+        /// <param name="name">Name of new brand</param>
+        /// <returns>A message that confirms or denies the brand creation process</returns>
+        public static String RegisterNewProductBrandInformation(String name)
+        {
+            // Requesting creation of a new brand
+            String message = CreateData.RegisterNewProductBrandData(name);
+
+            if (message == "Brand has been registered successfully!")
+            {
+                // Executing correct activity according to given code
+                SystemProtocols.ApplyActivityProtocols("PRO3", name, null);
+                return "SUCCESS";
+            }
+            else
+                return "";
+        }
+
+        /// <summary>
+        /// This function registers any system or user activity
         /// </summary>
         /// <param name="activity">Activity entity with necessary information</param>
         public static void RegisterNewUserActivityInformation(Activity activity)
@@ -41,14 +61,29 @@ namespace InventoryManagementBusinessLayer
             CreateData.RegisterNewUserActivityData(activity);
         }
 
-        public static String RegisterNewProductBrandInformation(String name)
-        {
-            return InventoryManagementDataLayer.CreateData.RegisterNewProductBrandData(name);
-        }
-
+        /// <summary>
+        /// This function registers new suppliers
+        /// </summary>
+        /// <param name="name">Name of new supplier</param>
+        /// <param name="phoneNumber">Phone number of new supplier</param>
+        /// <param name="email">Email of new supplier</param>
+        /// <returns>A message that confirms or denies the supplier creation process</returns>
         public static String RegisterNewProductSupplierInformation(String name, String phoneNumber, String email)
         {
-            return InventoryManagementDataLayer.CreateData.RegisterNewProductSupplierData(name, phoneNumber, email);
+            // Requesting creation of new product supplier
+            String message = CreateData.RegisterNewProductSupplierData(name, phoneNumber, email);
+
+            if (message == "Supplier has been registered successfully!")
+            {
+                if (phoneNumber == null && email == null)
+                    SystemProtocols.ApplyActivityProtocols("SPE4", name, null); // Quick (incomplete) registration of new supplier
+                else
+                    SystemProtocols.ApplyActivityProtocols("SUP1", name, null); // Full registration of new supplier
+
+                return "SUCCESS";
+            }
+            else
+                return "";
         }
     }
 }

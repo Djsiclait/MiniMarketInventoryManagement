@@ -218,7 +218,7 @@ namespace GeneralStoreInventoryManagementSystem
                 usernameErrorLable.Visible = true; // username is invalid due to legnth
             else if (UsernameHasEmptySpace())
                 usernameErrorLable.Visible = true; // username is invalid due to empty space 
-            else if(InventoryManagementBusinessLayer.ConsultInformation.CheckUsernameAvailability(usernameTextBox.Text))
+            else if(ConsultInformation.CheckUsernameAvailability(usernameTextBox.Text))
                 usernameErrorLable.Visible = false; // username is available and validated so error message is hidden
         }
 

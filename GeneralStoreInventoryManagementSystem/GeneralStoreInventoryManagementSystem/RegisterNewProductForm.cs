@@ -23,8 +23,8 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Load Form Logic
         private void RegisterNewProductForm_Load(object sender, EventArgs e)
         {
-            // Limiting option according to current user's access level
-            if (CollectiveResources.UserInSession.Role == "User")
+            // Identifying correct protocol for current user in session
+            if (SystemProtocols.ApplySessionsProtocols())
             {
                 // Disabling the other Products option 
                 restockProductsMenuSubOption.Visible = false;
@@ -40,10 +40,8 @@ namespace GeneralStoreInventoryManagementSystem
             PopulateCategoryComboBox();
             PopulateTypeComboBox();
 
-            CollectiveResources.RecordActivity(
-                CollectiveResources.UserInSession.Username,
-                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the for to register new products",
-                "ADMIN ACCESS");
+            // Executing correct activity according to given code
+            SystemProtocols.ApplyActivityProtocols("PRO2", null, null);
         }
 ////////// END Load Form Logic
 
@@ -52,8 +50,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -184,8 +182,8 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -201,28 +199,27 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.registerNewProduct.ForeColor = Color.Black;
         }
+////////// END Menubar Options
 
-        private void priceLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-        ////////// END Menubar Options
-
-        private void PopulateBrandListBox()
-        {
-            brandListBox.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchBrandListInformation(brandSearchBox.Text);
-        }
-
+////////// Text Changed Logic
         private void BrandSearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateBrandListBox();
         }
 
+        private void SupplierSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateSupplierListBox();
+        }
+////////// END Text Changed Logic
+
+////////// Button Click Logic
         private void AddNewBrandButton_Click(object sender, EventArgs e)
         {
-            String message = InventoryManagementBusinessLayer.CreateInformation.RegisterNewProductBrandInformation(brandSearchBox.Text);
+            // Registering new product brand
+            String message = CreateInformation.RegisterNewProductBrandInformation(brandSearchBox.Text);
 
-            if (message == "Brand has been registered successfully!")
+            if (message == "SUCCESS")
             {
                 brandSearchBox.Text = "";
                 PopulateBrandListBox();
@@ -231,21 +228,12 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("This product already exists");
         }
 
-        private void PopulateSupplierListBox()
-        {
-            supplierListBox.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchSupplierListInformation(supplierSearchBox.Text);
-        }
-
-        private void SupplierSearchBox_TextChanged(object sender, EventArgs e)
-        {
-            PopulateSupplierListBox();
-        }
-
         private void AddNewSupplierButton_Click(object sender, EventArgs e)
         {
-            String message = InventoryManagementBusinessLayer.CreateInformation.RegisterNewProductSupplierInformation(supplierSearchBox.Text, "", "");
+            // Incomplete registration of new supplier
+            String message = CreateInformation.RegisterNewProductSupplierInformation(supplierSearchBox.Text, "", "");
 
-            if (message == "Supplier has been registered successfully!")
+            if (message == "SUCCESS")
             {
                 supplierSearchBox.Text = "";
                 PopulateSupplierListBox();
@@ -254,21 +242,16 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("This supplier already exists");
         }
 
-        private void PopulateCategoryComboBox()
-        {
-            categoryComboBox.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchCategoryComboBoxInformation();
-        }
-
-        private void PopulateTypeComboBox()
-        {
-            typeComboBox.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchTypeComboBoxInformation();
-        }
-
         private void ClearButton_Click(object sender, EventArgs e)
         {
             ClearFormBuffer();
         }
+////////// END Button Click Logic
 
+////////// Auxiliary Functions
+        /// <summary>
+        /// Function that cleans user input buffers
+        /// </summary>
         private void ClearFormBuffer()
         {
             keyTextBox.Text = "";
@@ -283,6 +266,38 @@ namespace GeneralStoreInventoryManagementSystem
             quantityNumericUpDown.Value = 1;
             minimumNumericUpDown.Value = 1;
             maximumNumericUpDown.Value = 2;
-        } 
+        }
+
+        /// <summary>
+        /// Function to populate the brand list box
+        /// </summary>
+        private void PopulateBrandListBox()
+        {
+            brandListBox.DataSource = ConsultInformation.FetchBrandListInformation(brandSearchBox.Text);
+        }
+
+        /// <summary>
+        /// Function that populates the category combo box 
+        /// </summary>
+        private void PopulateCategoryComboBox()
+        {
+            categoryComboBox.DataSource = ConsultInformation.FetchCategoryComboBoxInformation();
+        }
+
+        /// <summary>
+        /// Function to populate the supplier list box
+        /// </summary>
+        private void PopulateSupplierListBox()
+        {
+            supplierListBox.DataSource = ConsultInformation.FetchSupplierListInformation(supplierSearchBox.Text);
+        }
+
+        /// <summary>
+        /// Function to populate the type combo box
+        /// </summary>
+        private void PopulateTypeComboBox()
+        {
+            typeComboBox.DataSource = ConsultInformation.FetchTypeComboBoxInformation();
+        }
     }
 }

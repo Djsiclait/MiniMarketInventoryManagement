@@ -29,7 +29,7 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// This fucntion fetches the the activities of a specific user
+        /// This fucntion fetches the activities of a specific user
         /// </summary>
         /// <param name="username">Target username</param>
         /// <param name="keyWord">Key word to enable specific filtered searches</param>
@@ -44,6 +44,43 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
+        /// This fucntion fetches the list of registered brands
+        /// </summary>
+        /// <param name="keyWord">Key word to enable specific filtered searches</param>
+        /// <returns>A list  of all registered brands</returns>
+        public static List<String> FetchBrandListInformation(String keyWord)
+        {
+            // Verifying user's status before providing requested information
+            if (SystemResources.UserInSession.Status == "Active")
+                return ConsultData.FetchBrandListData(keyWord);
+            else
+                return new List<string>(); // returning an empty list given invalid user status
+        }
+
+        /// <summary>
+        /// This function fetches the list of categories
+        /// </summary>
+        /// <returns>A list of all categories</returns>
+        public static List<String> FetchCategoryComboBoxInformation()
+        {
+            // Verifying user's status before providing requested information
+            if (SystemResources.UserInSession.Status == "Active")
+                return ConsultData.FetchCategoryComboBoxData();
+            else
+                return new List<string>(); // returning an empty list given invalid user status
+        }
+
+        /// <summary>
+        /// This Function checks for the availability of a username 
+        /// </summary>
+        /// <param name="username">requested username</param>
+        /// <returns>true or false depending if the username exists or not</returns>
+        public static bool CheckUsernameAvailability(String username)
+        {
+            return ConsultData.CheckUsernameAvailability(username);
+        }
+
+        /// <summary>
         /// This function fetches all information associated to a registered product 
         /// No verification/authentification/rejection is required at this point in developpement (This may be subject to change at a later date)
         /// </summary>
@@ -55,7 +92,7 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// This function retrieves the information needed for the product list, according to the user's role
+        /// This function retreives the information needed for the product list, according to the user's role
         /// It also allows the user to specify key words loosely to filter the information via product key, product name, brand name, and supplier
         /// </summary>
         /// <param name="keyWord">Key word to enable specific filtered searches</param>
@@ -67,6 +104,33 @@ namespace InventoryManagementBusinessLayer
                 return ConsultData.FetchProductListData(SystemResources.UserInSession.Role, keyWord); // Fetching and returning the inventory product list information 
             else
                 return new List<Product>(); // returning an empty list given invalid user status
+        }
+
+        /// <summary>
+        /// This function fetches the list of product suppliers
+        /// </summary>
+        /// <param name="keyWord">Key word to enable specific filtered searches</param>
+        /// <returns>A list of all registered suppliers</returns>
+        public static List<String> FetchSupplierListInformation(String keyWord)
+        {
+            // Verifying user's status before providing requested information
+            if (SystemResources.UserInSession.Status == "Active")
+                return ConsultData.FetchSupplierListData(keyWord);
+            else
+                return new List<string>(); // returning an empty list given invalid user status
+        }
+
+        /// <summary>
+        /// This function retreives the list of registered types
+        /// </summary>
+        /// <returns>A list of all registered types</returns>
+        public static List<String> FetchTypeComboBoxInformation()
+        {
+            // Verifying user's status before providing requested information
+            if (SystemResources.UserInSession.Status == "Active")
+                return ConsultData.FetchTypeComboBoxData();
+            else
+                return new List<string>(); // returning an empty list given invalid user status
         }
 
         /// <summary>
@@ -94,38 +158,14 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// This Function checks for the availability of a username 
+        /// This function access the system to confirm or deny the validation of of a user's credentials 
         /// </summary>
-        /// <param name="username">requested username</param>
-        /// <returns>true or false depending if the username exists or not</returns>
-        public static bool CheckUsernameAvailability(String username)
-        {
-            return InventoryManagementDataLayer.ConsultData.CheckUsernameAvailability(username);
-        }
-
+        /// <param name="username">Username requesting validation</param>
+        /// <param name="password">Passwiord of user</param>
+        /// <returns>A message that indicates successful or failed validation results</returns>
         public static String ValidateUserCredentialsInformation(String username, String password)
         {
-            return InventoryManagementDataLayer.ConsultData.ValidateUserCredentialsData(username, password);
-        }
-
-        public static List<String> FetchBrandListInformation(String keyWord)
-        {
-            return InventoryManagementDataLayer.ConsultData.FetchBrandListData(keyWord);
-        }
-
-        public static List<String> FetchSupplierListInformation(String keyWord)
-        {
-            return InventoryManagementDataLayer.ConsultData.FetchSupplierListData(keyWord);
-        }
-
-        public static List<String> FetchCategoryComboBoxInformation()
-        {
-            return InventoryManagementDataLayer.ConsultData.FetchCategoryComboBoxData();
-        }
-
-        public static List<String> FetchTypeComboBoxInformation()
-        {
-            return InventoryManagementDataLayer.ConsultData.FetchTypeComboBoxData();
+            return ConsultData.ValidateUserCredentialsData(username, password); // No need to take into account user status given no current user has logged in at this point
         }
     }
 }
