@@ -20,11 +20,13 @@ namespace InventoryManagementBusinessLayer
         /// <param name="userPermission">User's role which defines his level of access to the data</param>
         /// <param name="keyWord">Key word to enable specific filtered searhs</param>
         /// <returns>a list of products registered with the system</returns>
-        public static List<Product> FetchProductListInformation(String userPermission, String keyWord)
+        public static List<Product> FetchProductListInformation(String keyWord)
         {
-            // TODO: separate results based on user role protocols
-
-            return InventoryManagementDataLayer.ConsultData.FetchProductListData(userPermission, keyWord); // Fetching and returning the information from data layer og this system 
+            // Verifying user's status before providing requested information
+            if (SystemResources.UserInSession.Status == "Active")
+                return ConsultData.FetchProductListData(SystemResources.UserInSession.Role, keyWord); // Fetching and returning the inventory product list information 
+            else
+                return new List<Product>(); // returning an empty list given invalid user status
         }
 
         /// <summary>

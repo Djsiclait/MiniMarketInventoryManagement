@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Custom Libraries
-using InventoryManagementBusinessLayer;
+// Custom Library
 using InventoryManagementEntityLayer;
 
-namespace GeneralStoreInventoryManagementSystem
+namespace InventoryManagementBusinessLayer
 {
-    public static class CollectiveResources
+    public static class SystemResources
     {
         private static UserProfile userInSession;
 
@@ -22,7 +21,7 @@ namespace GeneralStoreInventoryManagementSystem
             InventoryManagementBusinessLayer.UpdateInformation.UpdateUserLastLoginInformation(userInSession.Username);
 
             RecordActivity(
-                userInSession.Username, 
+                userInSession.Username,
                 userInSession.Role + ", " + userInSession.Username + ", has successfully logged in",
                 "LOG IN");
         }

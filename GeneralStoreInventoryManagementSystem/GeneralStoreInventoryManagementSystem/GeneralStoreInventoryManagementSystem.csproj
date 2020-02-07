@@ -58,6 +58,7 @@
     <Compile Include="ChangePasswordMiniForm.Designer.cs">
       <DependentUpon>ChangePasswordMiniForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CollectiveResources.cs" />
     <Compile Include="ErrorsLogForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 // Custom Libraries
 using InventoryManagementBusinessLayer;
-using InventoryManagementEntityLayer;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -24,8 +23,8 @@ namespace GeneralStoreInventoryManagementSystem
 ////////// Form Load Logic 
         private void InventorySearchForm_Load(object sender, EventArgs e)
         {
-            // Limiting option according to current user's access level
-            if (CollectiveResources.UserInSession.Role == "User")
+            // Identifying correct protocol for current user in session
+            if (SystemProtocols.ApplySessionsProtocols())
             {
                 // Disabling the entire Products option given the remainder of options are prohibited for a basic user
                 productsMenuOption.Visible = false;
@@ -38,10 +37,8 @@ namespace GeneralStoreInventoryManagementSystem
 
             PopulateProductListDataGrid(); // Initializing the data grid upon load
 
-            CollectiveResources.RecordActivity(
-                CollectiveResources.UserInSession.Username,
-                CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has accessed the inventory browser",
-                "BASIC ACCESS");
+            // Executing correct activity according to given code
+            SystemProtocols.ApplyActivityProtocols("INV1", null);
         }
 ////////// END Form Load Logic
 
@@ -50,8 +47,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -182,8 +179,8 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
-            // Log out of current session
-            CollectiveResources.EndUserSession();
+            // Executing correct log out processes
+            SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
             // Closing form while freeing system resources
@@ -208,10 +205,23 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// END Inventory Seach Text Box Logic
 
-////////// Function used to populate the data grid with products from the registered inventory
+////////// Function that allows users to view the quick summary of a selected product
+        private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Declare an non oficial auxiliary form to display product information, given a product's internal identification number
+            ProductInformationTemplateForm productInformationForm = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
+            productInformationForm.Show(); // Summon the temporary summary form 
+        }
+////////// END Function ProductList_CellDoubleClick
+
+////////// Auxiliary Functions
+        /// <summary>
+        /// Function used to populate the data grid with products from the registered inventory
+        /// </summary>
         private void PopulateProductListDataGrid()
         {
-            productList.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchProductListInformation(CollectiveResources.UserInSession.Role, inventorySearchBox.Text);
+            // Requesting information to populate the product list 
+            productList.DataSource = ConsultInformation.FetchProductListInformation(inventorySearchBox.Text);
 
             //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
             //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
@@ -237,13 +247,5 @@ namespace GeneralStoreInventoryManagementSystem
         }
 ////////// END Function PopulateProductListDataGrid
 
-////////// Function that allows users to view the quick summary of a selected product
-        private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Declare an non oficial auxiliary form to display product information, given a product's internal identification number
-            ProductInformationTemplateForm productInformationForm = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
-            productInformationForm.Show(); // Summon the temporary summary form 
-        }
-////////// END Function ProductList_CellDoubleClick
     }
 }
