@@ -18,17 +18,19 @@ namespace GeneralStoreInventoryManagementSystem
         {
             InitializeComponent();
 
-            this.username = username;
+            this.username = username; // username whose password will be changed
         }
-
+        
+////////// Load Form Logic
         private void ChangePasswordMiniForm_Load(object sender, EventArgs e)
         {
             passwordErrorLabel.Text = "Invalid Password";
             passwordErrorLabel.Visible = false;
             confirmationPasswordErrorLabel.Visible = false;
-
         }
+////////// END Load Form Logic
 
+////////// Text Changed Logic
         private void PasswordTextBox_TextChanged(object sender, EventArgs e)
         {
             passwordTextBox.BackColor = Color.White; // Formating color 
@@ -71,25 +73,29 @@ namespace GeneralStoreInventoryManagementSystem
             else
                 confirmationPasswordErrorLabel.Visible = false; // passwords are the same
         }
+////////// Text Changed Logic
 
+////////// Button Click Logic
         private void ChangePasswordButton_Click(object sender, EventArgs e)
         {
+            // Validating user input before submitting request for password change
             if (ValidateUserInput())
             {
+                // Requesting a password change for a target user
                 InventoryManagementBusinessLayer.UpdateInformation.ChangeUserPasswordInformation(username, passwordTextBox.Text);
-
-                CollectiveResources.RecordActivity(
-                    CollectiveResources.UserInSession.Username,
-                    CollectiveResources.UserInSession.Role + ", " + CollectiveResources.UserInSession.Username + ", has changed their password", 
-                    "PASSWORD CHANGE");
 
                 MessageBox.Show("Password changed successfully!");
 
                 this.Dispose();
             }
         }
+////////// Button Click Logic
 
-        ////////// Validating user input for correct format and standards
+////////// Auxiliary Function 
+        /// <summary>
+        /// Function to validate user input for correct format and standards
+        /// </summary>
+        /// <returns>True or False</returns>
         private bool ValidateUserInput()
         {
             bool validate = true; // No error has been detected

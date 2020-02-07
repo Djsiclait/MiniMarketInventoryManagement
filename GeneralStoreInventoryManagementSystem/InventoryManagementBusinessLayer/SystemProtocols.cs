@@ -41,6 +41,14 @@ namespace InventoryManagementBusinessLayer
                         "LOGIN FAILIER"); // type of activity
                     break;
 
+                case "SEP1": // Registering a password change
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has changed their password", // description of activity
+                        "PASSWORD CHANGE"); // type of activity
+                    break;
+
                 default:
                     break;
             }
