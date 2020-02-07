@@ -605,6 +605,7 @@
             this.clearButton.TabIndex = 40;
             this.clearButton.Text = "Clear Information";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // profitMarginLabel
             // 

@@ -23,13 +23,22 @@ AS
 					UPPER(@description)
 				)
 
-				set @message = 'Supplier has been registered successfully!'
+				set @message = 'Typp has been registered successfully!'
 
 			END
 
 	END
 
+go
 
+Declare @message varchar(300)
+
+exec SP_Register_Product_Type 'Producto', @message output
+select @message
+exec SP_Register_Product_Type 'Servicio', @message output
+select @message
+
+select * from Tbl_Product_Type
 
 
 

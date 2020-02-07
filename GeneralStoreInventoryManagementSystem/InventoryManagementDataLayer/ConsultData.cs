@@ -385,6 +385,30 @@ namespace InventoryManagementDataLayer
             return categories;
         }
 
+        public static List<String> FetchTypeComboBoxData()
+        {
+            List<String> types = new List<string>();
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Product_Type",
+                    DatabaseManager.ActiveSqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader();
+
+            while (sqlDataReader.Read())
+            {
+                String type = sqlDataReader["fld_type_description"].ToString();
+
+                types.Add(type);
+            }
+
+            DatabaseManager.DisconnectToDatabase();
+
+            return types;
+        }
+
         // Axiliary Functions
         // Function to convert strings to floats
         private static float FormatToFloat(String value)

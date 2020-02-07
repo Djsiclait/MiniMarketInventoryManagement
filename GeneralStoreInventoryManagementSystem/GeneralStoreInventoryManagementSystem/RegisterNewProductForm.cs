@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Custom Libraries
+using InventoryManagementBusinessLayer;
+
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class RegisterNewProductForm : Form
@@ -35,6 +38,7 @@ namespace GeneralStoreInventoryManagementSystem
             PopulateBrandListBox();
             PopulateSupplierListBox();
             PopulateCategoryComboBox();
+            PopulateTypeComboBox();
 
             CollectiveResources.RecordActivity(
                 CollectiveResources.UserInSession.Username,
@@ -254,5 +258,31 @@ namespace GeneralStoreInventoryManagementSystem
         {
             categoryComboBox.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchCategoryComboBoxInformation();
         }
+
+        private void PopulateTypeComboBox()
+        {
+            typeComboBox.DataSource = InventoryManagementBusinessLayer.ConsultInformation.FetchTypeComboBoxInformation();
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            ClearFormBuffer();
+        }
+
+        private void ClearFormBuffer()
+        {
+            keyTextBox.Text = "";
+            nameTextBox.Text = "";
+            brandSearchBox.Text = "";
+            supplierSearchBox.Text = "";
+            categoryComboBox.Text = "";
+            typeComboBox.Text = "";
+            unitTextBox.Text = "";
+            costNumericUpDown.Value = (decimal)0.01;
+            priceNumericUpDown.Value = (decimal)0.01;
+            quantityNumericUpDown.Value = 1;
+            minimumNumericUpDown.Value = 1;
+            maximumNumericUpDown.Value = 2;
+        } 
     }
 }
