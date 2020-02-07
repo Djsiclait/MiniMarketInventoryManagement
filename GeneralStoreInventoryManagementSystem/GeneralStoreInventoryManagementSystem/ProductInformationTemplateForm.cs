@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Library
-using InventoryManagementBusinessLayer;
 using InventoryManagementEntityLayer;
 
 namespace GeneralStoreInventoryManagementSystem
