@@ -25,6 +25,22 @@ namespace InventoryManagementBusinessLayer
                         "ADMIN ACCESS"); // type of activity
                     break;
 
+                case "ERR1": // Registering user access to error logs
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the errors logs", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
+                case "GRA1": // Registering user access to graphs analytics
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the graphs analytics", // description of activity
+                        "ADMIN ACCESS"); // type of activity
+                    break;
+
                 case "INV1": // Registering user access to the inventory view
 
                     SystemResources.RecordActivity(
