@@ -38,7 +38,7 @@ namespace GeneralStoreInventoryManagementSystem
             PopulateProductListDataGrid(); // Initializing the data grid upon load
 
             // Executing correct activity according to given code
-            SystemProtocols.ApplyActivityProtocols("INV1", null);
+            SystemProtocols.ApplyActivityProtocols("INV1", null, null);
         }
 ////////// END Form Load Logic
 

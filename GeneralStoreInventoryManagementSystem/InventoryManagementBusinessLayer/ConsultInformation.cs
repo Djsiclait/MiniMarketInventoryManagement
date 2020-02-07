@@ -27,7 +27,22 @@ namespace InventoryManagementBusinessLayer
             else
                 return new List<Activity>(); // returning an empty list given invalid user status
         }
-        
+
+        /// <summary>
+        /// This fucntion fetches the the activities of a specific user
+        /// </summary>
+        /// <param name="username">Target username</param>
+        /// <param name="keyWord">Key word to enable specific filtered searches</param>
+        /// <returns>A list of activities registered in the system by the target user</returns>
+        public static List<Activity> FetchActivityListInformationByUsername(String username, String keyWord)
+        {
+            // Verifying user's status before providing requested information
+            if (SystemResources.UserInSession.Status == "Active")
+                return ConsultData.FetchActivityListDataByUsername(SystemResources.UserInSession.Role, username, keyWord);
+            else
+                return new List<Activity>(); // returning an empty list given invalid user status
+        }
+
         /// <summary>
         /// This function fetches all information associated to a registered product 
         /// No verification/authentification/rejection is required at this point in developpement (This may be subject to change at a later date)
@@ -55,6 +70,19 @@ namespace InventoryManagementBusinessLayer
                 return new List<Product>(); // returning an empty list given invalid user status
         }
 
+        /// <summary>
+        /// This function fetches the information of a target user
+        /// </summary>
+        /// <param name="username">Target username</param>
+        /// <returns></returns>
+        public static UserProfile FetchUserInformationByUsername(String username)
+        {
+            // Verifying user's status before providing requested information
+            if (SystemResources.UserInSession.Status == "Active")
+                return ConsultData.FetchUserDataByUsername(username);
+            else
+                return new UserProfile();
+        }
 
         /// <summary>
         /// This Function checks for the availability of a username 
@@ -71,19 +99,9 @@ namespace InventoryManagementBusinessLayer
             return InventoryManagementDataLayer.ConsultData.FetchUserListData(username, userPermission, keyWord);
         }
 
-        public static UserProfile FetchUserInformationByUsername(String username)
-        {
-            return InventoryManagementDataLayer.ConsultData.FetchUserDataByUsername(username);
-        }
-
         public static String ValidateUserCredentialsInformation(String username, String password)
         {
             return InventoryManagementDataLayer.ConsultData.ValidateUserCredentialsData(username, password);
-        }
-
-        public static List<Activity> FetchActivityListInformationByUsername(String userPermission, String username, String keyWord)
-        {
-            return InventoryManagementDataLayer.ConsultData.FetchActivityListDataByUsername(userPermission, username, keyWord);
         }
 
         public static List<String> FetchBrandListInformation(String keyWord)

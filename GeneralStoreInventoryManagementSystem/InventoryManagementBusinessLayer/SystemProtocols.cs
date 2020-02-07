@@ -12,8 +12,8 @@ namespace InventoryManagementBusinessLayer
         /// Function to register systema and user activity durring an active session
         /// </summary>
         /// <param name="code">Code to execute and register correct activity</param>
-        /// <param name="meta">Auxiliary information for certain activities</param>
-        public static void ApplyActivityProtocols(String code, String meta)
+        /// <param name="meta1">Auxiliary information for certain activities</param>
+        public static void ApplyActivityProtocols(String code, String meta1, String meta2)
         {
             switch (code)
             {
@@ -52,8 +52,8 @@ namespace InventoryManagementBusinessLayer
                 case "LOG0": // Registering a failed log in 
 
                     SystemResources.RecordActivity(
-                        meta, // provided username that failed the log in
-                        "Deactivated account, " + meta + ", attemped to log into the system", // description of activity
+                        meta1, // provided username that failed the log in
+                        "Deactivated account, " + meta1 + ", attemped to log into the system", // description of activity
                         "LOGIN FAILIER"); // type of activity
                     break;
 
@@ -105,12 +105,28 @@ namespace InventoryManagementBusinessLayer
                         "ADMIN ACCESS"); // type of activity
                     break;
 
-                case "SEP1": // Registering a password change
+                case "SPE1": // Registering a password change
 
                     SystemResources.RecordActivity(
                         SystemResources.UserInSession.Username, // username of user in session
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has changed their password", // description of activity
                         "PASSWORD CHANGE"); // type of activity
+                    break;
+
+                case "SPE2": // Registering a user access level change
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username,
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", changed " + meta1 + "'s user access level to: " + meta2, // description of activity
+                        meta2 == "Admin" ? "ADMIN PROMOTION" : "USER DEMOTION"); // type of activity
+                    break;
+
+                case "SPE3": // Registering a user account status change
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", " + (meta2 == "Active" ? "reinstated " : "suspended") + " user account, " + meta1, // description of activity
+                        meta2 == "Active" ? "ACTIVATE " : "SUSPEND"); // type of activity
                     break;
 
                 default:
@@ -133,7 +149,7 @@ namespace InventoryManagementBusinessLayer
                 return "INVALID USER";
             else if (message == "User profile is currently inactive")
             {
-                ApplyActivityProtocols("LOG0", username); // registering correct activity for given case
+                ApplyActivityProtocols("LOG0", username, null); // registering correct activity for given case
                 return "INACTIVE USER";
             }
             else if (message == "Password is incorrect")

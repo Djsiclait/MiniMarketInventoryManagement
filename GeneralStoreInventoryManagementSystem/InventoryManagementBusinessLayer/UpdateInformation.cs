@@ -21,7 +21,7 @@ namespace InventoryManagementBusinessLayer
             UpdateData.ChangeUserPasswordData(username, newPassword); // Changing the credentials of the provided username
 
             // Executing correct activity according to given code
-            SystemProtocols.ApplyActivityProtocols("SPE1", null);
+            SystemProtocols.ApplyActivityProtocols("SPE1", null, null);
         }
 
         /// <summary>

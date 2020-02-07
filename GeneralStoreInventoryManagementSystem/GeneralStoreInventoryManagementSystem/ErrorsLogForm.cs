@@ -37,7 +37,7 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Enabled = false;
             }
 
-            SystemProtocols.ApplyActivityProtocols("ERR1", null);
+            SystemProtocols.ApplyActivityProtocols("ERR1", null, null);
         }
 ////////// Load Form Logic
 

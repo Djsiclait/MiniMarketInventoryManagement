@@ -38,7 +38,7 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             // Executing correct activity according to given code
-            SystemProtocols.ApplyActivityProtocols("ACT1", null);
+            SystemProtocols.ApplyActivityProtocols("ACT1", null, null);
 
             PopulateActivityListDataGrid();
         }

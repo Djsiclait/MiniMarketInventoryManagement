@@ -36,10 +36,10 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Visible = false;
                 adminMenuOption.Enabled = false;
 
-                SystemProtocols.ApplyActivityProtocols("SAL2", null);
+                SystemProtocols.ApplyActivityProtocols("SAL2", null, null);
             }
             else
-                SystemProtocols.ApplyActivityProtocols("SAL3", null);
+                SystemProtocols.ApplyActivityProtocols("SAL3", null, null);
 
         }
 ////////// END Load Form Logic
