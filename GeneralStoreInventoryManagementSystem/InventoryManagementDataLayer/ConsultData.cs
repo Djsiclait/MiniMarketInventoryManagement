@@ -14,6 +14,131 @@ namespace InventoryManagementDataLayer
     public static class ConsultData
     {
         /// <summary>
+        /// This Function executes a query to check the availability of a username 
+        /// </summary>
+        /// <param name="username">requested username</param>
+        /// <returns>true or false depending if the username exists or not</returns>
+        public static bool CheckUsernameAvailability(String username)
+        {
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Username_Exists", // Stored procedure incharged of fetching required data 
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // username requesting availability
+
+            // Declaring an output variable
+            SqlParameter result = new SqlParameter("@result", SqlDbType.Bit); // defining the output message variable
+            result.Direction = ParameterDirection.Output; // Confirming the output direction
+            cmd.Parameters.Add(result); // Confirming the output direction
+
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
+
+            // Given that the stored procedure only ask if the username exists, to answer the question of availability the result must be negated
+            // Yes, the username exists = No, there is no availability
+            // No, the username does not exists = Yes, there is availability
+            return !FormatToBoolean(cmd.Parameters["@result"].Value.ToString());
+        }
+
+        /// <summary>
+        /// This function fetches the system and user activities registered in the system
+        /// Users are able to specify key words to filter searches and limit the resultset to the last 24 hours
+        /// </summary>
+        /// <param name="userPermission">User''s access level</param>
+        /// <param name="keyWord">Key word to enable specific filtered searhs</param>
+        /// <param name="last24Hours">Indicator to specify if searches should be limited to the last 24 hours</param>
+        /// <returns>A list of registered activitiees based on the search paramaters</returns>
+        public static List<Activity> FetchActivityListData(String userPermission, String keyWord, bool last24Hours)
+        {
+            List<Activity> activities = new List<Activity>(); // List to host the resulting registered activities
+
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    last24Hours ? "SP_Fetch_Last_24_Hours_Users_Activities_Data" : "SP_Fetch_Users_Activities_Data", // Stored procedure incharged of fetching required data 
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission; // defining the user's access level
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions
+
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                Activity activity = new Activity(); // Creating new activity
+
+                // Assigning the corresponding values to their variables
+                activity.Username = sqlDataReader["fld_user_activity_username"].ToString();
+                activity.Description = sqlDataReader["fld_user_activity_description"].ToString();
+                activity.Type = sqlDataReader["fld_user_activity_type"].ToString();
+                activity.Timestamp = DateTime.Parse(sqlDataReader["fld_user_activity_timestamp"].ToString());
+
+                activities.Add(activity); // Adding the new activity into the list
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return activities; // returning activities list
+        }
+
+        /// <summary>
+        /// This function fetches all data associated to a registered product 
+        /// </summary>
+        /// <param name="productId">product's internal system identification number</param>
+        /// <returns>a product object with all extracted data for that specific product id</returns>
+        public static Product FetchProductDataByID(String productId)
+        {
+            Product product = new Product(); // nuew product instance to save fethed data
+
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Product_Information_By_ID", // Stored procedure incharged of fetching required data  
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@product_id", SqlDbType.VarChar, 10).Value = productId; // variable that identifies the desired product to retreive its data
+
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                // Assigning the corresponding values to their variables
+                product.Key = sqlDataReader["fld_product_key"].ToString();
+                product.Name = sqlDataReader["fld_product_name"].ToString();
+                product.Brand = sqlDataReader["fld_brand_name"].ToString();
+                product.Supplier = sqlDataReader["fld_supplier_name"].ToString();
+                product.Unit = sqlDataReader["fld_product_unit"].ToString();
+                product.Category = sqlDataReader["fld_category_description"].ToString();
+                product.Type = sqlDataReader["fld_type_description"].ToString();
+                product.UnitCost = FormatToFloat(sqlDataReader["fld_product_unit_cost"].ToString());
+                product.UnitPrice = FormatToFloat(sqlDataReader["fld_product_unit_price"].ToString());
+                product.Quantity = FormatToInt(sqlDataReader["fld_product_quantity"].ToString());
+                product.MinimumQuantity = FormatToInt(sqlDataReader["fld_product_minimum_quantity"].ToString());
+                product.MaximumQuantity = FormatToInt(sqlDataReader["fld_product_maximum_quantity"].ToString());
+                product.RegisteredBy = sqlDataReader["fld_product_registered_by"].ToString();
+                product.RegistrationDate = DateTime.Parse(sqlDataReader["fld_product_registration_date"].ToString());
+                product.ModifiedBy = sqlDataReader["fld_product_modified_by"].ToString();
+                product.ModificationDate = DateTime.Parse(sqlDataReader["fld_product_modification_date"].ToString());
+                product.Discontinued = FormatToBoolean(sqlDataReader["fld_product_discontinued"].ToString());
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return product; // returning the resulting product
+        }
+
+        /// <summary>
         /// This function returns all products from the inventory, filtering the columns of data according to the user's role
         /// It also allows the use of specific key words to filter the inventory via loose regular expressions
         /// </summary>
@@ -69,22 +194,22 @@ namespace InventoryManagementDataLayer
         }
 
         /// <summary>
-        /// This function fetches all data associated to a registered product 
+        /// This function fetches the data of a specified user
         /// </summary>
-        /// <param name="productId">product's internal system identification number</param>
-        /// <returns>a product object with all extracted data for that specific product id</returns>
-        public static Product FetchProductDataByID(String productId)
+        /// <param name="username">Target username</param>
+        /// <returns>The user profile of the requested username</returns>
+        public static UserProfile FetchUserDataByUsername(String username)
         {
-            Product product = new Product(); // nuew product instance to save fethed data
+            UserProfile user = new UserProfile();
 
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Product_Information_By_ID", // Stored procedure incharged of fetching required data  
+                    "SP_Fetch_User_Data_By_Username", // Stored procedure incharged of fetching required data 
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
-            cmd.Parameters.Add("@product_id", SqlDbType.VarChar, 10).Value = productId; // variable that identifies the desired product to retreive its data
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // Target username
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
@@ -94,113 +219,6 @@ namespace InventoryManagementDataLayer
             while (sqlDataReader.Read())
             {
                 // Assigning the corresponding values to their variables
-                product.Key = sqlDataReader["fld_product_key"].ToString();
-                product.Name = sqlDataReader["fld_product_name"].ToString();
-                product.Brand = sqlDataReader["fld_brand_name"].ToString();
-                product.Supplier = sqlDataReader["fld_supplier_name"].ToString();
-                product.Unit = sqlDataReader["fld_product_unit"].ToString();
-                product.Category = sqlDataReader["fld_category_description"].ToString();
-                product.Type = sqlDataReader["fld_type_description"].ToString();
-                product.UnitCost = FormatToFloat(sqlDataReader["fld_product_unit_cost"].ToString());
-                product.UnitPrice = FormatToFloat(sqlDataReader["fld_product_unit_price"].ToString());
-                product.Quantity = FormatToInt(sqlDataReader["fld_product_quantity"].ToString());
-                product.MinimumQuantity = FormatToInt(sqlDataReader["fld_product_minimum_quantity"].ToString());
-                product.MaximumQuantity = FormatToInt(sqlDataReader["fld_product_maximum_quantity"].ToString());
-                product.RegisteredBy = sqlDataReader["fld_product_registered_by"].ToString();
-                product.RegistrationDate = DateTime.Parse(sqlDataReader["fld_product_registration_date"].ToString());
-                product.ModifiedBy = sqlDataReader["fld_product_modified_by"].ToString();
-                product.ModificationDate = DateTime.Parse(sqlDataReader["fld_product_modification_date"].ToString());
-                product.Discontinued = FormatToBoolean(sqlDataReader["fld_product_discontinued"].ToString());
-            }
-
-            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
-
-            return product; // returning the resulting product
-        }
-
-        /// <summary>
-        /// This Function executes a query to check the availability of a username 
-        /// </summary>
-        /// <param name="username">requested username</param>
-        /// <returns>true or false depending if the username exists or not</returns>
-        public static bool CheckUsernameAvailability(String username)
-        {
-            // Define which query command will be executed 
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Username_Exists", // Stored procedure incharged of fetching required data 
-                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
-            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
-
-            // Declaring the parameters required by the stored procedure to execute it's pre defined command
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // username requesting availability
-
-            // Declaring an output variable
-            SqlParameter result = new SqlParameter("@result", SqlDbType.Bit); // defining the output message variable
-            result.Direction = ParameterDirection.Output; // Confirming the output direction
-            cmd.Parameters.Add(result); // Confirming the output direction
-
-            Int32 reply;
-            reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
-
-            // Given that the stored procedure only ask if the username exists, to answer the question of availability the result must be negated
-            // Yes, the username exists = No, there is no availability
-            // No, the username does not exists = Yes, there is availability
-            return !FormatToBoolean(cmd.Parameters["@result"].Value.ToString()); 
-        }
-
-        public static List<UserProfile> FetchUserListData(String username, String userPermission, String keyWord)
-        {
-            List<UserProfile> userList = new List<UserProfile>();
-
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_User_List_Data",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
-            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;
-            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
-
-            SqlDataReader sqlDataReader;
-            sqlDataReader = cmd.ExecuteReader();
-
-            while (sqlDataReader.Read())
-            {
-                UserProfile user = new UserProfile();
-
-                user.Username = sqlDataReader["fld_user_username"].ToString();
-                user.FirstName = sqlDataReader["fld_user_first_name"].ToString();
-                user.LastName = sqlDataReader["fld_user_last_name"].ToString();
-                user.Role = sqlDataReader["fld_user_role"].ToString();
-                user.Status = sqlDataReader["fld_user_status"].ToString(); // Not required to convert to int given the variable's getter ans setter already have internal conversion
-
-                if (sqlDataReader["fld_user_last_login_timestamp"].ToString() != "")
-                    user.LastLogin = DateTime.Parse(sqlDataReader["fld_user_last_login_timestamp"].ToString());
-
-                userList.Add(user);
-            }
-
-            DatabaseManager.DisconnectToDatabase();
-
-            return userList;
-        }
-
-        public static UserProfile FetchUserDataByUsername(String username)
-        {
-            UserProfile user = new UserProfile();
-
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_User_Data_By_Username",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
-
-            SqlDataReader sqlDataReader;
-            sqlDataReader = cmd.ExecuteReader();
-
-            while (sqlDataReader.Read())
-            {
                 user.Username = sqlDataReader["fld_user_username"].ToString();
                 user.FirstName = sqlDataReader["fld_user_first_name"].ToString();
                 user.LastName = sqlDataReader["fld_user_last_name"].ToString();
@@ -209,66 +227,95 @@ namespace InventoryManagementDataLayer
                 user.Creator = sqlDataReader["fld_user_creator"].ToString();// Not required to convert to int given the variable's getter ans setter already have internal conversion
                 user.RegistrationDate = DateTime.Parse(sqlDataReader["fld_user_registration_date"].ToString());
 
+                // Verifying for null or empty dates to prevent errors
                 if (sqlDataReader["fld_user_last_login_timestamp"].ToString() != "")
                     user.LastLogin = DateTime.Parse(sqlDataReader["fld_user_last_login_timestamp"].ToString());
             }
 
-            DatabaseManager.DisconnectToDatabase();
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
 
-            return user;
+            return user; // Returning requested user profile
         }
 
-        public static String ValidateUserCredentialsData(String username, String password)
+        /// <summary>
+        /// This function fetches the registered data of the user list given a search filter
+        /// </summary>
+        /// <param name="username">Username currently in session to exclude him form the list</param>
+        /// <param name="userPermission">Username's access level</param>
+        /// <param name="keyWord">Key word to enable specific filtered searhs</param>
+        /// <returns>A list os user profiles</returns>
+        public static List<UserProfile> FetchUserListData(String username, String userPermission, String keyWord)
         {
+            List<UserProfile> userList = new List<UserProfile>(); // List to host the resulting users
+
+            // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Validate_User_Credentials_Data",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                    "SP_Fetch_User_List_Data", // Stored procedure incharged of fetching required data 
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
-            cmd.Parameters.Add("@password", SqlDbType.VarChar, 30).Value = password;
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // defining the username to exclude in the dataset
+            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission; // user's access level
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions 
 
-            SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300);
-            message.Direction = ParameterDirection.Output;
-
-            cmd.Parameters.Add(message);
-
-            Int32 reply;
-            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
-
-            return cmd.Parameters["@message"].Value.ToString();
-        }
-
-        public static List<Activity> FetchActivityListData(String userPermission, String keyWord, bool last24Hours)
-        {
-            List<Activity> activities = new List<Activity>();
-
-            SqlCommand cmd = new SqlCommand(
-                    last24Hours ? "SP_Fetch_Last_24_Hours_Users_Activities_Data" : "SP_Fetch_Users_Activities_Data",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;
-            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
-
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
-            sqlDataReader = cmd.ExecuteReader();
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
 
+            // Running through the individual rows of the result set until done
             while (sqlDataReader.Read())
             {
-                Activity activity = new Activity();
+                UserProfile user = new UserProfile(); // Creating new user profile
 
-                activity.Username = sqlDataReader["fld_user_activity_username"].ToString();
-                activity.Description = sqlDataReader["fld_user_activity_description"].ToString();
-                activity.Type = sqlDataReader["fld_user_activity_type"].ToString();
-                activity.Timestamp = DateTime.Parse(sqlDataReader["fld_user_activity_timestamp"].ToString()); 
+                // Assigning the corresponding values to their variables
+                user.Username = sqlDataReader["fld_user_username"].ToString();
+                user.FirstName = sqlDataReader["fld_user_first_name"].ToString();
+                user.LastName = sqlDataReader["fld_user_last_name"].ToString();
+                user.Role = sqlDataReader["fld_user_role"].ToString();
+                user.Status = sqlDataReader["fld_user_status"].ToString(); // Not required to convert to int given the variable's getter ans setter already have internal conversion
 
-                activities.Add(activity);
+                // Verifying for null or empty dates to prevent errors
+                if (sqlDataReader["fld_user_last_login_timestamp"].ToString() != "")
+                    user.LastLogin = DateTime.Parse(sqlDataReader["fld_user_last_login_timestamp"].ToString());
+
+                userList.Add(user); // Adding the new user profile
             }
 
-            DatabaseManager.DisconnectToDatabase();
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
 
-            return activities;
+            return userList; // returning the list of users
+        }
+
+        /// <summary>
+        /// This funtion validates user's credentials data
+        /// </summary>
+        /// <param name="username">Username requesting validation</param>
+        /// <param name="password">Password</param>
+        /// <returns>A message that confirms or denies the validation process</returns>
+        public static String ValidateUserCredentialsData(String username, String password)
+        {
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Validate_User_Credentials_Data", // Stored procedure incharged of validating given data 
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // defining the username requesting validation
+            cmd.Parameters.Add("@password", SqlDbType.VarChar, 30).Value = password; // defining the password credentials
+
+            // Declaring an output variable
+            SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300); // defining the output message variable
+            message.Direction = ParameterDirection.Output; // Confirming the output direction
+            cmd.Parameters.Add(message); // Adding output paramater to the command
+
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
+
+            // closing the opened database connection is ignored given an expected output, @message, will be used
+
+            return cmd.Parameters["@message"].Value.ToString(); // returning the output message generated by the procedure
         }
 
         public static List<Activity> FetchActivityListDataByUsername(String userPermission, String username, String keyWord)
@@ -409,8 +456,12 @@ namespace InventoryManagementDataLayer
             return types;
         }
 
-        // Axiliary Functions
-        // Function to convert strings to floats
+////////// Axiliary Functions 
+        /// <summary>
+        /// Function to convert strings to floats
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>The float equivalent of the given string value</returns>
         private static float FormatToFloat(String value)
         {
             float result;
@@ -420,7 +471,11 @@ namespace InventoryManagementDataLayer
             return result;
         }
 
-        // Function to convert strings to ints
+        /// <summary>
+        /// Function to convert strings to ints
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>An int equivalent of the provided string value</returns>
         private static int FormatToInt(String value)
         {
             int result;
@@ -430,7 +485,11 @@ namespace InventoryManagementDataLayer
             return result;
         }
 
-        // Function to convert strings to booleans
+        /// <summary>
+        /// Function to convert strings to booleans
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>A boolean equivalent of the provided string value</returns>
         private static Boolean FormatToBoolean(String value)
         {
             Boolean result;
@@ -440,7 +499,11 @@ namespace InventoryManagementDataLayer
             return result;
         }
 
-        // Function to convert strings to longs
+        /// <summary>
+        /// Function to convert strings to longs
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>A long equivalent of the provided string value</returns>
         private static long FormatToLong(String value)
         {
             long result;

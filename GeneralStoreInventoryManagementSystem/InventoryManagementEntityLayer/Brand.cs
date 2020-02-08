@@ -8,8 +8,8 @@ namespace InventoryManagementEntityLayer
 {
     public class Brand
     {
-        private String id;
-        private String name;
+        private String id; // product brand identification number
+        private String name; // name of product brand
 
         // Getters and Setters
         public string Id

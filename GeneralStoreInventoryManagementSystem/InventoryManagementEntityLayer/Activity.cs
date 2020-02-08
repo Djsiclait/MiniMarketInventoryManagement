@@ -8,11 +8,12 @@ namespace InventoryManagementEntityLayer
 {
     public class Activity
     {
-        private String username;
-        private String description;
-        private String type;
-        private DateTime timestamp;
+        private String username; // username of user currently in session
+        private String description; // description of the activity
+        private String type; // type of the activity
+        private DateTime timestamp; // date and time of activity
 
+        // Constructors
         public Activity()
         {
 

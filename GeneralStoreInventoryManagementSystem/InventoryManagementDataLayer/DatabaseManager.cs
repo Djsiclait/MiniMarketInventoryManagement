@@ -19,8 +19,10 @@ namespace InventoryManagementDataLayer
 
         // Database connector to store and fetch data
         private static SqlConnection activeSqlConnection = new SqlConnection(dataSource);
-
-        // Function used to establish an active connection with the database
+        
+        /// <summary>
+        /// Function used to establish an active connection with the database
+        /// </summary>
         private static void ConnectToDatabase()
         {
             // If any previous function had any use of this connect, this will close the unattended connetion
@@ -30,7 +32,9 @@ namespace InventoryManagementDataLayer
             activeSqlConnection.Open();
         }
 
-        // Function used to end an active connection with the database
+        /// <summary>
+        /// Function used to end an active connection with the database
+        /// </summary>
         public static void DisconnectToDatabase()
         {
             activeSqlConnection.Close();
