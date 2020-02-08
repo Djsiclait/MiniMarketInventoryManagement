@@ -44,7 +44,7 @@ namespace InventoryManagementDataLayer
         }
 
         /// <summary>
-        /// This function fetches the system and user activities registered in the system
+        /// This function fetches the system and user activities registered in the system.
         /// Users are able to specify key words to filter searches and limit the resultset to the last 24 hours
         /// </summary>
         /// <param name="userPermission">User''s access level</param>
@@ -72,7 +72,7 @@ namespace InventoryManagementDataLayer
             // Running through the individual rows of the result set until done
             while (sqlDataReader.Read())
             {
-                Activity activity = new Activity(); // Creating new activity
+                Activity activity = new Activity(); // Creating new activity 
 
                 // Assigning the corresponding values to their variables
                 activity.Username = sqlDataReader["fld_user_activity_username"].ToString();
@@ -86,6 +86,121 @@ namespace InventoryManagementDataLayer
             DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
 
             return activities; // returning activities list
+        }
+
+        /// <summary>
+        /// This function fetches all the activities of a specific username 
+        /// </summary>
+        /// <param name="userPermission">User's access level</param>
+        /// <param name="username">Username to filter which activites are relevent</param>
+        /// <param name="keyWord">Key word to enable specific filtered searhs</param>
+        /// <returns>A list of registered activitiees of a singular user based on the search paramaters</returns>
+        public static List<Activity> FetchActivityListDataByUsername(String userPermission, String username, String keyWord)
+        {
+            List<Activity> activities = new List<Activity>(); // List to host the resulting registered activities
+
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_User_Activity_By_Username", // Stored procedure incharged of fetching required data 
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;// defining the user's access level
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // Username to limit search
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions
+
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                Activity activity = new Activity(); // Creating new activity
+
+                // Assigning the corresponding values to their variables
+                activity.Description = sqlDataReader["fld_user_activity_description"].ToString();
+                activity.Type = sqlDataReader["fld_user_activity_type"].ToString();
+                activity.Timestamp = DateTime.Parse(sqlDataReader["fld_user_activity_timestamp"].ToString());
+
+                activities.Add(activity); // Adding the new activity into the list
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return activities; // returning activities list
+        }
+
+        /// <summary>
+        /// This function retreives the dataset of registered brand names
+        /// </summary>
+        /// <param name="keyWord">Key word to enable specific filtered searhs</param>
+        /// <returns>A list of all registered brand names</returns>
+        public static List<String> FetchBrandListData(String keyWord)
+        {
+            List<String> brands = new List<String>(); // creating list to host registered brand names
+            brands.Add("<None>"); // adding the default value for products that are not associated with a brand
+
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Registered_Brand_Names_Data", // Stored procedure incharged of fetching required data
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions
+
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                String brandName; // Creating brand name class with string given this function doesn't use the brand object rather just the name of the brands
+
+                // Assigning the corresponding values to their variables
+                brandName = sqlDataReader["fld_brand_name"].ToString();
+
+                brands.Add(brandName); // adding brand name to list
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return brands; // returning the brand name list
+        }
+
+        /// <summary>
+        /// This fucntion fetches the category names data
+        /// </summary>
+        /// <returns>A list of registered category names</returns>
+        public static List<String> FetchCategoryComboBoxData()
+        {
+            List<String> categories = new List<string>(); // creating list to host registered brand names
+
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Product_Category_Data", // Stored procedure incharged of fetching required data
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                // Assigning the corresponding values to their variables
+                String categoryName = sqlDataReader["fld_category_description"].ToString();
+
+                categories.Add(categoryName); // adding category name to list
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return categories; // returning the category name list
         }
 
         /// <summary>
@@ -191,6 +306,77 @@ namespace InventoryManagementDataLayer
             DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
 
             return inventory; // returning the resulting inenvtory
+        }
+
+        /// <summary>
+        /// This function retreives the dataset of registered supplier names
+        /// </summary>
+        /// <param name="keyWord">Key word to enable specific filtered searhs</param>
+        /// <returns>A list of all registered supplier names</returns>
+        public static List<String> FetchSupplierListData(String keyWord)
+        {
+            List<String> suppliers = new List<string>(); // creating list to host registered supplier names
+            suppliers.Add("<None>"); // adding the default value for products that are not associated with a supplier
+
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Registered_Supplier_Names", // Stored procedure incharged of fetching required data
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions
+
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                String supplierName; // Creating supplier name class with string given this function doesn't use the brand object rather just the name of the brands
+
+                // Assigning the corresponding values to their variables
+                supplierName = sqlDataReader["fld_supplier_name"].ToString();
+
+                suppliers.Add(supplierName); // adding supplier name to list
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return suppliers; // returning the supplier name list
+        }
+
+        /// <summary>
+        /// This function fetches all registered type names
+        /// </summary>
+        /// <returns>A list of all registered type names</returns>
+        public static List<String> FetchTypeComboBoxData()
+        {
+            List<String> types = new List<string>(); // creating list to host registered supplier names
+
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Product_Type", // Stored procedure incharged of fetching required data
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                // Assigning the corresponding values to their variables
+                String typeName = sqlDataReader["fld_type_description"].ToString();
+
+                types.Add(typeName); // adding type name to list
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return types; // returning the type name list
         }
 
         /// <summary>
@@ -316,144 +502,6 @@ namespace InventoryManagementDataLayer
             // closing the opened database connection is ignored given an expected output, @message, will be used
 
             return cmd.Parameters["@message"].Value.ToString(); // returning the output message generated by the procedure
-        }
-
-        public static List<Activity> FetchActivityListDataByUsername(String userPermission, String username, String keyWord)
-        {
-            List<Activity> activities = new List<Activity>();
-
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_User_Activity_By_Username",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
-            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
-
-            SqlDataReader sqlDataReader;
-            sqlDataReader = cmd.ExecuteReader();
-
-            while (sqlDataReader.Read())
-            {
-                Activity activity = new Activity();
-                
-                activity.Description = sqlDataReader["fld_user_activity_description"].ToString();
-                activity.Type = sqlDataReader["fld_user_activity_type"].ToString();
-                activity.Timestamp = DateTime.Parse(sqlDataReader["fld_user_activity_timestamp"].ToString());
-
-                activities.Add(activity);
-            }
-
-            DatabaseManager.DisconnectToDatabase();
-
-            return activities;
-        }
-
-        public static List<String> FetchBrandListData(String keyWord)
-        {
-            List<String> brands = new List<String>();
-            brands.Add("<None>");
-
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Registered_Brand_Names_Data",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
-
-            SqlDataReader sqlDataReader;
-            sqlDataReader = cmd.ExecuteReader();
-
-            while (sqlDataReader.Read())
-            {
-                String brand;
-
-                brand = sqlDataReader["fld_brand_name"].ToString();
-
-                brands.Add(brand);
-            }
-
-            DatabaseManager.DisconnectToDatabase();
-
-            return brands;
-        }
-
-        public static List<String> FetchSupplierListData(String keyWord)
-        {
-            List<String> suppliers = new List<string>();
-            suppliers.Add("<None>");
-
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Registered_Supplier_Names",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
-
-            SqlDataReader sqlDataReader;
-            sqlDataReader = cmd.ExecuteReader();
-
-            while (sqlDataReader.Read())
-            {
-                String supplier;
-
-                supplier = sqlDataReader["fld_supplier_name"].ToString();
-
-                suppliers.Add(supplier);
-            }
-
-            DatabaseManager.DisconnectToDatabase();
-
-            return suppliers;
-        }
-
-        public static List<String> FetchCategoryComboBoxData()
-        {
-            List<String> categories = new List<string>();
-
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Product_Category_Data",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader sqlDataReader;
-            sqlDataReader = cmd.ExecuteReader();
-
-            while (sqlDataReader.Read())
-            {
-                String category = sqlDataReader["fld_category_description"].ToString();
-
-                categories.Add(category);
-            }
-
-            DatabaseManager.DisconnectToDatabase();
-
-            return categories;
-        }
-
-        public static List<String> FetchTypeComboBoxData()
-        {
-            List<String> types = new List<string>();
-
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Product_Type",
-                    DatabaseManager.ActiveSqlConnection);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader sqlDataReader;
-            sqlDataReader = cmd.ExecuteReader();
-
-            while (sqlDataReader.Read())
-            {
-                String type = sqlDataReader["fld_type_description"].ToString();
-
-                types.Add(type);
-            }
-
-            DatabaseManager.DisconnectToDatabase();
-
-            return types;
         }
 
 ////////// Axiliary Functions 
