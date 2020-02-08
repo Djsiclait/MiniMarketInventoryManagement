@@ -16,8 +16,8 @@ namespace InventoryManagementEntityLayer
         private String unit; // Unit of measurment for product(i.e.unit, pack, 12oz, lb)
         private String category; // product cateory
         private String type; // product type
-        private float unitCost; // purchase cost of an individual unit of the registered product
-        private float unitPrice; // sales price of an individual unit of the registered product
+        private decimal unitCost; // purchase cost of an individual unit of the registered product
+        private decimal unitPrice; // sales price of an individual unit of the registered product
         private int quantity; // current available total quantity of units in stock
         private int minimumQuantity; // miminum unit quantity needed to determine understock level of registered product
         private int maximumQuantity; // maximum unit quantity needed to determine overstock level of registered product
@@ -132,7 +132,7 @@ namespace InventoryManagementEntityLayer
             }
         }
 
-        public float UnitCost
+        public decimal UnitCost
         {
             get
             {
@@ -145,7 +145,7 @@ namespace InventoryManagementEntityLayer
             }
         }
 
-        public float UnitPrice
+        public decimal UnitPrice
         {
             get
             {

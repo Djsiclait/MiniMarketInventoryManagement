@@ -33,6 +33,29 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
+        /// This function receives a product object to register its information
+        /// </summary>
+        /// <param name="product">Product object which contains necessary information</param>
+        /// <returns>A message that confirms or denies the creation process</returns>
+        public static String RegisterNewProductInformation(Product product)
+        {
+            // Identifying the user that is requesting the product registration 
+            product.RegisteredBy = SystemResources.UserInSession.Username;
+
+            // Requesting creation of new product
+            String message = CreateData.RegisterNewProductData(product);
+
+            if (message == "Product created successfully!")
+            {
+                // Executing correct activity according to given code
+                SystemProtocols.ApplyActivityProtocols("PRO4", product.Name, null);
+                return "SUCCESS";
+            }
+            else
+                return "";
+        }
+
+        /// <summary>
         /// This function registers new brands for product classification
         /// </summary>
         /// <param name="name">Name of new brand</param>

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 // Custom Libraries
 using InventoryManagementBusinessLayer;
+using InventoryManagementEntityLayer;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -246,6 +247,19 @@ namespace GeneralStoreInventoryManagementSystem
         {
             ClearFormBuffer();
         }
+
+        private void CreateButton_Click(object sender, EventArgs e)
+        {
+            String message = CreateInformation.RegisterNewProductInformation(CreateProductObject());
+
+            if (message == "SUCCESS")
+            {
+                MessageBox.Show("Product, " + nameTextBox.Text + ", was successfully registered!");
+                ClearFormBuffer();
+            }
+            else
+                MessageBox.Show("Please provide the correct information");
+        }
 ////////// END Button Click Logic
 
 ////////// Auxiliary Functions
@@ -266,6 +280,31 @@ namespace GeneralStoreInventoryManagementSystem
             quantityNumericUpDown.Value = 1;
             minimumNumericUpDown.Value = 1;
             maximumNumericUpDown.Value = 2;
+        }
+
+        /// <summary>
+        /// Function that creates a project oobject based on user's input
+        /// </summary>
+        /// <returns>A product object</returns>
+        private Product CreateProductObject()
+        {
+            Product product = new Product(); // Create new product object 
+
+            // Assigning values to object
+            product.Key = keyTextBox.Text;
+            product.Name = nameTextBox.Text;
+            product.Brand = brandListBox.SelectedValue.ToString();
+            product.Supplier = supplierListBox.SelectedValue.ToString();
+            product.Category = categoryComboBox.SelectedValue.ToString();
+            product.Type = typeComboBox.SelectedValue.ToString();
+            product.Unit = unitTextBox.Text;
+            product.UnitCost = costNumericUpDown.Value;
+            product.UnitPrice = priceNumericUpDown.Value;
+            product.Quantity = (int)quantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
+            product.MinimumQuantity = (int)minimumNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
+            product.MaximumQuantity = (int)maximumNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
+
+            return product; // returning new product with all necessary information 
         }
 
         /// <summary>

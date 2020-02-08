@@ -47,11 +47,11 @@ AS
 					@new_product_id,
 					@key,
 					@name,
-					@brand,
-					@supplier,
+					(select fld_brand_id from Tbl_Product_Brands where fld_brand_name = @brand),
+					(select fld_supplier_id from Tbl_Suppliers where fld_supplier_name = @supplier),
 					@unit,
-					@category,
-					@type,
+					(select fld_category_id from Tbl_Product_Categories where fld_category_description = @category),
+					(select fld_type_id from Tbl_Product_Type where fld_type_description = @type),
 					@cost,
 					@price,
 					@quantity,
@@ -77,7 +77,7 @@ Declare @message varchar(300)
 --exec SP_Register_New_Product_Data 'Coronita', 'Corona', 'B3', 'S3', '255 ml', 'C3', 'T3', 40.00, 80.00, 68, 50, 100, 'n.siclait', @message output
 --exec SP_Register_New_Product_Data '', 'Sazon Completo Multi Vitaminas', 'B2', 'S2', 'unidad', 'C1', 'T2', 1.00, 7.00, 150, 200, 400, 'super.admin', @message output
 --exec SP_Register_New_Product_Data 'Pasta Nacional', 'Espagheti La Nacional', 'B2', 'S2', '16 oz', 'C4', 'T4', 10.00, 15.00, 8, 10, 30, 'super.admin', @message output
-exec SP_Register_New_Product_Data '', 'Espagheti La Famosa', 'B2', 'S2', '32 oz', 'C4', 'T4', 25.00, 23.00, 40, 20, 30, 'super.admin', @message output
+--exec SP_Register_New_Product_Data '', 'Espagheti La Famosa', 'B2', 'S2', '32 oz', 'C4', 'T4', 25.00, 23.00, 40, 20, 30, 'super.admin', @message output
 
 select * from Tbl_Products
 

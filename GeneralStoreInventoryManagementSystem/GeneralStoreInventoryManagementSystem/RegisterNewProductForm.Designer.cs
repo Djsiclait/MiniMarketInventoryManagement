@@ -502,6 +502,12 @@
             // 
             // quantityNumericUpDown
             // 
+            this.quantityNumericUpDown.DecimalPlaces = 1;
+            this.quantityNumericUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.quantityNumericUpDown.Location = new System.Drawing.Point(201, 451);
             this.quantityNumericUpDown.Maximum = new decimal(new int[] {
             100000,
@@ -534,6 +540,12 @@
             // 
             // minimumNumericUpDown
             // 
+            this.minimumNumericUpDown.DecimalPlaces = 1;
+            this.minimumNumericUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.minimumNumericUpDown.Location = new System.Drawing.Point(382, 451);
             this.minimumNumericUpDown.Maximum = new decimal(new int[] {
             100000,
@@ -566,6 +578,12 @@
             // 
             // maximumNumericUpDown
             // 
+            this.maximumNumericUpDown.DecimalPlaces = 1;
+            this.maximumNumericUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.maximumNumericUpDown.Location = new System.Drawing.Point(575, 451);
             this.maximumNumericUpDown.Maximum = new decimal(new int[] {
             100000,
@@ -595,6 +613,7 @@
             this.createButton.TabIndex = 39;
             this.createButton.Text = "Create New Product";
             this.createButton.UseVisualStyleBackColor = true;
+            this.createButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
             // clearButton
             // 

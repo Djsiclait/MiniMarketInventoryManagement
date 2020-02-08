@@ -93,8 +93,16 @@ namespace InventoryManagementBusinessLayer
 
                     SystemResources.RecordActivity(
                         SystemResources.UserInSession.Username, // username of user in session 
-                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new brand: " + meta1, // description of activity
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new brand: " + meta1.ToUpper(), // description of activity
                         "BRAND CREATION"); // type of activity
+                    break;
+
+                case "PRO4": // Registering the creation of a new product brand
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new product: " + meta1.ToUpper(), // description of activity
+                        "PRODUCT CREATION"); // type of activity
                     break;
 
                 case "REP1": // Registering user access to reports analytics
@@ -165,7 +173,7 @@ namespace InventoryManagementBusinessLayer
 
                     SystemResources.RecordActivity(
                         SystemResources.UserInSession.Username, // username of user in session 
-                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has incompletly registered a new supplier: " + meta1, // description of activity
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has incompletly registered a new supplier: " + meta1.ToUpper(), // description of activity
                         "INCOMPLETE CREATION"); // type of activity
                     break;
 
@@ -173,7 +181,7 @@ namespace InventoryManagementBusinessLayer
 
                     SystemResources.RecordActivity(
                         SystemResources.UserInSession.Username, // username of user in session 
-                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new supplier: " + meta1, // description of activity
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new supplier: " + meta1.ToUpper(), // description of activity
                         "SUPPLIER CREATION"); // type of activity
                     break;
 

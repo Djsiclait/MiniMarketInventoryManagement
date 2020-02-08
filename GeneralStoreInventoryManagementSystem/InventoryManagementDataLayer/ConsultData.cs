@@ -236,8 +236,8 @@ namespace InventoryManagementDataLayer
                 product.Unit = sqlDataReader["fld_product_unit"].ToString();
                 product.Category = sqlDataReader["fld_category_description"].ToString();
                 product.Type = sqlDataReader["fld_type_description"].ToString();
-                product.UnitCost = FormatToFloat(sqlDataReader["fld_product_unit_cost"].ToString());
-                product.UnitPrice = FormatToFloat(sqlDataReader["fld_product_unit_price"].ToString());
+                product.UnitCost = FormatToDecimal(sqlDataReader["fld_product_unit_cost"].ToString());
+                product.UnitPrice = FormatToDecimal(sqlDataReader["fld_product_unit_price"].ToString());
                 product.Quantity = FormatToInt(sqlDataReader["fld_product_quantity"].ToString());
                 product.MinimumQuantity = FormatToInt(sqlDataReader["fld_product_minimum_quantity"].ToString());
                 product.MaximumQuantity = FormatToInt(sqlDataReader["fld_product_maximum_quantity"].ToString());
@@ -289,14 +289,14 @@ namespace InventoryManagementDataLayer
                 product.Name = sqlDataReader["fld_product_name"].ToString();
                 product.Brand = sqlDataReader["fld_brand_name"].ToString();
                 product.Unit = sqlDataReader["fld_product_unit"].ToString();
-                product.UnitPrice = FormatToFloat(sqlDataReader["fld_product_unit_price"].ToString());
+                product.UnitPrice = FormatToDecimal(sqlDataReader["fld_product_unit_price"].ToString());
                 product.Quantity = FormatToInt(sqlDataReader["fld_product_quantity"].ToString());
 
                 // Data exclusive to higher level access users
                 if (userPermission != "User")
                 {
                     product.Supplier = sqlDataReader["fld_supplier_name"].ToString();
-                    product.UnitCost = FormatToFloat(sqlDataReader["fld_product_unit_cost"].ToString());
+                    product.UnitCost = FormatToDecimal(sqlDataReader["fld_product_unit_cost"].ToString());
                     product.Discontinued = FormatToBoolean(sqlDataReader["fld_product_discontinued"].ToString());
                 }
 
@@ -557,6 +557,20 @@ namespace InventoryManagementDataLayer
             long result;
 
             long.TryParse(value, out result);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Function to convert strings to decimals
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>A decimal equivalent of the provided string value</returns>
+        private static decimal FormatToDecimal(String value)
+        {
+            decimal result;
+
+            decimal.TryParse(value, out result);
 
             return result;
         }
