@@ -192,12 +192,12 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void LogOutLabel_MouseHover(object sender, EventArgs e)
         {
-            FormsMenuList.registerNewProduct.ForeColor = Color.Red;
+            FormsMenuList.registerNewProduct.logOutLabel.ForeColor = Color.Red;
         }
 
         private void LogOutLabel_MouseLeave(object sender, EventArgs e)
         {
-            FormsMenuList.registerNewProduct.ForeColor = Color.Black;
+            FormsMenuList.registerNewProduct.logOutLabel.ForeColor = Color.Black;
         }
 ////////// END Menubar Options
 
