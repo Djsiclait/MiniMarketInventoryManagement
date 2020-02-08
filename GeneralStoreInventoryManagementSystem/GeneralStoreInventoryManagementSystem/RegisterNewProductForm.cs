@@ -208,6 +208,49 @@ namespace GeneralStoreInventoryManagementSystem
             PopulateBrandListBox();
         }
 
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            nameTextBox.BackColor = Color.White;
+        }
+
+        private void unitTextBox_TextChanged(object sender, EventArgs e)
+        {
+            unitTextBox.BackColor = Color.White;
+        }
+
+        private void costNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            priceNumericUpDown.Value = costNumericUpDown.Value;
+
+            unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
+        }
+
+        private void priceNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
+
+            if (priceNumericUpDown.Value > costNumericUpDown.Value)
+                unitContributionMarginLabel.ForeColor = Color.Green;
+            else
+                unitContributionMarginLabel.ForeColor = Color.Red;
+        }
+
+        private void minimumNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            maximumNumericUpDown.Minimum = minimumNumericUpDown.Value;
+            maximumNumericUpDown.Value = minimumNumericUpDown.Value + 1;
+        }
+
+        private void unitContributionMarginLabel_MouseHover(object sender, EventArgs e)
+        {
+            unitContributionMarginLabel.Text = "This is the unit contribution cost.";
+        }
+
+        private void unitContributionMarginLabel_MouseLeave(object sender, EventArgs e)
+        {
+            unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
+        }
+
         private void SupplierSearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateSupplierListBox();
@@ -250,15 +293,21 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            String message = CreateInformation.RegisterNewProductInformation(CreateProductObject());
-
-            if (message == "SUCCESS")
+            if (ValidateUserInput())
             {
-                MessageBox.Show("Product, " + nameTextBox.Text + ", was successfully registered!");
-                ClearFormBuffer();
+                // Requesting registration of a new product in the inventory
+                String message = CreateInformation.RegisterNewProductInformation(CreateProductObject());
+
+                if (message == "SUCCESS")
+                {
+                    MessageBox.Show("Product, " + nameTextBox.Text.ToUpper() + ", was successfully registered!");
+                    ClearFormBuffer();
+                }
+                else
+                    MessageBox.Show("Fatal Error!");
             }
             else
-                MessageBox.Show("Please provide the correct information");
+                MessageBox.Show("Plesae fill in all information correctly.");
         }
 ////////// END Button Click Logic
 
@@ -272,8 +321,6 @@ namespace GeneralStoreInventoryManagementSystem
             nameTextBox.Text = "";
             brandSearchBox.Text = "";
             supplierSearchBox.Text = "";
-            categoryComboBox.Text = "";
-            typeComboBox.Text = "";
             unitTextBox.Text = "";
             costNumericUpDown.Value = (decimal)0.01;
             priceNumericUpDown.Value = (decimal)0.01;
@@ -337,6 +384,46 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateTypeComboBox()
         {
             typeComboBox.DataSource = ConsultInformation.FetchTypeComboBoxInformation();
+        }
+
+        /// <summary>
+        /// Function that calculates the unit contribution margin ratio of the product using the unit cost and price
+        /// UPM = (UP - UC) / UP * 100
+        /// </summary>
+        /// <returns>The string result of the formula</returns>
+        private String CalculateUnitContributionMargin()
+        {
+            // Applying unitary profit margin formula
+            decimal contributionRatio = ((priceNumericUpDown.Value - costNumericUpDown.Value) / priceNumericUpDown.Value) * 100;
+
+            decimal contributionDollar = priceNumericUpDown.Value - costNumericUpDown.Value;
+
+            decimal priceIncrease = priceNumericUpDown.Value / costNumericUpDown.Value;
+
+            return contributionRatio.ToString("0.##") + "% ($" + contributionDollar.ToString("0.##") + " or " + (priceIncrease.ToString("0.##") == "1" ? "0" : priceIncrease.ToString("0.##")) + " price increase)" ;
+        }
+
+        /// <summary>
+        /// Function used to validade the user inputs provided in the form
+        /// </summary>
+        /// <returns>True or False</returns>
+        private bool ValidateUserInput()
+        {
+            bool validated = true;
+
+            if (nameTextBox.Text == "")
+            {
+                validated = false;
+                nameTextBox.BackColor = Color.Red;
+            }
+
+            if (unitTextBox.Text == "")
+            {
+                validated = false;
+                unitTextBox.BackColor = Color.Red;
+            }
+
+            return validated;
         }
     }
 }

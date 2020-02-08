@@ -78,7 +78,7 @@
             this.maximumNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.createButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
-            this.profitMarginLabel = new System.Windows.Forms.Label();
+            this.unitContributionMarginLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumericUpDown)).BeginInit();
@@ -282,9 +282,9 @@
             this.nameLabel.AutoSize = true;
             this.nameLabel.Location = new System.Drawing.Point(484, 72);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(78, 13);
+            this.nameLabel.Size = new System.Drawing.Size(82, 13);
             this.nameLabel.TabIndex = 13;
-            this.nameLabel.Text = "Product Name:";
+            this.nameLabel.Text = "Product Name:*";
             // 
             // nameTextBox
             // 
@@ -292,6 +292,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(206, 20);
             this.nameTextBox.TabIndex = 14;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // brandLabel
             // 
@@ -404,9 +405,9 @@
             this.unitLabel.AutoSize = true;
             this.unitLabel.Location = new System.Drawing.Point(180, 372);
             this.unitLabel.Name = "unitLabel";
-            this.unitLabel.Size = new System.Drawing.Size(108, 13);
+            this.unitLabel.Size = new System.Drawing.Size(112, 13);
             this.unitLabel.TabIndex = 27;
-            this.unitLabel.Text = "Unit of Measurement:";
+            this.unitLabel.Text = "Unit of Measurement:*";
             // 
             // unitTextBox
             // 
@@ -414,6 +415,7 @@
             this.unitTextBox.Name = "unitTextBox";
             this.unitTextBox.Size = new System.Drawing.Size(136, 20);
             this.unitTextBox.TabIndex = 28;
+            this.unitTextBox.TextChanged += new System.EventHandler(this.unitTextBox_TextChanged);
             // 
             // costLabel
             // 
@@ -452,6 +454,7 @@
             0,
             0,
             131072});
+            this.costNumericUpDown.ValueChanged += new System.EventHandler(this.costNumericUpDown_ValueChanged);
             // 
             // priceLabel
             // 
@@ -490,6 +493,7 @@
             0,
             0,
             131072});
+            this.priceNumericUpDown.ValueChanged += new System.EventHandler(this.priceNumericUpDown_ValueChanged);
             // 
             // quantityLabel
             // 
@@ -566,6 +570,7 @@
             0,
             0,
             0});
+            this.minimumNumericUpDown.ValueChanged += new System.EventHandler(this.minimumNumericUpDown_ValueChanged);
             // 
             // maximumLabel
             // 
@@ -625,21 +630,23 @@
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
-            // profitMarginLabel
+            // unitContributionMarginLabel
             // 
-            this.profitMarginLabel.AutoSize = true;
-            this.profitMarginLabel.Location = new System.Drawing.Point(717, 392);
-            this.profitMarginLabel.Name = "profitMarginLabel";
-            this.profitMarginLabel.Size = new System.Drawing.Size(21, 13);
-            this.profitMarginLabel.TabIndex = 42;
-            this.profitMarginLabel.Text = "0%";
+            this.unitContributionMarginLabel.AutoSize = true;
+            this.unitContributionMarginLabel.Location = new System.Drawing.Point(717, 392);
+            this.unitContributionMarginLabel.Name = "unitContributionMarginLabel";
+            this.unitContributionMarginLabel.Size = new System.Drawing.Size(21, 13);
+            this.unitContributionMarginLabel.TabIndex = 42;
+            this.unitContributionMarginLabel.Text = "0%";
+            this.unitContributionMarginLabel.MouseLeave += new System.EventHandler(this.unitContributionMarginLabel_MouseLeave);
+            this.unitContributionMarginLabel.MouseHover += new System.EventHandler(this.unitContributionMarginLabel_MouseHover);
             // 
             // RegisterNewProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 562);
-            this.Controls.Add(this.profitMarginLabel);
+            this.Controls.Add(this.unitContributionMarginLabel);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.maximumNumericUpDown);
@@ -743,6 +750,6 @@
         private System.Windows.Forms.NumericUpDown maximumNumericUpDown;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Label profitMarginLabel;
+        private System.Windows.Forms.Label unitContributionMarginLabel;
     }
 }
