@@ -292,7 +292,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(206, 20);
             this.nameTextBox.TabIndex = 14;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
+            this.nameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // brandLabel
             // 
@@ -415,7 +415,7 @@
             this.unitTextBox.Name = "unitTextBox";
             this.unitTextBox.Size = new System.Drawing.Size(136, 20);
             this.unitTextBox.TabIndex = 28;
-            this.unitTextBox.TextChanged += new System.EventHandler(this.unitTextBox_TextChanged);
+            this.unitTextBox.TextChanged += new System.EventHandler(this.UnitTextBox_TextChanged);
             // 
             // costLabel
             // 
@@ -429,11 +429,6 @@
             // costNumericUpDown
             // 
             this.costNumericUpDown.DecimalPlaces = 2;
-            this.costNumericUpDown.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
             this.costNumericUpDown.Location = new System.Drawing.Point(382, 387);
             this.costNumericUpDown.Maximum = new decimal(new int[] {
             100000,
@@ -454,7 +449,7 @@
             0,
             0,
             131072});
-            this.costNumericUpDown.ValueChanged += new System.EventHandler(this.costNumericUpDown_ValueChanged);
+            this.costNumericUpDown.ValueChanged += new System.EventHandler(this.CostNumericUpDown_ValueChanged);
             // 
             // priceLabel
             // 
@@ -468,11 +463,6 @@
             // priceNumericUpDown
             // 
             this.priceNumericUpDown.DecimalPlaces = 2;
-            this.priceNumericUpDown.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
             this.priceNumericUpDown.Location = new System.Drawing.Point(575, 387);
             this.priceNumericUpDown.Maximum = new decimal(new int[] {
             1215752192,
@@ -493,7 +483,7 @@
             0,
             0,
             131072});
-            this.priceNumericUpDown.ValueChanged += new System.EventHandler(this.priceNumericUpDown_ValueChanged);
+            this.priceNumericUpDown.ValueChanged += new System.EventHandler(this.PriceNumericUpDown_ValueChanged);
             // 
             // quantityLabel
             // 
@@ -570,7 +560,7 @@
             0,
             0,
             0});
-            this.minimumNumericUpDown.ValueChanged += new System.EventHandler(this.minimumNumericUpDown_ValueChanged);
+            this.minimumNumericUpDown.ValueChanged += new System.EventHandler(this.MinimumNumericUpDown_ValueChanged);
             // 
             // maximumLabel
             // 
@@ -635,11 +625,11 @@
             this.unitContributionMarginLabel.AutoSize = true;
             this.unitContributionMarginLabel.Location = new System.Drawing.Point(717, 392);
             this.unitContributionMarginLabel.Name = "unitContributionMarginLabel";
-            this.unitContributionMarginLabel.Size = new System.Drawing.Size(21, 13);
+            this.unitContributionMarginLabel.Size = new System.Drawing.Size(137, 13);
             this.unitContributionMarginLabel.TabIndex = 42;
-            this.unitContributionMarginLabel.Text = "0%";
-            this.unitContributionMarginLabel.MouseLeave += new System.EventHandler(this.unitContributionMarginLabel_MouseLeave);
-            this.unitContributionMarginLabel.MouseHover += new System.EventHandler(this.unitContributionMarginLabel_MouseHover);
+            this.unitContributionMarginLabel.Text = "0% ($0 or 1x price increase)";
+            this.unitContributionMarginLabel.MouseLeave += new System.EventHandler(this.UnitContributionMarginLabel_MouseLeave);
+            this.unitContributionMarginLabel.MouseHover += new System.EventHandler(this.UnitContributionMarginLabel_MouseHover);
             // 
             // RegisterNewProductForm
             // 

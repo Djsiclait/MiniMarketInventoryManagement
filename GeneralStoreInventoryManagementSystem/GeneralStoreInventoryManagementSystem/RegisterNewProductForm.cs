@@ -208,45 +208,47 @@ namespace GeneralStoreInventoryManagementSystem
             PopulateBrandListBox();
         }
 
-        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
             nameTextBox.BackColor = Color.White;
         }
 
-        private void unitTextBox_TextChanged(object sender, EventArgs e)
+        private void UnitTextBox_TextChanged(object sender, EventArgs e)
         {
             unitTextBox.BackColor = Color.White;
         }
 
-        private void costNumericUpDown_ValueChanged(object sender, EventArgs e)
+        private void CostNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             priceNumericUpDown.Value = costNumericUpDown.Value;
 
             unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
         }
 
-        private void priceNumericUpDown_ValueChanged(object sender, EventArgs e)
+        private void PriceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
 
             if (priceNumericUpDown.Value > costNumericUpDown.Value)
                 unitContributionMarginLabel.ForeColor = Color.Green;
-            else
+            else if (priceNumericUpDown.Value < costNumericUpDown.Value)
                 unitContributionMarginLabel.ForeColor = Color.Red;
+            else
+                unitContributionMarginLabel.ForeColor = Color.Black;
         }
 
-        private void minimumNumericUpDown_ValueChanged(object sender, EventArgs e)
+        private void MinimumNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             maximumNumericUpDown.Minimum = minimumNumericUpDown.Value;
             maximumNumericUpDown.Value = minimumNumericUpDown.Value + 1;
         }
 
-        private void unitContributionMarginLabel_MouseHover(object sender, EventArgs e)
+        private void UnitContributionMarginLabel_MouseHover(object sender, EventArgs e)
         {
             unitContributionMarginLabel.Text = "This is the unit contribution cost.";
         }
 
-        private void unitContributionMarginLabel_MouseLeave(object sender, EventArgs e)
+        private void UnitContributionMarginLabel_MouseLeave(object sender, EventArgs e)
         {
             unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
         }
@@ -400,7 +402,7 @@ namespace GeneralStoreInventoryManagementSystem
 
             decimal priceIncrease = priceNumericUpDown.Value / costNumericUpDown.Value;
 
-            return contributionRatio.ToString("0.##") + "% ($" + contributionDollar.ToString("0.##") + " or " + (priceIncrease.ToString("0.##") == "1" ? "0" : priceIncrease.ToString("0.##")) + " price increase)" ;
+            return contributionRatio.ToString("0.##") + "% ($" + contributionDollar.ToString("0.##") + " or " + (priceIncrease.ToString("0.##") == "1" ? "1" : priceIncrease.ToString("0.##")) + "x price increase)" ;
         }
 
         /// <summary>

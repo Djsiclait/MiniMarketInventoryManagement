@@ -28,50 +28,9 @@ namespace GeneralStoreInventoryManagementSystem
             this.Text += " " + product.Name; // Updating the header of the current form
         }
 
-////////// Form Load Logic 
+        #region Form Load Logic 
         private void ProductInformationTemplateForm_Load(object sender, EventArgs e)
         {
-            if (SystemProtocols.ApplySessionsProtocols())
-            {
-                keyTextBox.Enabled = false;
-                unitTextBox.Enabled = false;
-                unitCostNumericUpDown.Enabled = false;
-                unitPriceNumericUpDown.Enabled = false;
-                quantityTextBox.Enabled = false;
-                minimumQuantityTextBox.Enabled = false;
-                maximumQuantityTextBox.Enabled = false;
-
-                brandComboBox.Enabled = false;
-                supplierComboBox.Enabled = false;
-                categoryComboBox.Enabled = false;
-                typeComboBox.Enabled = false;
-
-                discontinuedCheckBox.Enabled = false;
-
-                editButton.Enabled = false;
-                editButton.Visible = false;
-            }
-            else
-            {
-                keyTextBox.Enabled = true;
-                unitTextBox.Enabled = true;
-                unitCostNumericUpDown.Enabled = true;
-                unitPriceNumericUpDown.Enabled = true;
-                quantityTextBox.Enabled = true;
-                minimumQuantityTextBox.Enabled = true;
-                maximumQuantityTextBox.Enabled = true;
-
-                brandComboBox.Enabled = true;
-                supplierComboBox.Enabled = true;
-                categoryComboBox.Enabled = true;
-                typeComboBox.Enabled = true;
-
-                discontinuedCheckBox.Enabled = true;
-
-                editButton.Enabled = false;
-                editButton.Visible = false;
-            }
-
             // Displaying the product's information in their respective fields
             nameDisplayLabel.Text = product.Name;
 
@@ -95,11 +54,11 @@ namespace GeneralStoreInventoryManagementSystem
 
             unitPriceNumericUpDown.Value = product.UnitPrice;
 
-            quantityTextBox.Text = product.Quantity.ToString();
+            quantityNumericUpDown.Value = product.Quantity;
 
-            minimumQuantityTextBox.Text = product.MinimumQuantity.ToString();
+            minimumQuantityNumericUpDown.Value = product.MinimumQuantity;
 
-            maximumQuantityTextBox.Text = product.MaximumQuantity.ToString();
+            maximumQuantityNumericUpDown.Value = product.MaximumQuantity;
 
             registeredByDisplayLabel.Text = product.RegisteredBy;
 
@@ -111,85 +70,154 @@ namespace GeneralStoreInventoryManagementSystem
 
             if (product.Discontinued)
                 discontinuedCheckBox.CheckState = CheckState.Checked;
-        }
-////////// END Form Load Logic 
 
-        // Text Changed Logic
+            if (SystemProtocols.ApplySessionsProtocols())
+            {
+                keyTextBox.Enabled = false;
+                unitTextBox.Enabled = false;
+                unitCostNumericUpDown.Enabled = false;
+                unitPriceNumericUpDown.Enabled = false;
+                quantityNumericUpDown.Enabled = false;
+                minimumQuantityNumericUpDown.Enabled = false;
+                maximumQuantityNumericUpDown.Enabled = false;
+
+                brandComboBox.Enabled = false;
+                supplierComboBox.Enabled = false;
+                categoryComboBox.Enabled = false;
+                typeComboBox.Enabled = false;
+
+                discontinuedCheckBox.Enabled = false;
+
+                editButton.Enabled = false;
+                editButton.Visible = false;
+            }
+            else
+            {
+                keyTextBox.Enabled = true;
+                unitTextBox.Enabled = true;
+                unitCostNumericUpDown.Enabled = true;
+                unitPriceNumericUpDown.Enabled = true;
+                quantityNumericUpDown.Enabled = true;
+                minimumQuantityNumericUpDown.Enabled = true;
+                maximumQuantityNumericUpDown.Enabled = true;
+
+                brandComboBox.Enabled = true;
+                supplierComboBox.Enabled = true;
+                categoryComboBox.Enabled = true;
+                typeComboBox.Enabled = true;
+
+                discontinuedCheckBox.Enabled = true;
+
+                editButton.Enabled = false;
+            }
+        }
+        #endregion
+
+        #region Text Changed Logic
         private void KeyTextBox_TextChanged(object sender, EventArgs e)
         {
             editButton.Enabled = !string.IsNullOrWhiteSpace(keyTextBox.Text);
-            editButton.Visible = true;
         }
 
         private void UnitTextBox_TextChanged(object sender, EventArgs e)
         {
             editButton.Enabled = !string.IsNullOrWhiteSpace(unitTextBox.Text);
-            editButton.Visible = true;
         }
+        #endregion
 
-        private void QuantityTextBox_TextChanged(object sender, EventArgs e)
-        {
-            editButton.Enabled = !string.IsNullOrWhiteSpace(quantityTextBox.Text);
-            editButton.Visible = true;
-        }
-
-        private void MinimumQuantityTextBox_TextChanged(object sender, EventArgs e)
-        {
-            editButton.Enabled = !string.IsNullOrWhiteSpace(minimumQuantityTextBox.Text);
-            editButton.Visible = true;
-        }
-
-        private void MaximumQuantityTextBox_TextChanged(object sender, EventArgs e)
-        {
-            editButton.Enabled = !string.IsNullOrWhiteSpace(maximumQuantityTextBox.Text);
-            editButton.Visible = true;
-        }
-        // END Text Changed Logic
-
-        // Index Changed Logic
+        #region Index Changed Logic
         private void BrandComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             editButton.Enabled = true;
-            editButton.Visible = true;
         }
 
         private void SupplierComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             editButton.Enabled = true;
-            editButton.Visible = true;
         }
 
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             editButton.Enabled = true;
-            editButton.Visible = true;
         }
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             editButton.Enabled = true;
-            editButton.Visible = true;
         }
-        // END Index Changed Logic
+        #endregion
 
-        // Value Changed Logic
+        #region Value Changed Logic
         private void UnitCostNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             editButton.Enabled = true;
-            editButton.Visible = true;
+            unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
         }
 
         private void UnitPriceNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             editButton.Enabled = true;
-            editButton.Visible = true;
+            unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
+
+            if (unitPriceNumericUpDown.Value > unitCostNumericUpDown.Value)
+                unitContributionMarginLabel.ForeColor = Color.Green;
+            else if (unitPriceNumericUpDown.Value < unitCostNumericUpDown.Value)
+                unitContributionMarginLabel.ForeColor = Color.Red;
+            else
+                unitContributionMarginLabel.ForeColor = Color.Black;
         }
 
-        private void discontinuedCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void DiscontinuedCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             editButton.Enabled = true;
-            editButton.Visible = true;
         }
-        // END Value Changed Logic
+
+        private void QuantityNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            editButton.Enabled = true;
+        }
+
+        private void MinimumQuantityNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            editButton.Enabled = true;
+            maximumQuantityNumericUpDown.Minimum = minimumQuantityNumericUpDown.Value + 1;
+        }
+
+        private void MaximumQuantityNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            editButton.Enabled = true;
+        }
+        #endregion
+
+        #region Mouse Hover and Leave
+        private void UnitContributionMarginLabel_MouseHover(object sender, EventArgs e)
+        {
+            unitContributionMarginLabel.Text = "This is the unit contribution cost.";
+        }
+
+        private void UnitContributionMarginLabel_MouseLeave(object sender, EventArgs e)
+        {
+            unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        /// <summary>
+        /// Function that calculates the unit contribution margin ratio of the product using the unit cost and price
+        /// UPM = (UP - UC) / UP * 100
+        /// </summary>
+        /// <returns>The string result of the formula</returns>
+        private String CalculateUnitContributionMargin()
+        {
+            // Applying unitary profit margin formula
+            decimal contributionRatio = ((unitPriceNumericUpDown.Value - unitCostNumericUpDown.Value) / unitPriceNumericUpDown.Value) * 100;
+
+            decimal contributionDollar = unitPriceNumericUpDown.Value - unitCostNumericUpDown.Value;
+
+            decimal priceIncrease = unitPriceNumericUpDown.Value / unitCostNumericUpDown.Value;
+
+            return contributionRatio.ToString("0.##") + "% ($" + contributionDollar.ToString("0.##") + " or " + (priceIncrease.ToString("0.##") == "1" ? "1" : priceIncrease.ToString("0.##")) + "x price increase)";
+        }
+        #endregion
     }
 }
