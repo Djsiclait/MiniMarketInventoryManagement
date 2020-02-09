@@ -122,6 +122,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void UnitTextBox_TextChanged(object sender, EventArgs e)
         {
             editButton.Enabled = !string.IsNullOrWhiteSpace(unitTextBox.Text);
+            unitTextBox.BackColor = Color.White;
         }
         #endregion
 
@@ -139,11 +140,13 @@ namespace GeneralStoreInventoryManagementSystem
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             editButton.Enabled = true;
+            categoryComboBox.BackColor = Color.White;
         }
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             editButton.Enabled = true;
+            typeComboBox.BackColor = Color.White;
         }
         #endregion
 
@@ -152,6 +155,13 @@ namespace GeneralStoreInventoryManagementSystem
         {
             editButton.Enabled = true;
             unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
+
+            if (unitPriceNumericUpDown.Value > unitCostNumericUpDown.Value)
+                unitContributionMarginLabel.ForeColor = Color.Green;
+            else if (unitPriceNumericUpDown.Value < unitCostNumericUpDown.Value)
+                unitContributionMarginLabel.ForeColor = Color.Red;
+            else
+                unitContributionMarginLabel.ForeColor = Color.Black;
         }
 
         private void UnitPriceNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -201,6 +211,113 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #region Button Click Logic
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            if (ValidateUserInput())
+            {
+                bool changes = false;
+
+                if (keyTextBox.Text != product.Key)
+                {
+                    product.Key = keyTextBox.Text;
+                    changes = true;
+                }
+
+                if (brandComboBox.Text == "<None>"  && product.Brand != "") // User selected None but the product had a brand
+                {
+                    product.Brand = brandComboBox.Text;
+                    changes = true;
+                }
+                else if (brandComboBox.Text == "" && product.Brand != "") // User selected nothing but the product had a brand
+                {
+                    product.Brand = "<None>";
+                    changes = true;
+                }
+                else if (brandComboBox.Text != "<None>" && brandComboBox.Text != "" && brandComboBox.Text != product.Brand) // User selected something new regardless if the product had a brand
+                {
+                    product.Brand = brandComboBox.Text;
+                    changes = true;
+                }
+
+                if (supplierComboBox.Text == "<None>" && product.Supplier != "") // User selected None but the product had a supplier
+                {
+                    product.Supplier = supplierComboBox.Text;
+                    changes = true;
+                }
+                else if (supplierComboBox.Text == "" && product.Supplier != "") // User selected nothing but the product had a supplier
+                {
+                    product.Supplier = "<None>";
+                    changes = true;
+                }
+                else if (supplierComboBox.Text != "<None>" && supplierComboBox.Text != "" && supplierComboBox.Text != product.Supplier) // User selected something new regardless if the product had a supplier
+                {
+                    product.Supplier = supplierComboBox.Text;
+                    changes = true;
+                }
+
+                if (categoryComboBox.Text != product.Category)
+                {
+                    product.Category = categoryComboBox.Text;
+                    changes = true;
+                }
+
+                if (typeComboBox.Text != product.Type)
+                {
+                    product.Type = typeComboBox.Text;
+                    changes = true;
+                }
+
+                if (unitTextBox.Text != product.Unit)
+                {
+                    product.Unit = unitTextBox.Text;
+                    changes = true;
+                }
+
+                if (unitCostNumericUpDown.Value != product.UnitCost)
+                {
+                    product.UnitCost = unitCostNumericUpDown.Value;
+                    changes = true;
+                }
+
+                if (unitPriceNumericUpDown.Value != product.UnitPrice)
+                {
+                    product.UnitPrice = unitPriceNumericUpDown.Value;
+                    changes = true;
+                }
+
+                if (quantityNumericUpDown.Value != product.Quantity)
+                {
+                    product.Quantity = (int)quantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
+                    changes = true;
+                }
+
+                if (minimumQuantityNumericUpDown.Value != product.MinimumQuantity)
+                {
+                    product.MinimumQuantity = (int)minimumQuantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
+                    changes = true;
+                }
+
+                if (maximumQuantityNumericUpDown.Value != product.MaximumQuantity)
+                {
+                    product.MaximumQuantity = (int)maximumQuantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
+                    changes = true;
+                }
+
+                if (discontinuedCheckBox.Checked != product.Discontinued)
+                {
+                    product.Discontinued = discontinuedCheckBox.Checked;
+                    changes = true;
+                }
+
+                // TODO: EDIT product
+
+            }
+            else
+                MessageBox.Show("Please fill required values correctly.");
+        }
+        #endregion
+
         #region Auxiliary Functions
         /// <summary>
         /// Function that calculates the unit contribution margin ratio of the product using the unit cost and price
@@ -217,6 +334,31 @@ namespace GeneralStoreInventoryManagementSystem
             decimal priceIncrease = unitPriceNumericUpDown.Value / unitCostNumericUpDown.Value;
 
             return contributionRatio.ToString("0.##") + "% ($" + contributionDollar.ToString("0.##") + " or " + (priceIncrease.ToString("0.##") == "1" ? "1" : priceIncrease.ToString("0.##")) + "x price increase)";
+        }
+
+        private bool ValidateUserInput()
+        {
+            bool validated = true;
+
+            if (unitTextBox.Text != product.Unit && unitTextBox.Text == "")
+            {
+                validated = false;
+                unitTextBox.BackColor = Color.Red;
+            }
+
+            if (categoryComboBox.Text == "")
+            {
+                validated = false;
+                categoryComboBox.BackColor = Color.Red;
+            }
+
+            if (typeComboBox.Text == "")
+            {
+                validated = false;
+                typeComboBox.BackColor = Color.Red;
+            }
+
+            return validated;
         }
         #endregion
     }

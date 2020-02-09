@@ -310,6 +310,7 @@
             this.editButton.TabIndex = 41;
             this.editButton.Text = "Edit Product";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // keyTextBox
             // 

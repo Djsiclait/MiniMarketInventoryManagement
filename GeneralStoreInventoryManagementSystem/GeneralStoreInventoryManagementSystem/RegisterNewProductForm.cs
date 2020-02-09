@@ -223,6 +223,13 @@ namespace GeneralStoreInventoryManagementSystem
             priceNumericUpDown.Value = costNumericUpDown.Value;
 
             unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
+
+            if (priceNumericUpDown.Value > costNumericUpDown.Value)
+                unitContributionMarginLabel.ForeColor = Color.Green;
+            else if (priceNumericUpDown.Value < costNumericUpDown.Value)
+                unitContributionMarginLabel.ForeColor = Color.Red;
+            else
+                unitContributionMarginLabel.ForeColor = Color.Black;
         }
 
         private void PriceNumericUpDown_ValueChanged(object sender, EventArgs e)
