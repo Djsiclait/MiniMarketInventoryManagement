@@ -63,11 +63,11 @@ namespace InventoryManagementDataLayer
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@key", SqlDbType.VarChar, 100).Value = product.Key;
             cmd.Parameters.Add("@name", SqlDbType.VarChar, 300).Value = product.Name;
-            cmd.Parameters.Add("@brand", SqlDbType.VarChar, 10).Value = product.Brand == "<None>" ? "" : product.Brand;
-            cmd.Parameters.Add("@supplier", SqlDbType.VarChar, 10).Value = product.Supplier == "<None>" ? "" : product.Supplier;
+            cmd.Parameters.Add("@brand", SqlDbType.VarChar, 100).Value = product.Brand == "<None>" ? "" : product.Brand;Console.WriteLine("\n\n\nYOLO: " + product.Supplier + ".");
+            cmd.Parameters.Add("@supplier", SqlDbType.VarChar, 100).Value = product.Supplier == "<None>" ? "" : product.Supplier;
             cmd.Parameters.Add("@unit", SqlDbType.VarChar, 30).Value = product.Unit;
-            cmd.Parameters.Add("@category", SqlDbType.VarChar, 10).Value = product.Category;
-            cmd.Parameters.Add("@type", SqlDbType.VarChar, 10).Value = product.Type;
+            cmd.Parameters.Add("@category", SqlDbType.VarChar, 50).Value = product.Category;
+            cmd.Parameters.Add("@type", SqlDbType.VarChar, 50).Value = product.Type;
             cmd.Parameters.Add("@cost", SqlDbType.Decimal).Value = product.UnitCost;
             cmd.Parameters.Add("@price", SqlDbType.Decimal).Value = product.UnitPrice;
             cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = product.Quantity;
