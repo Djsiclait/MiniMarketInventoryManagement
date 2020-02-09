@@ -63,7 +63,7 @@ namespace InventoryManagementDataLayer
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@key", SqlDbType.VarChar, 100).Value = product.Key;
             cmd.Parameters.Add("@name", SqlDbType.VarChar, 300).Value = product.Name;
-            cmd.Parameters.Add("@brand", SqlDbType.VarChar, 100).Value = product.Brand == "<None>" ? "" : product.Brand;Console.WriteLine("\n\n\nYOLO: " + product.Supplier + ".");
+            cmd.Parameters.Add("@brand", SqlDbType.VarChar, 100).Value = product.Brand == "<None>" ? "" : product.Brand;
             cmd.Parameters.Add("@supplier", SqlDbType.VarChar, 100).Value = product.Supplier == "<None>" ? "" : product.Supplier;
             cmd.Parameters.Add("@unit", SqlDbType.VarChar, 30).Value = product.Unit;
             cmd.Parameters.Add("@category", SqlDbType.VarChar, 50).Value = product.Category;
