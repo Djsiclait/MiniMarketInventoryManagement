@@ -20,17 +20,17 @@ namespace GeneralStoreInventoryManagementSystem
 
             this.username = username; // username whose password will be changed
         }
-        
-////////// Load Form Logic
+
+        #region Load Form Logic
         private void ChangePasswordMiniForm_Load(object sender, EventArgs e)
         {
             passwordErrorLabel.Text = "Invalid Password";
             passwordErrorLabel.Visible = false;
             confirmationPasswordErrorLabel.Visible = false;
         }
-////////// END Load Form Logic
+        #endregion
 
-////////// Text Changed Logic
+        #region Text Changed Logic
         private void PasswordTextBox_TextChanged(object sender, EventArgs e)
         {
             passwordTextBox.BackColor = Color.White; // Formating color 
@@ -73,25 +73,30 @@ namespace GeneralStoreInventoryManagementSystem
             else
                 confirmationPasswordErrorLabel.Visible = false; // passwords are the same
         }
-////////// Text Changed Logic
+        #endregion
 
-////////// Button Click Logic
+        #region Key Down Logic
+        private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                confirmPasswordTextBox.Focus();
+        }
+
+        private void ConfirmPasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                InitiatePasswordChangeProtocols();
+        }
+        #endregion
+
+        #region Button Click Logic
         private void ChangePasswordButton_Click(object sender, EventArgs e)
         {
-            // Validating user input before submitting request for password change
-            if (ValidateUserInput())
-            {
-                // Requesting a password change for a target user
-                InventoryManagementBusinessLayer.UpdateInformation.ChangeUserPasswordInformation(username, passwordTextBox.Text);
-
-                MessageBox.Show("Password changed successfully!");
-
-                this.Dispose();
-            }
+            InitiatePasswordChangeProtocols();
         }
-////////// Button Click Logic
+        #endregion
 
-////////// Auxiliary Function 
+        #region Auxiliary Function 
         /// <summary>
         /// Function to validate user input for correct format and standards
         /// </summary>
@@ -132,5 +137,20 @@ namespace GeneralStoreInventoryManagementSystem
 
             return validate; // returning respons to the validation analysis
         }
+
+        private void InitiatePasswordChangeProtocols()
+        {
+            // Validating user input before submitting request for password change
+            if (ValidateUserInput())
+            {
+                // Requesting a password change for a target user
+                InventoryManagementBusinessLayer.UpdateInformation.ChangeUserPasswordInformation(username, passwordTextBox.Text);
+
+                MessageBox.Show("Password changed successfully!");
+
+                this.Dispose();
+            }
+        }
+        #endregion
     }
 }

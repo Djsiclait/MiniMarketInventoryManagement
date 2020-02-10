@@ -21,7 +21,7 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
-////////// Load Form Logic
+        #region Load Form Logic
         private void RegisterNewProductForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
@@ -44,9 +44,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Executing correct activity according to given code
             SystemProtocols.ApplyActivityProtocols("PRO2", null, null);
         }
-////////// END Load Form Logic
+        #endregion
 
-////////// On Form Closing Override
+        #region On Form Closing Override
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -58,9 +58,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Closing form while freeing system resources
             FormsMenuList.registerNewProduct.Dispose();
         }
-////////// END On Form Closing Override
+        #endregion
 
-////////// Menu Bar Options
+        #region Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Summon Sales Registry Form
@@ -181,6 +181,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewProduct.viewCartLabel.ForeColor = Color.Black;
         }
 
+        #region Log Out
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
             // Executing correct log out processes
@@ -200,9 +201,11 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.registerNewProduct.logOutLabel.ForeColor = Color.Black;
         }
-////////// END Menubar Options
+        #endregion
 
-////////// Text Changed Logic
+        #endregion
+
+        #region Text Changed Logic
         private void BrandSearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateBrandListBox();
@@ -250,6 +253,13 @@ namespace GeneralStoreInventoryManagementSystem
             maximumNumericUpDown.Value = minimumNumericUpDown.Value + 1;
         }
 
+        private void SupplierSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateSupplierListBox();
+        }
+        #endregion
+
+        #region Mouse Hover and Leave Logic
         private void UnitContributionMarginLabel_MouseHover(object sender, EventArgs e)
         {
             unitContributionMarginLabel.Text = "This is the unit contribution cost.";
@@ -259,14 +269,9 @@ namespace GeneralStoreInventoryManagementSystem
         {
             unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
         }
+        #endregion
 
-        private void SupplierSearchBox_TextChanged(object sender, EventArgs e)
-        {
-            PopulateSupplierListBox();
-        }
-////////// END Text Changed Logic
-
-////////// Button Click Logic
+        #region Button Click Logic
         private void AddNewBrandButton_Click(object sender, EventArgs e)
         {
             // Registering new product brand
@@ -318,9 +323,9 @@ namespace GeneralStoreInventoryManagementSystem
             else
                 MessageBox.Show("Plesae fill in all information correctly.");
         }
-////////// END Button Click Logic
+        #endregion
 
-////////// Auxiliary Functions
+        #region Auxiliary Functions
         /// <summary>
         /// Function that cleans user input buffers
         /// </summary>
@@ -434,5 +439,6 @@ namespace GeneralStoreInventoryManagementSystem
 
             return validated;
         }
+        #endregion
     }
 }

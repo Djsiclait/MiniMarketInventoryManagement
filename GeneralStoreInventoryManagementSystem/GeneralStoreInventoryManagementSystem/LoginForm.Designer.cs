@@ -62,6 +62,7 @@
             this.usernameTextBox.Size = new System.Drawing.Size(298, 20);
             this.usernameTextBox.TabIndex = 2;
             this.usernameTextBox.TextChanged += new System.EventHandler(this.UsernameTextBox_TextChanged);
+            this.usernameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsernameTextBox_KeyDown);
             // 
             // passwordLabel
             // 
@@ -80,6 +81,7 @@
             this.passwordTextBox.Size = new System.Drawing.Size(217, 20);
             this.passwordTextBox.TabIndex = 4;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextBox_KeyDown);
             // 
             // logInButton
             // 

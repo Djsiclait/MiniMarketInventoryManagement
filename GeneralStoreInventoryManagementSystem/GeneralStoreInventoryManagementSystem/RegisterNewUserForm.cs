@@ -21,7 +21,7 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
-////////// Load Form Logic
+        #region Load Form Logic
         private void RegisterNewUserForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
@@ -48,9 +48,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Executing correct activity according to given code
             SystemProtocols.ApplyActivityProtocols("USE2", null, null);
         }
-////////// END Load Form Logic
+        #endregion
 
-////////// On Form Closing Override
+        #region On Form Closing Override
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -62,9 +62,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Closing form while freeing system resources
             FormsMenuList.registerNewUserForm.Dispose();
         }
-////////// END On Form Closing Override
+        #endregion
 
-////////// Menu Bar Options
+        #region Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Summon Sales Registry Form
@@ -185,6 +185,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewUserForm.viewCartLabel.ForeColor = Color.Black;
         }
 
+        #region Log Out
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
             // Executing correct log out processes
@@ -204,9 +205,11 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.registerNewUserForm.LogOutLabel.ForeColor = Color.Black;
         }
-////////// Menu Bar Options
+        #endregion
 
-////////// Text Changed Logic
+        #endregion
+
+        #region Text Changed Logic
         private void UsernameTextBox_TextChanged(object sender, EventArgs e)
         {
             usernameTextBox.BackColor = Color.White;
@@ -274,9 +277,9 @@ namespace GeneralStoreInventoryManagementSystem
             else
                 confirmationPasswordErrorLabel.Visible = false; // passwords are the same
         }
-////////// END Text Changed Logic
+        #endregion
 
-////////// Button Click Logic
+        #region Button Click Logic
         private void CreateNewUserButton_Click(object sender, EventArgs e)
         {
             if (ValidateUserInput()) // Verifying if user input confirm with all requirements
@@ -327,9 +330,9 @@ namespace GeneralStoreInventoryManagementSystem
             else
                 messageLabel.Text = "Please fill in every information correctly"; // user input has not been validated
         }
-////////// END Submit New User and Return to User Registry
+        #endregion
 
-////////// Auxiliary Functions
+        #region Auxiliary Functions
         /// <summary>
         /// Function to clean user input buffers
         /// </summary>
@@ -445,5 +448,6 @@ namespace GeneralStoreInventoryManagementSystem
 
             return validate; // returning respons to the validation analysis
         }
+        #endregion
     }
 }

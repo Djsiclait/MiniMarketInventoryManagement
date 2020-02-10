@@ -20,7 +20,7 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
-////////// Load Form Logic
+        #region Load Form Logic
         private void GraphsAnalyticsForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
@@ -39,9 +39,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             SystemProtocols.ApplyActivityProtocols("GRA1", null, null);
         }
-////////// END Load Form Logic
+        #endregion
 
-////////// On Form Closing Override
+        #region On Form Closing Override
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -53,9 +53,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Closing form while freeing system resources
             FormsMenuList.graphsAnaliticsForm.Dispose();
         }
-////////// END On Form Closing Override
+        #endregion
 
-////////// Menu Bar Options
+        #region Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Summon Sales Registry Form
@@ -176,6 +176,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.graphsAnaliticsForm.viewCartLabel.ForeColor = Color.Black;
         }
 
+        #region Log Out
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
             // Executing correct log out processes
@@ -195,6 +196,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.graphsAnaliticsForm.logOutLabel.ForeColor = Color.Black;
         }
-////////// END Menubar Options
+        #endregion
+
+        #endregion
     }
 }

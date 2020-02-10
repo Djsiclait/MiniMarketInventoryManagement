@@ -66,6 +66,7 @@
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(316, 20);
             this.confirmPasswordTextBox.TabIndex = 34;
             this.confirmPasswordTextBox.TextChanged += new System.EventHandler(this.ConfirmPasswordTextBox_TextChanged);
+            this.confirmPasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConfirmPasswordTextBox_KeyDown);
             // 
             // confirmPasswordLabel
             // 
@@ -84,6 +85,7 @@
             this.passwordTextBox.Size = new System.Drawing.Size(316, 20);
             this.passwordTextBox.TabIndex = 32;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
+            this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyDown);
             // 
             // passwordLabel
             // 

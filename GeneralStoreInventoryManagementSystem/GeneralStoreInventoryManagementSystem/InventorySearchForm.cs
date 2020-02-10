@@ -20,7 +20,7 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
-////////// Form Load Logic 
+        #region Form Load Logic 
         private void InventorySearchForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
@@ -40,9 +40,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Executing correct activity according to given code
             SystemProtocols.ApplyActivityProtocols("INV1", null, null);
         }
-////////// END Form Load Logic
+        #endregion
 
-////////// On Form Closing Override
+        #region On Form Closing Override
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -54,9 +54,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
-////////// END On Form Closing Override
+        #endregion
 
-////////// Menu Bar Options
+        #region Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Summon Sales Registry Form
@@ -177,6 +177,7 @@ namespace GeneralStoreInventoryManagementSystem
             viewCartLabel.ForeColor = Color.Black;
         }
 
+        #region Log Out
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
             // Executing correct log out processes
@@ -196,25 +197,27 @@ namespace GeneralStoreInventoryManagementSystem
         {
             logOutLabel.ForeColor = Color.Black;
         }
-////////// END Menu Bar Options
+        #endregion
 
-////////// Inventory Seach Text Box Logic
+        #endregion
+
+        #region Inventory Seach Text Box Logic
         private void InventorySearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateProductListDataGrid();
         }
-////////// END Inventory Seach Text Box Logic
+        #endregion
 
-////////// Function that allows users to view the quick summary of a selected product
+        #region Function that allows users to view the quick summary of a selected product
         private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Declare an non oficial auxiliary form to display product information, given a product's internal identification number
             ProductInformationTemplateForm productInformationForm = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
             productInformationForm.Show(); // Summon the temporary summary form 
         }
-////////// END Function ProductList_CellDoubleClick
+        #endregion
 
-////////// Auxiliary Functions
+        #region Auxiliary Functions
         /// <summary>
         /// Function used to populate the data grid with products from the registered inventory
         /// </summary>
@@ -245,7 +248,6 @@ namespace GeneralStoreInventoryManagementSystem
             productList.Columns["ModificationDate"].Visible = false;
 
         }
-////////// END Function PopulateProductListDataGrid
-
+        #endregion
     }
 }

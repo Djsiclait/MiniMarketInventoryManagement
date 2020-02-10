@@ -20,17 +20,60 @@ namespace GeneralStoreInventoryManagementSystem
             InitializeComponent();
         }
 
-////////// Load Form Logic
+        #region Load Form Logic
         private void LoginForm_Load(object sender, EventArgs e)
         {
             // TEMPORARY
             // TODO: ancor the application to the splash page
             FormsMenuList.loginForm = this;
         }
-////////// END Load Form Logic
+        #endregion
 
-////////// Login Protocols
+        #region Button Click Logic
         private void LogInButton_Click(object sender, EventArgs e)
+        {
+            InitiateLogInProtocols();
+        }
+        #endregion
+
+        #region Text Changed Logic
+        private void UsernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            usernameTextBox.BackColor = Color.White;
+        }
+
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            passwordTextBox.BackColor = Color.White;
+        }
+        #endregion
+
+        #region Key Down Logic
+        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                InitiateLogInProtocols();
+        }
+
+        private void UsernameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                passwordTextBox.Focus();
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        /// <summary>
+        /// Funtion to clear user input buffers
+        /// </summary>
+        private void ClearTextBoxBuffer()
+        {
+            usernameTextBox.Text = "";
+            passwordTextBox.Text = "";
+        }
+
+        #region Login Protocols
+        private void InitiateLogInProtocols()
         {
             // Executing credential validation protocols before triggering a session or being denied one
             String message = SystemProtocols.ApplyCredentialsValidationProtocol(usernameTextBox.Text, passwordTextBox.Text);
@@ -63,28 +106,8 @@ namespace GeneralStoreInventoryManagementSystem
                 FormsMenuList.inventorySearchForm.Show();
             }
         }
-////////// END Login Protocols
+        #endregion
 
-////////// Text Changed Logic
-        private void UsernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-            usernameTextBox.BackColor = Color.White;
-        }
-
-        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
-        {
-            passwordTextBox.BackColor = Color.White;
-        }
-////////// END Text Changed Logic
-
-//////////Auxiliary Functions
-        /// <summary>
-        /// Funtion to clear user input buffers
-        /// </summary>
-        private void ClearTextBoxBuffer()
-        {
-            usernameTextBox.Text = "";
-            passwordTextBox.Text = "";
-        }
+        #endregion
     }
 }

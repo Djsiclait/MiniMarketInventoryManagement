@@ -19,8 +19,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             InitializeComponent();
         }
-        
-////////// Load Logic Form
+
+        #region Load Logic Form
         private void ActivitiesLogForm_Load(object sender, EventArgs e)
         {
             // Limiting option according to current user's access level
@@ -42,9 +42,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             PopulateActivityListDataGrid();
         }
-////////// END Load Logic Form
+        #endregion
 
-////////// On Form Closing Override
+        #region On Form Closing Override
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -56,9 +56,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Closing form while freeing system resources
             FormsMenuList.activitiesLogForm.Dispose();
         }
-////////// END On Form Closing Override
+        #endregion
 
-////////// Menu Bar Options
+        #region Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Summon Sales Registry Form
@@ -179,6 +179,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.activitiesLogForm.viewCartLabel.ForeColor = Color.Black;
         }
 
+        #region Log Out
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
             // Executing correct log out processes
@@ -198,16 +199,18 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.activitiesLogForm.logOutLabel.ForeColor = Color.Black;
         }
-////////// END Menubar Options
+        #endregion
 
-////////// Text Changed Logic
+        #endregion
+
+        #region Text Changed Logic
         private void ActivitySearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateActivityListDataGrid();
         }
-////////// END Text Changed Logic
+        #endregion
 
-////////// Auxiliary Function
+        #region Auxiliary Function
         /// <summary>
         /// Function to populate the activity log
         /// </summary>
@@ -220,5 +223,6 @@ namespace GeneralStoreInventoryManagementSystem
             activityList.Columns["Description"].Width = 550;
             activityList.Columns["Timestamp"].Width = 200;
         }
+        #endregion
     }
 }
