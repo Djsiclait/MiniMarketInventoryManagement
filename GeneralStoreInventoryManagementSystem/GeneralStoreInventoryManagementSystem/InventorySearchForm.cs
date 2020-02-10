@@ -15,6 +15,8 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class InventorySearchForm : Form
     {
+        List<ProductInformationTemplateForm> childrenForms = new List<ProductInformationTemplateForm>();
+
         public InventorySearchForm()
         {
             InitializeComponent();
@@ -47,6 +49,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
+            DisposeAllChildren();
+
             // Executing correct log out processes
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
@@ -63,6 +67,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.salesRecordForm = new SalesRecordForm();
             FormsMenuList.salesRecordForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -73,6 +78,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
             FormsMenuList.registerNewSaleForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -83,6 +89,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewProduct = new RegisterNewProductForm();
             FormsMenuList.registerNewProduct.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -93,6 +100,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.restockProductsFrom = new RestockProductsForm();
             FormsMenuList.restockProductsFrom.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -103,6 +111,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.usersRegistryForm = new UsersRegistryForm();
             FormsMenuList.usersRegistryForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -113,6 +122,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
             FormsMenuList.registerNewUserForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -123,6 +133,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
             FormsMenuList.graphsAnaliticsForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -133,6 +144,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
             FormsMenuList.reportsAnalyticsForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -143,6 +155,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
             FormsMenuList.activitiesLogForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -153,6 +166,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.errorsLogForm = new ErrorsLogForm();
             FormsMenuList.errorsLogForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -163,6 +177,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.viewCartForm = new ViewCartForm();
             FormsMenuList.viewCartForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -184,6 +199,7 @@ namespace GeneralStoreInventoryManagementSystem
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
+            DisposeAllChildren();
             // Closing form while freeing system resources
             FormsMenuList.inventorySearchForm.Dispose();
         }
@@ -214,6 +230,7 @@ namespace GeneralStoreInventoryManagementSystem
             // Declare an non oficial auxiliary form to display product information, given a product's internal identification number
             ProductInformationTemplateForm productInformationForm = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
             productInformationForm.Show(); // Summon the temporary summary form 
+            childrenForms.Add(productInformationForm);
         }
         #endregion
 
@@ -249,9 +266,22 @@ namespace GeneralStoreInventoryManagementSystem
 
         }
 
+        /// <summary>
+        /// Function that allows children from to updat this parent's information
+        /// </summary>
         public void RefreshInventoryInformation()
         {
             PopulateProductListDataGrid();
+        }
+
+        /// <summary>
+        /// Function that disposes any children of this form that have been left open
+        /// </summary>
+        private void DisposeAllChildren()
+        {
+            // Closing all open children form
+            foreach (ProductInformationTemplateForm child in childrenForms)
+                child.Dispose();
         }
         #endregion
     }

@@ -179,13 +179,13 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 if (ConfirmInformationChange()) // confirming the user has made changes to the product to avoid unnecessary processes
                 {
-                    UpdateProductInformation();
+                    UpdateProductInformation(); // updating product with new information
 
                     String message = UpdateInformation.UpdateRegisteredProductInformation(product);
 
-                    DisplayProductInformation(product.Id);
+                    DisplayProductInformation(product.Id); // updating the form with the edited product information
 
-                    FormsMenuList.inventorySearchForm.RefreshInventoryInformation();
+                    FormsMenuList.inventorySearchForm.RefreshInventoryInformation(); // Updating the parent forms information
 
                     // TODO: output message
                 }
@@ -392,6 +392,9 @@ namespace GeneralStoreInventoryManagementSystem
             return changes;
         }
 
+        /// <summary>
+        /// Function to update the product object with the new information provided by the user
+        /// </summary>
         private void UpdateProductInformation()
         {
             product.Key = keyTextBox.Text;
