@@ -18,7 +18,7 @@ namespace InventoryManagementEntityLayer
         private int status; // Status of the profile; Active, Inactive, etc.
         private DateTime lastLogin; // last date and time the user has accessed the system
 
-        // Getters and Setters
+        #region Getters and Setters
         public string Username
         {
             get
@@ -149,5 +149,6 @@ namespace InventoryManagementEntityLayer
                 lastLogin = value;
             }
         }
+        #endregion
     }
 }

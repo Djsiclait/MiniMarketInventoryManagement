@@ -13,7 +13,7 @@ namespace InventoryManagementEntityLayer
         private String type; // type of the activity
         private DateTime timestamp; // date and time of activity
 
-        // Constructors
+        #region Constructors
         public Activity()
         {
 
@@ -25,8 +25,9 @@ namespace InventoryManagementEntityLayer
             this.description = description;
             this.type = type;
         }
+        #endregion
 
-        // Getters and Setters
+        #region Getters and Setters
         public string Username
         {
             get
@@ -78,5 +79,6 @@ namespace InventoryManagementEntityLayer
                 timestamp = value;
             }
         }
+        #endregion
     }
 }

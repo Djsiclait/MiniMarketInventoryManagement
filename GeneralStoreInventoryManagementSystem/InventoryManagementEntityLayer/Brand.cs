@@ -11,7 +11,7 @@ namespace InventoryManagementEntityLayer
         private String id; // product brand identification number
         private String name; // name of product brand
 
-        // Getters and Setters
+        #region Getters and Setters
         public string Id
         {
             get
@@ -37,5 +37,6 @@ namespace InventoryManagementEntityLayer
                 name = value;
             }
         }
+        #endregion
     }
 }

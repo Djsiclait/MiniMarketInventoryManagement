@@ -27,7 +27,7 @@ namespace InventoryManagementEntityLayer
         private DateTime modificationDate; // date the product's information was last modified
         private Boolean discontinued; // State of product within the general store
 
-        // Gets and Sets
+        #region Gets and Sets
         public string Id
         {
             get
@@ -261,5 +261,6 @@ namespace InventoryManagementEntityLayer
                 discontinued = value;
             }
         }
+        #endregion
     }
 }
