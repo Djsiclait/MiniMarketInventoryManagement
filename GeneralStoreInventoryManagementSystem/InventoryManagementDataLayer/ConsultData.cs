@@ -26,6 +26,7 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // username requesting availability
 
@@ -33,6 +34,7 @@ namespace InventoryManagementDataLayer
             SqlParameter result = new SqlParameter("@result", SqlDbType.Bit); // defining the output message variable
             result.Direction = ParameterDirection.Output; // Confirming the output direction
             cmd.Parameters.Add(result); // Confirming the output direction
+            #endregion
 
             Int32 reply;
             reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
@@ -61,9 +63,11 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission; // defining the user's access level
             cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions
+            #endregion
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
@@ -74,11 +78,12 @@ namespace InventoryManagementDataLayer
             {
                 Activity activity = new Activity(); // Creating new activity 
 
-                // Assigning the corresponding values to their variables
+                #region Assigning the corresponding values to their variables
                 activity.Username = sqlDataReader["fld_user_activity_username"].ToString();
                 activity.Description = sqlDataReader["fld_user_activity_description"].ToString();
                 activity.Type = sqlDataReader["fld_user_activity_type"].ToString();
                 activity.Timestamp = DateTime.Parse(sqlDataReader["fld_user_activity_timestamp"].ToString());
+                #endregion
 
                 activities.Add(activity); // Adding the new activity into the list
             }
@@ -105,10 +110,12 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;// defining the user's access level
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // Username to limit search
             cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions
+            #endregion
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
@@ -119,10 +126,11 @@ namespace InventoryManagementDataLayer
             {
                 Activity activity = new Activity(); // Creating new activity
 
-                // Assigning the corresponding values to their variables
+                #region Assigning the corresponding values to their variables
                 activity.Description = sqlDataReader["fld_user_activity_description"].ToString();
                 activity.Type = sqlDataReader["fld_user_activity_type"].ToString();
                 activity.Timestamp = DateTime.Parse(sqlDataReader["fld_user_activity_timestamp"].ToString());
+                #endregion
 
                 activities.Add(activity); // Adding the new activity into the list
             }
@@ -148,8 +156,10 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions
+            #endregion
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
@@ -160,8 +170,9 @@ namespace InventoryManagementDataLayer
             {
                 String brandName; // Creating brand name class with string given this function doesn't use the brand object rather just the name of the brands
 
-                // Assigning the corresponding values to their variables
+                #region Assigning the corresponding values to their variables
                 brandName = sqlDataReader["fld_brand_name"].ToString();
+                #endregion
 
                 brands.Add(brandName); // adding brand name to list
             }
@@ -218,8 +229,10 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@product_id", SqlDbType.VarChar, 10).Value = productId; // variable that identifies the desired product to retreive its data
+            #endregion
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
@@ -228,7 +241,7 @@ namespace InventoryManagementDataLayer
             // Running through the individual rows of the result set until done
             while (sqlDataReader.Read())
             {
-                // Assigning the corresponding values to their variables
+                #region Assigning the corresponding values to their variables
                 product.Key = sqlDataReader["fld_product_key"].ToString();
                 product.Name = sqlDataReader["fld_product_name"].ToString();
                 product.Brand = sqlDataReader["fld_brand_name"].ToString();
@@ -246,6 +259,7 @@ namespace InventoryManagementDataLayer
                 product.ModifiedBy = sqlDataReader["fld_product_modified_by"].ToString();
                 product.ModificationDate = DateTime.Parse(sqlDataReader["fld_product_modification_date"].ToString());
                 product.Discontinued = FormatToBoolean(sqlDataReader["fld_product_discontinued"].ToString());
+                #endregion
             }
 
             DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
@@ -270,9 +284,11 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission; // variable to verify the user's role
             cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 300).Value = keyWord; // key word to filter the result set based on regular expressions
+            #endregion
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
@@ -283,7 +299,7 @@ namespace InventoryManagementDataLayer
             {
                 Product product = new Product(); // Creating a new product
 
-                // Assigning the corresponding values to their variables
+                #region Assigning the corresponding values to their variables
                 product.Id = sqlDataReader["fld_product_id"].ToString();
                 product.Key = sqlDataReader["fld_product_key"].ToString();
                 product.Name = sqlDataReader["fld_product_name"].ToString();
@@ -299,6 +315,7 @@ namespace InventoryManagementDataLayer
                     product.UnitCost = FormatToDecimal(sqlDataReader["fld_product_unit_cost"].ToString());
                     product.Discontinued = FormatToBoolean(sqlDataReader["fld_product_discontinued"].ToString());
                 }
+                #endregion
 
                 inventory.Add(product); // Adding the new product to the inventory list
             }
@@ -324,8 +341,10 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions
+            #endregion
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works
             SqlDataReader sqlDataReader;
@@ -394,8 +413,10 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // Target username
+            #endregion
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
@@ -404,7 +425,7 @@ namespace InventoryManagementDataLayer
             // Running through the individual rows of the result set until done
             while (sqlDataReader.Read())
             {
-                // Assigning the corresponding values to their variables
+                #region Assigning the corresponding values to their variables
                 user.Username = sqlDataReader["fld_user_username"].ToString();
                 user.FirstName = sqlDataReader["fld_user_first_name"].ToString();
                 user.LastName = sqlDataReader["fld_user_last_name"].ToString();
@@ -416,6 +437,7 @@ namespace InventoryManagementDataLayer
                 // Verifying for null or empty dates to prevent errors
                 if (sqlDataReader["fld_user_last_login_timestamp"].ToString() != "")
                     user.LastLogin = DateTime.Parse(sqlDataReader["fld_user_last_login_timestamp"].ToString());
+                #endregion
             }
 
             DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
@@ -440,10 +462,12 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // defining the username to exclude in the dataset
             cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission; // user's access level
             cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord; // key word to filter the result set based on regular expressions 
+            #endregion
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
@@ -454,7 +478,7 @@ namespace InventoryManagementDataLayer
             {
                 UserProfile user = new UserProfile(); // Creating new user profile
 
-                // Assigning the corresponding values to their variables
+                #region Assigning the corresponding values to their variables
                 user.Username = sqlDataReader["fld_user_username"].ToString();
                 user.FirstName = sqlDataReader["fld_user_first_name"].ToString();
                 user.LastName = sqlDataReader["fld_user_last_name"].ToString();
@@ -464,6 +488,7 @@ namespace InventoryManagementDataLayer
                 // Verifying for null or empty dates to prevent errors
                 if (sqlDataReader["fld_user_last_login_timestamp"].ToString() != "")
                     user.LastLogin = DateTime.Parse(sqlDataReader["fld_user_last_login_timestamp"].ToString());
+                #endregion
 
                 userList.Add(user); // Adding the new user profile
             }
@@ -487,6 +512,7 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // defining the username requesting validation
             cmd.Parameters.Add("@password", SqlDbType.VarChar, 30).Value = password; // defining the password credentials
@@ -495,6 +521,7 @@ namespace InventoryManagementDataLayer
             SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300); // defining the output message variable
             message.Direction = ParameterDirection.Output; // Confirming the output direction
             cmd.Parameters.Add(message); // Adding output paramater to the command
+            #endregion
 
             Int32 reply;
             reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
@@ -504,7 +531,7 @@ namespace InventoryManagementDataLayer
             return cmd.Parameters["@message"].Value.ToString(); // returning the output message generated by the procedure
         }
 
-////////// Axiliary Functions 
+        #region Axiliary Functions 
         /// <summary>
         /// Function to convert strings to floats
         /// </summary>
@@ -574,5 +601,6 @@ namespace InventoryManagementDataLayer
 
             return result;
         }
+        #endregion
     }
 }

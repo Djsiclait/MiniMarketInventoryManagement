@@ -26,6 +26,7 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = newUser.Username; // variable to define the username
             cmd.Parameters.Add("@password", SqlDbType.VarChar, 30).Value = newUser.Password; // defining the password
@@ -38,6 +39,7 @@ namespace InventoryManagementDataLayer
             SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300); // defining the output message variable
             message.Direction = ParameterDirection.Output; // Confirming the output direction
             cmd.Parameters.Add(message); // Adding output paramater to the command
+            #endregion
 
             Int32 reply;
             reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
@@ -60,6 +62,7 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@key", SqlDbType.VarChar, 100).Value = product.Key;
             cmd.Parameters.Add("@name", SqlDbType.VarChar, 300).Value = product.Name;
@@ -79,6 +82,7 @@ namespace InventoryManagementDataLayer
             SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300); // defining the output message variable
             message.Direction = ParameterDirection.Output; // Confirming the output direction
             cmd.Parameters.Add(message); // Adding output paramater to the command
+            #endregion
 
             Int32 reply;
             reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
@@ -101,6 +105,7 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring an output variable
             cmd.Parameters.Add("@name", SqlDbType.VarChar, 100).Value = name; // Defining the brand name
 
@@ -108,6 +113,7 @@ namespace InventoryManagementDataLayer
             SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300); // defining the output message variable
             message.Direction = ParameterDirection.Output; // Confirming the output direction
             cmd.Parameters.Add(message); // Adding output paramater to the command
+            #endregion
 
             Int32 reply;
             reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
@@ -132,6 +138,7 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring an output variable
             cmd.Parameters.Add("@name", SqlDbType.VarChar, 100).Value = name; // Defining the supplier name
             cmd.Parameters.Add("@phone_number", SqlDbType.VarChar, 100).Value = phoneNumber; // defining the phone number
@@ -141,6 +148,7 @@ namespace InventoryManagementDataLayer
             SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 300); // defining the output message variable
             message.Direction = ParameterDirection.Output; // Confirming the output direction
             cmd.Parameters.Add(message); // Adding output paramater to the command
+            #endregion
 
             Int32 reply;
             reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
@@ -162,10 +170,12 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
+            #region Parameters
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = activity.Username; // variable to define the username currently in session
             cmd.Parameters.Add("@description", SqlDbType.VarChar, 300).Value = activity.Description; // defining the description of the activity
             cmd.Parameters.Add("@type", SqlDbType.VarChar, 100).Value = activity.Type; // defining the type of activity
+            #endregion
 
             Int32 reply;
             reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure

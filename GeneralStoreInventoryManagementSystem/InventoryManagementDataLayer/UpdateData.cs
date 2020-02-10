@@ -23,8 +23,10 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
             cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
 
+            #region Parameters
             cmd.Parameters.Add("@target_user", SqlDbType.VarChar, 50).Value = targetUser; // supplying the target username to update the correct dataset
             cmd.Parameters.Add("@new_access_level", SqlDbType.VarChar, 100).Value = newAccessLevel; // supplying the new access level data
+            #endregion
 
             // Executing command
             Int32 reply;
@@ -46,8 +48,10 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
             cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
 
+            #region Parameters
             cmd.Parameters.Add("@target_user", SqlDbType.VarChar, 50).Value = targetUser; // supplying the target username to update the correct dataset
             cmd.Parameters.Add("@new_status", SqlDbType.TinyInt).Value = newStatus; // supplying the new status data
+            #endregion
 
             // Executing command
             Int32 reply;
@@ -69,8 +73,10 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
             cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
 
+            #region Parameters
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // supplying the username to update the correct dataset
             cmd.Parameters.Add("@new_password", SqlDbType.VarChar, 30).Value = newPassword; // supplying the new password data
+            #endregion
 
             // Executing command
             Int32 reply;
@@ -91,7 +97,9 @@ namespace InventoryManagementDataLayer
                     DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
             cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
 
+            #region Parameters
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // supplying the username to update the correct dataset
+            #endregion
 
             // Executing command
             Int32 reply;
