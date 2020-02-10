@@ -100,7 +100,7 @@ namespace InventoryManagementBusinessLayer
 
                     SystemResources.RecordActivity(
                         SystemResources.UserInSession.Username, // username of user in session 
-                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the for to register new products", // description of activity
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the form to register new products", // description of activity
                         "ADMIN ACCESS"); // type of activity
                     break;
 
@@ -118,6 +118,14 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Username, // username of user in session 
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new product: " + meta1.ToUpper(), // description of activity
                         "PRODUCT CREATION"); // type of activity
+                    break;
+
+                case "PRO5": // Editing product information
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has edited product: " + meta1.ToUpper(), // description of activity
+                        "PRODUCT EDIT"); // type of activity
                     break;
                 #endregion
 

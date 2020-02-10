@@ -248,6 +248,11 @@ namespace GeneralStoreInventoryManagementSystem
             productList.Columns["ModificationDate"].Visible = false;
 
         }
+
+        public void RefreshInventoryInformation()
+        {
+            PopulateProductListDataGrid();
+        }
         #endregion
     }
 }

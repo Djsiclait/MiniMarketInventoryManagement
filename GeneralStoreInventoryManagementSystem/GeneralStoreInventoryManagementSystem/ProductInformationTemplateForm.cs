@@ -22,8 +22,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             InitializeComponent();
 
-            // Retreiving the information of a product with it's internal identification number
-            product = ConsultInformation.FetchProductInformationByID(productId);
+            // Displaying the product's information in their respective fields
+            DisplayProductInformation(productId);
 
             this.Text += " " + product.Name; // Updating the header of the current form
         }
@@ -31,8 +31,6 @@ namespace GeneralStoreInventoryManagementSystem
         #region Form Load Logic 
         private void ProductInformationTemplateForm_Load(object sender, EventArgs e)
         {
-            // Displaying the product's information in their respective fields
-            DisplayProductInformation();
 
             if (SystemProtocols.ApplySessionsProtocols())
             {
@@ -181,7 +179,15 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 if (ConfirmInformationChange()) // confirming the user has made changes to the product to avoid unnecessary processes
                 {
-                    // TODO: EDIT product
+                    UpdateProductInformation();
+
+                    String message = UpdateInformation.UpdateRegisteredProductInformation(product);
+
+                    DisplayProductInformation(product.Id);
+
+                    FormsMenuList.inventorySearchForm.RefreshInventoryInformation();
+
+                    // TODO: output message
                 }
                 else
                     MessageBox.Show("No changes have been made. Please check desired values.");
@@ -241,8 +247,12 @@ namespace GeneralStoreInventoryManagementSystem
         /// <summary>
         /// Function dedicated to fill the correct fields with their corresponding information
         /// </summary>
-        private void DisplayProductInformation()
+        private void DisplayProductInformation(String productId)
         {
+            // Retreiving the information of a product with it's internal identification number
+            product = ConsultInformation.FetchProductInformationByID(productId);
+            product.Id = productId;
+
             // Filling text boxes
             keyTextBox.Text = product.Key;
             unitTextBox.Text = product.Unit;
@@ -250,7 +260,7 @@ namespace GeneralStoreInventoryManagementSystem
             modifiedByDisplayLabel.Text = product.ModifiedBy;
 
             // Filling combo boxes
-            brandComboBox.DataSource = ConsultInformation.FetchBrandListInformation(""); Console.WriteLine("\n\n\nYOLO: " + product.Brand);
+            brandComboBox.DataSource = ConsultInformation.FetchBrandListInformation("");
             brandComboBox.Text = product.Brand == "" ? "<None>" : product.Brand;
 
             supplierComboBox.DataSource = ConsultInformation.FetchSupplierListInformation("");
@@ -380,6 +390,22 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             return changes;
+        }
+
+        private void UpdateProductInformation()
+        {
+            product.Key = keyTextBox.Text;
+            product.Brand = brandComboBox.Text;
+            product.Supplier = supplierComboBox.Text;
+            product.Category = categoryComboBox.Text;
+            product.Type = typeComboBox.Text;
+            product.Unit = unitTextBox.Text;
+            product.UnitCost = unitCostNumericUpDown.Value;
+            product.UnitPrice = unitPriceNumericUpDown.Value;
+            product.Quantity = (int)quantityNumericUpDown.Value; // TODO: change from int to decimal
+            product.MinimumQuantity = (int)minimumQuantityNumericUpDown.Value; // TODO: change from int to decimal
+            product.MaximumQuantity = (int)maximumQuantityNumericUpDown.Value; // TODO: change from int to decimal
+            product.Discontinued = discontinuedCheckBox.Checked;
         }
         #endregion
     }
