@@ -32,44 +32,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ProductInformationTemplateForm_Load(object sender, EventArgs e)
         {
             // Displaying the product's information in their respective fields
-            nameDisplayLabel.Text = product.Name;
-
-            keyTextBox.Text = product.Key;
-
-            brandComboBox.DataSource = ConsultInformation.FetchBrandListInformation("");Console.WriteLine("\n\n\nYOLO: " + product.Brand);
-            brandComboBox.Text = product.Brand == "" ? "<None>" : product.Brand;
-
-            supplierComboBox.DataSource = ConsultInformation.FetchSupplierListInformation("");
-            supplierComboBox.Text = product.Supplier == "" ? "<None>" : product.Supplier;
-
-            categoryComboBox.DataSource = ConsultInformation.FetchCategoryComboBoxInformation();
-            categoryComboBox.Text = product.Category;
-
-            typeComboBox.DataSource = ConsultInformation.FetchTypeComboBoxInformation();
-            typeComboBox.Text = product.Type;
-
-            unitTextBox.Text = product.Unit;
-
-            unitCostNumericUpDown.Value = product.UnitCost;
-
-            unitPriceNumericUpDown.Value = product.UnitPrice;
-
-            quantityNumericUpDown.Value = product.Quantity;
-
-            minimumQuantityNumericUpDown.Value = product.MinimumQuantity;
-
-            maximumQuantityNumericUpDown.Value = product.MaximumQuantity;
-
-            registeredByDisplayLabel.Text = product.RegisteredBy;
-
-            registrationDateDisplayLabel.Text = product.RegistrationDate.ToString();
-
-            modifiedByDisplayLabel.Text = product.ModifiedBy;
-
-            modificationDateDisplayLabel.Text = product.ModificationDate.ToString();
-
-            if (product.Discontinued)
-                discontinuedCheckBox.CheckState = CheckState.Checked;
+            DisplayProductInformation();
 
             if (SystemProtocols.ApplySessionsProtocols())
             {
@@ -214,104 +177,14 @@ namespace GeneralStoreInventoryManagementSystem
         #region Button Click Logic
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (ValidateUserInput())
+            if (ValidateUserInput()) // Validating user inputs are correct
             {
-                bool changes = false;
-
-                if (keyTextBox.Text != product.Key)
+                if (ConfirmInformationChange()) // confirming the user has made changes to the product to avoid unnecessary processes
                 {
-                    product.Key = keyTextBox.Text;
-                    changes = true;
+                    // TODO: EDIT product
                 }
-
-                if (brandComboBox.Text == "<None>"  && product.Brand != "") // User selected None but the product had a brand
-                {
-                    product.Brand = brandComboBox.Text;
-                    changes = true;
-                }
-                else if (brandComboBox.Text == "" && product.Brand != "") // User selected nothing but the product had a brand
-                {
-                    product.Brand = "<None>";
-                    changes = true;
-                }
-                else if (brandComboBox.Text != "<None>" && brandComboBox.Text != "" && brandComboBox.Text != product.Brand) // User selected something new regardless if the product had a brand
-                {
-                    product.Brand = brandComboBox.Text;
-                    changes = true;
-                }
-
-                if (supplierComboBox.Text == "<None>" && product.Supplier != "") // User selected None but the product had a supplier
-                {
-                    product.Supplier = supplierComboBox.Text;
-                    changes = true;
-                }
-                else if (supplierComboBox.Text == "" && product.Supplier != "") // User selected nothing but the product had a supplier
-                {
-                    product.Supplier = "<None>";
-                    changes = true;
-                }
-                else if (supplierComboBox.Text != "<None>" && supplierComboBox.Text != "" && supplierComboBox.Text != product.Supplier) // User selected something new regardless if the product had a supplier
-                {
-                    product.Supplier = supplierComboBox.Text;
-                    changes = true;
-                }
-
-                if (categoryComboBox.Text != product.Category)
-                {
-                    product.Category = categoryComboBox.Text;
-                    changes = true;
-                }
-
-                if (typeComboBox.Text != product.Type)
-                {
-                    product.Type = typeComboBox.Text;
-                    changes = true;
-                }
-
-                if (unitTextBox.Text != product.Unit)
-                {
-                    product.Unit = unitTextBox.Text;
-                    changes = true;
-                }
-
-                if (unitCostNumericUpDown.Value != product.UnitCost)
-                {
-                    product.UnitCost = unitCostNumericUpDown.Value;
-                    changes = true;
-                }
-
-                if (unitPriceNumericUpDown.Value != product.UnitPrice)
-                {
-                    product.UnitPrice = unitPriceNumericUpDown.Value;
-                    changes = true;
-                }
-
-                if (quantityNumericUpDown.Value != product.Quantity)
-                {
-                    product.Quantity = (int)quantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
-                    changes = true;
-                }
-
-                if (minimumQuantityNumericUpDown.Value != product.MinimumQuantity)
-                {
-                    product.MinimumQuantity = (int)minimumQuantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
-                    changes = true;
-                }
-
-                if (maximumQuantityNumericUpDown.Value != product.MaximumQuantity)
-                {
-                    product.MaximumQuantity = (int)maximumQuantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
-                    changes = true;
-                }
-
-                if (discontinuedCheckBox.Checked != product.Discontinued)
-                {
-                    product.Discontinued = discontinuedCheckBox.Checked;
-                    changes = true;
-                }
-
-                // TODO: EDIT product
-
+                else
+                    MessageBox.Show("No changes have been made. Please check desired values.");
             }
             else
                 MessageBox.Show("Please fill required values correctly.");
@@ -336,6 +209,10 @@ namespace GeneralStoreInventoryManagementSystem
             return contributionRatio.ToString("0.##") + "% ($" + contributionDollar.ToString("0.##") + " or " + (priceIncrease.ToString("0.##") == "1" ? "1" : priceIncrease.ToString("0.##")) + "x price increase)";
         }
 
+        /// <summary>
+        /// Funtion to validate user input according to accepted formats and standards
+        /// </summary>
+        /// <returns>True or False based on the validation check</returns>
         private bool ValidateUserInput()
         {
             bool validated = true;
@@ -359,6 +236,150 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             return validated;
+        }
+
+        /// <summary>
+        /// Function dedicated to fill the correct fields with their corresponding information
+        /// </summary>
+        private void DisplayProductInformation()
+        {
+            // Filling text boxes
+            keyTextBox.Text = product.Key;
+            unitTextBox.Text = product.Unit;
+            registeredByDisplayLabel.Text = product.RegisteredBy;
+            modifiedByDisplayLabel.Text = product.ModifiedBy;
+
+            // Filling combo boxes
+            brandComboBox.DataSource = ConsultInformation.FetchBrandListInformation(""); Console.WriteLine("\n\n\nYOLO: " + product.Brand);
+            brandComboBox.Text = product.Brand == "" ? "<None>" : product.Brand;
+
+            supplierComboBox.DataSource = ConsultInformation.FetchSupplierListInformation("");
+            supplierComboBox.Text = product.Supplier == "" ? "<None>" : product.Supplier;
+
+            categoryComboBox.DataSource = ConsultInformation.FetchCategoryComboBoxInformation();
+            categoryComboBox.Text = product.Category;
+
+            typeComboBox.DataSource = ConsultInformation.FetchTypeComboBoxInformation();
+            typeComboBox.Text = product.Type;
+
+            // Filling numeric up downs
+            unitCostNumericUpDown.Value = product.UnitCost;
+            unitPriceNumericUpDown.Value = product.UnitPrice;
+            quantityNumericUpDown.Value = product.Quantity;
+            minimumQuantityNumericUpDown.Value = product.MinimumQuantity;
+            maximumQuantityNumericUpDown.Value = product.MaximumQuantity;
+
+            // Filling labels
+            nameDisplayLabel.Text = product.Name;
+            registrationDateDisplayLabel.Text = product.RegistrationDate.ToString();
+            modificationDateDisplayLabel.Text = product.ModificationDate.ToString();
+
+            // Filling check box
+            if (product.Discontinued)
+                discontinuedCheckBox.CheckState = CheckState.Checked;
+        }
+
+        /// <summary>
+        /// Function that detects any change of information 
+        /// </summary>
+        /// <returns>True or False if any changes were detected</returns>
+        private bool ConfirmInformationChange()
+        {
+            bool changes = false;
+
+            if (keyTextBox.Text != product.Key)
+            {
+                product.Key = keyTextBox.Text;
+                changes = true;
+            }
+
+            if (brandComboBox.Text == "<None>" && product.Brand != "") // User selected None but the product had a brand
+            {
+                product.Brand = brandComboBox.Text;
+                changes = true;
+            }
+            else if (brandComboBox.Text == "" && product.Brand != "") // User selected nothing but the product had a brand
+            {
+                product.Brand = "<None>";
+                changes = true;
+            }
+            else if (brandComboBox.Text != "<None>" && brandComboBox.Text != "" && brandComboBox.Text != product.Brand) // User selected something new regardless if the product had a brand
+            {
+                product.Brand = brandComboBox.Text;
+                changes = true;
+            }
+
+            if (supplierComboBox.Text == "<None>" && product.Supplier != "") // User selected None but the product had a supplier
+            {
+                product.Supplier = supplierComboBox.Text;
+                changes = true;
+            }
+            else if (supplierComboBox.Text == "" && product.Supplier != "") // User selected nothing but the product had a supplier
+            {
+                product.Supplier = "<None>";
+                changes = true;
+            }
+            else if (supplierComboBox.Text != "<None>" && supplierComboBox.Text != "" && supplierComboBox.Text != product.Supplier) // User selected something new regardless if the product had a supplier
+            {
+                product.Supplier = supplierComboBox.Text;
+                changes = true;
+            }
+
+            if (categoryComboBox.Text != product.Category)
+            {
+                product.Category = categoryComboBox.Text;
+                changes = true;
+            }
+
+            if (typeComboBox.Text != product.Type)
+            {
+                product.Type = typeComboBox.Text;
+                changes = true;
+            }
+
+            if (unitTextBox.Text != product.Unit)
+            {
+                product.Unit = unitTextBox.Text;
+                changes = true;
+            }
+
+            if (unitCostNumericUpDown.Value != product.UnitCost)
+            {
+                product.UnitCost = unitCostNumericUpDown.Value;
+                changes = true;
+            }
+
+            if (unitPriceNumericUpDown.Value != product.UnitPrice)
+            {
+                product.UnitPrice = unitPriceNumericUpDown.Value;
+                changes = true;
+            }
+
+            if (quantityNumericUpDown.Value != product.Quantity)
+            {
+                product.Quantity = (int)quantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
+                changes = true;
+            }
+
+            if (minimumQuantityNumericUpDown.Value != product.MinimumQuantity)
+            {
+                product.MinimumQuantity = (int)minimumQuantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
+                changes = true;
+            }
+
+            if (maximumQuantityNumericUpDown.Value != product.MaximumQuantity)
+            {
+                product.MaximumQuantity = (int)maximumQuantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
+                changes = true;
+            }
+
+            if (discontinuedCheckBox.Checked != product.Discontinued)
+            {
+                product.Discontinued = discontinuedCheckBox.Checked;
+                changes = true;
+            }
+
+            return changes;
         }
         #endregion
     }
