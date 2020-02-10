@@ -17,6 +17,9 @@ namespace InventoryManagementBusinessLayer
         {
             switch (code)
             {
+                #region Activity Codes
+
+                #region Activities
                 case "ACT1": // Registering user access to activity logs
 
                     SystemResources.RecordActivity(
@@ -24,7 +27,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the activities logs", // description of activity
                         "ADMIN ACCESS"); // type of activity
                     break;
+                #endregion
 
+                #region Cart
                 case "CAR1": // Registering user access to cart
 
                     SystemResources.RecordActivity(
@@ -32,7 +37,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the cart view", // description of activity
                         "BASIC ACCESS"); // type of activity
                     break;
+                #endregion
 
+                #region Errors
                 case "ERR1": // Registering user access to error logs
 
                     SystemResources.RecordActivity(
@@ -48,7 +55,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the errors logs", // description of activity
                         "ADMIN ACCESS"); // type of activity
                     break;
+                #endregion
 
+                #region Graphs
                 case "GRA1": // Registering user access to graphs analytics
 
                     SystemResources.RecordActivity(
@@ -56,7 +65,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the graphs analytics", // description of activity
                         "ADMIN ACCESS"); // type of activity
                     break;
+                #endregion
 
+                #region Inventory
                 case "INV1": // Registering user access to the inventory view
 
                     SystemResources.RecordActivity(
@@ -64,7 +75,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the inventory browser", // description of activity
                         "BASIC ACCESS"); // type of activity
                     break;
+                #endregion
 
+                #region Log In Failer
                 case "LOG0": // Registering a failed log in 
 
                     SystemResources.RecordActivity(
@@ -72,7 +85,9 @@ namespace InventoryManagementBusinessLayer
                         "Deactivated account, " + meta1 + ", attemped to log into the system", // description of activity
                         "LOGIN FAILIER"); // type of activity
                     break;
+                #endregion
 
+                #region Products
                 case "PRO1": // Registering user access to product restock form
 
                     SystemResources.RecordActivity(
@@ -104,7 +119,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new product: " + meta1.ToUpper(), // description of activity
                         "PRODUCT CREATION"); // type of activity
                     break;
+                #endregion
 
+                #region Reports
                 case "REP1": // Registering user access to reports analytics
 
                     SystemResources.RecordActivity(
@@ -112,7 +129,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the reports analytics", // description of activity
                         "ADMIN ACCESS"); // type of activity
                     break;
+                #endregion
 
+                #region Sales
                 case "SAL1": // Registering user access to the sales registration form as basic user
 
                     SystemResources.RecordActivity(
@@ -144,7 +163,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the form to register new sales", // description of activity
                         "ADMIN ACCESS"); // type of activity
                     break;
+                #endregion
 
+                #region Special
                 case "SPE1": // Registering a password change
 
                     SystemResources.RecordActivity(
@@ -176,7 +197,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has incompletly registered a new supplier: " + meta1.ToUpper(), // description of activity
                         "INCOMPLETE CREATION"); // type of activity
                     break;
+                #endregion
 
+                #region Supplier
                 case "SUP1": // Registering a new supplier with complete information
 
                     SystemResources.RecordActivity(
@@ -184,7 +207,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new supplier: " + meta1.ToUpper(), // description of activity
                         "SUPPLIER CREATION"); // type of activity
                     break;
+                #endregion
 
+                #region Users
                 case "USE1": // Registering user access to the users registry form
 
                     SystemResources.RecordActivity(
@@ -208,6 +233,9 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has created a new user account for, " + meta1, // description of activity
                         "USER CREATION"); // type of activity
                     break;
+                #endregion
+
+                #endregion
 
                 default:
                     break;

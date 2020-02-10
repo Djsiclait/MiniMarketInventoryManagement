@@ -63,7 +63,7 @@ namespace InventoryManagementBusinessLayer
             CreateInformation.RegisterNewUserActivityInformation(new Activity(username, description, type));
         }
 
-        // Getters and setters
+        #region Getters and setters
         public static UserProfile UserInSession
         {
             get
@@ -71,5 +71,6 @@ namespace InventoryManagementBusinessLayer
                 return userInSession;
             }
         }
+        #endregion
     }
 }
