@@ -230,7 +230,8 @@ namespace GeneralStoreInventoryManagementSystem
             // Declare an non oficial auxiliary form to display product information, given a product's internal identification number
             ProductInformationTemplateForm productInformationForm = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
             productInformationForm.Show(); // Summon the temporary summary form 
-            childrenForms.Add(productInformationForm);
+
+            childrenForms.Add(productInformationForm); // adding product to list of children
         }
         #endregion
 
