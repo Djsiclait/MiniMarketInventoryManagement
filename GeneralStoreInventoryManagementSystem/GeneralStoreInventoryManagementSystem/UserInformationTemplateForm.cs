@@ -27,12 +27,12 @@ namespace GeneralStoreInventoryManagementSystem
             userTitleLabel.Text += " " + username;
         }
 
-////////// Load Form Logic
+        #region Load Form Logic
         private void UserInformationTemplateForm_Load(object sender, EventArgs e)
         {
             // Disabling features according to target user's aacces level compared to current user in session's access level
             if (user.Username != SystemResources.UserInSession.Username && user.Role == SystemResources.UserInSession.Role) // If the target user is of a different account and access level is equals to the current user in session
-            {
+            {   // TODO: Hide System resources in business layer
                 changeAccessLevelButtom.Visible = false;
                 changeAccessLevelButtom.Enabled = false;
                 changePasswordButton.Visible = false;
@@ -67,16 +67,16 @@ namespace GeneralStoreInventoryManagementSystem
 
             PopulateActivityList();
         }
-////////// END Load Form Logic
+        #endregion
 
-////////// Text Changed Logic
+        #region Text Changed Logic
         private void ActivitySearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateActivityList();
         }
-////////// END Text Changed Logic
+        #endregion
 
-////////// Button Click Logic
+        #region Button Click Logic
         private void ChangePasswordButton_Click(object sender, EventArgs e)
         {
             // Requesting a password change for the current user in session
@@ -126,9 +126,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Refreshing and updating information of parent form
             FormsMenuList.usersRegistryForm.RefreshDatagridInformation();
         }
-////////// END Button Click Logic
+        #endregion
 
-////////// Auxiliary Function
+        #region Auxiliary Function
         /// <summary>
         /// Function that populates the activity log with a specific user's activities
         /// </summary>
@@ -142,5 +142,6 @@ namespace GeneralStoreInventoryManagementSystem
             activityList.Columns["Description"].Width = 170;
             activityList.Columns["Timestamp"].Width = 130;
         }
+        #endregion
     }
 }

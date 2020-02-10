@@ -19,8 +19,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             InitializeComponent();
         }
-    
-////////// Load Form Logic
+
+        #region Load Form Logic
         private void UsersRegistryForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
@@ -44,9 +44,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             PopulateActicityListDataGrid();
         }
-////////// END Load Form Logic
+        #endregion
 
-////////// On Form Closing Override
+        #region On Form Closing Override
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -58,9 +58,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
         }
-////////// END On Form Closing Override
+        #endregion
 
-////////// Menu Bar Options
+        #region Menu Bar Options
         private void ViewSalesMenuSubOption_Click(object sender, EventArgs e)
         {
             // Summon Sales Registry Form
@@ -181,6 +181,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.usersRegistryForm.viewCartLabel.ForeColor = Color.Black;
         }
 
+        #region Log Out
         private void LogOutLabel_Click(object sender, EventArgs e)
         {
             // Executing correct log out processes
@@ -200,9 +201,11 @@ namespace GeneralStoreInventoryManagementSystem
         {
             FormsMenuList.usersRegistryForm.LogOutLabel.ForeColor = Color.Black;
         }
-////////// Menu Bar Options
+        #endregion
 
-////////// Text Changed Logic
+        #endregion
+
+        #region Text Changed Logic
         private void UserSearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateUserResigtryDataGrid(); // REMINDER, to search for active and inactive users use 0, 1, etc.
@@ -212,25 +215,25 @@ namespace GeneralStoreInventoryManagementSystem
         {
             PopulateActicityListDataGrid();
         }
-////////// END Text Changed Logic
+        #endregion
 
-////////// Button Click Logic
+        #region Button Click Logic
         private void ProfileButton_Click(object sender, EventArgs e)
         {
             UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(SystemResources.UserInSession.Username);
             userInformationForm.Show();
         }
-////////// END Button Click Logic
+        #endregion
 
-////////// Cell Double Click Logic
+        #region Cell Double Click Logic
         private void UserList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(userList.SelectedCells[0].Value.ToString());
             userInformationForm.Show();
         }
-////////// Cell Double Click Logic
+        #endregion
 
-////////// Auxiliary Functions
+        #region Auxiliary Functions
         /// <summary>
         /// Fucntion to populate the user registry data grid
         /// </summary>
@@ -270,5 +273,6 @@ namespace GeneralStoreInventoryManagementSystem
             PopulateUserResigtryDataGrid();
             PopulateActicityListDataGrid();
         }
+        #endregion
     }
 }
