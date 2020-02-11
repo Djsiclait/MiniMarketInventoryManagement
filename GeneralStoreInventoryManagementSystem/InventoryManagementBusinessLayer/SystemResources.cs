@@ -14,6 +14,9 @@ namespace InventoryManagementBusinessLayer
     {
         private static UserProfile userInSession; // object used to track open active session
 
+        private static List<Product> cart; // list to store all products a client desires to purchase
+         
+        #region Resource Functions
         /// <summary>
         /// Function used to instantiate the session variable
         /// Must be executed once before every session  
@@ -32,7 +35,7 @@ namespace InventoryManagementBusinessLayer
                 userInSession.Role + ", " + userInSession.Username + ", has successfully logged in", // description of activity
                 "LOG IN"); // type of activity
         }
-        
+
         /// <summary>
         /// Function used to end the session variable
         /// Must be executed once before logging out of every session  
@@ -63,12 +66,81 @@ namespace InventoryManagementBusinessLayer
             CreateInformation.RegisterNewUserActivityInformation(new Activity(username, description, type));
         }
 
+        /// <summary>
+        /// Function to remove all items from the cart
+        /// </summary>
+        public static void EmptyCart()
+        {
+            cart = null;
+        }
+
+        /// <summary>
+        /// Function to remove one item from the cart 
+        /// </summary>
+        /// <param name="productId">Id of the product that will be removed</param>
+        public static void RemoveItem(String productId)
+        {
+            Product itemToRemove = null;
+
+            foreach (Product item in cart)
+            {
+                if (item.Id == productId)
+                {
+                    itemToRemove = item;
+                    break;
+                }
+            }
+
+            cart.Remove(itemToRemove);
+        }
+
+        /// <summary>
+        /// Function that removes one unit of a specific item in the cart
+        /// </summary>
+        /// <param name="productId">Id of the desired product</param>
+        public static void RemoveOneFromAnItem(String productId)
+        {
+            Product itemToRemove = null;
+
+            foreach (Product item in cart)
+            {
+                if (item.Id == productId)
+                {
+                    item.Quantity--;
+
+                    if (item.Quantity == 0)
+                        itemToRemove = item;
+
+                    break;
+                }
+            }
+
+            cart.Remove(itemToRemove);
+        }
+        #endregion
+
         #region Getters and setters
         public static UserProfile UserInSession
         {
             get
             {
                 return userInSession;
+            }
+        }
+
+        public static List<Product> Cart
+        {
+            get
+            {
+                if (cart == null)
+                    cart = new List<Product>();
+
+                return cart;
+            }
+
+            set
+            {
+                cart = value;
             }
         }
         #endregion
