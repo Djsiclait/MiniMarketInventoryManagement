@@ -217,8 +217,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             salesList.DataSource = ConsultInformation.FetchSalesRecordsInformation(salesSearchBox.Text);
 
-            salesList.Columns["TransactionDate"].Width = 400;
-            salesList.Columns["Total"].Width = 50;
+            salesList.Columns["TransactionDate"].Width = 350;
             salesList.Columns["Delivery"].Width = 50;
         }
         #endregion

@@ -46,14 +46,28 @@
             this.logsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewActivityLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.productDataGridView = new System.Windows.Forms.DataGridView();
+            this.browserLabel = new System.Windows.Forms.Label();
+            this.cartSummaryListView = new System.Windows.Forms.ListView();
+            this.cartSummaryLabel = new System.Windows.Forms.Label();
+            this.addItemButton = new System.Windows.Forms.Button();
+            this.addMultipleButton = new System.Windows.Forms.Button();
+            this.removeItemButton = new System.Windows.Forms.Button();
+            this.removeOneButton = new System.Windows.Forms.Button();
+            this.clearCartButton = new System.Windows.Forms.Button();
+            this.numberLabel = new System.Windows.Forms.Label();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.deliveryCheckBox = new System.Windows.Forms.CheckBox();
+            this.completeSaleButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
             // 
             this.viewCartLabel.AutoSize = true;
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
             this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
             this.viewCartLabel.TabIndex = 11;
@@ -66,7 +80,7 @@
             // 
             this.logOutLabel.AutoSize = true;
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.logOutLabel.Location = new System.Drawing.Point(870, 9);
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(45, 13);
             this.logOutLabel.TabIndex = 10;
@@ -84,7 +98,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -205,19 +219,164 @@
             this.viewErrorLogsOption.Text = "View Error Logs";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
+            // productDataGridView
+            // 
+            this.productDataGridView.AllowUserToOrderColumns = true;
+            this.productDataGridView.AllowUserToResizeColumns = false;
+            this.productDataGridView.AllowUserToResizeRows = false;
+            this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.productDataGridView.Location = new System.Drawing.Point(12, 66);
+            this.productDataGridView.Name = "productDataGridView";
+            this.productDataGridView.ReadOnly = true;
+            this.productDataGridView.RowHeadersVisible = false;
+            this.productDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.productDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.productDataGridView.Size = new System.Drawing.Size(445, 455);
+            this.productDataGridView.TabIndex = 12;
+            // 
+            // browserLabel
+            // 
+            this.browserLabel.AutoSize = true;
+            this.browserLabel.Location = new System.Drawing.Point(12, 47);
+            this.browserLabel.Name = "browserLabel";
+            this.browserLabel.Size = new System.Drawing.Size(85, 13);
+            this.browserLabel.TabIndex = 13;
+            this.browserLabel.Text = "Product Browser";
+            // 
+            // cartSummaryListView
+            // 
+            this.cartSummaryListView.Location = new System.Drawing.Point(475, 66);
+            this.cartSummaryListView.MultiSelect = false;
+            this.cartSummaryListView.Name = "cartSummaryListView";
+            this.cartSummaryListView.Size = new System.Drawing.Size(440, 214);
+            this.cartSummaryListView.TabIndex = 14;
+            this.cartSummaryListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // cartSummaryLabel
+            // 
+            this.cartSummaryLabel.AutoSize = true;
+            this.cartSummaryLabel.Location = new System.Drawing.Point(475, 47);
+            this.cartSummaryLabel.Name = "cartSummaryLabel";
+            this.cartSummaryLabel.Size = new System.Drawing.Size(72, 13);
+            this.cartSummaryLabel.TabIndex = 15;
+            this.cartSummaryLabel.Text = "Cart Summary";
+            // 
+            // addItemButton
+            // 
+            this.addItemButton.Location = new System.Drawing.Point(382, 527);
+            this.addItemButton.Name = "addItemButton";
+            this.addItemButton.Size = new System.Drawing.Size(75, 23);
+            this.addItemButton.TabIndex = 16;
+            this.addItemButton.Text = "Add Item";
+            this.addItemButton.UseVisualStyleBackColor = true;
+            // 
+            // addMultipleButton
+            // 
+            this.addMultipleButton.Location = new System.Drawing.Point(301, 527);
+            this.addMultipleButton.Name = "addMultipleButton";
+            this.addMultipleButton.Size = new System.Drawing.Size(75, 22);
+            this.addMultipleButton.TabIndex = 17;
+            this.addMultipleButton.Text = "Add Multiple";
+            this.addMultipleButton.UseVisualStyleBackColor = true;
+            // 
+            // removeItemButton
+            // 
+            this.removeItemButton.Location = new System.Drawing.Point(815, 286);
+            this.removeItemButton.Name = "removeItemButton";
+            this.removeItemButton.Size = new System.Drawing.Size(100, 23);
+            this.removeItemButton.TabIndex = 18;
+            this.removeItemButton.Text = "Remove Item";
+            this.removeItemButton.UseVisualStyleBackColor = true;
+            // 
+            // removeOneButton
+            // 
+            this.removeOneButton.Location = new System.Drawing.Point(709, 286);
+            this.removeOneButton.Name = "removeOneButton";
+            this.removeOneButton.Size = new System.Drawing.Size(100, 23);
+            this.removeOneButton.TabIndex = 19;
+            this.removeOneButton.Text = "Remove One";
+            this.removeOneButton.UseVisualStyleBackColor = true;
+            // 
+            // clearCartButton
+            // 
+            this.clearCartButton.Location = new System.Drawing.Point(603, 286);
+            this.clearCartButton.Name = "clearCartButton";
+            this.clearCartButton.Size = new System.Drawing.Size(100, 23);
+            this.clearCartButton.TabIndex = 20;
+            this.clearCartButton.Text = "Clear Cart";
+            this.clearCartButton.UseVisualStyleBackColor = true;
+            // 
+            // numberLabel
+            // 
+            this.numberLabel.AutoSize = true;
+            this.numberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberLabel.Location = new System.Drawing.Point(600, 331);
+            this.numberLabel.Name = "numberLabel";
+            this.numberLabel.Size = new System.Drawing.Size(136, 17);
+            this.numberLabel.TabIndex = 21;
+            this.numberLabel.Text = "Number of Items: ";
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.AutoSize = true;
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Location = new System.Drawing.Point(682, 379);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(96, 17);
+            this.totalLabel.TabIndex = 22;
+            this.totalLabel.Text = "Total: $0.00";
+            // 
+            // deliveryCheckBox
+            // 
+            this.deliveryCheckBox.AutoSize = true;
+            this.deliveryCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deliveryCheckBox.Location = new System.Drawing.Point(495, 444);
+            this.deliveryCheckBox.Name = "deliveryCheckBox";
+            this.deliveryCheckBox.Size = new System.Drawing.Size(157, 21);
+            this.deliveryCheckBox.TabIndex = 23;
+            this.deliveryCheckBox.Text = "Mark as Delivery?";
+            this.deliveryCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // completeSaleButton
+            // 
+            this.completeSaleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.completeSaleButton.Location = new System.Drawing.Point(694, 433);
+            this.completeSaleButton.Name = "completeSaleButton";
+            this.completeSaleButton.Size = new System.Drawing.Size(165, 40);
+            this.completeSaleButton.TabIndex = 24;
+            this.completeSaleButton.Text = "Complete Sale";
+            this.completeSaleButton.UseVisualStyleBackColor = true;
+            // 
             // RegisterNewSaleFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 462);
+            this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.completeSaleButton);
+            this.Controls.Add(this.deliveryCheckBox);
+            this.Controls.Add(this.totalLabel);
+            this.Controls.Add(this.numberLabel);
+            this.Controls.Add(this.clearCartButton);
+            this.Controls.Add(this.removeOneButton);
+            this.Controls.Add(this.removeItemButton);
+            this.Controls.Add(this.addMultipleButton);
+            this.Controls.Add(this.addItemButton);
+            this.Controls.Add(this.cartSummaryLabel);
+            this.Controls.Add(this.cartSummaryListView);
+            this.Controls.Add(this.browserLabel);
+            this.Controls.Add(this.productDataGridView);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "RegisterNewSaleFrom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New Sale";
             this.Load += new System.EventHandler(this.RegisterNewSaleFrom_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +402,18 @@
         private System.Windows.Forms.ToolStripMenuItem logsMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem viewActivityLogsOption;
         private System.Windows.Forms.ToolStripMenuItem viewErrorLogsOption;
+        private System.Windows.Forms.DataGridView productDataGridView;
+        private System.Windows.Forms.Label browserLabel;
+        private System.Windows.Forms.ListView cartSummaryListView;
+        private System.Windows.Forms.Label cartSummaryLabel;
+        private System.Windows.Forms.Button addItemButton;
+        private System.Windows.Forms.Button addMultipleButton;
+        private System.Windows.Forms.Button removeItemButton;
+        private System.Windows.Forms.Button removeOneButton;
+        private System.Windows.Forms.Button clearCartButton;
+        private System.Windows.Forms.Label numberLabel;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.CheckBox deliveryCheckBox;
+        private System.Windows.Forms.Button completeSaleButton;
     }
 }

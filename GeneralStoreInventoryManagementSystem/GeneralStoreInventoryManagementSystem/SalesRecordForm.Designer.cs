@@ -265,6 +265,7 @@
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "SalesRecordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales Record";
