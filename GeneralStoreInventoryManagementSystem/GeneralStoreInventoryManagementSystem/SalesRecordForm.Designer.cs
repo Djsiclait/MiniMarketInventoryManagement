@@ -46,7 +46,12 @@
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.logOutLabel = new System.Windows.Forms.Label();
+            this.searchLabel = new System.Windows.Forms.Label();
+            this.salesList = new System.Windows.Forms.DataGridView();
+            this.browserFormTitle = new System.Windows.Forms.Label();
+            this.salesSearchBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.salesList)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -58,7 +63,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -183,7 +188,7 @@
             // 
             this.viewCartLabel.AutoSize = true;
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
             this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
             this.viewCartLabel.TabIndex = 8;
@@ -196,7 +201,7 @@
             // 
             this.logOutLabel.AutoSize = true;
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.logOutLabel.Location = new System.Drawing.Point(870, 9);
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(45, 13);
             this.logOutLabel.TabIndex = 7;
@@ -205,19 +210,67 @@
             this.logOutLabel.MouseLeave += new System.EventHandler(this.LogOutLabel_MouseLeave);
             this.logOutLabel.MouseHover += new System.EventHandler(this.LogOutLabel_MouseHover);
             // 
+            // searchLabel
+            // 
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Location = new System.Drawing.Point(566, 49);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(70, 13);
+            this.searchLabel.TabIndex = 12;
+            this.searchLabel.Text = "Search Sales";
+            // 
+            // salesList
+            // 
+            this.salesList.AllowUserToAddRows = false;
+            this.salesList.AllowUserToDeleteRows = false;
+            this.salesList.AllowUserToResizeColumns = false;
+            this.salesList.AllowUserToResizeRows = false;
+            this.salesList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.salesList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.salesList.Location = new System.Drawing.Point(12, 73);
+            this.salesList.MultiSelect = false;
+            this.salesList.Name = "salesList";
+            this.salesList.RowHeadersVisible = false;
+            this.salesList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.salesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.salesList.Size = new System.Drawing.Size(903, 444);
+            this.salesList.TabIndex = 11;
+            // 
+            // browserFormTitle
+            // 
+            this.browserFormTitle.AutoSize = true;
+            this.browserFormTitle.Location = new System.Drawing.Point(66, 49);
+            this.browserFormTitle.Name = "browserFormTitle";
+            this.browserFormTitle.Size = new System.Drawing.Size(68, 13);
+            this.browserFormTitle.TabIndex = 10;
+            this.browserFormTitle.Text = "Sales History";
+            // 
+            // salesSearchBox
+            // 
+            this.salesSearchBox.Location = new System.Drawing.Point(642, 46);
+            this.salesSearchBox.Name = "salesSearchBox";
+            this.salesSearchBox.Size = new System.Drawing.Size(273, 20);
+            this.salesSearchBox.TabIndex = 9;
+            // 
             // SalesRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 462);
+            this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.searchLabel);
+            this.Controls.Add(this.salesList);
+            this.Controls.Add(this.browserFormTitle);
+            this.Controls.Add(this.salesSearchBox);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
             this.Name = "SalesRecordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales Record";
             this.Load += new System.EventHandler(this.SalesRecordForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.salesList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +296,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewErrorLogsOption;
         private System.Windows.Forms.Label viewCartLabel;
         private System.Windows.Forms.Label logOutLabel;
+        private System.Windows.Forms.Label searchLabel;
+        private System.Windows.Forms.DataGridView salesList;
+        private System.Windows.Forms.Label browserFormTitle;
+        private System.Windows.Forms.TextBox salesSearchBox;
     }
 }

@@ -257,11 +257,11 @@
             // searchLabel
             // 
             this.searchLabel.AutoSize = true;
-            this.searchLabel.Location = new System.Drawing.Point(595, 46);
+            this.searchLabel.Location = new System.Drawing.Point(550, 46);
             this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(41, 13);
+            this.searchLabel.Size = new System.Drawing.Size(86, 13);
             this.searchLabel.TabIndex = 7;
-            this.searchLabel.Text = "Search";
+            this.searchLabel.Text = "Search Products";
             // 
             // InventorySearchForm
             // 
