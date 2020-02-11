@@ -20,6 +20,28 @@ AS
 			set @message = 'This product is already registered with the same informations'
 		ELSE
 			BEGIN
+			
+				Declare @response varchar(300)
+
+				---- Category ID
+				Declare @category_id varchar(10)
+				IF exists(select 1 from Tbl_Product_Categories where fld_category_description = @category)
+					set @category_id = (select fld_category_id from Tbl_Product_Categories where fld_category_description = @category)
+				ELSE
+					BEGIN
+						exec SP_Register_New_Category_Data @category, @response output
+						set @category_id = (select fld_category_id from Tbl_Product_Categories where fld_category_description = @category)
+					END
+
+				---- Type ID
+				Declare @type_id varchar(10)
+				IF exists(select 1 from Tbl_Product_Type where fld_type_description = @type)
+					set @type_id = (select fld_type_id from Tbl_Product_Type where fld_type_description = @type)
+				ELSE 
+					BEGIN
+						exec SP_Register_Product_Type @type, @response output
+						set @type_id = (select fld_type_id from Tbl_Product_Type where fld_type_description = @type)
+					END
 
 				Declare @new_product_id varchar(10)
 				exec SP_Generate_New_Id 'Products', @new_product_id output
@@ -50,8 +72,8 @@ AS
 					(select fld_brand_id from Tbl_Product_Brands where fld_brand_name = @brand),
 					(select fld_supplier_id from Tbl_Suppliers where fld_supplier_name = @supplier),
 					@unit,
-					(select fld_category_id from Tbl_Product_Categories where fld_category_description = @category),
-					(select fld_type_id from Tbl_Product_Type where fld_type_description = @type),
+					@category_id,
+					@type_id,
 					@cost,
 					@price,
 					@quantity,
