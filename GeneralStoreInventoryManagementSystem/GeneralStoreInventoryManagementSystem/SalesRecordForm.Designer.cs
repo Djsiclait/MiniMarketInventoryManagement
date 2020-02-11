@@ -251,6 +251,7 @@
             this.salesSearchBox.Name = "salesSearchBox";
             this.salesSearchBox.Size = new System.Drawing.Size(273, 20);
             this.salesSearchBox.TabIndex = 9;
+            this.salesSearchBox.TextChanged += new System.EventHandler(this.SalesSearchBox_TextChanged);
             // 
             // SalesRecordForm
             // 

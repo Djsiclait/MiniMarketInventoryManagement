@@ -326,6 +326,56 @@ namespace InventoryManagementDataLayer
         }
 
         /// <summary>
+        /// This function returns a record of all transactions registered in the system
+        /// </summary>
+        /// <param name="userPermission">User's role which defines his level of access to the data</param>
+        /// <param name="keyWord">Key word to filter through the sales record</param>
+        /// <returns>A list of the sales record according to the filtered key word</returns>
+        public static List<Sale> FetchSalesRecordsData(String userPermission, String keyWord)
+        {
+            List<Sale> sales = new List<Sale>(); // List to host the resulting sales
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Sales_Records", // Stored procedure incharged of fetching required data 
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            #region Parameters
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission;
+            cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 100).Value = keyWord;
+            #endregion
+
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                Sale sale = new Sale(); // Creatig a new sale
+
+                #region Assigning the corresponding values to their variables
+                sale.Id = sqlDataReader[ "fld_sale_id"].ToString();
+                sale.NumberItems = FormatToInt(sqlDataReader["fld_sale_quantity_items"].ToString());
+                sale.Total = FormatToDecimal(sqlDataReader["fld_sale_total"].ToString());
+                sale.SoldBy = sqlDataReader["fld_sold_by"].ToString();
+                sale.TransactionDate = DateTime.Parse(sqlDataReader["fld_sale_date"].ToString());
+                sale.Delivery = FormatToBoolean(sqlDataReader["fld_sale_delivery"].ToString());
+
+                if (userPermission != "User")
+                    sale.Status = sqlDataReader["fld_sale_status"].ToString(); // no need tio conver to int given the getter and setter of status does automatic conversion
+                #endregion
+
+                sales.Add(sale);
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return sales; // returning sales record
+        }
+
+        /// <summary>
         /// This function retreives the dataset of registered supplier names
         /// </summary>
         /// <param name="keyWord">Key word to enable specific filtered searhs</param>

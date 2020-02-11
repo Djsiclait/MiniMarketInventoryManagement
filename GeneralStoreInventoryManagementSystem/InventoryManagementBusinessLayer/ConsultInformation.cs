@@ -107,6 +107,20 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
+        /// This function returns a record of all transactions registered in the system
+        /// </summary>
+        /// <param name="keyWord">Key word to filter through the sales record</param>
+        /// <returns>A list of the sales record according to the filtered key word</returns>
+        public static List<Sale> FetchSalesRecordsInformation(String keyWord)
+        {
+            // Verifying user's status before providing requested information
+            if (SystemResources.UserInSession.Status == "Active")
+                return ConsultData.FetchSalesRecordsData(SystemResources.UserInSession.Role, keyWord);
+            else
+                return new List<Sale>(); // returning an empty list given invalid user status
+        }
+
+        /// <summary>
         /// This function fetches the list of product suppliers
         /// </summary>
         /// <param name="keyWord">Key word to enable specific filtered searches</param>

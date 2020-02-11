@@ -41,6 +41,8 @@ namespace GeneralStoreInventoryManagementSystem
             else
                 SystemProtocols.ApplyActivityProtocols("SAL3", null, null);
 
+            PopulateSalesDataGrid();
+
         }
         #endregion
 
@@ -201,6 +203,24 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #endregion
+
+        #region Text Change Logic
+        private void SalesSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateSalesDataGrid();
+        }
+        #endregion
+        
+        #region Auxiliary Function
+        private void PopulateSalesDataGrid()
+        {
+            salesList.DataSource = ConsultInformation.FetchSalesRecordsInformation(salesSearchBox.Text);
+
+            salesList.Columns["TransactionDate"].Width = 400;
+            salesList.Columns["Total"].Width = 50;
+            salesList.Columns["Delivery"].Width = 50;
+        }
         #endregion
     }
 }
