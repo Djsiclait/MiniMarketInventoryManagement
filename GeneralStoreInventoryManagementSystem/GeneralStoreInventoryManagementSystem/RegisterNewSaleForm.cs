@@ -40,6 +40,8 @@ namespace GeneralStoreInventoryManagementSystem
             }
             else
                 SystemProtocols.ApplyActivityProtocols("SAL4", null, null);
+
+            PopulateProductDataGrid();
         }
         #endregion
 
@@ -201,6 +203,42 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #endregion
+
+        #region Text Changed Logic
+        private void productSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateProductDataGrid();
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        /// <summary>
+        /// Function to populate the product list data grid
+        /// </summary>
+        private void PopulateProductDataGrid()
+        {
+            // TODO: Create a separate fetchproduct list for this form
+            productDataGridView.DataSource = ConsultInformation.FetchProductListInformation(productSearchTextBox.Text);
+
+            // Hidding unnecessary fields
+            productDataGridView.Columns["Id"].Visible = false;
+            productDataGridView.Columns["Supplier"].Visible = false;
+            productDataGridView.Columns["Category"].Visible = false;
+            productDataGridView.Columns["Type"].Visible = false;
+            productDataGridView.Columns["UnitCost"].Visible = false;
+            productDataGridView.Columns["MinimumQuantity"].Visible = false;
+            productDataGridView.Columns["MaximumQuantity"].Visible = false;
+            productDataGridView.Columns["RegisteredBy"].Visible = false;
+            productDataGridView.Columns["RegistrationDate"].Visible = false;
+            productDataGridView.Columns["ModifiedBy"].Visible = false;
+            productDataGridView.Columns["ModificationDate"].Visible = false;
+            productDataGridView.Columns["Discontinued"].Visible = false;
+
+            // Formationg columns
+            productDataGridView.Columns["Brand"].Width = 70;
+            productDataGridView.Columns["Unit"].Width = 70;
+        }
         #endregion
     }
 }

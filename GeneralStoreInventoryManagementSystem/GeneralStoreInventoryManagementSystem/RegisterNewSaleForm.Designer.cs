@@ -59,6 +59,8 @@
             this.totalLabel = new System.Windows.Forms.Label();
             this.deliveryCheckBox = new System.Windows.Forms.CheckBox();
             this.completeSaleButton = new System.Windows.Forms.Button();
+            this.productSearchTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -232,7 +234,7 @@
             this.productDataGridView.RowHeadersVisible = false;
             this.productDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.productDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productDataGridView.Size = new System.Drawing.Size(445, 455);
+            this.productDataGridView.Size = new System.Drawing.Size(507, 455);
             this.productDataGridView.TabIndex = 12;
             // 
             // browserLabel
@@ -246,17 +248,17 @@
             // 
             // cartSummaryListView
             // 
-            this.cartSummaryListView.Location = new System.Drawing.Point(475, 66);
+            this.cartSummaryListView.Location = new System.Drawing.Point(536, 66);
             this.cartSummaryListView.MultiSelect = false;
             this.cartSummaryListView.Name = "cartSummaryListView";
-            this.cartSummaryListView.Size = new System.Drawing.Size(440, 214);
+            this.cartSummaryListView.Size = new System.Drawing.Size(379, 214);
             this.cartSummaryListView.TabIndex = 14;
             this.cartSummaryListView.UseCompatibleStateImageBehavior = false;
             // 
             // cartSummaryLabel
             // 
             this.cartSummaryLabel.AutoSize = true;
-            this.cartSummaryLabel.Location = new System.Drawing.Point(475, 47);
+            this.cartSummaryLabel.Location = new System.Drawing.Point(533, 47);
             this.cartSummaryLabel.Name = "cartSummaryLabel";
             this.cartSummaryLabel.Size = new System.Drawing.Size(72, 13);
             this.cartSummaryLabel.TabIndex = 15;
@@ -264,7 +266,7 @@
             // 
             // addItemButton
             // 
-            this.addItemButton.Location = new System.Drawing.Point(382, 527);
+            this.addItemButton.Location = new System.Drawing.Point(444, 527);
             this.addItemButton.Name = "addItemButton";
             this.addItemButton.Size = new System.Drawing.Size(75, 23);
             this.addItemButton.TabIndex = 16;
@@ -273,7 +275,7 @@
             // 
             // addMultipleButton
             // 
-            this.addMultipleButton.Location = new System.Drawing.Point(301, 527);
+            this.addMultipleButton.Location = new System.Drawing.Point(363, 527);
             this.addMultipleButton.Name = "addMultipleButton";
             this.addMultipleButton.Size = new System.Drawing.Size(75, 22);
             this.addMultipleButton.TabIndex = 17;
@@ -331,7 +333,7 @@
             // 
             this.deliveryCheckBox.AutoSize = true;
             this.deliveryCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deliveryCheckBox.Location = new System.Drawing.Point(495, 444);
+            this.deliveryCheckBox.Location = new System.Drawing.Point(603, 434);
             this.deliveryCheckBox.Name = "deliveryCheckBox";
             this.deliveryCheckBox.Size = new System.Drawing.Size(157, 21);
             this.deliveryCheckBox.TabIndex = 23;
@@ -341,18 +343,37 @@
             // completeSaleButton
             // 
             this.completeSaleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.completeSaleButton.Location = new System.Drawing.Point(694, 433);
+            this.completeSaleButton.Location = new System.Drawing.Point(652, 481);
             this.completeSaleButton.Name = "completeSaleButton";
             this.completeSaleButton.Size = new System.Drawing.Size(165, 40);
             this.completeSaleButton.TabIndex = 24;
             this.completeSaleButton.Text = "Complete Sale";
             this.completeSaleButton.UseVisualStyleBackColor = true;
             // 
+            // productSearchTextBox
+            // 
+            this.productSearchTextBox.Location = new System.Drawing.Point(363, 40);
+            this.productSearchTextBox.Name = "productSearchTextBox";
+            this.productSearchTextBox.Size = new System.Drawing.Size(156, 20);
+            this.productSearchTextBox.TabIndex = 25;
+            this.productSearchTextBox.TextChanged += new System.EventHandler(this.productSearchTextBox_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(316, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Search";
+            // 
             // RegisterNewSaleFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.productSearchTextBox);
             this.Controls.Add(this.completeSaleButton);
             this.Controls.Add(this.deliveryCheckBox);
             this.Controls.Add(this.totalLabel);
@@ -415,5 +436,7 @@
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.CheckBox deliveryCheckBox;
         private System.Windows.Forms.Button completeSaleButton;
+        private System.Windows.Forms.TextBox productSearchTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }
