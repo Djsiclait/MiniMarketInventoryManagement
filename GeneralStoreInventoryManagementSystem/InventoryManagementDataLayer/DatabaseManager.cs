@@ -40,7 +40,7 @@ namespace InventoryManagementDataLayer
             activeSqlConnection.Close();
         }
 
-        // Getter to the active connection variable
+        #region Getter to the active connection variable
         public static SqlConnection ActiveSqlConnection
         {
             get
@@ -50,5 +50,6 @@ namespace InventoryManagementDataLayer
                 return activeSqlConnection; // returns an opened active connection
             }
         }
+        #endregion
     }
 }

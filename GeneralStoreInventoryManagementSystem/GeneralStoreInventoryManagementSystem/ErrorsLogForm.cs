@@ -24,7 +24,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ErrorsLogForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
-            if (SystemProtocols.ApplySessionsProtocols())
+            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
             {
                 // Disabling the entire Products option given the remainder of options are prohibited for a basic user
                 registerNewProductMenuSubOption.Visible = false;

@@ -95,7 +95,6 @@
             // brandLabel
             // 
             this.brandLabel.AutoSize = true;
-            this.brandLabel.Enabled = false;
             this.brandLabel.Location = new System.Drawing.Point(17, 125);
             this.brandLabel.Name = "brandLabel";
             this.brandLabel.Size = new System.Drawing.Size(38, 13);

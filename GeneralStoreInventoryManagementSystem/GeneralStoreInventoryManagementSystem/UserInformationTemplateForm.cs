@@ -31,14 +31,14 @@ namespace GeneralStoreInventoryManagementSystem
         private void UserInformationTemplateForm_Load(object sender, EventArgs e)
         {
             // Disabling features according to target user's aacces level compared to current user in session's access level
-            if (user.Username != SystemResources.UserInSession.Username && user.Role == SystemResources.UserInSession.Role) // If the target user is of a different account and access level is equals to the current user in session
+            if (SystemProtocols.ApplySessionsProtocols(2, user.Username, user.Role)) // If the target user is of a different account and access level is equals to the current user in session
             {   // TODO: Hide System resources in business layer
                 changeAccessLevelButtom.Visible = false;
                 changeAccessLevelButtom.Enabled = false;
                 changePasswordButton.Visible = false;
                 changePasswordButton.Enabled = false;
             }
-            else if (user.Username == SystemResources.UserInSession.Username) // If the target user the one with the current open sesison
+            else if (SystemProtocols.ApplySessionsProtocols(3, user.Username, null)) // If the target user the one with the current open sesison
             {
                 changeAccessLevelButtom.Visible = false;
                 changeAccessLevelButtom.Enabled = false;
@@ -94,17 +94,14 @@ namespace GeneralStoreInventoryManagementSystem
             roleTextBox.Text = user.Role;
             changeAccessLevelButtom.Text = user.Role == "Admin" ? "Demote to User Level" : "Promote to Admin Level";
 
-            // Disabling features according to target user's aacces level compared to current user in session's access level
-            if (user.Username != SystemResources.UserInSession.Username && user.Role == SystemResources.UserInSession.Role) // If the target user is of a different account and access level is equals to the current user in session
+            // Disabling features according to target user's access level compared to current user in session's access level
+            if (SystemProtocols.ApplySessionsProtocols(2, user.Username, user.Role)) 
             {
                 changeAccessLevelButtom.Visible = false;
                 changeAccessLevelButtom.Enabled = false;
                 changePasswordButton.Visible = false;
                 changePasswordButton.Enabled = false;
             }
-
-            // Executing correct activity according to given code
-            SystemProtocols.ApplyActivityProtocols("SPE2", user.Username, user.Role);
 
             // Refreshing and updating information of parent form
             FormsMenuList.usersRegistryForm.RefreshDatagridInformation();
@@ -113,15 +110,12 @@ namespace GeneralStoreInventoryManagementSystem
         private void SuspendUserButton_Click(object sender, EventArgs e)
         {
             // Requesting status change of terget user account
-            UpdateInformation.ChangeTargerUserStatusInformation(user.Username, user.Status == "Active" ? 1 : 0);
+            UpdateInformation.ChangeTargerUserStatusInformation(user.Username, user.Status == "Active" ? 1 : 0, user.Status);
 
             // Updating form information
             user.Status = user.Status == "Active" ? "1" : "0";
             statusTextBox.Text = user.Status;
             suspendUserButton.Text = user.Status == "Active" ? "Suspend User" : "ReinstateUser";
-
-            // Executing correct activity according to given code
-            SystemProtocols.ApplyActivityProtocols("SPE3", user.Username, user.Status);
 
             // Refreshing and updating information of parent form
             FormsMenuList.usersRegistryForm.RefreshDatagridInformation();

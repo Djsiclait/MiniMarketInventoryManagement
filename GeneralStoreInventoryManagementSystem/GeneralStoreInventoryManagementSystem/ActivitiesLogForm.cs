@@ -24,7 +24,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ActivitiesLogForm_Load(object sender, EventArgs e)
         {
             // Limiting option according to current user's access level
-            if (SystemProtocols.ApplySessionsProtocols())
+            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
             {
                 // Disabling the entire Products option given the remainder of options are prohibited for a basic user
                 registerNewProductMenuSubOption.Visible = false;

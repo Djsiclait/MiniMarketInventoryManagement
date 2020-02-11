@@ -31,9 +31,10 @@ namespace GeneralStoreInventoryManagementSystem
         #region Form Load Logic 
         private void ProductInformationTemplateForm_Load(object sender, EventArgs e)
         {
-
-            if (SystemProtocols.ApplySessionsProtocols())
+            // Limiting user features to prevent non admins to edit a product's information
+            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
             {
+                // Disabling the text fields and combo boxes for basic users
                 keyTextBox.Enabled = false;
                 unitTextBox.Enabled = false;
                 unitCostNumericUpDown.Enabled = false;
@@ -49,11 +50,13 @@ namespace GeneralStoreInventoryManagementSystem
 
                 discontinuedCheckBox.Enabled = false;
 
+                // Disabling and hiding the edit button
                 editButton.Enabled = false;
                 editButton.Visible = false;
             }
             else
             {
+                // Enabling the text fields and combo boxes for basic users
                 keyTextBox.Enabled = true;
                 unitTextBox.Enabled = true;
                 unitCostNumericUpDown.Enabled = true;
@@ -69,6 +72,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                 discontinuedCheckBox.Enabled = true;
 
+                // Enabling and hiding the edit button
                 editButton.Enabled = false;
             }
         }
@@ -181,13 +185,18 @@ namespace GeneralStoreInventoryManagementSystem
                 {
                     UpdateProductInformation(); // updating product with new information
 
+                    // Requesting an edit to the product's information
                     String message = UpdateInformation.UpdateRegisteredProductInformation(product);
 
-                    DisplayProductInformation(product.Id); // updating the form with the edited product information
+                    if (message == "SUCCESS")
+                    {
+                        DisplayProductInformation(product.Id); // updating the form with the edited product information
 
-                    FormsMenuList.inventorySearchForm.RefreshInventoryInformation(); // Updating the parent forms information
-
-                    // TODO: output message
+                        FormsMenuList.inventorySearchForm.RefreshInventoryInformation(); // Updating the parent forms information
+                        MessageBox.Show("Product has been updated successfully!");
+                    }
+                    else
+                        MessageBox.Show("Fatal Error");
                 }
                 else
                     MessageBox.Show("No changes have been made. Please check desired values.");
@@ -206,11 +215,11 @@ namespace GeneralStoreInventoryManagementSystem
         private String CalculateUnitContributionMargin()
         {
             // Applying unitary profit margin formula
-            decimal contributionRatio = ((unitPriceNumericUpDown.Value - unitCostNumericUpDown.Value) / unitPriceNumericUpDown.Value) * 100;
+            decimal contributionRatio = ((unitPriceNumericUpDown.Value - unitCostNumericUpDown.Value) / unitPriceNumericUpDown.Value) * 100; // Ratio form
 
-            decimal contributionDollar = unitPriceNumericUpDown.Value - unitCostNumericUpDown.Value;
+            decimal contributionDollar = unitPriceNumericUpDown.Value - unitCostNumericUpDown.Value; // Dollar form
 
-            decimal priceIncrease = unitPriceNumericUpDown.Value / unitCostNumericUpDown.Value;
+            decimal priceIncrease = unitPriceNumericUpDown.Value / unitCostNumericUpDown.Value; // Price multiplier
 
             return contributionRatio.ToString("0.##") + "% ($" + contributionDollar.ToString("0.##") + " or " + (priceIncrease.ToString("0.##") == "1" ? "1" : priceIncrease.ToString("0.##")) + "x price increase)";
         }
@@ -223,19 +232,19 @@ namespace GeneralStoreInventoryManagementSystem
         {
             bool validated = true;
 
-            if (unitTextBox.Text != product.Unit && unitTextBox.Text == "")
+            if (unitTextBox.Text != product.Unit && unitTextBox.Text == "") // if the unit is different from the previous value it should not be empty
             {
                 validated = false;
                 unitTextBox.BackColor = Color.Red;
             }
 
-            if (categoryComboBox.Text == "")
+            if (categoryComboBox.Text == "") // category should not be empty
             {
                 validated = false;
                 categoryComboBox.BackColor = Color.Red;
             }
 
-            if (typeComboBox.Text == "")
+            if (typeComboBox.Text == "") // type should not be empty
             {
                 validated = false;
                 typeComboBox.BackColor = Color.Red;
@@ -297,7 +306,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             bool changes = false;
 
-            if (keyTextBox.Text != product.Key)
+            if (keyTextBox.Text != product.Key) // Key has been changed
             {
                 product.Key = keyTextBox.Text;
                 changes = true;
@@ -335,55 +344,55 @@ namespace GeneralStoreInventoryManagementSystem
                 changes = true;
             }
 
-            if (categoryComboBox.Text != product.Category)
+            if (categoryComboBox.Text != product.Category) // category has been changed
             {
                 product.Category = categoryComboBox.Text;
                 changes = true;
             }
 
-            if (typeComboBox.Text != product.Type)
+            if (typeComboBox.Text != product.Type) // type has been changed
             {
                 product.Type = typeComboBox.Text;
                 changes = true;
             }
 
-            if (unitTextBox.Text != product.Unit)
+            if (unitTextBox.Text != product.Unit) // unit has been changed
             {
                 product.Unit = unitTextBox.Text;
                 changes = true;
             }
 
-            if (unitCostNumericUpDown.Value != product.UnitCost)
+            if (unitCostNumericUpDown.Value != product.UnitCost) // cost has been changed
             {
                 product.UnitCost = unitCostNumericUpDown.Value;
                 changes = true;
             }
 
-            if (unitPriceNumericUpDown.Value != product.UnitPrice)
+            if (unitPriceNumericUpDown.Value != product.UnitPrice) // price has been changed
             {
                 product.UnitPrice = unitPriceNumericUpDown.Value;
                 changes = true;
             }
 
-            if (quantityNumericUpDown.Value != product.Quantity)
+            if (quantityNumericUpDown.Value != product.Quantity) // quantity has been changed
             {
                 product.Quantity = (int)quantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
                 changes = true;
             }
 
-            if (minimumQuantityNumericUpDown.Value != product.MinimumQuantity)
+            if (minimumQuantityNumericUpDown.Value != product.MinimumQuantity) // minimum has been changed
             {
                 product.MinimumQuantity = (int)minimumQuantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
                 changes = true;
             }
 
-            if (maximumQuantityNumericUpDown.Value != product.MaximumQuantity)
+            if (maximumQuantityNumericUpDown.Value != product.MaximumQuantity) // maximum has been changed
             {
                 product.MaximumQuantity = (int)maximumQuantityNumericUpDown.Value; // TODO: change database structure to consider fractions and halves i.e.: 0.5lbs of cheese
                 changes = true;
             }
 
-            if (discontinuedCheckBox.Checked != product.Discontinued)
+            if (discontinuedCheckBox.Checked != product.Discontinued) // discontinued has been changed
             {
                 product.Discontinued = discontinuedCheckBox.Checked;
                 changes = true;

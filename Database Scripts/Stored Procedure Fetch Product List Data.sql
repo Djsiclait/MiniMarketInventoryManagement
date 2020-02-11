@@ -23,6 +23,9 @@ AS
 				A.fld_product_name Like '%' + @key_word + '%' or
 				B.fld_brand_name Like '%' + @key_word + '%'
 				)
+			Order By 
+				fld_product_name
+
 		ELSE IF @user_permission = 'Admin' or @user_permission = 'Super'
 			Select 
 				A.fld_product_id,
@@ -45,6 +48,8 @@ AS
 				B.fld_brand_name Like '%' + @key_word + '%' or
 				S.fld_supplier_name Like '%' + @key_word + '%'
 				)
+			Order By 
+				fld_product_name
 
 	END
 

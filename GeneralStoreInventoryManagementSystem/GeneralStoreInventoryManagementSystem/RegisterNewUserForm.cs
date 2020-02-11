@@ -25,7 +25,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void RegisterNewUserForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
-            if (SystemProtocols.ApplySessionsProtocols())
+            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
             {
                 // Disabling the other Products option 
                 registerNewProductMenuSubOption.Visible = false;

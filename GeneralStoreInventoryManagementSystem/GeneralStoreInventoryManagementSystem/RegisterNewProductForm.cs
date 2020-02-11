@@ -25,7 +25,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void RegisterNewProductForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
-            if (SystemProtocols.ApplySessionsProtocols())
+            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
             {
                 // Disabling the other Products option 
                 restockProductsMenuSubOption.Visible = false;
@@ -226,13 +226,6 @@ namespace GeneralStoreInventoryManagementSystem
             priceNumericUpDown.Value = costNumericUpDown.Value;
 
             unitContributionMarginLabel.Text = CalculateUnitContributionMargin();
-
-            if (priceNumericUpDown.Value > costNumericUpDown.Value)
-                unitContributionMarginLabel.ForeColor = Color.Green;
-            else if (priceNumericUpDown.Value < costNumericUpDown.Value)
-                unitContributionMarginLabel.ForeColor = Color.Red;
-            else
-                unitContributionMarginLabel.ForeColor = Color.Black;
         }
 
         private void PriceNumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -355,8 +348,8 @@ namespace GeneralStoreInventoryManagementSystem
             product.Key = keyTextBox.Text;
             product.Name = nameTextBox.Text;
             product.Brand = brandListBox.SelectedValue.ToString();
-            product.Supplier = supplierListBox.SelectedValue.ToString();
-            product.Category = categoryComboBox.SelectedValue.ToString();
+            product.Supplier = supplierListBox.Text;
+            product.Category = categoryComboBox.Text;
             product.Type = typeComboBox.SelectedValue.ToString();
             product.Unit = unitTextBox.Text;
             product.UnitCost = costNumericUpDown.Value;

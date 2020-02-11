@@ -295,13 +295,37 @@ namespace InventoryManagementBusinessLayer
         /// Function to restrict or activate certain features depending on the user's access level 
         /// </summary>
         /// <returns>True or False</returns>
-        public static bool ApplySessionsProtocols()
+        public static bool ApplySessionsProtocols(int protocol, String meta1, String meta2)
         {
-            // Limiting option according to current user's access level
-            if (SystemResources.UserInSession.Role == "User")
-                return true;
-            else
-                return false;
+            switch (protocol)
+            {
+                case 1:
+
+                    // Limiting option according to current user's access level
+                    if (SystemResources.UserInSession.Role == "User")
+                        return true;
+                    else
+                        return false;
+
+                case 2:
+
+                    // If the target user is of a different account and access level is equals to the current user in session
+                    if (meta1 != SystemResources.UserInSession.Username && meta2 == SystemResources.UserInSession.Role)
+                        return true;
+                    else
+                        return false;
+
+                case 3:
+
+                    // If the target user the one with the current open sesison
+                    if (meta1 == SystemResources.UserInSession.Username)
+                        return true;
+                    else
+                        return false;
+
+                default:
+                    return false;
+            }
         }
     }
 }

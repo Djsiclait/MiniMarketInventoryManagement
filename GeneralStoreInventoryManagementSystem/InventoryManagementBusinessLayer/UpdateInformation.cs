@@ -19,7 +19,8 @@ namespace InventoryManagementBusinessLayer
         /// <param name="newPassword">New password to change credentials</param>
         public static void ChangeUserPasswordInformation(String username, String newPassword)
         {
-            UpdateData.ChangeUserPasswordData(username, newPassword); // Changing the credentials of the provided username
+            // Changing the credentials of the provided username
+            UpdateData.ChangeUserPasswordData(username, newPassword);
 
             // Executing correct activity according to given code
             SystemProtocols.ApplyActivityProtocols("SPE1", null, null);
@@ -32,7 +33,11 @@ namespace InventoryManagementBusinessLayer
         /// <param name="newAccessLevel">New access level protocol</param>
         public static void ChangeTargetUserAccessLevelData(String targetUser, String newAccessLevel)
         {
+            // Requesting a change in a target user's access level
             UpdateData.ChangeTargetUserAccessLevelData(targetUser, newAccessLevel);
+
+            // Executing correct activity according to given code
+            SystemProtocols.ApplyActivityProtocols("SPE2", targetUser, newAccessLevel);
         }
 
         /// <summary>
@@ -40,9 +45,13 @@ namespace InventoryManagementBusinessLayer
         /// </summary>
         /// <param name="targetUser">Username of target user</param>
         /// <param name="newStatus">New user status</param>
-        public static void ChangeTargerUserStatusInformation(String targetUser, int newStatus)
+        public static void ChangeTargerUserStatusInformation(String targetUser, int newStatusCode, String newStatusName)
         {
-            UpdateData.ChangeTargerUserStatusData(targetUser, newStatus);
+            // Requesting a change in a target user's account status
+            UpdateData.ChangeTargerUserStatusData(targetUser, newStatusCode);
+
+            // Executing correct activity according to given code
+            SystemProtocols.ApplyActivityProtocols("SPE3", targetUser, newStatusName);
         }
 
         /// <summary>
@@ -51,7 +60,10 @@ namespace InventoryManagementBusinessLayer
         /// <param name="username">Username of target user</param>
         public static void UpdateUserLastLoginInformation(String username)
         {
+            // Requesting  an update on a user's last log in timestamp
             UpdateData.UpdateUserLastLoginData(username);
+
+            // No recorded activity is needed given this is a hidden encapsulated auxiliary activity 
         }
 
         /// <summary>
@@ -61,11 +73,17 @@ namespace InventoryManagementBusinessLayer
         /// <returns>A message detailing the success or failure of the update</returns>
         public static String UpdateRegisteredProductInformation(Product product)
         {
+            // Requesting  an update of an existing product
             String message = UpdateData.UpdateRegisteredProductData(product, SystemResources.UserInSession.Username);
 
-            SystemProtocols.ApplyActivityProtocols("PRO5", product.Name, null);
-
-            return message;
+            if (message == "Product updated successfully!") // Update was succesful
+            {
+                // Executing correct activity according to given code
+                SystemProtocols.ApplyActivityProtocols("PRO5", product.Name, null);
+                return "SUCCESS";
+            }
+            else
+                return "ERROR";
         }
     }
 }
