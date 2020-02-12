@@ -252,6 +252,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ClearCartButton_Click(object sender, EventArgs e)
         {
             SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart
+
             UpdateCartSummaryDataGrid(); // updating the cart summary
         }
 
@@ -259,10 +260,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             // Capturing the data of multiple selected products
             foreach (DataGridViewRow row in cartSummaryDataGridView.SelectedRows)
-            {
                 // Adding product to cart or updating the amount of units of already added product
                 SystemProtocols.ApplyCartManagementProtocol(4, row.Cells[0].Value.ToString(), 0, null, 0);
-            }
 
             UpdateCartSummaryDataGrid(); // updating the cart summary
         }
@@ -271,10 +270,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             // Capturing the data of multiple selected products
             foreach (DataGridViewRow row in cartSummaryDataGridView.SelectedRows)
-            {
                 // Removing one unit from a product in the cart
                 SystemProtocols.ApplyCartManagementProtocol(5, row.Cells[0].Value.ToString(), FormatToDecimal(row.Cells[9].Value.ToString()), null, 0);
-            }
 
             UpdateCartSummaryDataGrid(); // updating the cart summary
         }
