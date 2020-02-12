@@ -258,7 +258,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void RemoveItemButton_Click(object sender, EventArgs e)
         {
             // Capturing the data of multiple selected products
-            foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+            foreach (DataGridViewRow row in cartSummaryDataGridView.SelectedRows)
             {
                 // Adding product to cart or updating the amount of units of already added product
                 SystemProtocols.ApplyCartManagementProtocol(4, row.Cells[0].Value.ToString(), null, 0);
@@ -350,6 +350,11 @@ namespace GeneralStoreInventoryManagementSystem
 
                 numberLabel.Text = "Number of Item: " + quantity;
                 totalLabel.Text = "Total: $" + total.ToString("0.00");
+            }
+            else
+            {
+                numberLabel.Text = "Number of Item: 0";
+                totalLabel.Text = "Total: $0.00";
             }
         }
 
