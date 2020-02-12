@@ -295,6 +295,7 @@
             this.clearCartButton.TabIndex = 20;
             this.clearCartButton.Text = "Clear Cart";
             this.clearCartButton.UseVisualStyleBackColor = true;
+            this.clearCartButton.Click += new System.EventHandler(this.clearCartButton_Click);
             // 
             // numberLabel
             // 
@@ -373,7 +374,7 @@
             // 
             // quantityNumericUpDown
             // 
-            this.quantityNumericUpDown.Location = new System.Drawing.Point(391, 528);
+            this.quantityNumericUpDown.Location = new System.Drawing.Point(363, 528);
             this.quantityNumericUpDown.Maximum = new decimal(new int[] {
             2,
             0,
@@ -385,8 +386,9 @@
             0,
             0});
             this.quantityNumericUpDown.Name = "quantityNumericUpDown";
-            this.quantityNumericUpDown.Size = new System.Drawing.Size(47, 20);
+            this.quantityNumericUpDown.Size = new System.Drawing.Size(75, 20);
             this.quantityNumericUpDown.TabIndex = 28;
+            this.quantityNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.quantityNumericUpDown.ThousandsSeparator = true;
             this.quantityNumericUpDown.Value = new decimal(new int[] {
             1,

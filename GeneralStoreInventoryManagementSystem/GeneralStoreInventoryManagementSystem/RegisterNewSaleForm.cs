@@ -220,7 +220,7 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
-        #region Button Click Logic
+        #region Click Logic
         private void addItemButton_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in productDataGridView.SelectedRows)
@@ -244,6 +244,13 @@ namespace GeneralStoreInventoryManagementSystem
 
             UpdateCartSummaryDataGrid();
         }
+
+        private void clearCartButton_Click(object sender, EventArgs e)
+        {
+            SystemProtocols.ApplyCartManagementProtocol(3, null, null, 0);
+            UpdateCartSummaryDataGrid();
+        }
+
         private void productDataGridView_Click(object sender, EventArgs e)
         {
             quantityNumericUpDown.Value = 1;
@@ -348,6 +355,5 @@ namespace GeneralStoreInventoryManagementSystem
             return result;
         }
         #endregion
-
     }
 }

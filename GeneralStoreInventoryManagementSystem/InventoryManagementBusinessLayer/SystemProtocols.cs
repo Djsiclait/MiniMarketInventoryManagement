@@ -279,6 +279,12 @@ namespace InventoryManagementBusinessLayer
 
                     return null;
 
+                case 3:
+
+                    SystemResources.EmptyCart();
+
+                    return null;
+
                 default:
                     return null;
             }
