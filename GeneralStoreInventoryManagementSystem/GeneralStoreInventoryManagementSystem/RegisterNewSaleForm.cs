@@ -212,6 +212,12 @@ namespace GeneralStoreInventoryManagementSystem
         {
             PopulateProductDataGrid();
         }
+        private void quantityNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+                if (quantityNumericUpDown.Maximum < FormatToInt(row.Cells[10].Value.ToString()))
+                    quantityNumericUpDown.Maximum = FormatToInt(row.Cells[10].Value.ToString());
+        }
         #endregion
 
         #region Button Click Logic
@@ -227,13 +233,21 @@ namespace GeneralStoreInventoryManagementSystem
                     product.Name = row.Cells[2].Value.ToString();
                     product.Unit = row.Cells[5].Value.ToString();
                     product.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString());
-                    product.Quantity = 1;
+                    product.Quantity = quantityNumericUpDown.Value < FormatToInt(row.Cells[10].Value.ToString()) ? (int)quantityNumericUpDown.Value : FormatToInt(row.Cells[10].Value.ToString());
 
                     SystemProtocols.ApplyCartManagementProtocol(2, null, product, FormatToInt(row.Cells[10].Value.ToString()));
                 }
             }
-            
+
+            quantityNumericUpDown.Value = 1;
+            quantityNumericUpDown.Maximum = 2;
+
             UpdateCartSummaryDataGrid();
+        }
+        private void productDataGridView_Click(object sender, EventArgs e)
+        {
+            quantityNumericUpDown.Value = 1;
+            quantityNumericUpDown.Maximum = 2;
         }
         #endregion
 
@@ -334,5 +348,6 @@ namespace GeneralStoreInventoryManagementSystem
             return result;
         }
         #endregion
+
     }
 }

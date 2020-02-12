@@ -50,7 +50,6 @@
             this.browserLabel = new System.Windows.Forms.Label();
             this.cartSummaryLabel = new System.Windows.Forms.Label();
             this.addItemButton = new System.Windows.Forms.Button();
-            this.addMultipleButton = new System.Windows.Forms.Button();
             this.removeItemButton = new System.Windows.Forms.Button();
             this.removeOneButton = new System.Windows.Forms.Button();
             this.clearCartButton = new System.Windows.Forms.Button();
@@ -61,9 +60,11 @@
             this.productSearchTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cartSummaryDataGridView = new System.Windows.Forms.DataGridView();
+            this.quantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartSummaryDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
@@ -238,6 +239,7 @@
             this.productDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productDataGridView.Size = new System.Drawing.Size(507, 455);
             this.productDataGridView.TabIndex = 12;
+            this.productDataGridView.Click += new System.EventHandler(this.productDataGridView_Click);
             // 
             // browserLabel
             // 
@@ -266,15 +268,6 @@
             this.addItemButton.Text = "Add Item";
             this.addItemButton.UseVisualStyleBackColor = true;
             this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
-            // 
-            // addMultipleButton
-            // 
-            this.addMultipleButton.Location = new System.Drawing.Point(363, 527);
-            this.addMultipleButton.Name = "addMultipleButton";
-            this.addMultipleButton.Size = new System.Drawing.Size(75, 22);
-            this.addMultipleButton.TabIndex = 17;
-            this.addMultipleButton.Text = "Add Multiple";
-            this.addMultipleButton.UseVisualStyleBackColor = true;
             // 
             // removeItemButton
             // 
@@ -378,11 +371,36 @@
             this.cartSummaryDataGridView.Size = new System.Drawing.Size(379, 214);
             this.cartSummaryDataGridView.TabIndex = 27;
             // 
+            // quantityNumericUpDown
+            // 
+            this.quantityNumericUpDown.Location = new System.Drawing.Point(391, 528);
+            this.quantityNumericUpDown.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.quantityNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.quantityNumericUpDown.Name = "quantityNumericUpDown";
+            this.quantityNumericUpDown.Size = new System.Drawing.Size(47, 20);
+            this.quantityNumericUpDown.TabIndex = 28;
+            this.quantityNumericUpDown.ThousandsSeparator = true;
+            this.quantityNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.quantityNumericUpDown.ValueChanged += new System.EventHandler(this.quantityNumericUpDown_ValueChanged);
+            // 
             // RegisterNewSaleFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.quantityNumericUpDown);
             this.Controls.Add(this.cartSummaryDataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.productSearchTextBox);
@@ -393,7 +411,6 @@
             this.Controls.Add(this.clearCartButton);
             this.Controls.Add(this.removeOneButton);
             this.Controls.Add(this.removeItemButton);
-            this.Controls.Add(this.addMultipleButton);
             this.Controls.Add(this.addItemButton);
             this.Controls.Add(this.cartSummaryLabel);
             this.Controls.Add(this.browserLabel);
@@ -410,6 +427,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartSummaryDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,7 +457,6 @@
         private System.Windows.Forms.Label browserLabel;
         private System.Windows.Forms.Label cartSummaryLabel;
         private System.Windows.Forms.Button addItemButton;
-        private System.Windows.Forms.Button addMultipleButton;
         private System.Windows.Forms.Button removeItemButton;
         private System.Windows.Forms.Button removeOneButton;
         private System.Windows.Forms.Button clearCartButton;
@@ -450,5 +467,6 @@
         private System.Windows.Forms.TextBox productSearchTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView cartSummaryDataGridView;
+        private System.Windows.Forms.NumericUpDown quantityNumericUpDown;
     }
 }
