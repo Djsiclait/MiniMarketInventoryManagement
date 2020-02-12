@@ -287,6 +287,7 @@
             this.removeOneButton.TabIndex = 19;
             this.removeOneButton.Text = "Remove One";
             this.removeOneButton.UseVisualStyleBackColor = true;
+            this.removeOneButton.Click += new System.EventHandler(this.RemoveOneButton_Click);
             // 
             // clearCartButton
             // 

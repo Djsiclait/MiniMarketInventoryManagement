@@ -239,7 +239,7 @@ namespace GeneralStoreInventoryManagementSystem
                         FormatToInt(row.Cells[10].Value.ToString()); // the client wants all units in existence
 
                     // Adding product to cart or updating the amount of units of already added product
-                    SystemProtocols.ApplyCartManagementProtocol(2, null, product, FormatToInt(row.Cells[10].Value.ToString()));
+                    SystemProtocols.ApplyCartManagementProtocol(2, null, 0, product, FormatToInt(row.Cells[10].Value.ToString()));
                 }
             
             // Updating numeric up down
@@ -251,7 +251,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ClearCartButton_Click(object sender, EventArgs e)
         {
-            SystemProtocols.ApplyCartManagementProtocol(3, null, null, 0); // clearing the cart
+            SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart
             UpdateCartSummaryDataGrid(); // updating the cart summary
         }
 
@@ -261,7 +261,19 @@ namespace GeneralStoreInventoryManagementSystem
             foreach (DataGridViewRow row in cartSummaryDataGridView.SelectedRows)
             {
                 // Adding product to cart or updating the amount of units of already added product
-                SystemProtocols.ApplyCartManagementProtocol(4, row.Cells[0].Value.ToString(), null, 0);
+                SystemProtocols.ApplyCartManagementProtocol(4, row.Cells[0].Value.ToString(), 0, null, 0);
+            }
+
+            UpdateCartSummaryDataGrid(); // updating the cart summary
+        }
+
+        private void RemoveOneButton_Click(object sender, EventArgs e)
+        {
+            // Capturing the data of multiple selected products
+            foreach (DataGridViewRow row in cartSummaryDataGridView.SelectedRows)
+            {
+                // Removing one unit from a product in the cart
+                SystemProtocols.ApplyCartManagementProtocol(5, row.Cells[0].Value.ToString(), FormatToDecimal(row.Cells[9].Value.ToString()), null, 0);
             }
 
             UpdateCartSummaryDataGrid(); // updating the cart summary
@@ -307,16 +319,15 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void UpdateCartSummaryDataGrid()
         {
-            cartSummaryDataGridView.DataSource = new List<Product>();
-            cartSummaryDataGridView.Refresh();
+            // Code needed to refresh the cart summary
+            cartSummaryDataGridView.DataSource = new List<Product>(); // reseting the datasource as a clean and empty list
+            cartSummaryDataGridView.Refresh(); // refreshing the data grid to clean any old information an update it with the new one
 
-            List<Product> summary = SystemProtocols.ApplyCartManagementProtocol(1, null, null, 0);
-
-            //cartSummaryDataGridView.DataSource = null;
+            List<Product> summary = SystemProtocols.ApplyCartManagementProtocol(1, null, 0, null, 0); // fetching the cart            
             if (summary.Count() > 0)
             {
-                cartSummaryDataGridView.DataSource = summary;
-                cartSummaryDataGridView.Refresh();
+                cartSummaryDataGridView.DataSource = summary; // feeding the grid view with the new information on the cart summary
+                cartSummaryDataGridView.Refresh(); // refreshing the data grid to clean any old information an update it with the new one
 
                 // Hidding unnecessary fields
                 cartSummaryDataGridView.Columns["Id"].Visible = false;
@@ -335,24 +346,26 @@ namespace GeneralStoreInventoryManagementSystem
                 cartSummaryDataGridView.Columns["Discontinued"].Visible = false;
 
                 // Formationg columns
-                cartSummaryDataGridView.Columns["Name"].Width = 200;
+                cartSummaryDataGridView.Columns["Name"].Width = 180;
                 cartSummaryDataGridView.Columns["Unit"].Width = 50;
                 cartSummaryDataGridView.Columns["UnitPrice"].Width = 70;
                 cartSummaryDataGridView.Columns["Quantity"].Width = 80;
 
-                int quantity = 0;
-                decimal total = 0;
+                int quantity = 0; // variable to track the amount of items requested
+                decimal total = 0; // variable to track the total of the entire purchase
                 foreach (Product item in summary)
                 {
-                    quantity += item.Quantity;
-                    total += item.UnitPrice;
+                    quantity += item.Quantity; // counting how many products are in the cart
+                    total += item.UnitPrice; // calculating the total price
                 }
 
+                // publishing the purchase information of a full cart
                 numberLabel.Text = "Number of Item: " + quantity;
                 totalLabel.Text = "Total: $" + total.ToString("0.00");
             }
             else
             {
+                // publishing the purchase information of an empty cart
                 numberLabel.Text = "Number of Item: 0";
                 totalLabel.Text = "Total: $0.00";
             }

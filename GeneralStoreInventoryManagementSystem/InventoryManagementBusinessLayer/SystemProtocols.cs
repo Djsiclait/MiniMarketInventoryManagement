@@ -259,7 +259,7 @@ namespace InventoryManagementBusinessLayer
         /// <param name="protocol"></param>
         /// <param name="productId"></param>
         /// <returns></returns>
-        public static List<Product> ApplyCartManagementProtocol(int protocol, string productId, Product product, int limit)
+        public static List<Product> ApplyCartManagementProtocol(int protocol, string productId, decimal productPrice, Product product, int limit)
         {
             switch (protocol)
             {
@@ -279,15 +279,21 @@ namespace InventoryManagementBusinessLayer
 
                     return null;
 
-                case 3:
+                case 3: // Clearing the cart
 
                     SystemResources.EmptyCart();
 
                     return null;
 
-                case 4:
+                case 4: // Removing a specific product from the cart
 
                     SystemResources.RemoveItem(productId);
+
+                    return null;
+
+                case 5: // Removing one unit from an item in the cart
+
+                    SystemResources.RemoveOneFromAnItem(productId, productPrice);
 
                     return null;
 
