@@ -239,7 +239,7 @@
             this.productDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productDataGridView.Size = new System.Drawing.Size(507, 455);
             this.productDataGridView.TabIndex = 12;
-            this.productDataGridView.Click += new System.EventHandler(this.productDataGridView_Click);
+            this.productDataGridView.Click += new System.EventHandler(this.ProductDataGridView_Click);
             // 
             // browserLabel
             // 
@@ -267,7 +267,7 @@
             this.addItemButton.TabIndex = 16;
             this.addItemButton.Text = "Add Item";
             this.addItemButton.UseVisualStyleBackColor = true;
-            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
+            this.addItemButton.Click += new System.EventHandler(this.AddItemButton_Click);
             // 
             // removeItemButton
             // 
@@ -277,6 +277,7 @@
             this.removeItemButton.TabIndex = 18;
             this.removeItemButton.Text = "Remove Item";
             this.removeItemButton.UseVisualStyleBackColor = true;
+            this.removeItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // removeOneButton
             // 
@@ -295,7 +296,7 @@
             this.clearCartButton.TabIndex = 20;
             this.clearCartButton.Text = "Clear Cart";
             this.clearCartButton.UseVisualStyleBackColor = true;
-            this.clearCartButton.Click += new System.EventHandler(this.clearCartButton_Click);
+            this.clearCartButton.Click += new System.EventHandler(this.ClearCartButton_Click);
             // 
             // numberLabel
             // 
@@ -344,7 +345,7 @@
             this.productSearchTextBox.Name = "productSearchTextBox";
             this.productSearchTextBox.Size = new System.Drawing.Size(156, 20);
             this.productSearchTextBox.TabIndex = 25;
-            this.productSearchTextBox.TextChanged += new System.EventHandler(this.productSearchTextBox_TextChanged);
+            this.productSearchTextBox.TextChanged += new System.EventHandler(this.ProductSearchTextBox_TextChanged);
             // 
             // label1
             // 
@@ -395,7 +396,7 @@
             0,
             0,
             0});
-            this.quantityNumericUpDown.ValueChanged += new System.EventHandler(this.quantityNumericUpDown_ValueChanged);
+            this.quantityNumericUpDown.ValueChanged += new System.EventHandler(this.QuantityNumericUpDown_ValueChanged);
             // 
             // RegisterNewSaleFrom
             // 

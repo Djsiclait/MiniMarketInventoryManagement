@@ -208,50 +208,66 @@ namespace GeneralStoreInventoryManagementSystem
         #endregion
 
         #region Text Changed Logic
-        private void productSearchTextBox_TextChanged(object sender, EventArgs e)
+        private void ProductSearchTextBox_TextChanged(object sender, EventArgs e)
         {
             PopulateProductDataGrid();
         }
-        private void quantityNumericUpDown_ValueChanged(object sender, EventArgs e)
+
+        private void QuantityNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in productDataGridView.SelectedRows)
                 if (quantityNumericUpDown.Maximum < FormatToInt(row.Cells[10].Value.ToString()))
-                    quantityNumericUpDown.Maximum = FormatToInt(row.Cells[10].Value.ToString());
+                    quantityNumericUpDown.Maximum = FormatToInt(row.Cells[10].Value.ToString()); // update the numeric up down's maximum according to the selected items max quantity
         }
         #endregion
 
         #region Click Logic
-        private void addItemButton_Click(object sender, EventArgs e)
+        private void AddItemButton_Click(object sender, EventArgs e)
         {
+            // Capturing the data of multiple selected products
             foreach (DataGridViewRow row in productDataGridView.SelectedRows)
-            {
-                if (FormatToInt(row.Cells[10].Value.ToString()) > 0)
+                if (FormatToInt(row.Cells[10].Value.ToString()) > 0) // only works if the product in the inventory has atleast 1 unit in existence
                 {
-                    Product product = new Product();
+                    Product product = new Product(); // creating new product
 
-                    product.Id = row.Cells[0].Value.ToString();
-                    product.Name = row.Cells[2].Value.ToString();
-                    product.Unit = row.Cells[5].Value.ToString();
-                    product.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString());
-                    product.Quantity = quantityNumericUpDown.Value < FormatToInt(row.Cells[10].Value.ToString()) ? (int)quantityNumericUpDown.Value : FormatToInt(row.Cells[10].Value.ToString());
+                    product.Id = row.Cells[0].Value.ToString(); // getting the selected product's id
+                    product.Name = row.Cells[2].Value.ToString(); // getting the selected product's name
+                    product.Unit = row.Cells[5].Value.ToString(); // getting the selected product's unit
+                    product.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // getting the selected product's price
+                    product.Quantity = quantityNumericUpDown.Value < FormatToInt(row.Cells[10].Value.ToString()) ?  // getting the desired quantity of the selected product
+                        (int)quantityNumericUpDown.Value : // the client desires less units than the limit in existence
+                        FormatToInt(row.Cells[10].Value.ToString()); // the client wants all units in existence
 
+                    // Adding product to cart or updating the amount of units of already added product
                     SystemProtocols.ApplyCartManagementProtocol(2, null, product, FormatToInt(row.Cells[10].Value.ToString()));
                 }
-            }
-
+            
+            // Updating numeric up down
             quantityNumericUpDown.Value = 1;
             quantityNumericUpDown.Maximum = 2;
 
-            UpdateCartSummaryDataGrid();
+            UpdateCartSummaryDataGrid(); // updating the cart summary
         }
 
-        private void clearCartButton_Click(object sender, EventArgs e)
+        private void ClearCartButton_Click(object sender, EventArgs e)
         {
-            SystemProtocols.ApplyCartManagementProtocol(3, null, null, 0);
-            UpdateCartSummaryDataGrid();
+            SystemProtocols.ApplyCartManagementProtocol(3, null, null, 0); // clearing the cart
+            UpdateCartSummaryDataGrid(); // updating the cart summary
         }
 
-        private void productDataGridView_Click(object sender, EventArgs e)
+        private void RemoveItemButton_Click(object sender, EventArgs e)
+        {
+            // Capturing the data of multiple selected products
+            foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+            {
+                // Adding product to cart or updating the amount of units of already added product
+                SystemProtocols.ApplyCartManagementProtocol(4, row.Cells[0].Value.ToString(), null, 0);
+            }
+
+            UpdateCartSummaryDataGrid(); // updating the cart summary
+        }
+
+        private void ProductDataGridView_Click(object sender, EventArgs e)
         {
             quantityNumericUpDown.Value = 1;
             quantityNumericUpDown.Maximum = 2;
@@ -286,45 +302,55 @@ namespace GeneralStoreInventoryManagementSystem
             productDataGridView.Columns["Unit"].Width = 70;
         }
 
+        /// <summary>
+        /// Function to populate the cart summary data grid
+        /// </summary>
         private void UpdateCartSummaryDataGrid()
         {
+            cartSummaryDataGridView.DataSource = new List<Product>();
+            cartSummaryDataGridView.Refresh();
+
             List<Product> summary = SystemProtocols.ApplyCartManagementProtocol(1, null, null, 0);
 
-            cartSummaryDataGridView.DataSource = null;
-            cartSummaryDataGridView.DataSource = summary;
-
-            // Hidding unnecessary fields
-            cartSummaryDataGridView.Columns["Id"].Visible = false;
-            cartSummaryDataGridView.Columns["Key"].Visible = false;
-            cartSummaryDataGridView.Columns["Brand"].Visible = false;
-            cartSummaryDataGridView.Columns["Supplier"].Visible = false;
-            cartSummaryDataGridView.Columns["Category"].Visible = false;
-            cartSummaryDataGridView.Columns["Type"].Visible = false;
-            cartSummaryDataGridView.Columns["UnitCost"].Visible = false;
-            cartSummaryDataGridView.Columns["MinimumQuantity"].Visible = false;
-            cartSummaryDataGridView.Columns["MaximumQuantity"].Visible = false;
-            cartSummaryDataGridView.Columns["RegisteredBy"].Visible = false;
-            cartSummaryDataGridView.Columns["RegistrationDate"].Visible = false;
-            cartSummaryDataGridView.Columns["ModifiedBy"].Visible = false;
-            cartSummaryDataGridView.Columns["ModificationDate"].Visible = false;
-            cartSummaryDataGridView.Columns["Discontinued"].Visible = false;
-
-            // Formationg columns
-            cartSummaryDataGridView.Columns["Name"].Width = 200;
-            cartSummaryDataGridView.Columns["Unit"].Width = 50;
-            cartSummaryDataGridView.Columns["UnitPrice"].Width = 70;
-            cartSummaryDataGridView.Columns["Quantity"].Width = 80;
-
-            int quantity = 0;
-            decimal total = 0;
-            foreach (Product item in summary)
+            //cartSummaryDataGridView.DataSource = null;
+            if (summary.Count() > 0)
             {
-                quantity += item.Quantity;
-                total += item.UnitPrice;
-            }
+                cartSummaryDataGridView.DataSource = summary;
+                cartSummaryDataGridView.Refresh();
 
-            numberLabel.Text = "Number of Item: " + quantity;
-            totalLabel.Text = "Total: $" + total.ToString("0.00"); 
+                // Hidding unnecessary fields
+                cartSummaryDataGridView.Columns["Id"].Visible = false;
+                cartSummaryDataGridView.Columns["Key"].Visible = false;
+                cartSummaryDataGridView.Columns["Brand"].Visible = false;
+                cartSummaryDataGridView.Columns["Supplier"].Visible = false;
+                cartSummaryDataGridView.Columns["Category"].Visible = false;
+                cartSummaryDataGridView.Columns["Type"].Visible = false;
+                cartSummaryDataGridView.Columns["UnitCost"].Visible = false;
+                cartSummaryDataGridView.Columns["MinimumQuantity"].Visible = false;
+                cartSummaryDataGridView.Columns["MaximumQuantity"].Visible = false;
+                cartSummaryDataGridView.Columns["RegisteredBy"].Visible = false;
+                cartSummaryDataGridView.Columns["RegistrationDate"].Visible = false;
+                cartSummaryDataGridView.Columns["ModifiedBy"].Visible = false;
+                cartSummaryDataGridView.Columns["ModificationDate"].Visible = false;
+                cartSummaryDataGridView.Columns["Discontinued"].Visible = false;
+
+                // Formationg columns
+                cartSummaryDataGridView.Columns["Name"].Width = 200;
+                cartSummaryDataGridView.Columns["Unit"].Width = 50;
+                cartSummaryDataGridView.Columns["UnitPrice"].Width = 70;
+                cartSummaryDataGridView.Columns["Quantity"].Width = 80;
+
+                int quantity = 0;
+                decimal total = 0;
+                foreach (Product item in summary)
+                {
+                    quantity += item.Quantity;
+                    total += item.UnitPrice;
+                }
+
+                numberLabel.Text = "Number of Item: " + quantity;
+                totalLabel.Text = "Total: $" + total.ToString("0.00");
+            }
         }
 
         /// <summary>
@@ -355,5 +381,6 @@ namespace GeneralStoreInventoryManagementSystem
             return result;
         }
         #endregion
+
     }
 }

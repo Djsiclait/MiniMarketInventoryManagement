@@ -121,7 +121,7 @@ namespace InventoryManagementBusinessLayer
         /// Function that add one unit of a specific item in the cart
         /// </summary>
         /// <param name="productId">Id of the desired product</param>
-        public static void AddOneToAnItem(String productId, decimal productPrice, int productQuantity, int limit)
+        public static void AddUnitsToAnItem(String productId, decimal productPrice, int productQuantity, int limit)
         {
             foreach (Product item in cart)
                 if (item.Id == productId && item.Quantity < limit)
