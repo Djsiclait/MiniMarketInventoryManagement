@@ -48,7 +48,6 @@
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
             this.browserLabel = new System.Windows.Forms.Label();
-            this.cartSummaryListView = new System.Windows.Forms.ListView();
             this.cartSummaryLabel = new System.Windows.Forms.Label();
             this.addItemButton = new System.Windows.Forms.Button();
             this.addMultipleButton = new System.Windows.Forms.Button();
@@ -61,8 +60,10 @@
             this.completeSaleButton = new System.Windows.Forms.Button();
             this.productSearchTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cartSummaryDataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartSummaryDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
@@ -223,7 +224,8 @@
             // 
             // productDataGridView
             // 
-            this.productDataGridView.AllowUserToOrderColumns = true;
+            this.productDataGridView.AllowUserToAddRows = false;
+            this.productDataGridView.AllowUserToDeleteRows = false;
             this.productDataGridView.AllowUserToResizeColumns = false;
             this.productDataGridView.AllowUserToResizeRows = false;
             this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -246,15 +248,6 @@
             this.browserLabel.TabIndex = 13;
             this.browserLabel.Text = "Product Browser";
             // 
-            // cartSummaryListView
-            // 
-            this.cartSummaryListView.Location = new System.Drawing.Point(536, 66);
-            this.cartSummaryListView.MultiSelect = false;
-            this.cartSummaryListView.Name = "cartSummaryListView";
-            this.cartSummaryListView.Size = new System.Drawing.Size(379, 214);
-            this.cartSummaryListView.TabIndex = 14;
-            this.cartSummaryListView.UseCompatibleStateImageBehavior = false;
-            // 
             // cartSummaryLabel
             // 
             this.cartSummaryLabel.AutoSize = true;
@@ -272,6 +265,7 @@
             this.addItemButton.TabIndex = 16;
             this.addItemButton.Text = "Add Item";
             this.addItemButton.UseVisualStyleBackColor = true;
+            this.addItemButton.Click += new System.EventHandler(this.addItemButton_Click);
             // 
             // addMultipleButton
             // 
@@ -367,11 +361,29 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Search";
             // 
+            // cartSummaryDataGridView
+            // 
+            this.cartSummaryDataGridView.AllowUserToAddRows = false;
+            this.cartSummaryDataGridView.AllowUserToDeleteRows = false;
+            this.cartSummaryDataGridView.AllowUserToResizeColumns = false;
+            this.cartSummaryDataGridView.AllowUserToResizeRows = false;
+            this.cartSummaryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cartSummaryDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.cartSummaryDataGridView.Location = new System.Drawing.Point(536, 66);
+            this.cartSummaryDataGridView.Name = "cartSummaryDataGridView";
+            this.cartSummaryDataGridView.ReadOnly = true;
+            this.cartSummaryDataGridView.RowHeadersVisible = false;
+            this.cartSummaryDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.cartSummaryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.cartSummaryDataGridView.Size = new System.Drawing.Size(379, 214);
+            this.cartSummaryDataGridView.TabIndex = 27;
+            // 
             // RegisterNewSaleFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.cartSummaryDataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.productSearchTextBox);
             this.Controls.Add(this.completeSaleButton);
@@ -384,7 +396,6 @@
             this.Controls.Add(this.addMultipleButton);
             this.Controls.Add(this.addItemButton);
             this.Controls.Add(this.cartSummaryLabel);
-            this.Controls.Add(this.cartSummaryListView);
             this.Controls.Add(this.browserLabel);
             this.Controls.Add(this.productDataGridView);
             this.Controls.Add(this.viewCartLabel);
@@ -398,6 +409,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartSummaryDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,7 +437,6 @@
         private System.Windows.Forms.ToolStripMenuItem viewErrorLogsOption;
         private System.Windows.Forms.DataGridView productDataGridView;
         private System.Windows.Forms.Label browserLabel;
-        private System.Windows.Forms.ListView cartSummaryListView;
         private System.Windows.Forms.Label cartSummaryLabel;
         private System.Windows.Forms.Button addItemButton;
         private System.Windows.Forms.Button addMultipleButton;
@@ -438,5 +449,6 @@
         private System.Windows.Forms.Button completeSaleButton;
         private System.Windows.Forms.TextBox productSearchTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView cartSummaryDataGridView;
     }
 }

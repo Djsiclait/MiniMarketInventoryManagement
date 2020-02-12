@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Custom Library
+using InventoryManagementEntityLayer;
+
 namespace InventoryManagementBusinessLayer
 {
     public static class SystemProtocols
@@ -251,6 +254,34 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="protocol"></param>
+        /// <param name="productId"></param>
+        /// <returns></returns>
+        public static List<Product> ApplyCartManagementProtocol(int protocol, string productId, Product product, int limit)
+        {
+            switch (protocol)
+            {
+                case 1: // Summarizing the contents of the cart
+                    
+                    return SystemResources.Cart;
+
+                case 2: // Adding an item to the cart
+
+                    if (IsProductIdPresent(product.Id)) // checking if a unit was already added before hand
+                        SystemResources.AddOneToAnItem(product.Id, product.UnitPrice, limit); // adding an additional unit to the item
+                    else
+                        SystemResources.Cart.Add(product); // adding the new item to the cart
+
+                    return null;
+
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
         /// Function dedicated to validate a user's credentials before granting or denying access to the system
         /// </summary>
         /// <param name="username">Username requesting validation</param>
@@ -327,5 +358,21 @@ namespace InventoryManagementBusinessLayer
                     return false;
             }
         }
+
+        #region Auxiliary Function 
+        /// <summary>
+        /// Function to verify if a product id is included amongst the items in the cart
+        /// </summary>
+        /// <param name="productId">Product id requiring the verification</param>
+        /// <returns>True or False</returns>
+        private static bool IsProductIdPresent(String productId)
+        {
+            foreach (Product item in SystemResources.Cart)
+                if (item.Id == productId)
+                    return true; // this product is included in the cart thus having a matching id
+
+            return false; // no item has been found to match the given product id
+        }
+        #endregion
     }
 }

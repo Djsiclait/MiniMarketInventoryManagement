@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 // Custom Library
 using InventoryManagementBusinessLayer;
+using InventoryManagementEntityLayer;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -42,6 +43,7 @@ namespace GeneralStoreInventoryManagementSystem
                 SystemProtocols.ApplyActivityProtocols("SAL4", null, null);
 
             PopulateProductDataGrid();
+            UpdateCartSummaryDataGrid();
         }
         #endregion
 
@@ -212,6 +214,29 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #region Button Click Logic
+        private void addItemButton_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+            {
+                if (FormatToInt(row.Cells[10].Value.ToString()) > 0)
+                {
+                    Product product = new Product();
+
+                    product.Id = row.Cells[0].Value.ToString();
+                    product.Name = row.Cells[2].Value.ToString();
+                    product.Unit = row.Cells[5].Value.ToString();
+                    product.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString());
+                    product.Quantity = 1;
+
+                    SystemProtocols.ApplyCartManagementProtocol(2, null, product, FormatToInt(row.Cells[10].Value.ToString()));
+                }
+            }
+            
+            UpdateCartSummaryDataGrid();
+        }
+        #endregion
+
         #region Auxiliary Functions
         /// <summary>
         /// Function to populate the product list data grid
@@ -238,6 +263,75 @@ namespace GeneralStoreInventoryManagementSystem
             // Formationg columns
             productDataGridView.Columns["Brand"].Width = 70;
             productDataGridView.Columns["Unit"].Width = 70;
+        }
+
+        private void UpdateCartSummaryDataGrid()
+        {
+            List<Product> summary = SystemProtocols.ApplyCartManagementProtocol(1, null, null, 0);
+
+            cartSummaryDataGridView.DataSource = null;
+            cartSummaryDataGridView.DataSource = summary;
+
+            // Hidding unnecessary fields
+            cartSummaryDataGridView.Columns["Id"].Visible = false;
+            cartSummaryDataGridView.Columns["Key"].Visible = false;
+            cartSummaryDataGridView.Columns["Brand"].Visible = false;
+            cartSummaryDataGridView.Columns["Supplier"].Visible = false;
+            cartSummaryDataGridView.Columns["Category"].Visible = false;
+            cartSummaryDataGridView.Columns["Type"].Visible = false;
+            cartSummaryDataGridView.Columns["UnitCost"].Visible = false;
+            cartSummaryDataGridView.Columns["MinimumQuantity"].Visible = false;
+            cartSummaryDataGridView.Columns["MaximumQuantity"].Visible = false;
+            cartSummaryDataGridView.Columns["RegisteredBy"].Visible = false;
+            cartSummaryDataGridView.Columns["RegistrationDate"].Visible = false;
+            cartSummaryDataGridView.Columns["ModifiedBy"].Visible = false;
+            cartSummaryDataGridView.Columns["ModificationDate"].Visible = false;
+            cartSummaryDataGridView.Columns["Discontinued"].Visible = false;
+
+            // Formationg columns
+            cartSummaryDataGridView.Columns["Name"].Width = 200;
+            cartSummaryDataGridView.Columns["Unit"].Width = 50;
+            cartSummaryDataGridView.Columns["UnitPrice"].Width = 70;
+            cartSummaryDataGridView.Columns["Quantity"].Width = 80;
+
+            int quantity = 0;
+            decimal total = 0;
+            foreach (Product item in summary)
+            {
+                quantity += item.Quantity;
+                total += item.UnitPrice;
+            }
+
+            numberLabel.Text = "Number of Item: " + quantity;
+            totalLabel.Text = "Total: $" + total.ToString("0.00"); 
+        }
+
+        /// <summary>
+        /// Function to convert strings to decimals
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>A decimal equivalent of the provided string value</returns>
+        private static decimal FormatToDecimal(String value)
+        {
+            decimal result;
+
+            decimal.TryParse(value, out result);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Function to convert strings to ints
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>An int equivalent of the provided string value</returns>
+        private static int FormatToInt(String value)
+        {
+            int result;
+
+            int.TryParse(value, out result);
+
+            return result;
         }
         #endregion
     }

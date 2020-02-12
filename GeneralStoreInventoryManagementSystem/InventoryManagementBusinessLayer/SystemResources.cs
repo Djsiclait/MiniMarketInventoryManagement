@@ -98,24 +98,40 @@ namespace InventoryManagementBusinessLayer
         /// Function that removes one unit of a specific item in the cart
         /// </summary>
         /// <param name="productId">Id of the desired product</param>
-        public static void RemoveOneFromAnItem(String productId)
+        public static void RemoveOneFromAnItem(String productId, decimal productPrice)
         {
             Product itemToRemove = null;
 
             foreach (Product item in cart)
-            {
                 if (item.Id == productId)
                 {
                     item.Quantity--;
+                    item.UnitPrice -= productPrice;
 
                     if (item.Quantity == 0)
                         itemToRemove = item;
 
                     break;
                 }
-            }
 
             cart.Remove(itemToRemove);
+        }
+
+        /// <summary>
+        /// Function that add one unit of a specific item in the cart
+        /// </summary>
+        /// <param name="productId">Id of the desired product</param>
+        public static void AddOneToAnItem(String productId, decimal productPrice, int limit)
+        {
+            foreach (Product item in cart)
+                if (item.Id == productId && item.Quantity < limit)
+                {
+                    item.Quantity++;
+                    item.UnitPrice += productPrice;
+                    break;
+                }
+                else if (item.Id == productId && item.Quantity >= limit)
+                    break;
         }
         #endregion
 
