@@ -47,14 +47,22 @@
             this.logsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewActivityLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.numberLabel = new System.Windows.Forms.Label();
+            this.clearCartButton = new System.Windows.Forms.Button();
+            this.removeOneButton = new System.Windows.Forms.Button();
+            this.removeItemButton = new System.Windows.Forms.Button();
+            this.cartSummaryLabel = new System.Windows.Forms.Label();
+            this.cartSummaryDataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cartSummaryDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // logOutLabel
             // 
             this.logOutLabel.AutoSize = true;
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.logOutLabel.Location = new System.Drawing.Point(870, 9);
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(45, 13);
             this.logOutLabel.TabIndex = 8;
@@ -72,7 +80,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -146,7 +154,7 @@
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
@@ -169,7 +177,7 @@
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
@@ -192,7 +200,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
@@ -209,18 +217,101 @@
             this.viewErrorLogsOption.Text = "View Error Logs";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
+            // totalLabel
+            // 
+            this.totalLabel.AutoSize = true;
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Location = new System.Drawing.Point(704, 334);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(96, 17);
+            this.totalLabel.TabIndex = 29;
+            this.totalLabel.Text = "Total: $0.00";
+            // 
+            // numberLabel
+            // 
+            this.numberLabel.AutoSize = true;
+            this.numberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberLabel.Location = new System.Drawing.Point(704, 307);
+            this.numberLabel.Name = "numberLabel";
+            this.numberLabel.Size = new System.Drawing.Size(136, 17);
+            this.numberLabel.TabIndex = 28;
+            this.numberLabel.Text = "Number of Items: ";
+            // 
+            // clearCartButton
+            // 
+            this.clearCartButton.Location = new System.Drawing.Point(237, 524);
+            this.clearCartButton.Name = "clearCartButton";
+            this.clearCartButton.Size = new System.Drawing.Size(100, 23);
+            this.clearCartButton.TabIndex = 27;
+            this.clearCartButton.Text = "Clear Cart";
+            this.clearCartButton.UseVisualStyleBackColor = true;
+            // 
+            // removeOneButton
+            // 
+            this.removeOneButton.Location = new System.Drawing.Point(399, 524);
+            this.removeOneButton.Name = "removeOneButton";
+            this.removeOneButton.Size = new System.Drawing.Size(100, 23);
+            this.removeOneButton.TabIndex = 26;
+            this.removeOneButton.Text = "Remove One";
+            this.removeOneButton.UseVisualStyleBackColor = true;
+            // 
+            // removeItemButton
+            // 
+            this.removeItemButton.Location = new System.Drawing.Point(557, 524);
+            this.removeItemButton.Name = "removeItemButton";
+            this.removeItemButton.Size = new System.Drawing.Size(100, 23);
+            this.removeItemButton.TabIndex = 25;
+            this.removeItemButton.Text = "Remove Item";
+            this.removeItemButton.UseVisualStyleBackColor = true;
+            // 
+            // cartSummaryLabel
+            // 
+            this.cartSummaryLabel.AutoSize = true;
+            this.cartSummaryLabel.Location = new System.Drawing.Point(225, 47);
+            this.cartSummaryLabel.Name = "cartSummaryLabel";
+            this.cartSummaryLabel.Size = new System.Drawing.Size(72, 13);
+            this.cartSummaryLabel.TabIndex = 24;
+            this.cartSummaryLabel.Text = "Cart Summary";
+            // 
+            // cartSummaryDataGridView
+            // 
+            this.cartSummaryDataGridView.AllowUserToAddRows = false;
+            this.cartSummaryDataGridView.AllowUserToDeleteRows = false;
+            this.cartSummaryDataGridView.AllowUserToResizeColumns = false;
+            this.cartSummaryDataGridView.AllowUserToResizeRows = false;
+            this.cartSummaryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cartSummaryDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.cartSummaryDataGridView.Location = new System.Drawing.Point(191, 63);
+            this.cartSummaryDataGridView.Name = "cartSummaryDataGridView";
+            this.cartSummaryDataGridView.ReadOnly = true;
+            this.cartSummaryDataGridView.RowHeadersVisible = false;
+            this.cartSummaryDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.cartSummaryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.cartSummaryDataGridView.Size = new System.Drawing.Size(507, 455);
+            this.cartSummaryDataGridView.TabIndex = 23;
+            // 
             // ViewCartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 462);
+            this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.totalLabel);
+            this.Controls.Add(this.numberLabel);
+            this.Controls.Add(this.clearCartButton);
+            this.Controls.Add(this.removeOneButton);
+            this.Controls.Add(this.removeItemButton);
+            this.Controls.Add(this.cartSummaryLabel);
+            this.Controls.Add(this.cartSummaryDataGridView);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "ViewCartForm";
             this.Text = "Cart Items";
             this.Load += new System.EventHandler(this.ViewCartForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cartSummaryDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +338,12 @@
         private System.Windows.Forms.ToolStripMenuItem browseProductsMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem registerNewProductMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem restockProductsMenuSubOption;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.Label numberLabel;
+        private System.Windows.Forms.Button clearCartButton;
+        private System.Windows.Forms.Button removeOneButton;
+        private System.Windows.Forms.Button removeItemButton;
+        private System.Windows.Forms.Label cartSummaryLabel;
+        private System.Windows.Forms.DataGridView cartSummaryDataGridView;
     }
 }
