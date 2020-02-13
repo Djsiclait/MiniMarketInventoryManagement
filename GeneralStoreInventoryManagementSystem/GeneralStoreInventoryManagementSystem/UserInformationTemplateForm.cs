@@ -62,8 +62,8 @@ namespace GeneralStoreInventoryManagementSystem
             roleTextBox.Text = user.Role;
             creatorTextBox.Text = user.Creator;
             statusTextBox.Text = user.Status;
-            registrationDateDateTimePicker.Text = user.RegistrationDate.ToString();
-            lastLoginDateTimePicker.Text = user.LastLogin.ToString();
+            createdOnLabel.Text = user.RegistrationDate.ToString();
+            LastLabel.Text = user.LastLogin.ToString();
 
             PopulateActivityList();
         }

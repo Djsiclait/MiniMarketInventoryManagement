@@ -42,15 +42,15 @@
             this.statusLabel = new System.Windows.Forms.Label();
             this.statusTextBox = new System.Windows.Forms.TextBox();
             this.registrationDateLabel = new System.Windows.Forms.Label();
-            this.registrationDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lastLoginLabel = new System.Windows.Forms.Label();
-            this.lastLoginDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.searchActivityLabel = new System.Windows.Forms.Label();
             this.activitySearchBox = new System.Windows.Forms.TextBox();
             this.activityList = new System.Windows.Forms.DataGridView();
             this.changePasswordButton = new System.Windows.Forms.Button();
             this.changeAccessLevelButtom = new System.Windows.Forms.Button();
             this.suspendUserButton = new System.Windows.Forms.Button();
+            this.createdOnLabel = new System.Windows.Forms.Label();
+            this.LastLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.activityList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,14 +175,6 @@
             this.registrationDateLabel.TabIndex = 13;
             this.registrationDateLabel.Text = "Created on: ";
             // 
-            // registrationDateDateTimePicker
-            // 
-            this.registrationDateDateTimePicker.Enabled = false;
-            this.registrationDateDateTimePicker.Location = new System.Drawing.Point(173, 380);
-            this.registrationDateDateTimePicker.Name = "registrationDateDateTimePicker";
-            this.registrationDateDateTimePicker.Size = new System.Drawing.Size(172, 20);
-            this.registrationDateDateTimePicker.TabIndex = 14;
-            // 
             // lastLoginLabel
             // 
             this.lastLoginLabel.AutoSize = true;
@@ -191,14 +183,6 @@
             this.lastLoginLabel.Size = new System.Drawing.Size(59, 13);
             this.lastLoginLabel.TabIndex = 15;
             this.lastLoginLabel.Text = "Last Login:";
-            // 
-            // lastLoginDateTimePicker
-            // 
-            this.lastLoginDateTimePicker.Enabled = false;
-            this.lastLoginDateTimePicker.Location = new System.Drawing.Point(364, 380);
-            this.lastLoginDateTimePicker.Name = "lastLoginDateTimePicker";
-            this.lastLoginDateTimePicker.Size = new System.Drawing.Size(172, 20);
-            this.lastLoginDateTimePicker.TabIndex = 16;
             // 
             // searchActivityLabel
             // 
@@ -264,20 +248,40 @@
             this.suspendUserButton.UseVisualStyleBackColor = true;
             this.suspendUserButton.Click += new System.EventHandler(this.SuspendUserButton_Click);
             // 
+            // createdOnLabel
+            // 
+            this.createdOnLabel.AutoSize = true;
+            this.createdOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createdOnLabel.Location = new System.Drawing.Point(179, 380);
+            this.createdOnLabel.Name = "createdOnLabel";
+            this.createdOnLabel.Size = new System.Drawing.Size(41, 13);
+            this.createdOnLabel.TabIndex = 25;
+            this.createdOnLabel.Text = "label1";
+            // 
+            // LastLabel
+            // 
+            this.LastLabel.AutoSize = true;
+            this.LastLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastLabel.Location = new System.Drawing.Point(370, 380);
+            this.LastLabel.Name = "LastLabel";
+            this.LastLabel.Size = new System.Drawing.Size(41, 13);
+            this.LastLabel.TabIndex = 26;
+            this.LastLabel.Text = "label1";
+            // 
             // UserInformationTemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 412);
+            this.Controls.Add(this.LastLabel);
+            this.Controls.Add(this.createdOnLabel);
             this.Controls.Add(this.suspendUserButton);
             this.Controls.Add(this.changeAccessLevelButtom);
             this.Controls.Add(this.changePasswordButton);
             this.Controls.Add(this.searchActivityLabel);
             this.Controls.Add(this.activitySearchBox);
             this.Controls.Add(this.activityList);
-            this.Controls.Add(this.lastLoginDateTimePicker);
             this.Controls.Add(this.lastLoginLabel);
-            this.Controls.Add(this.registrationDateDateTimePicker);
             this.Controls.Add(this.registrationDateLabel);
             this.Controls.Add(this.statusTextBox);
             this.Controls.Add(this.statusLabel);
@@ -318,14 +322,14 @@
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.TextBox statusTextBox;
         private System.Windows.Forms.Label registrationDateLabel;
-        private System.Windows.Forms.DateTimePicker registrationDateDateTimePicker;
         private System.Windows.Forms.Label lastLoginLabel;
-        private System.Windows.Forms.DateTimePicker lastLoginDateTimePicker;
         private System.Windows.Forms.Label searchActivityLabel;
         private System.Windows.Forms.TextBox activitySearchBox;
         private System.Windows.Forms.DataGridView activityList;
         private System.Windows.Forms.Button changePasswordButton;
         private System.Windows.Forms.Button changeAccessLevelButtom;
         private System.Windows.Forms.Button suspendUserButton;
+        private System.Windows.Forms.Label createdOnLabel;
+        private System.Windows.Forms.Label LastLabel;
     }
 }

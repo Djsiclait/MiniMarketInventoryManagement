@@ -3,7 +3,7 @@ CREATE PROC SP_Register_New_Sales_Transaction
 	@total decimal(19,0),
 	@was_delivery bit, ---- 0 = In store sale; 1 = Delivery
 	@username varchar(50),
-	@message varchar(300) output
+	@sale_id varchar(300) output
 AS
 	BEGIN
 
@@ -27,7 +27,7 @@ AS
 			@username
 		)
 
-		set @message = @new_sale_id
+		set @sale_id = @new_sale_id
 
 	END
 

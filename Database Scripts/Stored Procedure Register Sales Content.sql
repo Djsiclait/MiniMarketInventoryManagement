@@ -1,5 +1,5 @@
 CREATE PROC SP_Register_Sales_Content
-	@prodduct_id varchar(10),
+	@product_id varchar(10),
 	@sale_id varchar(10),
 	@quantity int,
 	@unit_price Decimal(19, 2)
@@ -15,7 +15,7 @@ AS
 		)
 		Values
 		(
-			@prodduct_id,
+			@product_id,
 			@sale_id,
 			@quantity,
 			@unit_price
@@ -26,7 +26,7 @@ AS
 		Set 
 			fld_product_quantity = fld_product_quantity - @quantity
 		Where
-			fld_product_id = @prodduct_id
+			fld_product_id = @product_id
 
 	END
 

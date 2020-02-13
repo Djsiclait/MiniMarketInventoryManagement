@@ -174,6 +174,14 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the form to register new sales", // description of activity
                         "ADMIN ACCESS"); // type of activity
                     break;
+
+                case "SAL5": // Registering user access to the sales registration form as admin user
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new transaction: " + meta1, // description of activity
+                        "NEW TRANSACTION"); // type of activity
+                    break;
                 #endregion
 
                 #region Special
@@ -341,6 +349,35 @@ namespace InventoryManagementBusinessLayer
         public static void ApplyLogOutProtocols()
         {
             SystemResources.EndUserSession(); // closing a current active user session
+        }
+
+        public static String ApplySalesTransactionProtocols(int protocol, Sale sale)
+        {
+            switch (protocol)
+            {
+                case 1: // Registering a new transaction
+
+                    String saleId = CreateInformation.RegisterNewSalesTransactionInformation(sale);
+
+                    if (saleId != null || saleId != "")
+                    {
+                        foreach (Product item in SystemResources.Cart)
+                        {
+                            CreateInformation.RegisterSalesTransactionContentInformation(item, saleId);
+                        }
+
+                        SystemResources.EmptyCart();
+
+                        ApplyActivityProtocols("SAL5", saleId, null);
+
+                        return "SUCCESS";
+                    }
+                    else
+                        return "ERROR";
+
+                default:
+                    return "";
+            }
         }
 
         /// <summary>

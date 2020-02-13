@@ -221,32 +221,18 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #region Key Down Logic
+        private void QuantityNumericUpDown_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                AddItemsToCart();
+        }
+        #endregion
+
         #region Click Logic
         private void AddItemButton_Click(object sender, EventArgs e)
         {
-            // Capturing the data of multiple selected products
-            foreach (DataGridViewRow row in productDataGridView.SelectedRows)
-                if (FormatToInt(row.Cells[10].Value.ToString()) > 0) // only works if the product in the inventory has atleast 1 unit in existence
-                {
-                    Product product = new Product(); // creating new product
-
-                    product.Id = row.Cells[0].Value.ToString(); // getting the selected product's id
-                    product.Name = row.Cells[2].Value.ToString(); // getting the selected product's name
-                    product.Unit = row.Cells[5].Value.ToString(); // getting the selected product's unit
-                    product.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // getting the selected product's price
-                    product.Quantity = quantityNumericUpDown.Value < FormatToInt(row.Cells[10].Value.ToString()) ?  // getting the desired quantity of the selected product
-                        (int)quantityNumericUpDown.Value : // the client desires less units than the limit in existence
-                        FormatToInt(row.Cells[10].Value.ToString()); // the client wants all units in existence
-
-                    // Adding product to cart or updating the amount of units of already added product
-                    SystemProtocols.ApplyCartManagementProtocol(2, null, 0, product, FormatToInt(row.Cells[10].Value.ToString()));
-                }
-            
-            // Updating numeric up down
-            quantityNumericUpDown.Value = 1;
-            quantityNumericUpDown.Maximum = 2;
-
-            UpdateCartSummaryDataGrid(); // updating the cart summary
+            AddItemsToCart(); // adding items to cart
         }
 
         private void ClearCartButton_Click(object sender, EventArgs e)
@@ -276,14 +262,77 @@ namespace GeneralStoreInventoryManagementSystem
             UpdateCartSummaryDataGrid(); // updating the cart summary
         }
 
+        private void CompleteSaleButton_Click(object sender, EventArgs e)
+        {
+            // Requesting the creation of a new transaction
+            String message = SystemProtocols.ApplySalesTransactionProtocols(1, CreateSalesObject());
+
+            if (message == "SUCCESS")
+            {
+                MessageBox.Show("This transaction has been completed successfully!");
+
+                // Updating grids
+                PopulateProductDataGrid();
+                UpdateCartSummaryDataGrid();
+            }
+            else
+                MessageBox.Show("FATEL ERROR!"); // TODO: manage errors and exceptions
+        }
+
         private void ProductDataGridView_Click(object sender, EventArgs e)
         {
+            // Reseting the numeric up down
             quantityNumericUpDown.Value = 1;
             quantityNumericUpDown.Maximum = 2;
         }
         #endregion
 
         #region Auxiliary Functions
+        /// <summary>
+        /// Funtion to add one or more selected products into the cart
+        /// </summary>
+        private void AddItemsToCart()
+        {
+            // Capturing the data of multiple selected products
+            foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+                if (FormatToInt(row.Cells[10].Value.ToString()) > 0) // only works if the product in the inventory has atleast 1 unit in existence
+                {
+                    Product product = new Product(); // creating new product
+
+                    product.Id = row.Cells[0].Value.ToString(); // getting the selected product's id
+                    product.Name = row.Cells[2].Value.ToString(); // getting the selected product's name
+                    product.Unit = row.Cells[5].Value.ToString(); // getting the selected product's unit
+                    product.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // getting the selected product's price
+                    product.Quantity = quantityNumericUpDown.Value < FormatToInt(row.Cells[10].Value.ToString()) ?  // getting the desired quantity of the selected product
+                        (int)quantityNumericUpDown.Value : // the client desires less units than the limit in existence
+                        FormatToInt(row.Cells[10].Value.ToString()); // the client wants all units in existence
+
+                    // Adding product to cart or updating the amount of units of already added product
+                    SystemProtocols.ApplyCartManagementProtocol(2, null, 0, product, FormatToInt(row.Cells[10].Value.ToString()));
+                }
+
+            // Updating numeric up down
+            quantityNumericUpDown.Value = 1;
+            quantityNumericUpDown.Maximum = 2;
+
+            UpdateCartSummaryDataGrid(); // updating the cart summary
+        }
+
+        /// <summary>
+        /// Function that creates a sales object
+        /// </summary>
+        /// <returns>A sales object with user submitted input</returns>
+        private Sale CreateSalesObject()
+        {
+            Sale sale = new Sale();
+
+            sale.NumberItems = FormatToInt(numberLabel.Text.Split(':')[1]);
+            sale.Total = FormatToDecimal(totalLabel.Text.Split('$')[1]);
+            sale.Delivery = deliveryCheckBox.Checked;
+
+            return sale;
+        }
+
         /// <summary>
         /// Function to populate the product list data grid
         /// </summary>
@@ -396,6 +445,5 @@ namespace GeneralStoreInventoryManagementSystem
             return result;
         }
         #endregion
-
     }
 }

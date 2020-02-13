@@ -339,6 +339,7 @@
             this.completeSaleButton.TabIndex = 24;
             this.completeSaleButton.Text = "Complete Sale";
             this.completeSaleButton.UseVisualStyleBackColor = true;
+            this.completeSaleButton.Click += new System.EventHandler(this.CompleteSaleButton_Click);
             // 
             // productSearchTextBox
             // 
@@ -398,6 +399,7 @@
             0,
             0});
             this.quantityNumericUpDown.ValueChanged += new System.EventHandler(this.QuantityNumericUpDown_ValueChanged);
+            this.quantityNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.QuantityNumericUpDown_KeyDown);
             // 
             // RegisterNewSaleFrom
             // 
