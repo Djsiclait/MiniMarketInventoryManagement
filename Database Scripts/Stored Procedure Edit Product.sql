@@ -1,4 +1,4 @@
-CREATE PROC SP_Edit_Product_Data
+CREATE PROC SP_Edit_Product
 	@product_id varchar(10),
 	@new_key varchar(100),
 	@new_brand varchar(100),
@@ -25,7 +25,7 @@ AS
 			set @brand_id = (select fld_brand_id from Tbl_Product_Brands where fld_brand_name = @new_brand)
 		ELSE
 			BEGIN
-				exec SP_Register_New_Brand_Data @new_brand, @response output
+				exec SP_Register_New_Brand @new_brand, @response output
 				set @brand_id = (select fld_brand_id from Tbl_Product_Brands where fld_brand_name = @new_brand)
 			END
 
@@ -35,7 +35,7 @@ AS
 			set @supplier_id = (select fld_supplier_id from Tbl_Suppliers where fld_supplier_name = @new_supplier)
 		ELSE
 			BEGIN
-				exec SP_Register_New_Supplier_Data @new_supplier, '', '', @response output
+				exec SP_Register_New_Supplier @new_supplier, '', '', @response output
 				set @supplier_id = (select fld_supplier_id from Tbl_Suppliers where fld_supplier_name = @new_supplier)
 			END
 
@@ -45,7 +45,7 @@ AS
 			set @category_id = (select fld_category_id from Tbl_Product_Categories where fld_category_description = @new_category)
 		ELSE
 			BEGIN
-				exec SP_Register_New_Category_Data @new_category, @response output
+				exec SP_Register_New_Category @new_category, @response output
 				set @category_id = (select fld_category_id from Tbl_Product_Categories where fld_category_description = @new_category)
 			END
 

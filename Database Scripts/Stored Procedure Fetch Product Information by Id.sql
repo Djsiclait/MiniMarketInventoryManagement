@@ -1,4 +1,4 @@
-alter PROC SP_Fetch_Product_Information_By_ID
+CREATE PROC SP_Fetch_Product_Information_By_ID
 	@product_id varchar(10)
 AS
 	BEGIN
