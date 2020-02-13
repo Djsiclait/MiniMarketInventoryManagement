@@ -96,7 +96,7 @@ namespace InventoryManagementDataLayer
         {
             // Generating query to execute the desired command
             SqlCommand cmd = new SqlCommand(
-                    "SP_Register_Last_Login_Data", // stored procedure to update the user's last login 
+                    "SP_Register_Last_Login", // stored procedure to update the user's last login 
                     DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
             cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
 
@@ -121,7 +121,7 @@ namespace InventoryManagementDataLayer
         {
             // Generating query to execute the desired command
             SqlCommand cmd = new SqlCommand(
-                    "SP_Edit_Product_Data", // stored procedure to update the user's last login 
+                    "SP_Edit_Product", // stored procedure to update the user's last login 
                     DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
             cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
 

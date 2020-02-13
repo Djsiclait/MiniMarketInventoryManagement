@@ -12,7 +12,7 @@ AS
 		set @referenceIterator = (select fld_id_reference_iteration from tbl_id_reference_logs where fld_id_reference_table = @table) + 1
 
 		Update 
-			tbl_id_reference_logs
+			Tbl_Id_Reference_Logs
 		set
 			fld_id_reference_iteration = @referenceIterator
 		where

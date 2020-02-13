@@ -1,4 +1,4 @@
-ALTER PROC SP_Fetch_User_List_Data
+CREATE PROC SP_Fetch_User_List
 	@username varchar(50),
 	@user_permission varchar(100),
 	@key_word varchar(100)
@@ -52,7 +52,7 @@ AS
 
 go
 
-exec SP_Fetch_User_List_Data 'p.siclait', 'Admin', 'ad'
+exec SP_Fetch_User_List 'p.siclait', 'Admin', 'ad'
 
 
 

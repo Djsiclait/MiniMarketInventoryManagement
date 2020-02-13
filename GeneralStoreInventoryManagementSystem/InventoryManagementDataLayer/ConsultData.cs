@@ -59,7 +59,7 @@ namespace InventoryManagementDataLayer
 
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    last24Hours ? "SP_Fetch_Last_24_Hours_Users_Activities_Data" : "SP_Fetch_Users_Activities_Data", // Stored procedure incharged of fetching required data 
+                    last24Hours ? "SP_Fetch_Last_24_Hours_Users_Activities" : "SP_Fetch_Users_Activities", // Stored procedure incharged of fetching required data 
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -152,7 +152,7 @@ namespace InventoryManagementDataLayer
 
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Registered_Brand_Names_Data", // Stored procedure incharged of fetching required data
+                    "SP_Fetch_Registered_Brand_Names", // Stored procedure incharged of fetching required data
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -192,7 +192,7 @@ namespace InventoryManagementDataLayer
 
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Product_Category_Data", // Stored procedure incharged of fetching required data
+                    "SP_Fetch_Product_Category", // Stored procedure incharged of fetching required data
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -280,7 +280,7 @@ namespace InventoryManagementDataLayer
 
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Product_List_Data", // Stored procedure incharged of fetching required data 
+                    "SP_Fetch_Product_List", // Stored procedure incharged of fetching required data 
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -508,7 +508,7 @@ namespace InventoryManagementDataLayer
 
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_User_List_Data", // Stored procedure incharged of fetching required data 
+                    "SP_Fetch_User_List", // Stored procedure incharged of fetching required data 
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -558,7 +558,7 @@ namespace InventoryManagementDataLayer
         {
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Validate_User_Credentials_Data", // Stored procedure incharged of validating given data 
+                    "SP_Validate_User_Credentials", // Stored procedure incharged of validating given data 
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 

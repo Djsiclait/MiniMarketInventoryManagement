@@ -1,4 +1,4 @@
-CREATE PROC SP_Register_New_Supplier_Data
+CREATE PROC SP_Register_New_Supplier
 	@name varchar(100),
 	@phone_number varchar(100),
 	@email varchar(200),
@@ -39,17 +39,17 @@ go
 
 Declare @message varchar(300)
 
---exec SP_Register_New_Supplier_Data '', '', '', @message output
---select @message
-exec SP_Register_New_Supplier_Data 'Rica', '', 'rica@gmail.com', @message output
+exec SP_Register_New_Supplier '', '', '', @message output
 select @message
-exec SP_Register_New_Supplier_Data 'Maggi', '', '', @message output
+exec SP_Register_New_Supplier 'Rica', '', 'rica@gmail.com', @message output
 select @message
-exec SP_Register_New_Supplier_Data 'Presidente', '', 'presidente@gmail.com', @message output
+exec SP_Register_New_Supplier 'Maggi', '', '', @message output
 select @message
-exec SP_Register_New_Supplier_Data 'Eduardo Cosme Agente Preidente', '8096606263', 'e.c.presidente@gmail.com', @message output
+exec SP_Register_New_Supplier 'Presidente', '', 'presidente@gmail.com', @message output
 select @message
-exec SP_Register_New_Supplier_Data 'Suplidor Nacional', '8292184635', '', @message output
+exec SP_Register_New_Supplier 'Eduardo Cosme Agente Preidente', '8096606263', 'e.c.presidente@gmail.com', @message output
+select @message
+exec SP_Register_New_Supplier 'Suplidor Nacional', '8292184635', '', @message output
 select @message
 
 select * from Tbl_Suppliers

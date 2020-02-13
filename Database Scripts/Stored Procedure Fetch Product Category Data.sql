@@ -1,4 +1,4 @@
-CREATE PROC SP_Fetch_Product_Category_Data
+CREATE PROC SP_Fetch_Product_Category
 AS
 	BEGIN
 

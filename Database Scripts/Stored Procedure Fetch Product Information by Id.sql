@@ -1,4 +1,4 @@
-Alter PROC SP_Fetch_Product_Information_By_ID
+alter PROC SP_Fetch_Product_Information_By_ID
 	@product_id varchar(10)
 AS
 	BEGIN
@@ -34,6 +34,6 @@ AS
 
 go
 
-Exec SP_Fetch_Product_Information_By_ID 'P4'
+Exec SP_Fetch_Product_Information_By_ID 'P1'
 
 

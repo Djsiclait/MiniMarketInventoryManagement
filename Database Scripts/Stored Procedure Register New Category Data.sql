@@ -1,4 +1,4 @@
-CREATE PROC SP_Register_New_Category_Data
+CREATE PROC SP_Register_New_Category
 	@description varchar(50),
 	@message varchar(300) output
 AS
@@ -32,31 +32,31 @@ go
 
 Declare @message varchar(300)
 
-exec SP_Register_New_Category_Data 'Lacteo', @message output
+exec SP_Register_New_Category 'Lacteo', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Bebida', @message output
+exec SP_Register_New_Category 'Bebida', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Bebe', @message output
+exec SP_Register_New_Category 'Bebe', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Cereal', @message output
+exec SP_Register_New_Category 'Cereal', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Pasta', @message output
+exec SP_Register_New_Category 'Pasta', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Bebida Alcoholica', @message output
+exec SP_Register_New_Category 'Bebida Alcoholica', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Galleta', @message output
+exec SP_Register_New_Category 'Galleta', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Panaderia', @message output
+exec SP_Register_New_Category 'Panaderia', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Carne', @message output
+exec SP_Register_New_Category 'Carne', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Embutido', @message output
+exec SP_Register_New_Category 'Embutido', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Pescado', @message output
+exec SP_Register_New_Category 'Pescado', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Vegetal', @message output
+exec SP_Register_New_Category 'Vegetal', @message output
 select @message 
-exec SP_Register_New_Category_Data 'Frutas', @message output
+exec SP_Register_New_Category 'Frutas', @message output
 select @message 
 
 select * from Tbl_Product_Categories

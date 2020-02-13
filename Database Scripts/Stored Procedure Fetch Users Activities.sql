@@ -1,4 +1,4 @@
-Alter PROC SP_Fetch_Users_Activities_Data
+CREATE PROC SP_Fetch_Users_Activities
 	@user_permission varchar(100),
 	@key_word varchar(100)
 AS
@@ -45,7 +45,7 @@ AS
 
 go
 
-exec SP_Fetch_Users_Activities_Data 'Admin', '10:40'
+exec SP_Fetch_Users_Activities 'Admin', '10:40'
 
 
 

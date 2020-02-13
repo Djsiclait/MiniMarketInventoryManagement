@@ -1,4 +1,4 @@
-CREATE PROC SP_Register_Last_Login_Data
+CREATE PROC SP_Register_Last_Login
 	@username varchar(50)
 AS
 	BEGIN
@@ -14,8 +14,8 @@ AS
 
 go 
 
-exec SP_Register_Last_Login_Data 'n.siclait'
-exec SP_Register_Last_Login_Data 'p.siclait'
+exec SP_Register_Last_Login 'n.siclait'
+exec SP_Register_Last_Login 'p.siclait'
 
 select * from Tbl_Users
 

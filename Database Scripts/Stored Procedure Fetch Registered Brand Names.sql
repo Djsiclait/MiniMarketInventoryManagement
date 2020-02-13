@@ -1,4 +1,4 @@
-CREATE PROC SP_Fetch_Registered_Brand_Names_Data
+CREATE PROC SP_Fetch_Registered_Brand_Names
 	@key_word varchar(100)
 AS
 	BEGIN
@@ -15,7 +15,7 @@ AS
 
 go
 
-exec SP_Fetch_Registered_Brand_Names_Data ''
+exec SP_Fetch_Registered_Brand_Names ''
 
 
 

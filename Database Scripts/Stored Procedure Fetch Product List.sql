@@ -1,4 +1,4 @@
-ALTER PROC SP_Fetch_Product_List_Data
+CREATE PROC SP_Fetch_Product_List
 	@user_permission varchar(100), ---- variable to determine which columns the uer has access to
 	@key_word varchar(300) ---- key word used to filter the result set during a search for specific products
 AS
@@ -55,7 +55,7 @@ AS
 
 go
 
-Exec SP_Fetch_Product_List_Data 'Admin', ''
+Exec SP_Fetch_Product_List 'Admin', ''
 
 
 

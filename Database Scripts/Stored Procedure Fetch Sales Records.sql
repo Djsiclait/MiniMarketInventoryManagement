@@ -1,4 +1,4 @@
-Create PROC SP_Fetch_Sales_Records 
+CREATE PROC SP_Fetch_Sales_Records 
 	@user_permission varchar(100),
 	@key_word varchar(100)
 AS
@@ -15,7 +15,7 @@ AS
 					fld_sale_date,
 					fld_sale_delivery
 				From
-					tbl_Sales
+					Tbl_Sales
 				Where
 					fld_sale_status = 0
 				and
@@ -40,7 +40,7 @@ AS
 					fld_sale_delivery,
 					fld_sale_status
 				From
-					tbl_Sales
+					Tbl_Sales
 				Where
 					(
 					fld_sale_id Like '%' + @key_word + '%' or

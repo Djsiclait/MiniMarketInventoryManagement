@@ -58,7 +58,7 @@ namespace InventoryManagementDataLayer
         {
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Register_New_Product_Data", // Stored procedure dedicated to insert new data
+                    "SP_Register_New_Product", // Stored procedure dedicated to insert new data
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -101,7 +101,7 @@ namespace InventoryManagementDataLayer
         {
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Register_New_Brand_Data", // Stored procedure dedicated to insert new data
+                    "SP_Register_New_Brand", // Stored procedure dedicated to insert new data
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -134,7 +134,7 @@ namespace InventoryManagementDataLayer
         {
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Register_New_Supplier_Data", // Stored procedure dedicated to insert new data
+                    "SP_Register_New_Supplier", // Stored procedure dedicated to insert new data
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -166,7 +166,7 @@ namespace InventoryManagementDataLayer
         {
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Register_New_Activity_Data", // Stored procedure dedicated to insert new activity data
+                    "SP_Register_New_Activity", // Stored procedure dedicated to insert new activity data
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 

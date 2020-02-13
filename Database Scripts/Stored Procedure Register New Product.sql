@@ -1,4 +1,4 @@
-CREATE PROC SP_Register_New_Product_Data
+CREATE PROC SP_Register_New_Product
 	@key varchar(100),
 	@name varchar(300),
 	@brand varchar(100),
@@ -29,7 +29,7 @@ AS
 					set @category_id = (select fld_category_id from Tbl_Product_Categories where fld_category_description = @category)
 				ELSE
 					BEGIN
-						exec SP_Register_New_Category_Data @category, @response output
+						exec SP_Register_New_Category @category, @response output
 						set @category_id = (select fld_category_id from Tbl_Product_Categories where fld_category_description = @category)
 					END
 
@@ -93,13 +93,13 @@ go
 
 Declare @message varchar(300)
 
---exec SP_Register_New_Product_Data '', 'Leche Descremada 2%', 'B1', 'S1', '500 ml', 'C1', 'T2', 35.00, 75.00, 40, 10, 50, 'p.siclait', @message output
---exec SP_Register_New_Product_Data 'Sin Lactosa', 'Leche Sin Lactosa', 'B1', 'S1', '1000 ml', 'C1', 'T2', 45.00, 85.00, 45, 5, 30, 'b.siclait', @message output
---exec SP_Register_New_Product_Data '', 'Leche Descremada 2%', 'B1', 'S2', '500 ml', 'C1', 'T2', 35.00, 75.00, 10, 10, 50, 'p.siclait', @message output
---exec SP_Register_New_Product_Data 'Coronita', 'Corona', 'B3', 'S3', '255 ml', 'C3', 'T3', 40.00, 80.00, 68, 50, 100, 'n.siclait', @message output
---exec SP_Register_New_Product_Data '', 'Sazon Completo Multi Vitaminas', 'B2', 'S2', 'unidad', 'C1', 'T2', 1.00, 7.00, 150, 200, 400, 'super.admin', @message output
---exec SP_Register_New_Product_Data 'Pasta Nacional', 'Espagheti La Nacional', 'B2', 'S2', '16 oz', 'C4', 'T4', 10.00, 15.00, 8, 10, 30, 'super.admin', @message output
---exec SP_Register_New_Product_Data '', 'Espagheti La Famosa', 'B2', 'S2', '32 oz', 'C4', 'T4', 25.00, 23.00, 40, 20, 30, 'super.admin', @message output
+exec SP_Register_New_Product '', 'Leche Descremada 2%', 'Rica', 'Rica', '500 ml', 'PC2', 'PT1', 35.00, 75.00, 40, 10, 50, 'p.siclait', @message output
+exec SP_Register_New_Product 'Sin Lactosa', 'Leche Sin Lactosa', 'Rica', 'Rica', '1000 ml', 'PC2', 'PT1', 45.00, 85.00, 45, 5, 30, 'b.siclait', @message output
+exec SP_Register_New_Product '', 'Leche Descremada 2%', '', '', '500 ml', 'PC2', 'PT1', 35.00, 75.00, 10, 10, 50, 'p.siclait', @message output
+exec SP_Register_New_Product 'Coronita', 'Corona', 'Presidente', 'Presidente', '255 ml', 'PC7', 'PT1', 40.00, 80.00, 68, 50, 100, 'n.siclait', @message output
+exec SP_Register_New_Product '', 'Sazon Completo Multi Vitaminas', 'Maggi', 'Maggi', 'unidad', 'PC5', 'PT1', 1.00, 7.00, 150, 200, 400, 'super.admin', @message output
+exec SP_Register_New_Product 'Pasta Nacional', 'Espagheti La Nacional', 'Goya', 'Suplidor Nacional', '16 oz', 'PC6', 'PT1', 10.00, 15.00, 8, 10, 30, 'super.admin', @message output
+exec SP_Register_New_Product '', 'Espagheti La Famosa', 'La Famosa', 'Suplidor Nacional', '32 oz', 'PC6', 'PT1', 25.00, 23.00, 40, 20, 30, 'super.admin', @message output
 
 select * from Tbl_Products
 

@@ -1,4 +1,4 @@
-CREATE PROC SP_Register_New_Activity_Data
+CREATE PROC SP_Register_New_Activity
 	@username varchar(50),
 	@description varchar(300),
 	@type varchar(100)

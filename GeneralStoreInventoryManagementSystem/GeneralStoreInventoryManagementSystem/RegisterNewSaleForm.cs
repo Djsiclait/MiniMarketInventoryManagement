@@ -271,7 +271,7 @@ namespace GeneralStoreInventoryManagementSystem
             // Capturing the data of multiple selected products
             foreach (DataGridViewRow row in cartSummaryDataGridView.SelectedRows)
                 // Removing one unit from a product in the cart
-                SystemProtocols.ApplyCartManagementProtocol(5, row.Cells[0].Value.ToString(), FormatToDecimal(row.Cells[9].Value.ToString()), null, 0);
+                SystemProtocols.ApplyCartManagementProtocol(5, row.Cells[0].Value.ToString(), FormatToDecimal(row.Cells[9].Value.ToString()) / FormatToInt(row.Cells[10].Value.ToString()), null, 0);
 
             UpdateCartSummaryDataGrid(); // updating the cart summary
         }

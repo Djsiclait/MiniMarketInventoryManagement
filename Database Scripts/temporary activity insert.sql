@@ -13,7 +13,7 @@ Values
 (
 	'p.siclait',
 	'User, p.siclait, viewed the inventory browser',
-	'LOG IN'
+	'BASIC ACCESS'
 ),
 (
 	'p.siclait',

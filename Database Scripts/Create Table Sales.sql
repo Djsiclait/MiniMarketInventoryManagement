@@ -1,4 +1,4 @@
-CREATE TABLE tbl_Sales
+CREATE TABLE Tbl_Sales
 (
 	fld_sale_id varchar(10),
 	fld_sale_quantity_items int Default 1,

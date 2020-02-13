@@ -1,4 +1,4 @@
-CREATE PROC SP_Validate_User_Credentials_Data
+CREATE PROC SP_Validate_User_Credentials
 	@username varchar(50),
 	@password varchar(30),
 	@message varchar(300) output
@@ -23,15 +23,17 @@ go
 
 Declare @message varchar(300)
 
-exec SP_Validate_User_Credentials_Data 'd.so', '', @message output	
+exec SP_Validate_User_Credentials 'd.so', '', @message output	
 select @message
 
-exec SP_Validate_User_Credentials_Data 'p.siclait', '', @message output	
+exec SP_Validate_User_Credentials 'p.siclait', '', @message output	
 select @message
 
-exec SP_Validate_User_Credentials_Data 'b.siclait', 'admin1234', @message output	
+exec SP_Validate_User_Credentials 'b.siclait', 'admin1234', @message output	
 select @message
 
+exec SP_Validate_User_Credentials 'super.admin', 'admin', @message output	
+select @message
 
 
 

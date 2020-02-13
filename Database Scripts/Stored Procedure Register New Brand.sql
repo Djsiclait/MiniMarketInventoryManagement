@@ -1,4 +1,4 @@
-CREATE PROC SP_Register_New_Brand_Data
+CREATE PROC SP_Register_New_Brand
 	@name varchar(100),
 	@message varchar(300) output
 AS
@@ -33,19 +33,19 @@ go
 
 Declare @message varchar(300)
 
-exec SP_Register_New_Brand_Data '', @message output
+exec SP_Register_New_Brand '', @message output
 select @message
-exec SP_Register_New_Brand_Data 'Rica', @message output
+exec SP_Register_New_Brand 'Rica', @message output
 select @message
-exec SP_Register_New_Brand_Data 'Maggi', @message output
+exec SP_Register_New_Brand 'Maggi', @message output
 select @message
-exec SP_Register_New_Brand_Data 'Presidente', @message output
+exec SP_Register_New_Brand 'Presidente', @message output
 select @message
-exec SP_Register_New_Brand_Data 'Goya', @message output
+exec SP_Register_New_Brand 'Goya', @message output
 select @message
-exec SP_Register_New_Brand_Data 'La Famosa', @message output
+exec SP_Register_New_Brand 'La Famosa', @message output
 select @message
-exec SP_Register_New_Brand_Data 'Colgate', @message output
+exec SP_Register_New_Brand 'Colgate', @message output
 select @message
 
 select * from Tbl_Product_Brands

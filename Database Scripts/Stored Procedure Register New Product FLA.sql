@@ -1,4 +1,4 @@
-CREATE PROC SP_Register_New_Product
+CREATE PROC SP_Register_New_Product_FLA
 	@key varchar(100),
 	@name varchar(300),
 	@brand varchar(10),
