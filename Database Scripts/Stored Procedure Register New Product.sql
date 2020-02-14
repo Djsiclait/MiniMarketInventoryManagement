@@ -16,8 +16,8 @@ CREATE PROC SP_Register_New_Product
 AS
 	BEGIN
 
-		IF exists (select 1 from Tbl_Products where fld_product_name = @name and fld_product_brand = @brand and fld_product_supplier = @supplier and fld_product_category = @category and fld_product_type = @type and fld_product_unit_cost = @cost)
-			set @message = 'This product is already registered with the same informations'
+		IF exists (select 1 from Tbl_Products where fld_product_name = @name and fld_product_brand = @brand and fld_product_supplier = @supplier and fld_product_unit_cost = @cost)
+			set @message = 'This product is already registered with the same information'
 		ELSE
 			BEGIN
 			
@@ -68,7 +68,7 @@ AS
 				(
 					@new_product_id,
 					@key,
-					@name,
+					Upper(@name),
 					(select fld_brand_id from Tbl_Product_Brands where fld_brand_name = @brand),
 					(select fld_supplier_id from Tbl_Suppliers where fld_supplier_name = @supplier),
 					@unit,
