@@ -56,6 +56,8 @@ namespace GeneralStoreInventoryManagementSystem
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
+            SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
+
             // Closing form while freeing system resources
             FormsMenuList.registerNewSaleForm.Dispose();
         }
@@ -189,6 +191,8 @@ namespace GeneralStoreInventoryManagementSystem
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
+            SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
+
             // Closing form while freeing system resources
             FormsMenuList.registerNewSaleForm.Dispose();
 
@@ -301,6 +305,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     product.Id = row.Cells[0].Value.ToString(); // getting the selected product's id
                     product.Name = row.Cells[2].Value.ToString(); // getting the selected product's name
+                    product.Brand = row.Cells[3].Value.ToString(); // getting the selected product's brand
                     product.Unit = row.Cells[5].Value.ToString(); // getting the selected product's unit
                     product.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // getting the selected product's price
                     product.Quantity = quantityNumericUpDown.Value < FormatToInt(row.Cells[10].Value.ToString()) ?  // getting the desired quantity of the selected product

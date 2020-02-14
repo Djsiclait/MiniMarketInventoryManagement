@@ -54,6 +54,8 @@
             this.removeItemButton = new System.Windows.Forms.Button();
             this.cartSummaryLabel = new System.Windows.Forms.Label();
             this.cartSummaryDataGridView = new System.Windows.Forms.DataGridView();
+            this.completeSaleButton = new System.Windows.Forms.Button();
+            this.deliveryCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cartSummaryDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -221,7 +223,7 @@
             // 
             this.totalLabel.AutoSize = true;
             this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalLabel.Location = new System.Drawing.Point(704, 334);
+            this.totalLabel.Location = new System.Drawing.Point(704, 266);
             this.totalLabel.Name = "totalLabel";
             this.totalLabel.Size = new System.Drawing.Size(96, 17);
             this.totalLabel.TabIndex = 29;
@@ -231,7 +233,7 @@
             // 
             this.numberLabel.AutoSize = true;
             this.numberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberLabel.Location = new System.Drawing.Point(704, 307);
+            this.numberLabel.Location = new System.Drawing.Point(704, 239);
             this.numberLabel.Name = "numberLabel";
             this.numberLabel.Size = new System.Drawing.Size(136, 17);
             this.numberLabel.TabIndex = 28;
@@ -245,6 +247,7 @@
             this.clearCartButton.TabIndex = 27;
             this.clearCartButton.Text = "Clear Cart";
             this.clearCartButton.UseVisualStyleBackColor = true;
+            this.clearCartButton.Click += new System.EventHandler(this.ClearCartButton_Click);
             // 
             // removeOneButton
             // 
@@ -254,6 +257,7 @@
             this.removeOneButton.TabIndex = 26;
             this.removeOneButton.Text = "Remove One";
             this.removeOneButton.UseVisualStyleBackColor = true;
+            this.removeOneButton.Click += new System.EventHandler(this.RemoveOneButton_Click);
             // 
             // removeItemButton
             // 
@@ -263,6 +267,7 @@
             this.removeItemButton.TabIndex = 25;
             this.removeItemButton.Text = "Remove Item";
             this.removeItemButton.UseVisualStyleBackColor = true;
+            this.removeItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // cartSummaryLabel
             // 
@@ -290,11 +295,35 @@
             this.cartSummaryDataGridView.Size = new System.Drawing.Size(507, 455);
             this.cartSummaryDataGridView.TabIndex = 23;
             // 
+            // completeSaleButton
+            // 
+            this.completeSaleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.completeSaleButton.Location = new System.Drawing.Point(707, 322);
+            this.completeSaleButton.Name = "completeSaleButton";
+            this.completeSaleButton.Size = new System.Drawing.Size(165, 40);
+            this.completeSaleButton.TabIndex = 31;
+            this.completeSaleButton.Text = "Complete Sale";
+            this.completeSaleButton.UseVisualStyleBackColor = true;
+            this.completeSaleButton.Click += new System.EventHandler(this.CompleteSaleButton_Click);
+            // 
+            // deliveryCheckBox
+            // 
+            this.deliveryCheckBox.AutoSize = true;
+            this.deliveryCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deliveryCheckBox.Location = new System.Drawing.Point(707, 295);
+            this.deliveryCheckBox.Name = "deliveryCheckBox";
+            this.deliveryCheckBox.Size = new System.Drawing.Size(157, 21);
+            this.deliveryCheckBox.TabIndex = 30;
+            this.deliveryCheckBox.Text = "Mark as Delivery?";
+            this.deliveryCheckBox.UseVisualStyleBackColor = true;
+            // 
             // ViewCartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.completeSaleButton);
+            this.Controls.Add(this.deliveryCheckBox);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.numberLabel);
             this.Controls.Add(this.clearCartButton);
@@ -307,6 +336,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "ViewCartForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cart Items";
             this.Load += new System.EventHandler(this.ViewCartForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -345,5 +375,7 @@
         private System.Windows.Forms.Button removeItemButton;
         private System.Windows.Forms.Label cartSummaryLabel;
         private System.Windows.Forms.DataGridView cartSummaryDataGridView;
+        private System.Windows.Forms.Button completeSaleButton;
+        private System.Windows.Forms.CheckBox deliveryCheckBox;
     }
 }

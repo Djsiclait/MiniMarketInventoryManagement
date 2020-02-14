@@ -55,6 +55,8 @@ namespace GeneralStoreInventoryManagementSystem
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
+            SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
+
             // Closing form while freeing system resources
             FormsMenuList.registerNewProduct.Dispose();
         }
@@ -187,6 +189,8 @@ namespace GeneralStoreInventoryManagementSystem
             // Executing correct log out processes
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
+
+            SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
 
             // Closing form while freeing system resources
             FormsMenuList.registerNewProduct.Dispose();

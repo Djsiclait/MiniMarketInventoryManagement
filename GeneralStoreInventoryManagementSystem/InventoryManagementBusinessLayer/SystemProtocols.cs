@@ -351,6 +351,12 @@ namespace InventoryManagementBusinessLayer
             SystemResources.EndUserSession(); // closing a current active user session
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="protocol"></param>
+        /// <param name="sale"></param>
+        /// <returns></returns>
         public static String ApplySalesTransactionProtocols(int protocol, Sale sale)
         {
             switch (protocol)
