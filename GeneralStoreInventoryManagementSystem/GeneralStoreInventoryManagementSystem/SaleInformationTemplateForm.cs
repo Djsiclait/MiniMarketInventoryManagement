@@ -37,6 +37,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             sale = ConsultInformation.FetchTransactionInformationBySalesId(saleId);
 
+            this.Name += " " + sale.Id;
+
             saleIdLabel.Text = sale.Id;
             saleDateLabel.Text = sale.TransactionDate.ToString();
             soldByLabel.Text = sale.SoldBy;

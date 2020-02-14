@@ -135,6 +135,16 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
+        /// This function fetech the information of a completed transaction
+        /// </summary>
+        /// <param name="saleId">Identification number of the transaction</param>
+        /// <returns>A sale object with all needed information</returns>
+        public static Sale FetchTransactionInformationBySalesId(String saleId)
+        {
+            return ConsultData.FetchTransactionDataBySalesId(saleId); 
+        }
+
+        /// <summary>
         /// This function retreives the list of registered types
         /// </summary>
         /// <returns>A list of all registered types</returns>

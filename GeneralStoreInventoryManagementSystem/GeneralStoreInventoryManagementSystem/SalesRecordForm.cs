@@ -15,6 +15,8 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class SalesRecordForm : Form
     {
+        List<SaleInformationTemplateForm> children = new List<SaleInformationTemplateForm>();
+
         public SalesRecordForm()
         {
             InitializeComponent();
@@ -51,6 +53,9 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
+            // Disposing any open child
+            DisposeAllChildren();
+
             // Executing correct log out processes
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
@@ -69,6 +74,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
             FormsMenuList.registerNewSaleForm.Show();
 
+            // Disposing any open child
+            DisposeAllChildren();
+
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
         }
@@ -78,6 +86,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon Product Browser Form
             FormsMenuList.inventorySearchForm = new InventorySearchForm();
             FormsMenuList.inventorySearchForm.Show();
+
+            // Disposing any open child
+            DisposeAllChildren();
 
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
@@ -89,6 +100,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewProduct = new RegisterNewProductForm();
             FormsMenuList.registerNewProduct.Show();
 
+            // Disposing any open child
+            DisposeAllChildren();
+
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
         }
@@ -98,6 +112,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon Restock Products Form
             FormsMenuList.restockProductsFrom = new RestockProductsForm();
             FormsMenuList.restockProductsFrom.Show();
+
+            // Disposing any open child
+            DisposeAllChildren();
 
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
@@ -109,6 +126,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.usersRegistryForm = new UsersRegistryForm();
             FormsMenuList.usersRegistryForm.Show();
 
+            // Disposing any open child
+            DisposeAllChildren();
+
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
         }
@@ -118,6 +138,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon Register New User Form
             FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
             FormsMenuList.registerNewUserForm.Show();
+
+            // Disposing any open child
+            DisposeAllChildren();
 
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
@@ -129,6 +152,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
             FormsMenuList.graphsAnaliticsForm.Show();
 
+            // Disposing any open child
+            DisposeAllChildren();
+
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
         }
@@ -138,6 +164,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon Reports Analytics Form
             FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
             FormsMenuList.reportsAnalyticsForm.Show();
+
+            // Disposing any open child
+            DisposeAllChildren();
 
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
@@ -149,6 +178,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
             FormsMenuList.activitiesLogForm.Show();
 
+            // Disposing any open child
+            DisposeAllChildren();
+
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
         }
@@ -159,6 +191,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.errorsLogForm = new ErrorsLogForm();
             FormsMenuList.errorsLogForm.Show();
 
+            // Disposing any open child
+            DisposeAllChildren();
+
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
         }
@@ -168,6 +203,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon View Cart Form
             FormsMenuList.viewCartForm = new ViewCartForm();
             FormsMenuList.viewCartForm.Show();
+
+            // Disposing any open child
+            DisposeAllChildren();
 
             // Closing form while freeing system resources
             FormsMenuList.salesRecordForm.Dispose();
@@ -189,6 +227,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Executing correct log out processes
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
+
+            // Disposing any open child
+            DisposeAllChildren();
 
             SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
 
@@ -215,14 +256,37 @@ namespace GeneralStoreInventoryManagementSystem
             PopulateSalesDataGrid();
         }
         #endregion
-        
+
+        #region Double Click Logic
+        private void SalesList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SaleInformationTemplateForm child = new SaleInformationTemplateForm(salesList.SelectedCells[0].Value.ToString());
+            child.Show(); Console.WriteLine("FUCK YOU!!!!");
+
+            children.Add(child);
+        }
+        #endregion
+
         #region Auxiliary Function
+        /// <summary>
+        /// Funtion to populate the data grid
+        /// </summary>
         private void PopulateSalesDataGrid()
         {
             salesList.DataSource = ConsultInformation.FetchSalesRecordsInformation(salesSearchBox.Text);
 
+            // Formating the flieds
             salesList.Columns["TransactionDate"].Width = 350;
             salesList.Columns["Delivery"].Width = 50;
+        }
+
+        /// <summary>
+        /// Function to dispose any opon children of this form
+        /// </summary>
+        private void DisposeAllChildren()
+        {
+            foreach (SaleInformationTemplateForm child in children)
+                child.Dispose();
         }
         #endregion
     }

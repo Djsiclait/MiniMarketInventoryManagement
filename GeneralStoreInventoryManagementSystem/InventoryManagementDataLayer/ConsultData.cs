@@ -417,6 +417,47 @@ namespace InventoryManagementDataLayer
         }
 
         /// <summary>
+        /// This function fetech the data of a completed transaction
+        /// </summary>
+        /// <param name="saleId">Identification number of the transaction</param>
+        /// <returns>A sale object with all needed information</returns>
+        public static Sale FetchTransactionDataBySalesId(String saleId)
+        {
+            Sale sale = new Sale();
+
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Transaction_Information_By_Sales_Id", // Stored procedure incharged of fetching required data  
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            #region Parameters
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@sale_id", SqlDbType.VarChar, 10).Value = saleId;
+            #endregion
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                #region Assigning the corresponding values to their variables
+                sale.Id = sqlDataReader["fld_sale_id"].ToString();
+                sale.TransactionDate = DateTime.Parse(sqlDataReader["fld_sale_date"].ToString());
+                sale.NumberItems = FormatToInt(sqlDataReader["fld_sale_quantity_items"].ToString());
+                sale.Total = FormatToDecimal(sqlDataReader["fld_sale_total"].ToString());
+                sale.Delivery = FormatToBoolean(sqlDataReader["fld_sale_delivery"].ToString());
+                sale.Status = sqlDataReader["fld_sale_status"].ToString();
+                sale.SoldBy = sqlDataReader["fld_sold_by"].ToString();
+                #endregion
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return sale;
+        }
+
+        /// <summary>
         /// This function fetches all registered type names
         /// </summary>
         /// <returns>A list of all registered type names</returns>

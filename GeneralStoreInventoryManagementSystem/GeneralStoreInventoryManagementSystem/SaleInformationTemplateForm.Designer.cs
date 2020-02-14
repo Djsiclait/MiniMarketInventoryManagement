@@ -178,6 +178,9 @@
             this.Controls.Add(this.saleIdLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.identificationNumberLabel);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(655, 372);
+            this.MinimumSize = new System.Drawing.Size(655, 372);
             this.Name = "SaleInformationTemplateForm";
             this.Text = "Sale Information: ";
             this.Load += new System.EventHandler(this.SaleInformationTemplateForm_Load);

@@ -15,7 +15,7 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class InventorySearchForm : Form
     {
-        List<ProductInformationTemplateForm> childrenForms = new List<ProductInformationTemplateForm>();
+        List<ProductInformationTemplateForm> children = new List<ProductInformationTemplateForm>();
 
         public InventorySearchForm()
         {
@@ -257,10 +257,10 @@ namespace GeneralStoreInventoryManagementSystem
         private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Declare an non oficial auxiliary form to display product information, given a product's internal identification number
-            ProductInformationTemplateForm productInformationForm = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
-            productInformationForm.Show(); // Summon the temporary summary form 
+            ProductInformationTemplateForm child = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
+            child.Show(); // Summon the temporary summary form 
 
-            childrenForms.Add(productInformationForm); // adding product to list of children
+            children.Add(child); // adding product to list of children
         }
         #endregion
 
@@ -310,7 +310,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void DisposeAllChildren()
         {
             // Closing all open children form
-            foreach (ProductInformationTemplateForm child in childrenForms)
+            foreach (ProductInformationTemplateForm child in children)
                 child.Dispose();
         }
         #endregion

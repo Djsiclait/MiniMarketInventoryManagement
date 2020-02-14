@@ -547,6 +547,8 @@
             this.Controls.Add(this.nameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(363, 540);
+            this.MinimumSize = new System.Drawing.Size(363, 540);
             this.Name = "ProductInformationTemplateForm";
             this.Text = "Product Information:";
             this.Load += new System.EventHandler(this.ProductInformationTemplateForm_Load);
