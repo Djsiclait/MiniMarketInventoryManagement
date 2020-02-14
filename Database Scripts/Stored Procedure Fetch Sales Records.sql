@@ -25,7 +25,7 @@ AS
 					fld_sold_by Like '%' + @key_word + '%'
 					)
 				Order By
-					fld_sale_date 
+					fld_sale_date DESC
 
 			END
 		ELSE
@@ -49,7 +49,7 @@ AS
 					fld_sale_status Like '%' + @key_word + '%'
 					)
 				Order By
-					fld_sale_date 
+					fld_sale_date DESC
 
 			END
 
