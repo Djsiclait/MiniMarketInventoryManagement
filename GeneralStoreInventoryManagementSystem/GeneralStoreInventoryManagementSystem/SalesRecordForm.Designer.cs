@@ -235,7 +235,7 @@
             this.salesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.salesList.Size = new System.Drawing.Size(903, 444);
             this.salesList.TabIndex = 11;
-            this.salesList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SalesList_CellContentDoubleClick);
+            this.salesList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SalesList_CellDoubleClick);
             // 
             // browserFormTitle
             // 
