@@ -86,7 +86,7 @@ namespace InventoryManagementBusinessLayer
                     SystemResources.RecordActivity(
                         meta1, // provided username that failed the log in
                         "Deactivated account, " + meta1 + ", attemped to log into the system", // description of activity
-                        "LOGIN FAILIER"); // type of activity
+                        "LOGIN FAILURE"); // type of activity
                     break;
                 #endregion
 
@@ -262,11 +262,14 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// 
+        /// Function to apply the correct protocols for all features associated with the cart system resource
         /// </summary>
-        /// <param name="protocol"></param>
-        /// <param name="productId"></param>
-        /// <returns></returns>
+        /// <param name="protocol">Identification of the desired protocol to execute</param>
+        /// <param name="productId">If needed, this identifies the desired product to manipulate</param>
+        /// <param name="productPrice">If needed, this indicates the price of a particular product</param>
+        /// <param name="product">If needed, a product object that will be added, modifed, or removed from the cart</param>
+        /// <param name="limit">If needed, this set's the maximum amount of units of an item exists in the inventory and thus can be added to the cart</param>
+        /// <returns>If needed, the cart with it's list of products</returns>
         public static List<Product> ApplyCartManagementProtocol(int protocol, string productId, decimal productPrice, Product product, int limit)
         {
             switch (protocol)
@@ -352,11 +355,11 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// 
+        /// Funtion in charge of managint all types of transactions from purchase, to returns, to cancelations
         /// </summary>
-        /// <param name="protocol"></param>
-        /// <param name="sale"></param>
-        /// <returns></returns>
+        /// <param name="protocol">Identification of the desired protocol to execute</param>
+        /// <param name="sale">The sale object and all necessary information</param>
+        /// <returns>A message to indicate the success or failure of the protocol</returns>
         public static String ApplySalesTransactionProtocols(int protocol, Sale sale)
         {
             switch (protocol)

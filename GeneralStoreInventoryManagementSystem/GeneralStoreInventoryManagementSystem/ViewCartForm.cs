@@ -209,8 +209,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             // Capturing the data of multiple selected products
             foreach (DataGridViewRow row in cartSummaryDataGridView.SelectedRows)
-                // Adding product to cart or updating the amount of units of already added product
-                SystemProtocols.ApplyCartManagementProtocol(4, row.Cells[0].Value.ToString(), 0, null, 0);
+                // Removing one unit from a product in the cart
+                SystemProtocols.ApplyCartManagementProtocol(5, row.Cells[0].Value.ToString(), FormatToDecimal(row.Cells[9].Value.ToString()) / FormatToInt(row.Cells[10].Value.ToString()), null, 0);
 
             PopulateCartSummaryDataGrid();
         }
@@ -227,24 +227,38 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void CompleteSaleButton_Click(object sender, EventArgs e)
         {
-            // Requesting the creation of a new transaction
-            String message = SystemProtocols.ApplySalesTransactionProtocols(1, CreateSalesObject());
-
-            if (message == "SUCCESS")
+            if (SystemProtocols.ApplyCartManagementProtocol(1, null, 0, null, 0).Count > 0)
             {
-                MessageBox.Show("This transaction has been completed successfully!");
+                // Requesting the creation of a new transaction
+                String message = SystemProtocols.ApplySalesTransactionProtocols(1, CreateSalesObject());
 
-                // Updating grid
-                PopulateCartSummaryDataGrid();
+                if (message == "SUCCESS")
+                {
+                    MessageBox.Show("This transaction has been completed successfully!");
+
+                    deliveryCheckBox.Checked = false;
+
+                    // Updating grid
+                    PopulateCartSummaryDataGrid();
+                }
+                else
+                    MessageBox.Show("FATEL ERROR!"); // TODO: manage errors and exceptions
             }
             else
-                MessageBox.Show("FATEL ERROR!"); // TODO: manage errors and exceptions
+                MessageBox.Show("Please add items to complete a purchase.");
         }
         #endregion
 
         #region Auxiliary Function
+        /// <summary>
+        /// Function to populate the cart summary data grid
+        /// </summary>
         private void PopulateCartSummaryDataGrid()
         {
+            // Code needed to refresh the cart summary
+            cartSummaryDataGridView.DataSource = new List<Product>(); // reseting the datasource as a clean and empty list
+            cartSummaryDataGridView.Refresh(); // refreshing the data grid to clean any old information an update it with the new one
+
             List<Product> summary = SystemProtocols.ApplyCartManagementProtocol(1, null, 0, null, 0); // fetching the cart            
             if (summary.Count() > 0)
             {
@@ -254,7 +268,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Hidding unnecessary fields
                 cartSummaryDataGridView.Columns["Id"].Visible = false;
                 cartSummaryDataGridView.Columns["Key"].Visible = false;
-                //cartSummaryDataGridView.Columns["Brand"].Visible = false;
                 cartSummaryDataGridView.Columns["Supplier"].Visible = false;
                 cartSummaryDataGridView.Columns["Category"].Visible = false;
                 cartSummaryDataGridView.Columns["Type"].Visible = false;

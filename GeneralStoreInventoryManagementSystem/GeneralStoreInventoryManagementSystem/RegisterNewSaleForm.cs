@@ -268,19 +268,24 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void CompleteSaleButton_Click(object sender, EventArgs e)
         {
-            // Requesting the creation of a new transaction
-            String message = SystemProtocols.ApplySalesTransactionProtocols(1, CreateSalesObject());
-
-            if (message == "SUCCESS")
+            if (SystemProtocols.ApplyCartManagementProtocol(1, null, 0, null, 0).Count > 0)
             {
-                MessageBox.Show("This transaction has been completed successfully!");
+                // Requesting the creation of a new transaction
+                String message = SystemProtocols.ApplySalesTransactionProtocols(1, CreateSalesObject());
 
-                // Updating grids
-                PopulateProductDataGrid();
-                UpdateCartSummaryDataGrid();
+                if (message == "SUCCESS")
+                {
+                    MessageBox.Show("This transaction has been completed successfully!");
+
+                    // Updating grids
+                    PopulateProductDataGrid();
+                    UpdateCartSummaryDataGrid();
+                }
+                else
+                    MessageBox.Show("FATEL ERROR!"); // TODO: manage errors and exceptions
             }
             else
-                MessageBox.Show("FATEL ERROR!"); // TODO: manage errors and exceptions
+                MessageBox.Show("Please add items to complete a purchase.");
         }
 
         private void ProductDataGridView_Click(object sender, EventArgs e)
