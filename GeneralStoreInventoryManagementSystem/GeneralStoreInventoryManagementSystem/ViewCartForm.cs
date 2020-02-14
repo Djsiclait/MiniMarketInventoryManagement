@@ -279,6 +279,7 @@ namespace GeneralStoreInventoryManagementSystem
                 cartSummaryDataGridView.Columns["ModifiedBy"].Visible = false;
                 cartSummaryDataGridView.Columns["ModificationDate"].Visible = false;
                 cartSummaryDataGridView.Columns["Discontinued"].Visible = false;
+                cartSummaryDataGridView.Columns["Total"].Visible = false;
 
                 // Formationg columns
                 cartSummaryDataGridView.Columns["Name"].Width = 210;

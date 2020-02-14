@@ -293,6 +293,7 @@ namespace GeneralStoreInventoryManagementSystem
             productList.Columns["RegistrationDate"].Visible = false;
             productList.Columns["ModifiedBy"].Visible = false;
             productList.Columns["ModificationDate"].Visible = false;
+            productList.Columns["Total"].Visible = false;
 
         }
 

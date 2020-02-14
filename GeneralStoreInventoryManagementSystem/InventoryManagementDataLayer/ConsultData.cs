@@ -417,6 +417,52 @@ namespace InventoryManagementDataLayer
         }
 
         /// <summary>
+        /// This function fetches the contes of a completed transaction
+        /// </summary>
+        /// <param name="saleId">Identification number of the transaction</param>
+        /// <returns>A list of the content of said transaction</returns>
+        public static List<Product> FetchTransactionContentData(String saleId)
+        {
+            List<Product> content = new List<Product>(); // List to host the resulting products included in the transaction
+
+            // Define which query command will be executed 
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Fetch_Transaction_Content_By_Sales_Id", // Stored procedure incharged of fetching required data 
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            #region Parameters
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@sale_id", SqlDbType.VarChar, 10).Value = saleId;
+            #endregion
+
+            // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
+            SqlDataReader sqlDataReader;
+            sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader
+
+            // Running through the individual rows of the result set until done
+            while (sqlDataReader.Read())
+            {
+                Product product = new Product();
+
+                #region Assigning the corresponding values to their variables
+                product.Name = sqlDataReader["fld_product_name"].ToString();
+                product.Unit = sqlDataReader["fld_product_unit"].ToString();
+                product.Brand = sqlDataReader["fld_brand_name"].ToString();
+                product.Quantity = FormatToInt(sqlDataReader["fld_product_quantity"].ToString());
+                product.UnitPrice = FormatToDecimal(sqlDataReader["fld_product_unit_price"].ToString());
+                product.Total = FormatToDecimal(sqlDataReader["total"].ToString());
+                #endregion
+
+                content.Add(product);
+            }
+
+            DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database
+
+            return content;
+        }
+
+        /// <summary>
         /// This function fetech the data of a completed transaction
         /// </summary>
         /// <param name="saleId">Identification number of the transaction</param>
@@ -434,6 +480,7 @@ namespace InventoryManagementDataLayer
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@sale_id", SqlDbType.VarChar, 10).Value = saleId;
             #endregion
+
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
             SqlDataReader sqlDataReader;
             sqlDataReader = cmd.ExecuteReader(); // Executing the corresponding stored procedure and saving the result into the reader

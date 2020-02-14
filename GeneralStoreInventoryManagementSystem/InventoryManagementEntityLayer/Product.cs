@@ -26,6 +26,7 @@ namespace InventoryManagementEntityLayer
         private String modifiedBy; // username of last person to modify the product's information
         private DateTime modificationDate; // date the product's information was last modified
         private Boolean discontinued; // State of product within the general store
+        private Decimal total;
 
         #region Gets and Sets
         public string Id
@@ -259,6 +260,19 @@ namespace InventoryManagementEntityLayer
             set
             {
                 discontinued = value;
+            }
+        }
+
+        public decimal Total
+        {
+            get
+            {
+                return total;
+            }
+
+            set
+            {
+                total = value;
             }
         }
         #endregion

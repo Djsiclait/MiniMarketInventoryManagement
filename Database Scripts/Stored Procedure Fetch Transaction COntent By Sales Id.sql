@@ -1,11 +1,12 @@
 CREATE PROC SP_Fetch_Transaction_Content_By_Sales_Id
-	@sales_id varchar(10)
+	@sale_id varchar(10)
 AS
 	BEGIN
 		
 		Select 
 			B.fld_product_name,
 			C.fld_brand_name,
+			B.fld_product_unit,
 			A.fld_product_quantity,
 			A.fld_product_unit_price,
 			(A.fld_product_quantity * A.fld_product_unit_price) AS total
@@ -14,7 +15,7 @@ AS
 		left join Tbl_Products as B on B.fld_product_id = A.fld_product_id 
 		left join Tbl_Product_Brands as C on C.fld_brand_id = B.fld_product_brand
 		Where
-			fld_sale_id = @sales_id
+			fld_sale_id = @sale_id
 
 	END
 

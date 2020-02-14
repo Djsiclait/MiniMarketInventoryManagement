@@ -260,10 +260,13 @@ namespace GeneralStoreInventoryManagementSystem
         #region Double Click Logic
         private void SalesList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            SaleInformationTemplateForm child = new SaleInformationTemplateForm(salesList.SelectedCells[0].Value.ToString());
-            child.Show(); Console.WriteLine("FUCK YOU!!!!");
+            if (!SystemProtocols.ApplySessionsProtocols(1, null, null)) // option only available for non basic users
+            {
+                SaleInformationTemplateForm child = new SaleInformationTemplateForm(salesList.SelectedCells[0].Value.ToString());
+                child.Show();
 
-            children.Add(child);
+                children.Add(child);
+            }
         }
         #endregion
 

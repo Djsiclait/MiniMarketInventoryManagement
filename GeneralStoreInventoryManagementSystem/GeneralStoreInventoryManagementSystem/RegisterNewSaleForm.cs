@@ -364,6 +364,7 @@ namespace GeneralStoreInventoryManagementSystem
             productDataGridView.Columns["ModifiedBy"].Visible = false;
             productDataGridView.Columns["ModificationDate"].Visible = false;
             productDataGridView.Columns["Discontinued"].Visible = false;
+            productDataGridView.Columns["Total"].Visible = false;
 
             // Formationg columns
             productDataGridView.Columns["Brand"].Width = 70;
@@ -400,6 +401,7 @@ namespace GeneralStoreInventoryManagementSystem
                 cartSummaryDataGridView.Columns["ModifiedBy"].Visible = false;
                 cartSummaryDataGridView.Columns["ModificationDate"].Visible = false;
                 cartSummaryDataGridView.Columns["Discontinued"].Visible = false;
+                cartSummaryDataGridView.Columns["Total"].Visible = false;
 
                 // Formationg columns
                 cartSummaryDataGridView.Columns["Name"].Width = 180;

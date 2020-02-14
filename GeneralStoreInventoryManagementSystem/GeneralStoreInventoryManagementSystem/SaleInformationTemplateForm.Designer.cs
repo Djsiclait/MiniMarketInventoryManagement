@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.saleIdLabel = new System.Windows.Forms.Label();
             this.saleDateLabel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contentDataGridView = new System.Windows.Forms.DataGridView();
             this.numberOfItemsLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.statusLabel = new System.Windows.Forms.Label();
             this.deliveryCheckBox = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // identificationNumberLabel
@@ -83,13 +83,21 @@
             this.saleDateLabel.TabIndex = 3;
             this.saleDateLabel.Text = "label2";
             // 
-            // dataGridView1
+            // contentDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(229, 13);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(393, 281);
-            this.dataGridView1.TabIndex = 4;
+            this.contentDataGridView.AllowUserToAddRows = false;
+            this.contentDataGridView.AllowUserToDeleteRows = false;
+            this.contentDataGridView.AllowUserToResizeColumns = false;
+            this.contentDataGridView.AllowUserToResizeRows = false;
+            this.contentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.contentDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.contentDataGridView.Location = new System.Drawing.Point(229, 13);
+            this.contentDataGridView.Name = "contentDataGridView";
+            this.contentDataGridView.ReadOnly = true;
+            this.contentDataGridView.RowHeadersVisible = false;
+            this.contentDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.contentDataGridView.Size = new System.Drawing.Size(485, 281);
+            this.contentDataGridView.TabIndex = 4;
             // 
             // numberOfItemsLabel
             // 
@@ -165,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 334);
+            this.ClientSize = new System.Drawing.Size(726, 334);
             this.Controls.Add(this.deliveryCheckBox);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.label3);
@@ -173,18 +181,18 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.numberOfItemsLabel);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.contentDataGridView);
             this.Controls.Add(this.saleDateLabel);
             this.Controls.Add(this.saleIdLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.identificationNumberLabel);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(655, 372);
-            this.MinimumSize = new System.Drawing.Size(655, 372);
+            this.MaximumSize = new System.Drawing.Size(742, 372);
+            this.MinimumSize = new System.Drawing.Size(742, 372);
             this.Name = "SaleInformationTemplateForm";
             this.Text = "Sale Information: ";
             this.Load += new System.EventHandler(this.SaleInformationTemplateForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contentDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +204,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label saleIdLabel;
         private System.Windows.Forms.Label saleDateLabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView contentDataGridView;
         private System.Windows.Forms.Label numberOfItemsLabel;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Label label2;
