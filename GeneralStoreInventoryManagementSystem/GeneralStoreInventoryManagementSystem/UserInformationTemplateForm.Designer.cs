@@ -297,6 +297,8 @@
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.userTitleLabel);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(723, 451);
+            this.MinimumSize = new System.Drawing.Size(723, 451);
             this.Name = "UserInformationTemplateForm";
             this.Text = "User Profile";
             this.Load += new System.EventHandler(this.UserInformationTemplateForm_Load);

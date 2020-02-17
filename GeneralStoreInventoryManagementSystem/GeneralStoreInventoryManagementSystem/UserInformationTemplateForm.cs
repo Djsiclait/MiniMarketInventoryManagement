@@ -87,7 +87,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ChangeAccessLevelButtom_Click(object sender, EventArgs e)
         {
             // Requesting a access level change for a target user
-            UpdateInformation.ChangeTargetUserAccessLevelData(user.Username, user.Role == "Admin" ? "User" : "Admin");
+            UserInformationManager.ChangeTargetUserAccessLevelInformation(user.Username, user.Role == "Admin" ? "User" : "Admin");
 
             // Updating information of the form
             user.Role = user.Role == "Admin" ? "User" : "Admin";
@@ -110,12 +110,12 @@ namespace GeneralStoreInventoryManagementSystem
         private void SuspendUserButton_Click(object sender, EventArgs e)
         {
             // Requesting status change of terget user account
-            UpdateInformation.ChangeTargerUserStatusInformation(user.Username, user.Status == "Active" ? 1 : 0, user.Status);
+            UserInformationManager.ChangeTargerUserStatusInformation(user.Username, user.Status == "Active" ? 1 : 0, user.Status == "Active" ? "Inactive" : "Active");
 
             // Updating form information
             user.Status = user.Status == "Active" ? "1" : "0";
             statusTextBox.Text = user.Status;
-            suspendUserButton.Text = user.Status == "Active" ? "Suspend User" : "ReinstateUser";
+            suspendUserButton.Text = user.Status == "Active" ? "Suspend User" : "Reinstate User";
 
             // Refreshing and updating information of parent form
             FormsMenuList.usersRegistryForm.RefreshDatagridInformation();
