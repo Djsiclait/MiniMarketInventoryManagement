@@ -16,7 +16,7 @@ CREATE PROC SP_Register_New_Product
 AS
 	BEGIN
 
-		IF exists (select 1 from Tbl_Products where fld_product_name = @name and fld_product_brand = @brand and fld_product_supplier = @supplier and fld_product_unit = @unit and fld_product_unit_cost = @cost)
+		IF exists (select 1 from Tbl_Products where fld_product_name = UPPER(@name) and fld_product_brand = (select fld_brand_id from Tbl_Product_Brands where fld_brand_name = UPPER(@brand)) and fld_product_supplier = (select fld_supplier_id from Tbl_Suppliers where fld_supplier_name = UPPER(@supplier)) and fld_product_unit = UPPER(@unit) and fld_product_unit_cost = @cost)
 			set @message = 'This product is already registered with the same information'
 		ELSE
 			BEGIN
@@ -69,9 +69,9 @@ AS
 					@new_product_id,
 					@key,
 					Upper(@name),
-					(select fld_brand_id from Tbl_Product_Brands where fld_brand_name = @brand),
-					(select fld_supplier_id from Tbl_Suppliers where fld_supplier_name = @supplier),
-					Upper(@unit),
+					(select fld_brand_id from Tbl_Product_Brands where fld_brand_name = UPPER(@brand)),
+					(select fld_supplier_id from Tbl_Suppliers where fld_supplier_name = UPPER(@supplier)),
+					UPPER(@unit),
 					@category_id,
 					@type_id,
 					@cost,
@@ -91,18 +91,28 @@ AS
 
 go
 
+Begin Tran
+
 Declare @message varchar(300)
 
-exec SP_Register_New_Product '2%', 'Leche Descremada 2%', 'Rica', 'Rica', '500 ml', 'LACTEO', 'PRODUCTO', 35.00, 75.00, 40, 10, 50, 'p.siclait', @message output
+exec SP_Register_New_Product '', 'Leche Descremada 2%', 'Rica', 'Rica', '500 ml', 'LACTEO', 'PRODUCTO', 35.00, 75.00, 40, 10, 50, 'p.siclait', @message output
+select @message
 exec SP_Register_New_Product 'Sin Lactosa', 'Leche Sin Lactosa', 'Rica', 'Rica', '1000 ml', 'LACTEO', 'PRODUCTO', 45.00, 85.00, 45, 5, 30, 'b.siclait', @message output
-exec SP_Register_New_Product 'Leche 2%', 'Leche Descremada 2%', 'Rica', '', '500 ml', 'LACTEO', 'PRODUCTO', 35.00, 75.00, 10, 10, 50, 'p.siclait', @message output
+select @message
+exec SP_Register_New_Product '', 'Leche Descremada 2%', 'Rica', '', '500 ml', 'LACTEO', 'PRODUCTO', 35.00, 75.00, 10, 10, 50, 'p.siclait', @message output
+select @message
 exec SP_Register_New_Product 'Coronita', 'Corona', 'Presidente', 'Presidente', '255 ml', 'CERVEZA', 'PRODUCTO', 40.00, 80.00, 68, 50, 100, 'n.siclait', @message output
+select @message
 exec SP_Register_New_Product '', 'Sazon Completo Multi Vitaminas', 'Maggi', 'Maggi', 'unidad', 'SAZON', 'PRODUCTO', 1.00, 7.00, 150, 200, 400, 'super.admin', @message output
+select @message
 exec SP_Register_New_Product 'Pasta Nacional', 'Espagheti La Nacional', 'Goya', 'Suplidor Nacional', '16 oz', 'PASTA', 'PRODUCTO', 10.00, 15.00, 8, 10, 30, 'super.admin', @message output
+select @message
 exec SP_Register_New_Product '', 'Espagheti La Famosa', 'La Famosa', 'Suplidor Nacional', '32 oz', 'PASTA', 'PRODUCTO', 25.00, 23.00, 40, 20, 30, 'super.admin', @message output
+select @message
 
 select * from Tbl_Products
 
+ROLLBACK
 
 
 

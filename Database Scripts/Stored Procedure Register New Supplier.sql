@@ -1,4 +1,4 @@
-CREATE PROC SP_Register_New_Supplier
+Alter PROC SP_Register_New_Supplier
 	@name varchar(100),
 	@phone_number varchar(100),
 	@email varchar(200),
@@ -6,7 +6,7 @@ CREATE PROC SP_Register_New_Supplier
 AS
 	BEGIN
 		
-		IF exists(select 1 from Tbl_Suppliers where fld_supplier_name = @name)
+		IF exists(select 1 from Tbl_Suppliers where fld_supplier_name = UPPER(@name))
 			set @message = 'This supplier is already registered'
 		ELSE 
 			BEGIN
@@ -24,7 +24,7 @@ AS
 				Values
 				(
 					@new_supplier_id,
-					@name,
+					UPPER(@name),
 					@phone_number,
 					@email
 				)
@@ -37,6 +37,8 @@ AS
 
 go
 
+begin tran
+
 Declare @message varchar(300)
 
 exec SP_Register_New_Supplier '', '', '', @message output
@@ -47,13 +49,14 @@ exec SP_Register_New_Supplier 'Maggi', '', '', @message output
 select @message
 exec SP_Register_New_Supplier 'Presidente', '', 'presidente@gmail.com', @message output
 select @message
-exec SP_Register_New_Supplier 'Eduardo Cosme Agente Preidente', '8096606263', 'e.c.presidente@gmail.com', @message output
+exec SP_Register_New_Supplier 'Eduardo Cosme Agente de Presidente', '8096606263', 'e.c.presidente@gmail.com', @message output
 select @message
 exec SP_Register_New_Supplier 'Suplidor Nacional', '8292184635', '', @message output
 select @message
 
 select * from Tbl_Suppliers
 
+rollback
 
 
 

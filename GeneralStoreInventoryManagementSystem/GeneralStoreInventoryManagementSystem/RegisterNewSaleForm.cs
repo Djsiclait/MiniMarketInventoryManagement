@@ -349,7 +349,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateProductDataGrid()
         {
             // TODO: Create a separate fetchproduct list for this form
-            productDataGridView.DataSource = ConsultInformation.FetchProductListInformation(productSearchTextBox.Text);
+            productDataGridView.DataSource = ConsultInformation.FetchProductListInformation(productSearchTextBox.Text);//, true);
 
             // Hidding unnecessary fields
             productDataGridView.Columns["Id"].Visible = false;

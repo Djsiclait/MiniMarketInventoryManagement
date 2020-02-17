@@ -273,14 +273,15 @@ namespace InventoryManagementDataLayer
         /// </summary>
         /// <param name="userPermission">User's role which defines his level of access to the data</param>
         /// <param name="keyWord">Key word to enable specific filtered searhs</param>
+        /// <param name="format">Inventory management accounting system to organize the catalog according to LIFO and FIFO</param>
         /// <returns>a list of products registered with the system</returns>
-        public static List<Product> FetchProductListData(String userPermission, String keyWord)
+        public static List<Product> FetchProductListData(String userPermission, String keyWord, String format)
         {
             List<Product> inventory = new List<Product>(); // List to host the resulting products of the registred inventory
 
             // Define which query command will be executed 
             SqlCommand cmd = new SqlCommand(
-                    "SP_Fetch_Product_List", // Stored procedure incharged of fetching required data 
+                    "SP_Fetch_Product_List_For_Browsing", // Stored procedure incharged of fetching required data 
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -288,6 +289,7 @@ namespace InventoryManagementDataLayer
             // Declaring the parameters required by the stored procedure to execute it's pre defined command
             cmd.Parameters.Add("@user_permission", SqlDbType.VarChar, 100).Value = userPermission; // variable to verify the user's role
             cmd.Parameters.Add("@key_word", SqlDbType.VarChar, 300).Value = keyWord; // key word to filter the result set based on regular expressions
+            cmd.Parameters.Add("@format", SqlDbType.VarChar, 10).Value = format;
             #endregion
 
             // Creating port to database to import and read the resulting query; equivilente to how an sql cursor works 
@@ -300,20 +302,30 @@ namespace InventoryManagementDataLayer
                 Product product = new Product(); // Creating a new product
 
                 #region Assigning the corresponding values to their variables
-                product.Id = sqlDataReader["fld_product_id"].ToString();
-                product.Key = sqlDataReader["fld_product_key"].ToString();
-                product.Name = sqlDataReader["fld_product_name"].ToString();
-                product.Brand = sqlDataReader["fld_brand_name"].ToString();
-                product.Unit = sqlDataReader["fld_product_unit"].ToString();
-                product.UnitPrice = FormatToDecimal(sqlDataReader["fld_product_unit_price"].ToString());
-                product.Quantity = FormatToInt(sqlDataReader["fld_product_quantity"].ToString());
-
                 // Data exclusive to higher level access users
                 if (userPermission != "User")
                 {
+                    product.Id = sqlDataReader["fld_product_id"].ToString();
+                    product.Key = sqlDataReader["fld_product_key"].ToString();
+                    product.Name = sqlDataReader["fld_product_name"].ToString();
+                    product.Brand = sqlDataReader["fld_brand_name"].ToString();
                     product.Supplier = sqlDataReader["fld_supplier_name"].ToString();
+                    product.Unit = sqlDataReader["fld_product_unit"].ToString();
                     product.UnitCost = FormatToDecimal(sqlDataReader["fld_product_unit_cost"].ToString());
+                    product.UnitPrice = FormatToDecimal(sqlDataReader["fld_product_unit_price"].ToString());
+                    product.Quantity = FormatToInt(sqlDataReader["fld_product_quantity"].ToString());
                     product.Discontinued = FormatToBoolean(sqlDataReader["fld_product_discontinued"].ToString());
+                    product.RegistrationDate = DateTime.Parse(sqlDataReader["fld_product_registration_date"].ToString());
+                }
+                else
+                {
+                    product.Id = sqlDataReader["product_id"].ToString(); 
+                    product.Key = sqlDataReader["product_key"].ToString();
+                    product.Name = sqlDataReader["fld_product_name"].ToString();
+                    product.Brand = sqlDataReader["fld_brand_name"].ToString();
+                    product.Unit = sqlDataReader["fld_product_unit"].ToString();
+                    product.UnitPrice = FormatToDecimal(sqlDataReader["unit_price"].ToString());
+                    product.Quantity = FormatToInt(sqlDataReader["quantity"].ToString());
                 }
                 #endregion
 

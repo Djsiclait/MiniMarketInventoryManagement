@@ -221,11 +221,12 @@ namespace InventoryManagementDataLayer
         /// This fucntion registeres all products that have been purchased in a sales transaction
         /// </summary>
         /// <param name="boughtProduct">A product object that has been placed in the cart and purchased</param>
-        /// <param name="saleId">The sale treansaction id of the purchase</param>
-        public static void RegisterSalesTransactionContentData(Product boughtProduct, String saleId)
+        /// <param name="saleId">The sale transaction id of the purchase</param>
+        /// <param name="format">Inventory management accounting system to organize the catalog according to LIFO and FIFO</param>
+        public static void RegisterSalesTransactionContentData(Product boughtProduct, String saleId, string format)
         {
             SqlCommand cmd = new SqlCommand(
-                    "SP_Register_Sales_Content", // Stored procedure dedicated to insert new data
+                    "SP_Register_Sales_Content_FIFO_LIFO", // Stored procedure dedicated to insert new data
                     DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager
             cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
 
@@ -233,8 +234,11 @@ namespace InventoryManagementDataLayer
             // Declaring an output variable
             cmd.Parameters.Add("@product_id", SqlDbType.VarChar, 10).Value = boughtProduct.Id;
             cmd.Parameters.Add("@sale_id", SqlDbType.VarChar, 10).Value = saleId;
+            cmd.Parameters.Add("@brand", SqlDbType.VarChar, 100).Value = boughtProduct.Brand;
+            cmd.Parameters.Add("@unit", SqlDbType.VarChar, 30).Value = boughtProduct.Unit;
             cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = boughtProduct.Quantity;
             cmd.Parameters.Add("@unit_price", SqlDbType.Decimal).Value = boughtProduct.UnitPrice / boughtProduct.Quantity;
+            cmd.Parameters.Add("@format", SqlDbType.VarChar, 10).Value = format;
             #endregion
 
             Int32 reply;
