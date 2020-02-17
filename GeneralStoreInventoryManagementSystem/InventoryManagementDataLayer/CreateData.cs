@@ -221,9 +221,9 @@ namespace InventoryManagementDataLayer
         /// This fucntion registeres all products that have been purchased in a sales transaction
         /// </summary>
         /// <param name="boughtProduct">A product object that has been placed in the cart and purchased</param>
-        /// <param name="saleId">The sale treansaction id of the purchase</param>
+        /// <param name="saleId">The sale transaction id of the purchase</param>
         /// <param name="format">Inventory management accounting system to organize the catalog according to LIFO and FIFO</param>
-        public static void RegisterSalesTransactionContentData(Product boughtProduct, String saleId, String format)
+        public static void RegisterSalesTransactionContentData(Product boughtProduct, String saleId, string format)
         {
             SqlCommand cmd = new SqlCommand(
                     "SP_Register_Sales_Content_FIFO_LIFO", // Stored procedure dedicated to insert new data
