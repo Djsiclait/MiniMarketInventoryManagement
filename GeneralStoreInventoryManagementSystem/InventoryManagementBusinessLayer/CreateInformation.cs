@@ -126,7 +126,7 @@ namespace InventoryManagementBusinessLayer
         /// <param name="saleId">The sale treansaction id of the purchase</param>
         public static void RegisterSalesTransactionContentInformation(Product boughtProduct, String saleId)
         {
-            CreateData.RegisterSalesTransactionContentData(boughtProduct, saleId);
+            CreateData.RegisterSalesTransactionContentData(boughtProduct, saleId, "FIFO");
         }
     }
 }
