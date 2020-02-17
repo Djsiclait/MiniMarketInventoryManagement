@@ -107,6 +107,11 @@ namespace InventoryManagementBusinessLayer
                 return new List<Product>(); // returning an empty list given invalid user status
         }
 
+        public static void fuckyou()
+        {
+            Console.WriteLine("FUCK THIS COMPILER");
+        }
+
         /// <summary>
         /// This function returns a record of all transactions registered in the system
         /// </summary>
