@@ -9,8 +9,8 @@ AS
 			Select
 				(
 					CASE 
-						WHEN @format = 'FIFO' THEN (select MIN(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name) 
-						WHEN @format = 'LIFO' THEN (select MAX(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name)
+						WHEN @format = 'FIFO' THEN (select MIN(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name and fld_product_brand = B.fld_brand_id) 
+						WHEN @format = 'LIFO' THEN (select MAX(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name and fld_product_brand = B.fld_brand_id)
 					END
 				) as product_id,
 				MAX(A.fld_product_key) as product_key,
@@ -63,10 +63,10 @@ AS
 				A.fld_product_name,
 				CASE 
 					WHEN @format = 'LIFO' THEN A.fld_product_registration_date 
-				END ASC, --LIFO
+				END DESC, --LIFO
 				CASE 
 					WHEN @format = 'FIFO' THEN A.fld_product_registration_date
-				END DESC --FIFO
+				END ASC --FIFO
 
 	END
 

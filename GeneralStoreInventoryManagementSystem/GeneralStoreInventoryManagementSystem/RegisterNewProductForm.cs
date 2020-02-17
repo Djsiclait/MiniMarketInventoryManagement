@@ -315,7 +315,7 @@ namespace GeneralStoreInventoryManagementSystem
                     ClearFormBuffer();
                 }
                 else
-                    MessageBox.Show("Fatal Error!");
+                    MessageBox.Show("Product, " + nameTextBox.Text.ToUpper() + ", was already registered with the same information.");
             }
             else
                 MessageBox.Show("Plesae fill in all information correctly.");
