@@ -273,7 +273,7 @@ namespace InventoryManagementDataLayer
         /// </summary>
         /// <param name="userPermission">User's role which defines his level of access to the data</param>
         /// <param name="keyWord">Key word to enable specific filtered searhs</param>
-        /// <param name="format">Inventory management accounting system to organize the catalog according to LIFO and FIF</param>
+        /// <param name="format">Inventory management accounting system to organize the catalog according to LIFO and FIFO</param>
         /// <returns>a list of products registered with the system</returns>
         public static List<Product> FetchProductListData(String userPermission, String keyWord, String format)
         {
