@@ -38,7 +38,8 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             PopulateProductListDataGrid(); // Initializing the data grid upon load
-
+            ConsultInformation.fuckyou();
+            ConsultInformation.fuckyou2();
             // Executing correct activity according to given code
             SystemProtocols.ApplyActivityProtocols("INV1", null, null);
         }

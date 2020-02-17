@@ -112,6 +112,11 @@ namespace InventoryManagementBusinessLayer
             Console.WriteLine("FUCK THIS COMPILER");
         }
 
+        public static void fuckyou2()
+        {
+            Console.WriteLine("FUCK THIS SHIT");
+        }
+
         /// <summary>
         /// This function returns a record of all transactions registered in the system
         /// </summary>
