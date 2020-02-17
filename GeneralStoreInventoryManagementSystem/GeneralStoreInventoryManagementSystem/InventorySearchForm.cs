@@ -271,7 +271,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateProductListDataGrid()
         {
             // Requesting information to populate the product list 
-            productList.DataSource = ConsultInformation.FetchProductListInformation(inventorySearchBox.Text);
+            productList.DataSource = ConsultInformation.FetchProductListInformation(inventorySearchBox.Text);//, false);
 
             //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
             //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;

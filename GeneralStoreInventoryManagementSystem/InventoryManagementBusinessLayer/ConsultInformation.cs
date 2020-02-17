@@ -97,7 +97,7 @@ namespace InventoryManagementBusinessLayer
         /// </summary>
         /// <param name="keyWord">Key word to enable specific filtered searches</param>
         /// <returns>A list of products registered with the system</returns>
-        public static List<Product> FetchProductListInformation(String keyWord)
+        public static List<Product> FetchProductListInformation(String keyWord)//, bool forSale)
         {
             // Verifying user's status before providing requested information
             if (SystemResources.UserInSession.Status == "Active")
@@ -105,6 +105,11 @@ namespace InventoryManagementBusinessLayer
                 return ConsultData.FetchProductListData(SystemResources.UserInSession.Role, keyWord, "FIFO"); // Fetching and returning the inventory product list information 
             else
                 return new List<Product>(); // returning an empty list given invalid user status
+        }
+
+        public static void fuckyou()
+        {
+            Console.WriteLine("FUCK THIS COMPILER");
         }
 
         /// <summary>
