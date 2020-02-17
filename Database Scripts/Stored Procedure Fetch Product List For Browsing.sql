@@ -7,12 +7,18 @@ AS
 		
 		IF @user_permission = 'User'
 			Select
+				(
+					CASE 
+						WHEN @format = 'FIFO' THEN (select MIN(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name) 
+						WHEN @format = 'LIFO' THEN (select MAX(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name)
+					END
+				) as product_id,
 				MAX(A.fld_product_key) as product_key,
 				A.fld_product_name,
 				B.fld_brand_name,
 				A.fld_product_unit,
-				Max(A.fld_product_unit_price) as unit_price,
-				Sum(A.fld_product_quantity) as quantity
+				MAX(A.fld_product_unit_price) as unit_price,
+				SUM(A.fld_product_quantity) as quantity
 			From
 				Tbl_Products as A 
 			left join Tbl_Product_Brands as B on B.fld_brand_id = A.fld_product_brand
@@ -67,7 +73,7 @@ AS
 go
 
 Exec SP_Fetch_Product_List_For_Browsing 'Admin', '2%', 'LIFO'
-Exec SP_Fetch_Product_List_For_Browsing 'User', '2%', 'FIFO'
+Exec SP_Fetch_Product_List_For_Browsing 'User', '2%', 'LIFO'
 
 
 

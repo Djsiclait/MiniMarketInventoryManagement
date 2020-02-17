@@ -101,7 +101,8 @@ namespace InventoryManagementBusinessLayer
         {
             // Verifying user's status before providing requested information
             if (SystemResources.UserInSession.Status == "Active")
-                return ConsultData.FetchProductListData(SystemResources.UserInSession.Role, keyWord); // Fetching and returning the inventory product list information 
+                // TODO: Implement inventory management accounting system 
+                return ConsultData.FetchProductListData(SystemResources.UserInSession.Role, keyWord, "FIFO"); // Fetching and returning the inventory product list information 
             else
                 return new List<Product>(); // returning an empty list given invalid user status
         }
