@@ -256,11 +256,14 @@ namespace GeneralStoreInventoryManagementSystem
         #region Function that allows users to view the quick summary of a selected product
         private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Declare an non oficial auxiliary form to display product information, given a product's internal identification number
-            ProductInformationTemplateForm child = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
-            child.Show(); // Summon the temporary summary form 
+            if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+            {
+                // Declare an non oficial auxiliary form to display product information, given a product's internal identification number
+                ProductInformationTemplateForm child = new ProductInformationTemplateForm(productList.SelectedCells[0].Value.ToString());
+                child.Show(); // Summon the temporary summary form 
 
-            children.Add(child); // adding product to list of children
+                children.Add(child); // adding product to list of children
+            }
         }
         #endregion
 
