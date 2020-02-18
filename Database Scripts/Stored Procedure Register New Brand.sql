@@ -20,7 +20,7 @@ AS
 				Values
 				(
 					@new_brand_id,
-					@name
+					UPPER(@name)
 				)
 
 				set @message = 'Brand has been registered successfully!'
