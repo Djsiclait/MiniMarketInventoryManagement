@@ -33,7 +33,7 @@ namespace GeneralStoreInventoryManagementSystem
         #endregion
 
         #region Button Click Logic
-        private void voidSaleButton_Click(object sender, EventArgs e)
+        private void VoidSaleButton_Click(object sender, EventArgs e)
         {
             if (sale.Status == "Valid")
             {

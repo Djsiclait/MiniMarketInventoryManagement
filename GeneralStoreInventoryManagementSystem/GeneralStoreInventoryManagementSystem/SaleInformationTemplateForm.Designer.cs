@@ -189,7 +189,7 @@
             this.voidSaleButton.TabIndex = 12;
             this.voidSaleButton.Text = "Void Sale";
             this.voidSaleButton.UseVisualStyleBackColor = false;
-            this.voidSaleButton.Click += new System.EventHandler(this.voidSaleButton_Click);
+            this.voidSaleButton.Click += new System.EventHandler(this.VoidSaleButton_Click);
             // 
             // returnItemsButton
             // 
