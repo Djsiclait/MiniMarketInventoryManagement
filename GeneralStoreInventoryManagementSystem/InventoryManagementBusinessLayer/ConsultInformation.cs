@@ -13,37 +13,6 @@ namespace InventoryManagementBusinessLayer
     public static class ConsultInformation
     {
         /// <summary>
-        /// This function retrieves the information needed for the activity log list, according to the user's role
-        /// It also allows the user to specify key words loosely to filter the information via username, description, and type
-        /// </summary>
-        /// <param name="keyWord">Key word to enable specific filtered searches</param>
-        /// <param name="last24Hours">Indicator to specify if searches should be limmited to the last 24 hours of activity</param>
-        /// <returns>A list of activities registered in the system</returns>
-        public static List<Activity> FetchActivityListInformation(String keyWord, bool last24Hours)
-        {
-            // Verifying user's status before providing requested information
-            if (SystemResources.UserInSession.Status == "Active")
-                return ConsultData.FetchActivityListData(SystemResources.UserInSession.Role, keyWord, last24Hours);
-            else
-                return new List<Activity>(); // returning an empty list given invalid user status
-        }
-
-        /// <summary>
-        /// This fucntion fetches the activities of a specific user
-        /// </summary>
-        /// <param name="username">Target username</param>
-        /// <param name="keyWord">Key word to enable specific filtered searches</param>
-        /// <returns>A list of activities registered in the system by the target user</returns>
-        public static List<Activity> FetchActivityListInformationByUsername(String username, String keyWord)
-        {
-            // Verifying user's status before providing requested information
-            if (SystemResources.UserInSession.Status == "Active")
-                return ConsultData.FetchActivityListDataByUsername(SystemResources.UserInSession.Role, username, keyWord);
-            else
-                return new List<Activity>(); // returning an empty list given invalid user status
-        }
-
-        /// <summary>
         /// This fucntion fetches the list of registered brands
         /// </summary>
         /// <param name="keyWord">Key word to enable specific filtered searches</param>

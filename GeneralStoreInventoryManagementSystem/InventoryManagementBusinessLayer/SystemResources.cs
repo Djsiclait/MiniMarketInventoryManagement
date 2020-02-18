@@ -63,7 +63,7 @@ namespace InventoryManagementBusinessLayer
         public static void RecordActivity(String username, String description, String type)
         {
             // Registering new activity
-            CreateInformation.RegisterNewUserActivityInformation(new Activity(username, description, type));
+            ActivityInformationManager.RegisterNewActivityInformation(new Activity(username, description, type));
         }
 
         /// <summary>

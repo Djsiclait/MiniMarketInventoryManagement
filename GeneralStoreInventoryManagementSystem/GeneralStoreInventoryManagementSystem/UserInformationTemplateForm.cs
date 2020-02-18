@@ -129,7 +129,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateActivityList()
         {
             // Requesting a user's activities
-            activityList.DataSource = ConsultInformation.FetchActivityListInformationByUsername(user.Username, activitySearchBox.Text);
+            activityList.DataSource = ActivityInformationManager.ConsultActivityListInformationByUsername(user.Username, activitySearchBox.Text);
 
             // Formating data grid
             activityList.Columns["Username"].Visible = false;

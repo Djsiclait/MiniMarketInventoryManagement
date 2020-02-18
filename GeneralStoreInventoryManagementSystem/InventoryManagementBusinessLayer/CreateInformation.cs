@@ -66,15 +66,6 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// This function registers any system or user activity
-        /// </summary>
-        /// <param name="activity">Activity entity with necessary information</param>
-        public static void RegisterNewUserActivityInformation(Activity activity)
-        {
-            CreateData.RegisterNewUserActivityData(activity);
-        }
-
-        /// <summary>
         /// This function registers new suppliers
         /// </summary>
         /// <param name="name">Name of new supplier</param>

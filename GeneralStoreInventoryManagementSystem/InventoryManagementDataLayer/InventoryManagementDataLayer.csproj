@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityDataManager.cs" />
     <Compile Include="ConsultData.cs" />
     <Compile Include="CreateData.cs" />
     <Compile Include="DatabaseManager.cs" />

@@ -221,7 +221,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateActivityListDataGrid()
         {
             // Requesting information to populate the activities log
-            activityList.DataSource = ConsultInformation.FetchActivityListInformation(activitySearchBox.Text, false);
+            activityList.DataSource = ActivityInformationManager.ConsultActivityListInformation(activitySearchBox.Text, false);
 
             // Hiding unnecessary fields
             activityList.Columns["Description"].Width = 550;

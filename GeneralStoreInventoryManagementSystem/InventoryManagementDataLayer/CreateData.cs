@@ -155,32 +155,7 @@ namespace InventoryManagementDataLayer
 
             return cmd.Parameters["@sale_id"].Value.ToString(); // returning the new sales identification of the transaction
         }
-
-        /// <summary>
-        /// This function receives an activity object to register a system or user activity
-        /// </summary>
-        /// <param name="activity">Activity object containing the assigned information for creation</param>
-        public static void RegisterNewUserActivityData(Activity activity)
-        {
-            // Define which query command will be executed 
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Register_New_Activity", // Stored procedure dedicated to insert new activity data
-                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
-            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
-
-            #region Parameters
-            // Declaring the parameters required by the stored procedure to execute it's pre defined command
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = activity.Username; // variable to define the username currently in session
-            cmd.Parameters.Add("@description", SqlDbType.VarChar, 300).Value = activity.Description; // defining the description of the activity
-            cmd.Parameters.Add("@type", SqlDbType.VarChar, 100).Value = activity.Type; // defining the type of activity
-            #endregion
-
-            Int32 reply;
-            reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
-
-            DatabaseManager.DisconnectToDatabase(); // Closing connection with database
-        }
-
+        
         /// <summary>
         /// This fucntion registeres all products that have been purchased in a sales transaction
         /// </summary>
