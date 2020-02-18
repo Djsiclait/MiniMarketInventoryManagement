@@ -7,6 +7,8 @@ CREATE TABLE Tbl_Sales
 	fld_sale_date datetime Default GETDATE(),
 	fld_sold_by varchar(50) Not Null, ---- User that completed the sale
 	fld_sale_status tinyint Default 0,
+	fld_sale_parent varchar(10) Default '',
+	fld_sale_child varchar(10) Default '',
 
 	Primary Key (fld_sale_id)
 )
