@@ -276,7 +276,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void PopulateSalesDataGrid()
         {
-            salesList.DataSource = ConsultInformation.FetchSalesRecordsInformation(salesSearchBox.Text);
+            salesList.DataSource = SaleInformationManager.ConsultSalesRecordsInformation(salesSearchBox.Text);
 
             // Formating the flieds
             salesList.Columns["TransactionDate"].Width = 350;

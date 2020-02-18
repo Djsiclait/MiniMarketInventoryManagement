@@ -47,8 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActivityDataManager.cs" />
-    <Compile Include="ConsultData.cs" />
-    <Compile Include="CreateData.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

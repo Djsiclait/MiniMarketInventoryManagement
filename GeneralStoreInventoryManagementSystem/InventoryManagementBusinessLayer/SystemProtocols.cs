@@ -366,13 +366,13 @@ namespace InventoryManagementBusinessLayer
             {
                 case 1: // Registering a new transaction
 
-                    String saleId = CreateInformation.RegisterNewSalesTransactionInformation(sale);
+                    String saleId = SaleInformationManager.CreateNewSalesTransactionInformation(sale);
 
                     if (saleId != null || saleId != "")
                     {
                         foreach (Product item in SystemResources.Cart)
                         {
-                            CreateInformation.RegisterSalesTransactionContentInformation(item, saleId);
+                            SaleInformationManager.CreateNewSalesTransactionContentInformation(item, saleId);
                         }
 
                         SystemResources.EmptyCart();

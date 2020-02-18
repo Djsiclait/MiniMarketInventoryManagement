@@ -39,7 +39,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// <param name="saleId">Identification number of the desired transaction</param>
         private void DisplayTransactionInformation(String saleId)
         {
-            sale = ConsultInformation.FetchTransactionInformationBySalesId(saleId);
+            sale = SaleInformationManager.ConsultTransactionInformationBySalesId(saleId);
 
             this.Text += " " + sale.Id;
 
@@ -55,7 +55,7 @@ namespace GeneralStoreInventoryManagementSystem
             contentDataGridView.DataSource = new List<Product>();
             contentDataGridView.Refresh();
 
-            List<Product> content = ConsultInformation.FetchTransactionContentInformation(sale.Id);
+            List<Product> content = SaleInformationManager.ConsultTransactionContentInformation(sale.Id);
 
             if (content.Count > 0)
             {
