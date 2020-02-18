@@ -17,6 +17,7 @@ namespace InventoryManagementEntityLayer
         private int status;
         private String parent;
         private String child;
+        private DateTime lastModified;
 
         #region Getters and Setters
         public string Id
@@ -147,6 +148,19 @@ namespace InventoryManagementEntityLayer
             set
             {
                 child = value;
+            }
+        }
+
+        public DateTime LastModified
+        {
+            get
+            {
+                return lastModified;
+            }
+
+            set
+            {
+                lastModified = value;
             }
         }
         #endregion

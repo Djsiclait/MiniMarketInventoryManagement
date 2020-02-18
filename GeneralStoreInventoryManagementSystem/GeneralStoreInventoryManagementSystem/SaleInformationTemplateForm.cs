@@ -32,6 +32,25 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #region Button Click Logic
+        private void voidSaleButton_Click(object sender, EventArgs e)
+        {
+            if (sale.Status == "Valid")
+            {
+                SaleInformationManager.UpdateTransactionStatusInformationToVoid(sale.Id);
+
+                DisplayTransactionInformation(sale.Id);
+
+                FormsMenuList.salesRecordForm.RefreshSalesRecordsDataGrid();
+
+                MessageBox.Show("Transaction has been voided!");
+            }
+            else
+                MessageBox.Show("This transaction has already been voided/returned");
+        }
+
+        #endregion
+
         #region Auxiliary Functions
         /// <summary>
         /// Function to display a transaction's information
@@ -48,8 +67,14 @@ namespace GeneralStoreInventoryManagementSystem
             soldByLabel.Text = sale.SoldBy;
             statusLabel.Text = sale.Status;
             deliveryCheckBox.Checked = sale.Delivery;
+            parentIdLabel.Text = sale.Parent == "" ? "None" : sale.Parent;
+            childIdLabel.Text = sale.Child == "" ? "None" : sale.Child;
+            lastModifiedDateLabel.Text = sale.LastModified.ToString();
         }
 
+        /// <summary>
+        /// Function to populate the transaction content grid
+        /// </summary>
         private void PopulateContentDataGrid()
         {
             contentDataGridView.DataSource = new List<Product>();

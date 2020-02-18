@@ -39,6 +39,7 @@ AS
 					fld_sale_date,
 					fld_sale_delivery,
 					fld_sale_status,
+					fld_sale_last_modified,
 					fld_sale_parent,
 					fld_sale_child
 				From
@@ -59,7 +60,7 @@ AS
 
 go
 
-exec SP_Fetch_Sales_Records 'User', ''
+exec SP_Fetch_Sales_Records 'Admin', ''
 
 
 

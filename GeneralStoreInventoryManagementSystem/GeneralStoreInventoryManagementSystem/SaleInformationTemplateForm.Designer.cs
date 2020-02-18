@@ -43,6 +43,12 @@
             this.voidSaleButton = new System.Windows.Forms.Button();
             this.returnItemsButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.parentLabel = new System.Windows.Forms.Label();
+            this.parentIdLabel = new System.Windows.Forms.Label();
+            this.childIdLabel = new System.Windows.Forms.Label();
+            this.childLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lastModifiedDateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.contentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +56,7 @@
             // 
             this.identificationNumberLabel.AutoSize = true;
             this.identificationNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.identificationNumberLabel.Location = new System.Drawing.Point(31, 84);
+            this.identificationNumberLabel.Location = new System.Drawing.Point(31, 53);
             this.identificationNumberLabel.Name = "identificationNumberLabel";
             this.identificationNumberLabel.Size = new System.Drawing.Size(97, 13);
             this.identificationNumberLabel.TabIndex = 0;
@@ -60,7 +66,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 137);
+            this.label1.Location = new System.Drawing.Point(31, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 1;
@@ -70,7 +76,7 @@
             // 
             this.saleIdLabel.AutoSize = true;
             this.saleIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saleIdLabel.Location = new System.Drawing.Point(57, 101);
+            this.saleIdLabel.Location = new System.Drawing.Point(57, 70);
             this.saleIdLabel.Name = "saleIdLabel";
             this.saleIdLabel.Size = new System.Drawing.Size(46, 17);
             this.saleIdLabel.TabIndex = 2;
@@ -80,7 +86,7 @@
             // 
             this.saleDateLabel.AutoSize = true;
             this.saleDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saleDateLabel.Location = new System.Drawing.Point(57, 150);
+            this.saleDateLabel.Location = new System.Drawing.Point(57, 119);
             this.saleDateLabel.Name = "saleDateLabel";
             this.saleDateLabel.Size = new System.Drawing.Size(46, 17);
             this.saleDateLabel.TabIndex = 3;
@@ -126,7 +132,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(31, 187);
+            this.label2.Location = new System.Drawing.Point(31, 156);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 7;
@@ -136,7 +142,7 @@
             // 
             this.soldByLabel.AutoSize = true;
             this.soldByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soldByLabel.Location = new System.Drawing.Point(60, 204);
+            this.soldByLabel.Location = new System.Drawing.Point(57, 169);
             this.soldByLabel.Name = "soldByLabel";
             this.soldByLabel.Size = new System.Drawing.Size(46, 17);
             this.soldByLabel.TabIndex = 8;
@@ -146,7 +152,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 241);
+            this.label3.Location = new System.Drawing.Point(31, 202);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 9;
@@ -156,7 +162,7 @@
             // 
             this.statusLabel.AutoSize = true;
             this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.Location = new System.Drawing.Point(60, 254);
+            this.statusLabel.Location = new System.Drawing.Point(57, 215);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(46, 17);
             this.statusLabel.TabIndex = 10;
@@ -165,7 +171,7 @@
             // deliveryCheckBox
             // 
             this.deliveryCheckBox.AutoSize = true;
-            this.deliveryCheckBox.Location = new System.Drawing.Point(37, 295);
+            this.deliveryCheckBox.Location = new System.Drawing.Point(33, 345);
             this.deliveryCheckBox.Name = "deliveryCheckBox";
             this.deliveryCheckBox.Size = new System.Drawing.Size(95, 17);
             this.deliveryCheckBox.TabIndex = 11;
@@ -183,6 +189,7 @@
             this.voidSaleButton.TabIndex = 12;
             this.voidSaleButton.Text = "Void Sale";
             this.voidSaleButton.UseVisualStyleBackColor = false;
+            this.voidSaleButton.Click += new System.EventHandler(this.voidSaleButton_Click);
             // 
             // returnItemsButton
             // 
@@ -198,17 +205,83 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 44);
+            this.label4.Location = new System.Drawing.Point(12, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(182, 20);
             this.label4.TabIndex = 14;
             this.label4.Text = "Transaction Summary";
+            // 
+            // parentLabel
+            // 
+            this.parentLabel.AutoSize = true;
+            this.parentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parentLabel.Location = new System.Drawing.Point(31, 249);
+            this.parentLabel.Name = "parentLabel";
+            this.parentLabel.Size = new System.Drawing.Size(52, 13);
+            this.parentLabel.TabIndex = 15;
+            this.parentLabel.Text = "Parent: ";
+            // 
+            // parentIdLabel
+            // 
+            this.parentIdLabel.AutoSize = true;
+            this.parentIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parentIdLabel.Location = new System.Drawing.Point(57, 262);
+            this.parentIdLabel.Name = "parentIdLabel";
+            this.parentIdLabel.Size = new System.Drawing.Size(46, 17);
+            this.parentIdLabel.TabIndex = 16;
+            this.parentIdLabel.Text = "label5";
+            // 
+            // childIdLabel
+            // 
+            this.childIdLabel.AutoSize = true;
+            this.childIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.childIdLabel.Location = new System.Drawing.Point(157, 262);
+            this.childIdLabel.Name = "childIdLabel";
+            this.childIdLabel.Size = new System.Drawing.Size(46, 17);
+            this.childIdLabel.TabIndex = 18;
+            this.childIdLabel.Text = "label5";
+            // 
+            // childLabel
+            // 
+            this.childLabel.AutoSize = true;
+            this.childLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.childLabel.Location = new System.Drawing.Point(134, 249);
+            this.childLabel.Name = "childLabel";
+            this.childLabel.Size = new System.Drawing.Size(43, 13);
+            this.childLabel.TabIndex = 17;
+            this.childLabel.Text = "Child: ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(31, 292);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Last Modified:";
+            // 
+            // lastModifiedDateLabel
+            // 
+            this.lastModifiedDateLabel.AutoSize = true;
+            this.lastModifiedDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastModifiedDateLabel.Location = new System.Drawing.Point(57, 305);
+            this.lastModifiedDateLabel.Name = "lastModifiedDateLabel";
+            this.lastModifiedDateLabel.Size = new System.Drawing.Size(46, 17);
+            this.lastModifiedDateLabel.TabIndex = 20;
+            this.lastModifiedDateLabel.Text = "label2";
             // 
             // SaleInformationTemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 382);
+            this.Controls.Add(this.lastModifiedDateLabel);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.childIdLabel);
+            this.Controls.Add(this.childLabel);
+            this.Controls.Add(this.parentIdLabel);
+            this.Controls.Add(this.parentLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.returnItemsButton);
             this.Controls.Add(this.voidSaleButton);
@@ -252,5 +325,11 @@
         private System.Windows.Forms.Button voidSaleButton;
         private System.Windows.Forms.Button returnItemsButton;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label parentLabel;
+        private System.Windows.Forms.Label parentIdLabel;
+        private System.Windows.Forms.Label childIdLabel;
+        private System.Windows.Forms.Label childLabel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lastModifiedDateLabel;
     }
 }

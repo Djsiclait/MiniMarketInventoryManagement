@@ -72,7 +72,14 @@ namespace InventoryManagementBusinessLayer
         #endregion
 
         #region Updates
-        // No updates at this point 
+        /// <summary>
+        /// This function allows a user to void a registered transaction and cancel the sale
+        /// </summary>
+        /// <param name="salesId">Identification number of the registered transaction</param>
+        public static void UpdateTransactionStatusInformationToVoid(String salesId)
+        {
+            SaleDataManager.UpdateTransactionStatusDataToVoid(salesId, SystemResources.UserInSession.Username);
+        }
         #endregion
     }
 }

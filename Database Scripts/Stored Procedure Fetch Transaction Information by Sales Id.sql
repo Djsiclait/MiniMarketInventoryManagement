@@ -10,7 +10,10 @@ AS
 			fld_sale_total,
 			fld_sale_delivery,
 			fld_sale_status,
-			fld_sold_by
+			fld_sold_by,
+			fld_sale_last_modified,
+			fld_sale_parent,
+			fld_sale_child
 		From
 			Tbl_Sales
 		Where

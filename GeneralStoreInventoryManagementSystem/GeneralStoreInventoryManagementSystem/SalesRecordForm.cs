@@ -279,8 +279,13 @@ namespace GeneralStoreInventoryManagementSystem
             salesList.DataSource = SaleInformationManager.ConsultSalesRecordsInformation(salesSearchBox.Text);
 
             // Formating the flieds
-            salesList.Columns["TransactionDate"].Width = 350;
+            salesList.Columns["Id"].Width = 50;
+            salesList.Columns["TransactionDate"].Width = 180;
             salesList.Columns["Delivery"].Width = 50;
+            salesList.Columns["Status"].Width = 70;
+            salesList.Columns["Parent"].Width = 50;
+            salesList.Columns["Child"].Width = 50;
+            salesList.Columns["LastModified"].Width = 180;
         }
 
         /// <summary>
@@ -290,6 +295,14 @@ namespace GeneralStoreInventoryManagementSystem
         {
             foreach (SaleInformationTemplateForm child in children)
                 child.Dispose();
+        }
+
+        /// <summary>
+        /// Function to allow children to notify this form to update its information
+        /// </summary>
+        public void RefreshSalesRecordsDataGrid()
+        {
+            PopulateSalesDataGrid();
         }
         #endregion
     }

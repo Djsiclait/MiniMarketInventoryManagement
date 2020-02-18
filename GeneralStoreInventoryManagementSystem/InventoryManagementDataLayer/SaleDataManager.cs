@@ -53,7 +53,12 @@ namespace InventoryManagementDataLayer
                 sale.Delivery = FormatToBoolean(sqlDataReader["fld_sale_delivery"].ToString());
 
                 if (userPermission != "User")
-                    sale.Status = sqlDataReader["fld_sale_status"].ToString(); // no need tio conver to int given the getter and setter of status does automatic conversion
+                {
+                    sale.Status = sqlDataReader["fld_sale_status"].ToString(); // no need to convert to int given the getter and setter of status does automatic conversion
+                    sale.Parent = sqlDataReader["fld_sale_parent"].ToString();
+                    sale.Child = sqlDataReader["fld_sale_child"].ToString();
+                    sale.LastModified = DateTime.Parse(sqlDataReader["fld_sale_last_modified"].ToString());
+                }
                 #endregion
 
                 sales.Add(sale);
@@ -144,7 +149,10 @@ namespace InventoryManagementDataLayer
                 sale.Total = FormatToDecimal(sqlDataReader["fld_sale_total"].ToString());
                 sale.Delivery = FormatToBoolean(sqlDataReader["fld_sale_delivery"].ToString());
                 sale.Status = sqlDataReader["fld_sale_status"].ToString();
-                sale.SoldBy = sqlDataReader["fld_sold_by"].ToString();
+                sale.SoldBy = sqlDataReader["fld_sold_by"].ToString(); 
+                sale.Parent = sqlDataReader["fld_sale_parent"].ToString();
+                sale.Child = sqlDataReader["fld_sale_child"].ToString();
+                sale.LastModified = DateTime.Parse(sqlDataReader["fld_sale_last_modified"].ToString());
                 #endregion
             }
 
@@ -221,7 +229,29 @@ namespace InventoryManagementDataLayer
         #endregion
 
         #region Updates
-        // No updates at this point
+        /// <summary>
+        /// This function allows a user to void a registered transaction and cancel the sale
+        /// </summary>
+        /// <param name="salesId">Identification number of the registered transaction</param>
+        /// <param name="username">Username of the user requesting a cancelation</param>
+        public static void UpdateTransactionStatusDataToVoid(String salesId, String username)
+        {
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Void_Registered_Transaction", // Stored procedure incharged of fetching required data  
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            #region Parameters
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@sales_id", SqlDbType.VarChar, 10).Value = salesId;
+            cmd.Parameters.Add("@username", SqlDbType   .VarChar, 50).Value = username;
+            #endregion
+
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+            DatabaseManager.DisconnectToDatabase();
+        }
         #endregion
 
         #region Auxiliary 
