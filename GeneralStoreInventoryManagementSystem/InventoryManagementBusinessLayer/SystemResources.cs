@@ -24,10 +24,10 @@ namespace InventoryManagementBusinessLayer
         /// <param name="username">Username requesting to log in</param>
         public static void BeginUserSession(String username)
         {
-            userInSession = ConsultInformation.FetchUserInformationByUsername(username); // opening an active session
+            userInSession = UserInformationManager.ConsultUserInformationByUsername(username); // opening an active session
 
             // Updating the user's last loggin information before finalizing process
-            UpdateInformation.UpdateUserLastLoginInformation(userInSession.Username);
+            UserInformationManager.UpdateUserLastLoginInformation(userInSession.Username);
 
             // Recording log in activity for user logging in
             RecordActivity(
@@ -49,7 +49,7 @@ namespace InventoryManagementBusinessLayer
                 "LOG OUT"); // type of activity
 
             // Updating the user's last loggin information before finalizing process
-            UpdateInformation.UpdateUserLastLoginInformation(userInSession.Username);
+            UserInformationManager.UpdateUserLastLoginInformation(userInSession.Username);
 
             userInSession = null; // closing the current session
         }

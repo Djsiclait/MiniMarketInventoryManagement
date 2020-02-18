@@ -14,54 +14,6 @@ namespace InventoryManagementDataLayer
     public static class UpdateData
     {
         /// <summary>
-        /// This function changes a user's password information
-        /// </summary>
-        /// <param name="username">Username</param>
-        /// <param name="newPassword">New password</param>
-        public static void ChangeUserPasswordData(String username, String newPassword)
-        {
-            // Generating query to execute the desired command
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Change_User_Password", // stored procedure to update the user's password 
-                    DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
-            cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
-
-            #region Parameters
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // supplying the username to update the correct dataset
-            cmd.Parameters.Add("@new_password", SqlDbType.VarChar, 30).Value = newPassword; // supplying the new password data
-            #endregion
-
-            // Executing command
-            Int32 reply;
-            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
-
-            DatabaseManager.DisconnectToDatabase(); // Closing the currect connection to the database
-        }
-
-        /// <summary>
-        /// This function registred the last timestamp a user was loggef inot the system
-        /// </summary>
-        /// <param name="username">Username currently in session</param>
-        public static void UpdateUserLastLoginData(String username)
-        {
-            // Generating query to execute the desired command
-            SqlCommand cmd = new SqlCommand(
-                    "SP_Register_Last_Login", // stored procedure to update the user's last login 
-                    DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
-            cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
-
-            #region Parameters
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username; // supplying the username to update the correct dataset
-            #endregion
-
-            // Executing command
-            Int32 reply;
-            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
-
-            DatabaseManager.DisconnectToDatabase(); // Closing the currect connection to the database
-        }
-
-        /// <summary>
         /// This function recieves an existing product that has been modified by the user and registers the new changes
         /// </summary>
         /// <param name="product">Product object with the new changes</param>

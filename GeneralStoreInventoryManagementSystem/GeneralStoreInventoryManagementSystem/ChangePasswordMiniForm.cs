@@ -144,7 +144,7 @@ namespace GeneralStoreInventoryManagementSystem
             if (ValidateUserInput())
             {
                 // Requesting a password change for a target user
-                InventoryManagementBusinessLayer.UpdateInformation.ChangeUserPasswordInformation(username, passwordTextBox.Text);
+                InventoryManagementBusinessLayer.UserInformationManager.UpdateUserPasswordInformation(username, passwordTextBox.Text);
 
                 MessageBox.Show("Password changed successfully!");
 

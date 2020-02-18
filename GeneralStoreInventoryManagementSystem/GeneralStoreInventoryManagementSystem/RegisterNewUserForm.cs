@@ -225,7 +225,7 @@ namespace GeneralStoreInventoryManagementSystem
                 usernameErrorLable.Visible = true; // username is invalid due to legnth
             else if (UsernameHasEmptySpace())
                 usernameErrorLable.Visible = true; // username is invalid due to empty space 
-            else if(ConsultInformation.CheckUsernameAvailability(usernameTextBox.Text))
+            else if(UserInformationManager.ConsultUsernameAvailability(usernameTextBox.Text))
                 usernameErrorLable.Visible = false; // username is available and validated so error message is hidden
         }
 
@@ -288,7 +288,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             if (ValidateUserInput()) // Verifying if user input confirm with all requirements
             {
-                String message = CreateInformation.CreateNewUserProfileInformation(CreateUserProfile()); // Confimring the user creation process
+                String message = UserInformationManager.CreateNewUserProfileInformation(CreateUserProfile()); // Confimring the user creation process
 
                 if (message == "SUCCESS") // Creation process has been successful
                 {
@@ -310,7 +310,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             if (ValidateUserInput()) // Verifying if user input confirm with all requirements
             {
-                String message = CreateInformation.CreateNewUserProfileInformation(CreateUserProfile()); // Confimring the user creation process
+                String message = UserInformationManager.CreateNewUserProfileInformation(CreateUserProfile()); // Confimring the user creation process
 
                 if (message == "SUCCESS") // Creation process has been successful
                 {

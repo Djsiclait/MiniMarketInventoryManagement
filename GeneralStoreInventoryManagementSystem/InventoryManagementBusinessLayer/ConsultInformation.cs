@@ -71,16 +71,6 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
-        /// This Function checks for the availability of a username 
-        /// </summary>
-        /// <param name="username">requested username</param>
-        /// <returns>true or false depending if the username exists or not</returns>
-        public static bool CheckUsernameAvailability(String username)
-        {
-            return ConsultData.CheckUsernameAvailability(username);
-        }
-
-        /// <summary>
         /// This function fetches all information associated to a registered product 
         /// No verification/authentification/rejection is required at this point in developpement (This may be subject to change at a later date)
         /// </summary>
@@ -170,41 +160,6 @@ namespace InventoryManagementBusinessLayer
                 return ConsultData.FetchTypeComboBoxData();
             else
                 return new List<string>(); // returning an empty list given invalid user status
-        }
-
-        /// <summary>
-        /// This function fetches the information of a target user
-        /// </summary>
-        /// <param name="username">Target username</param>
-        /// <returns></returns>
-        public static UserProfile FetchUserInformationByUsername(String username)
-        {
-            return ConsultData.FetchUserDataByUsername(username); // No need to take into account user status given no current user has logged in at this point
-        }
-
-        /// <summary>
-        /// This function fetches the information of all registered users in the system
-        /// </summary>
-        /// <param name="keyWord">Key word to enable specific filtered searches</param>
-        /// <returns>A list of users registered with the system</returns>
-        public static List<UserProfile> FetchUserListInformation(String keyWord)
-        {
-            // Verifying user's status before providing requested information
-            if (SystemResources.UserInSession.Status == "Active")
-                return ConsultData.FetchUserListData(SystemResources.UserInSession.Username, SystemResources.UserInSession.Role, keyWord);
-            else
-                return new List<UserProfile>(); // returning an empty list given invalid user status
-        }
-
-        /// <summary>
-        /// This function access the system to confirm or deny the validation of of a user's credentials 
-        /// </summary>
-        /// <param name="username">Username requesting validation</param>
-        /// <param name="password">Passwiord of user</param>
-        /// <returns>A message that indicates successful or failed validation results</returns>
-        public static String ValidateUserCredentialsInformation(String username, String password)
-        {
-            return ConsultData.ValidateUserCredentialsData(username, password); // No need to take into account user status given no current user has logged in at this point
         }
     }
 }

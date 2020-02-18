@@ -322,7 +322,7 @@ namespace InventoryManagementBusinessLayer
         public static String ApplyCredentialsValidationProtocol(String username, String password)
         {
             // Using native class to initiate credentials validation with provided information
-            String message = ConsultInformation.ValidateUserCredentialsInformation(username, password);
+            String message = UserInformationManager.ConsultUserCredentialsValidationInformation(username, password);
 
             if (message == "Username does not exists")
                 return "INVALID USER";

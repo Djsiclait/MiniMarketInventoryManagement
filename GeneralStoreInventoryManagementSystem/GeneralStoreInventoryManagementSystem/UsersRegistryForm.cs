@@ -244,7 +244,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateUserResigtryDataGrid()
         {
             // Requestion information to fill data grid
-            userList.DataSource = ConsultInformation.FetchUserListInformation(userSearchBox.Text);
+            userList.DataSource = UserInformationManager.ConsultUserListInformation(userSearchBox.Text);
 
             // Hiding unnecessary fields
             userList.Columns["Password"].Visible = false;

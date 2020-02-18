@@ -13,26 +13,6 @@ namespace InventoryManagementBusinessLayer
     public static class CreateInformation
     {
         /// <summary>
-        /// This function recieves a user profile object to create its respective information for prosperity
-        /// </summary>
-        /// <param name="newUser">The user object that houses the necessary information to create a new profile</param>
-        /// <returns>A message that confirms or denies the user profile creation process</returns>
-        public static String CreateNewUserProfileInformation(UserProfile newUser)
-        {
-            // Requesting creation of new user account
-            String message = CreateData.CreateNewUserProfileData(newUser);
-
-            if (message == "User created")
-            {
-                // Executing correct activity according to given code
-                SystemProtocols.ApplyActivityProtocols("USE3", newUser.Username, null);
-                return "SUCCESS";
-            }
-            else
-                return "";
-        }
-
-        /// <summary>
         /// This function receives a product object to register its information
         /// </summary>
         /// <param name="product">Product object which contains necessary information</param>

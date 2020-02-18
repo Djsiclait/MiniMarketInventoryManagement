@@ -119,7 +119,9 @@
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLabel);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(413, 227);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(413, 227);
             this.Name = "ChangePasswordMiniForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Changing Password";
