@@ -15,6 +15,8 @@ namespace InventoryManagementEntityLayer
         private String soldBy;
         private bool delivery;
         private int status;
+        private String parent;
+        private String child;
 
         #region Getters and Setters
         public string Id
@@ -104,9 +106,9 @@ namespace InventoryManagementEntityLayer
                     case 0:
                         return "Valid";
                     case 1:
-                        return "Canceled";
-                    case 2:
                         return "Void";
+                    case 2:
+                        return "Returned";
                     default:
                         return "";
                 }
@@ -119,6 +121,32 @@ namespace InventoryManagementEntityLayer
                 int.TryParse(value, out num);
 
                 status = num;
+            }
+        }
+
+        public string Parent
+        {
+            get
+            {
+                return parent;
+            }
+
+            set
+            {
+                parent = value;
+            }
+        }
+
+        public string Child
+        {
+            get
+            {
+                return child;
+            }
+
+            set
+            {
+                child = value;
             }
         }
         #endregion
