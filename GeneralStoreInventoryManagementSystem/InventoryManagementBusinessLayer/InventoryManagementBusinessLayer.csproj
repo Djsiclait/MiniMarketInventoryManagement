@@ -60,7 +60,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemProtocols.cs" />
     <Compile Include="SystemResources.cs" />
-    <Compile Include="UpdateInformation.cs" />
     <Compile Include="UserInformationManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

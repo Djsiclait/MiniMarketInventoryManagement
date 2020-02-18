@@ -186,7 +186,7 @@ namespace GeneralStoreInventoryManagementSystem
                     UpdateProductInformation(); // updating product with new information
 
                     // Requesting an edit to the product's information
-                    String message = UpdateInformation.UpdateRegisteredProductInformation(product);
+                    String message = ProductInformationManager.UpdateRegisteredProductInformation(product);
 
                     if (message == "SUCCESS")
                     {
@@ -259,7 +259,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void DisplayProductInformation(String productId)
         {
             // Retreiving the information of a product with it's internal identification number
-            product = ConsultInformation.FetchProductInformationByID(productId);
+            product = ProductInformationManager.ConsultProductInformationByID(productId);
             product.Id = productId;
 
             // Filling text boxes
@@ -269,16 +269,16 @@ namespace GeneralStoreInventoryManagementSystem
             modifiedByDisplayLabel.Text = product.ModifiedBy;
 
             // Filling combo boxes
-            brandComboBox.DataSource = ConsultInformation.FetchBrandListInformation("");
+            brandComboBox.DataSource = ProductInformationManager.ConsultProductBrandListInformation("");
             brandComboBox.Text = product.Brand == "" ? "<None>" : product.Brand;
 
-            supplierComboBox.DataSource = ConsultInformation.FetchSupplierListInformation("");
+            supplierComboBox.DataSource = ProductInformationManager.ConsultProductSupplierListInformation("");
             supplierComboBox.Text = product.Supplier == "" ? "<None>" : product.Supplier;
 
-            categoryComboBox.DataSource = ConsultInformation.FetchCategoryComboBoxInformation();
+            categoryComboBox.DataSource = ProductInformationManager.ConsultProductCategoryComboBoxInformation();
             categoryComboBox.Text = product.Category;
 
-            typeComboBox.DataSource = ConsultInformation.FetchTypeComboBoxInformation();
+            typeComboBox.DataSource = ProductInformationManager.ConsultProductTypeComboBoxInformation();
             typeComboBox.Text = product.Type;
 
             // Filling numeric up downs

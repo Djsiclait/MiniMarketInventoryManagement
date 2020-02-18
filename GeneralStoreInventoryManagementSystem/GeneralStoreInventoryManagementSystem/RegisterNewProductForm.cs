@@ -272,7 +272,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void AddNewBrandButton_Click(object sender, EventArgs e)
         {
             // Registering new product brand
-            String message = CreateInformation.RegisterNewProductBrandInformation(brandSearchBox.Text);
+            String message = ProductInformationManager.CreateNewProductBrandInformation(brandSearchBox.Text);
 
             if (message == "SUCCESS")
             {
@@ -286,7 +286,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void AddNewSupplierButton_Click(object sender, EventArgs e)
         {
             // Incomplete registration of new supplier
-            String message = CreateInformation.RegisterNewProductSupplierInformation(supplierSearchBox.Text, "", "");
+            String message = ProductInformationManager.CreateNewIncompleteProductSupplierInformation(supplierSearchBox.Text);
 
             if (message == "SUCCESS")
             {
@@ -307,7 +307,7 @@ namespace GeneralStoreInventoryManagementSystem
             if (ValidateUserInput())
             {
                 // Requesting registration of a new product in the inventory
-                String message = CreateInformation.RegisterNewProductInformation(CreateProductObject());
+                String message = ProductInformationManager.CreateNewProductInformation(CreateProductObject());
 
                 if (message == "SUCCESS")
                 {
@@ -370,7 +370,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void PopulateBrandListBox()
         {
-            brandListBox.DataSource = ConsultInformation.FetchBrandListInformation(brandSearchBox.Text);
+            brandListBox.DataSource = ProductInformationManager.ConsultProductBrandListInformation(brandSearchBox.Text);
         }
 
         /// <summary>
@@ -378,7 +378,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void PopulateCategoryComboBox()
         {
-            categoryComboBox.DataSource = ConsultInformation.FetchCategoryComboBoxInformation();
+            categoryComboBox.DataSource = ProductInformationManager.ConsultProductCategoryComboBoxInformation();
         }
 
         /// <summary>
@@ -386,7 +386,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void PopulateSupplierListBox()
         {
-            supplierListBox.DataSource = ConsultInformation.FetchSupplierListInformation(supplierSearchBox.Text);
+            supplierListBox.DataSource = ProductInformationManager.ConsultProductSupplierListInformation(supplierSearchBox.Text);
         }
 
         /// <summary>
@@ -394,7 +394,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void PopulateTypeComboBox()
         {
-            typeComboBox.DataSource = ConsultInformation.FetchTypeComboBoxInformation();
+            typeComboBox.DataSource = ProductInformationManager.ConsultProductTypeComboBoxInformation();
         }
 
         /// <summary>
