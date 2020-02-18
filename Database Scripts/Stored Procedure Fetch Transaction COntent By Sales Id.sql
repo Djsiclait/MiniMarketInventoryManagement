@@ -4,6 +4,7 @@ AS
 	BEGIN
 		
 		Select 
+			A.fld_product_id,
 			B.fld_product_name,
 			C.fld_brand_name,
 			B.fld_product_unit,

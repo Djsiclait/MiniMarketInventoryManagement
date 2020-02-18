@@ -63,7 +63,6 @@ namespace GeneralStoreInventoryManagementSystem
                 contentDataGridView.Refresh();
 
                 // Hidding unnecessary fields
-                contentDataGridView.Columns["Id"].Visible = false;
                 contentDataGridView.Columns["Key"].Visible = false;
                 contentDataGridView.Columns["Supplier"].Visible = false;
                 contentDataGridView.Columns["Category"].Visible = false;
@@ -78,6 +77,7 @@ namespace GeneralStoreInventoryManagementSystem
                 contentDataGridView.Columns["Discontinued"].Visible = false;
 
                 // Formationg columns
+                contentDataGridView.Columns["Id"].Width = 60;
                 contentDataGridView.Columns["Name"].Width = 150;
                 contentDataGridView.Columns["Unit"].Width = 50;
                 contentDataGridView.Columns["UnitPrice"].Width = 80;

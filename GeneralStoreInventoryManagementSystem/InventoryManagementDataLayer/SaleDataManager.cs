@@ -94,6 +94,7 @@ namespace InventoryManagementDataLayer
                 Product product = new Product();
 
                 #region Assigning the corresponding values to their variables
+                product.Id = sqlDataReader["fld_product_id"].ToString();
                 product.Name = sqlDataReader["fld_product_name"].ToString();
                 product.Unit = sqlDataReader["fld_product_unit"].ToString();
                 product.Brand = sqlDataReader["fld_brand_name"].ToString();
