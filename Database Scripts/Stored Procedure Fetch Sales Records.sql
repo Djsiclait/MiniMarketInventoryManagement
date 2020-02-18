@@ -38,7 +38,9 @@ AS
 					fld_sold_by,
 					fld_sale_date,
 					fld_sale_delivery,
-					fld_sale_status
+					fld_sale_status,
+					fld_sale_parent,
+					fld_sale_child
 				From
 					Tbl_Sales
 				Where

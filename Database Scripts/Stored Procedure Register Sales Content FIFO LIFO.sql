@@ -91,10 +91,10 @@ AS
 
 						End
 		 
-			Fetch Next From CursorProdructSales
-				Into
-					@current_id,
-					@old_quantity
+					Fetch Next From CursorProdructSales
+						Into
+							@current_id,
+							@old_quantity
 
 				End
 
