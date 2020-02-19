@@ -118,6 +118,7 @@
             this.returnItemButton.TabIndex = 29;
             this.returnItemButton.Text = "Return An Item";
             this.returnItemButton.UseVisualStyleBackColor = true;
+            this.returnItemButton.Click += new System.EventHandler(this.ReturnItemButton_Click);
             // 
             // removeOneButton
             // 
