@@ -438,6 +438,33 @@ namespace InventoryManagementDataLayer
 
             return cmd.Parameters["@message"].Value.ToString(); // returning the result of the query
         }
+
+        /// <summary>
+        /// This function updates the inventory after a return has been made
+        /// </summary>
+        /// <param name="productId">Identification number of the product being returned</param>
+        /// <param name="quantity">Quantity of units being returned</param>
+        /// <param name="username">Username of user managing the return</param>
+        public static void UpdateRegisteredProductDataForReturns(String productId, int quantity, String username)
+        {
+            // Generating query to execute the desired command
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Return_Purchased_Items", // stored procedure to update the user's last login 
+                    DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
+            cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
+
+            #region Parameters
+            cmd.Parameters.Add("@product_id", SqlDbType.VarChar, 10).Value = productId;
+            cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = quantity;
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+            #endregion
+
+            // Executing command
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+            DatabaseManager.DisconnectToDatabase();
+        }
         #endregion
 
         #region Auxiliary Functions

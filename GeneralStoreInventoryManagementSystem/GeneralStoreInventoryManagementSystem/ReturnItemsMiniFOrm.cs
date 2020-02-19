@@ -16,7 +16,7 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class ReturnItemsMiniForm : Form
     {
-        String saleId;
+        Sale sale;
         List<Product> purchasedItems = new List<Product>();
         List<Product> returnedItems = new List<Product>();
 
@@ -26,7 +26,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             InitializeComponent();
 
-            this.saleId = saleId;
+            sale = SaleInformationManager.ConsultTransactionInformationBySalesId(saleId);
         }
 
         #region Load Form Logic
@@ -272,6 +272,33 @@ namespace GeneralStoreInventoryManagementSystem
         {
             this.Dispose();
         }
+
+        private void ConfirmButton_Click(object sender, EventArgs e)
+        {
+            if (sale.NumberItems != purchasedItems.Count)
+            {
+                sale.NumberItems = FormatToInt(numberOfPurchasedItemsLabel.Text.Split(':')[1]);
+                sale.Total = FormatToDecimal(purchasedTotalLabel.Text.Split('$')[1]);
+
+                String message = SystemProtocols.ApplyReturnPolicyProtocols(sale, purchasedItems, returnedItems);
+
+                if (message == "VOIDED")
+                {
+                    MessageBox.Show("Transaction voided successfully!");
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Products have successfully been returned to the inventory!");
+
+                    FormsMenuList.salesRecordForm.RefreshSalesRecordsDataGrid(); // updating grandparent form
+                    // TODo: Update parent as well 
+                    this.Dispose();
+                }
+            }
+            else
+                MessageBox.Show("Nothing was returned, please check form or cancle process.");
+        }
         #endregion
 
         #region Auxiliary Functions
@@ -381,7 +408,7 @@ namespace GeneralStoreInventoryManagementSystem
             #endregion
 
             if (purchasedItems.Count == 0 && trigger)
-                purchasedItems = SaleInformationManager.ConsultTransactionContentInformation(saleId);
+                purchasedItems = SaleInformationManager.ConsultTransactionContentInformation(sale.Id);
 
             if (purchasedItems.Count > 0)
             {

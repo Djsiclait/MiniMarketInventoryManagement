@@ -186,6 +186,18 @@ namespace InventoryManagementBusinessLayer
             else
                 return "ERROR";
         }
+
+        /// <summary>
+        /// This function updates the inventory after a return has been made
+        /// </summary>
+        /// <param name="productId">Identification number of the product being returned</param>
+        /// <param name="quantity">Quantity of units being returned</param>
+        public static void UpdateRegisteredProductInformationForReturns(String productId, int quantity)
+        {
+            ProductDataManager.UpdateRegisteredProductDataForReturns(productId, quantity, SystemResources.UserInSession.Username);
+
+            SystemProtocols.ApplyActivityProtocols("PRO6", productId, quantity.ToString());
+        }
         #endregion
     }
 }

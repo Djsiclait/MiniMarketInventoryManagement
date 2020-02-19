@@ -160,6 +160,7 @@
             this.confirmButton.TabIndex = 36;
             this.confirmButton.Text = "Confirm Return";
             this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // purchasedTotalLabel
             // 

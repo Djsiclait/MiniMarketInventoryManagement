@@ -130,6 +130,14 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has edited product: " + meta1.ToUpper(), // description of activity
                         "PRODUCT EDIT"); // type of activity
                     break;
+
+                case "PRO6": // Editing product information
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has managed the return of " + meta2 + " unit(s) of " + meta1.ToUpper(), // description of activity
+                        "PRODUCT RETURNED"); // type of activity
+                    break;
                 #endregion
 
                 #region Reports
@@ -189,6 +197,14 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Username, // username of user in session 
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has voided transaction: " + meta1, // description of activity
                         "VOID TRANSACTION"); // type of activity
+                    break;
+
+                case "SAL7": // voiding a registered transaction
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has managed a return of transaction, " + meta1 + ", to new transaction, " + meta2, // description of activity
+                        "RETURN TRANSACTION"); // type of activity
                     break;
                 #endregion
 
@@ -363,6 +379,45 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
+        /// This function manages the protocols conserning return policies
+        /// </summary>
+        /// <param name="sale">The original transaction requesting to be modified</param>
+        /// <param name="remainingProducts">List of products that have not been returned</param>
+        /// <param name="returnedProducts">List of products that have been returned</param>
+        /// <returns>A message confirming the type of policy that was applied</returns>
+        public static String ApplyReturnPolicyProtocols(Sale sale, List<Product> remainingProducts, List<Product> returnedProducts)
+        {
+            if (remainingProducts.Count > 0)
+            {
+                // 1. Create a new sale and get it's id
+                String saleId = SaleInformationManager.CreateNewSalesTransactionInformation(sale);
+
+                // 2. register the contents of new sale
+                if (saleId != null || saleId != "")
+                {
+                    foreach (Product item in remainingProducts)
+                        SaleInformationManager.CreateNewSalesTransactionContentInformation(item, saleId);
+
+                    ApplyActivityProtocols("SAL5", saleId, null);
+
+                    // 3. Register old sale as returned (type of void)
+                    SaleInformationManager.UpdateTransactionStatusDataToReturned(sale.Id, saleId);
+
+                    // 4. Return selected products back to inventory
+                    foreach (Product item in returnedProducts)
+                        ProductInformationManager.UpdateRegisteredProductInformationForReturns(item.Id, item.Quantity);
+                }
+
+                return saleId;
+            }
+            else
+            {
+                SaleInformationManager.UpdateTransactionStatusInformationToVoid(sale.Id); // If no products remain, equivalent to returning everything, then this process counts as voiding the original transaction
+                return "VOIDED";
+            }
+        }
+
+        /// <summary>
         /// Funtion in charge of managint all types of transactions from purchase, to returns, to cancelations
         /// </summary>
         /// <param name="protocol">Identification of the desired protocol to execute</param>
@@ -379,9 +434,7 @@ namespace InventoryManagementBusinessLayer
                     if (saleId != null || saleId != "")
                     {
                         foreach (Product item in SystemResources.Cart)
-                        {
                             SaleInformationManager.CreateNewSalesTransactionContentInformation(item, saleId);
-                        }
 
                         SystemResources.EmptyCart();
 
