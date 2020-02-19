@@ -292,7 +292,7 @@ namespace GeneralStoreInventoryManagementSystem
                     MessageBox.Show("Products have successfully been returned to the inventory!");
 
                     FormsMenuList.salesRecordForm.RefreshSalesRecordsDataGrid(); // updating grandparent form
-                    // TODo: Update parent as well 
+                    // TODO: Update parent as well 
                     this.Dispose();
                 }
             }
