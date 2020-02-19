@@ -182,6 +182,14 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has registered a new transaction: " + meta1, // description of activity
                         "NEW TRANSACTION"); // type of activity
                     break;
+
+                case "SAL6": // voiding a registered transaction
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has voided transaction: " + meta1, // description of activity
+                        "VOID TRANSACTION"); // type of activity
+                    break;
                 #endregion
 
                 #region Special

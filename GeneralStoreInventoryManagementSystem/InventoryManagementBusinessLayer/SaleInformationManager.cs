@@ -79,6 +79,8 @@ namespace InventoryManagementBusinessLayer
         public static void UpdateTransactionStatusInformationToVoid(String salesId)
         {
             SaleDataManager.UpdateTransactionStatusDataToVoid(salesId, SystemResources.UserInSession.Username);
+
+            SystemProtocols.ApplyActivityProtocols("SAL6", salesId, null);
         }
         #endregion
     }

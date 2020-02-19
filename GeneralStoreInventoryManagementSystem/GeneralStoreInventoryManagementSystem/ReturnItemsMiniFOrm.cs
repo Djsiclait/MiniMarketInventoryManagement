@@ -267,6 +267,11 @@ namespace GeneralStoreInventoryManagementSystem
             PopulatePurchasedItemsDataGrid();
             PopulateReturedItemsDataGrid();
         }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
         #endregion
 
         #region Auxiliary Functions
