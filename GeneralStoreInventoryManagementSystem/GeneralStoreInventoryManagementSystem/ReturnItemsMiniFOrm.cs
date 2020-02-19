@@ -104,6 +104,73 @@ namespace GeneralStoreInventoryManagementSystem
             PopulatePurchasedItemsDataGrid();
             PopulateReturedItemsDataGrid();
         }
+
+        private void RemoveOneButton_Click(object sender, EventArgs e)
+        {
+            // Capturing the data of multiple selected products
+            foreach (DataGridViewRow row in returnedItemsDataGridView.SelectedRows)
+            {
+                if (IsProductFoundInList(row.Cells[0].Value.ToString(), "P")) // Checking if at least one unit of the selected product has already been assigned to be returned
+                {
+
+                    foreach (Product item in purchasedItems)
+                        if (item.Id == row.Cells[0].Value.ToString())
+                        {
+                            item.Quantity++;
+                            item.Total = item.UnitPrice * item.Quantity;
+                        }
+
+                    // this also udpates its corresponding list due to call by refrence; i.e. the original list also updates
+                    // Also eleminate the need to have a nested for to find and update the correct row
+                    row.Cells[10].Value = (FormatToInt(row.Cells[10].Value.ToString()) - 1);
+                    row.Cells[18].Value = (FormatToDecimal(row.Cells[18].Value.ToString()) - FormatToDecimal(row.Cells[9].Value.ToString())); // reducing total by the unit price of one unit
+
+                    if (row.Cells[10].Value.ToString() == "0") // When the quantity of an item is depleted; Quanity = 0
+                        // purchasedItemsDataGridView.Rows.RemoveAt(row.Index); This requires an ibindinglist to work
+                        // Necessary evil for now
+                        foreach (Product item in returnedItems)
+                            if (item.Quantity == 0) // No need to compare the purchased item list with the row id of the modified item given that datgrid allows direct modification of variable (refrence) instead of a copy (parameter)
+                            {
+                                returnedItems.Remove(item);
+                                trigger = false;
+                                break;
+                            }
+                }
+                else // no units of the sselected product have been previously assigned for return 
+                {
+                    Product copy = new Product();
+
+                    copy.Id = row.Cells[0].Value.ToString(); // identification number of the selected product
+                    copy.Name = row.Cells[2].Value.ToString(); // name of the product not including company brand
+                    copy.Brand = row.Cells[3].Value.ToString(); // product brand company
+                    copy.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // sales price of an individual unit of the registered product
+                    copy.Quantity = 1; // current available total quantity of units in stock
+                    copy.Total = copy.UnitPrice; // total price of the amount of units purchased
+
+                    // this also udpates its corresponding list due to call by refrence; i.e. the original list also updates
+                    // Also eleminate the need to have a nested for to find and update the correct row
+                    row.Cells[10].Value = (FormatToInt(row.Cells[10].Value.ToString()) - 1);
+                    row.Cells[18].Value = (FormatToDecimal(row.Cells[18].Value.ToString()) - FormatToDecimal(row.Cells[9].Value.ToString())); ; // reducing total by the unit price of one unit
+
+                    if (row.Cells[10].Value.ToString() == "0") // When the quantity of an item is depleted; Quanity = 0
+                        // purchasedItemsDataGridView.Rows.RemoveAt(row.Index); This requires an ibindinglist to work
+                        // Necessary evil for now
+                        foreach (Product item in returnedItems)
+                            if (item.Quantity == 0) // No need to compare the purchased item list with the row id of the modified item given that datgrid allows direct modification of variable (refrence) instead of a copy (parameter)
+                            {
+                                returnedItems.Remove(item);
+                                trigger = false;
+                                break;
+                            }
+
+                    purchasedItems.Add(copy);
+                }
+            }
+
+            // Updading both grids
+            PopulatePurchasedItemsDataGrid();
+            PopulateReturedItemsDataGrid();
+        }
         #endregion
 
         #region Auxiliary Functions
@@ -150,11 +217,11 @@ namespace GeneralStoreInventoryManagementSystem
         }
 
         /// <summary>
-        /// 
+        /// Function to detect if a product is included in one of the designated lists
         /// </summary>
-        /// <param name="productId"></param>
-        /// <param name="list"></param>
-        /// <returns></returns>
+        /// <param name="productId">Identification number of the product</param>
+        /// <param name="list">The code to specify the correct list of products</param>
+        /// <returns>True or False depending if the product is included or not</returns>
         private bool IsProductFoundInList(String productId, String list)
         {
             switch (list)
@@ -181,7 +248,7 @@ namespace GeneralStoreInventoryManagementSystem
         }
 
         /// <summary>
-        /// 
+        /// Function to populate the purchased item data grid
         /// </summary>
         private void PopulatePurchasedItemsDataGrid()
         {
@@ -240,7 +307,7 @@ namespace GeneralStoreInventoryManagementSystem
         }
 
         /// <summary>
-        /// 
+        /// Function to populate the returned item data grid
         /// </summary>
         private void PopulateReturedItemsDataGrid()
         {

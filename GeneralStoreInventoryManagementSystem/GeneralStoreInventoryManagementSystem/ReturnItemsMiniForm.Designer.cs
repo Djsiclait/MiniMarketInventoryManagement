@@ -32,10 +32,8 @@
             this.returnedItemsDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.returnAllButton = new System.Windows.Forms.Button();
             this.returnOneButton = new System.Windows.Forms.Button();
             this.returnItemButton = new System.Windows.Forms.Button();
-            this.removeAllButton = new System.Windows.Forms.Button();
             this.removeOneButton = new System.Windows.Forms.Button();
             this.removeItemButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -102,15 +100,6 @@
             this.label2.TabIndex = 27;
             this.label2.Text = "Returned Items";
             // 
-            // returnAllButton
-            // 
-            this.returnAllButton.Location = new System.Drawing.Point(589, 87);
-            this.returnAllButton.Name = "returnAllButton";
-            this.returnAllButton.Size = new System.Drawing.Size(100, 23);
-            this.returnAllButton.TabIndex = 31;
-            this.returnAllButton.Text = "Return All";
-            this.returnAllButton.UseVisualStyleBackColor = true;
-            // 
             // returnOneButton
             // 
             this.returnOneButton.Location = new System.Drawing.Point(589, 29);
@@ -130,15 +119,6 @@
             this.returnItemButton.Text = "Return An Item";
             this.returnItemButton.UseVisualStyleBackColor = true;
             // 
-            // removeAllButton
-            // 
-            this.removeAllButton.Location = new System.Drawing.Point(16, 376);
-            this.removeAllButton.Name = "removeAllButton";
-            this.removeAllButton.Size = new System.Drawing.Size(100, 23);
-            this.removeAllButton.TabIndex = 34;
-            this.removeAllButton.Text = "Remove All";
-            this.removeAllButton.UseVisualStyleBackColor = true;
-            // 
             // removeOneButton
             // 
             this.removeOneButton.Location = new System.Drawing.Point(16, 318);
@@ -147,6 +127,7 @@
             this.removeOneButton.TabIndex = 33;
             this.removeOneButton.Text = "Remove One Unit";
             this.removeOneButton.UseVisualStyleBackColor = true;
+            this.removeOneButton.Click += new System.EventHandler(this.RemoveOneButton_Click);
             // 
             // removeItemButton
             // 
@@ -228,10 +209,8 @@
             this.Controls.Add(this.numberOfPurchasedItemsLabel);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.removeAllButton);
             this.Controls.Add(this.removeOneButton);
             this.Controls.Add(this.removeItemButton);
-            this.Controls.Add(this.returnAllButton);
             this.Controls.Add(this.returnOneButton);
             this.Controls.Add(this.returnItemButton);
             this.Controls.Add(this.label2);
@@ -255,10 +234,8 @@
         private System.Windows.Forms.DataGridView returnedItemsDataGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button returnAllButton;
         private System.Windows.Forms.Button returnOneButton;
         private System.Windows.Forms.Button returnItemButton;
-        private System.Windows.Forms.Button removeAllButton;
         private System.Windows.Forms.Button removeOneButton;
         private System.Windows.Forms.Button removeItemButton;
         private System.Windows.Forms.Button cancelButton;
