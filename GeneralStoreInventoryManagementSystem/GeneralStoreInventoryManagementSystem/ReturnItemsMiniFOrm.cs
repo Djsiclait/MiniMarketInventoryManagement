@@ -43,39 +43,24 @@ namespace GeneralStoreInventoryManagementSystem
             // Capturing the data of multiple selected products
             foreach (DataGridViewRow row in purchasedItemsDataGridView.SelectedRows)
             {
-                if (IsProductFoundInList(row.Cells[0].Value.ToString(), "R"))
+                if (IsProductFoundInList(row.Cells[0].Value.ToString(), "R")) // Checking if at least one unit of the selected product has already been assigned to be returned
                 {
 
-                }
-                else
-                {
-                    Product copy = new Product();
+                    foreach (Product item in returnedItems)
+                        if (item.Id == row.Cells[0].Value.ToString())
+                        {
+                            item.Quantity++;
+                            item.Total = item.UnitPrice * item.Quantity;
+                        }
 
-                    copy.Id = row.Cells[0].Value.ToString();
-                    //copy.Key = row.Cells[1].Value.ToString(); // User assigned product identification number for non accounting purposes
-                    copy.Name = row.Cells[2].Value.ToString(); // name of the product not including company brand
-                    copy.Brand = row.Cells[3].Value.ToString(); // product brand company
-                    //copy.Supplier = row.Cells[4].Value.ToString(); // product supplier 
-                    //copy.Unit = row.Cells[5].Value.ToString(); // Unit of measurment for product(i.e.unit, pack, 12oz, lb)
-                    //copy.Category = row.Cells[6].Value.ToString(); // product cateory
-                    //copy.Type = row.Cells[7].Value.ToString(); // product type
-                    //copy.UnitCost = FormatToDecimal(row.Cells[8].Value.ToString()); // purchase cost of an individual unit of the registered product
-                    copy.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // sales price of an individual unit of the registered product
-                    copy.Quantity = 1; // current available total quantity of units in stock
-                    //copy.MinimumQuantity = FormatToInt(row.Cells[11].Value.ToString()); // miminum unit quantity needed to determine understock level of registered product
-                    //copy.MaximumQuantity = FormatToInt(row.Cells[12].Value.ToString()); // maximum unit quantity needed to determine overstock level of registered product
-                    //copy.RegisteredBy = row.Cells[13].Value.ToString(); // username of person responsible for registering the product for the first time
-                    //copy.RegistrationDate = DateTime.Parse(row.Cells[14].Value.ToString()); // date product was first registered by a user
-                    //copy.ModifiedBy = row.Cells[15].Value.ToString(); // username of last person to modify the product's information
-                    //copy.ModificationDate = DateTime.Parse(row.Cells[16].Value.ToString()); // date the product's information was last modified
-                    //copy.Discontinued = FormatToBoolean(row.Cells[17].Value.ToString()); // State of product within the general store
-                    copy.Total = FormatToDecimal(row.Cells[18].Value.ToString());
+                    // this also udpates its corresponding list due to call by refrence; i.e. the original list also updates
+                    // Also eleminate the need to have a nested for to find and update the correct row
+                    row.Cells[10].Value = (FormatToInt(row.Cells[10].Value.ToString()) - 1);
+                    row.Cells[18].Value = (FormatToDecimal(row.Cells[18].Value.ToString()) - FormatToDecimal(row.Cells[9].Value.ToString())); // reducing total by the unit price of one unit
 
-                    row.Cells[10].Value = (FormatToInt(row.Cells[10].Value.ToString()) - 1); // this also udpates its corresponding list due to call by refrence; i.e. the original list also updates
-                    Console.WriteLine("R:" + row.Cells[10].Value);
-
-                    if (row.Cells[10].Value.ToString() == "0")
-                    {
+                    if (row.Cells[10].Value.ToString() == "0") // When the quantity of an item is depleted; Quanity = 0
+                        // purchasedItemsDataGridView.Rows.RemoveAt(row.Index); This requires an ibindinglist to work
+                        // Necessary evil for now
                         foreach (Product item in purchasedItems)
                             if (item.Quantity == 0) // No need to compare the purchased item list with the row id of the modified item given that datgrid allows direct modification of variable (refrence) instead of a copy (parameter)
                             {
@@ -83,25 +68,41 @@ namespace GeneralStoreInventoryManagementSystem
                                 trigger = false;
                                 break;
                             }
-                    }
-                    //else
-                    //{
-                    //    foreach (Product item in purchasedItems)
-                    //        if (item.Id == row.Cells[0].Value.ToString())
-                    //        {
-                    //            //item.Quantity--;
-                    //            Console.WriteLine("I: " + item.Quantity);
-                    //            break;
-                    //        }
-                    //}
+                }
+                else // no units of the sselected product have been previously assigned for return 
+                {
+                    Product copy = new Product();
+
+                    copy.Id = row.Cells[0].Value.ToString(); // identification number of the selected product
+                    copy.Name = row.Cells[2].Value.ToString(); // name of the product not including company brand
+                    copy.Brand = row.Cells[3].Value.ToString(); // product brand company
+                    copy.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // sales price of an individual unit of the registered product
+                    copy.Quantity = 1; // current available total quantity of units in stock
+                    copy.Total = copy.UnitPrice; // total price of the amount of units purchased
+
+                    // this also udpates its corresponding list due to call by refrence; i.e. the original list also updates
+                    // Also eleminate the need to have a nested for to find and update the correct row
+                    row.Cells[10].Value = (FormatToInt(row.Cells[10].Value.ToString()) - 1);
+                    row.Cells[18].Value = (FormatToDecimal(row.Cells[18].Value.ToString()) - FormatToDecimal(row.Cells[9].Value.ToString())); ; // reducing total by the unit price of one unit
+
+                    if (row.Cells[10].Value.ToString() == "0") // When the quantity of an item is depleted; Quanity = 0
+                        // purchasedItemsDataGridView.Rows.RemoveAt(row.Index); This requires an ibindinglist to work
+                        // Necessary evil for now
+                        foreach (Product item in purchasedItems)
+                            if (item.Quantity == 0) // No need to compare the purchased item list with the row id of the modified item given that datgrid allows direct modification of variable (refrence) instead of a copy (parameter)
+                            {
+                                purchasedItems.Remove(item);
+                                trigger = false;
+                                break;
+                            }
 
                     returnedItems.Add(copy);
-
-                    PopulatePurchasedItemsDataGrid();
-                    PopulateReturedItemsDataGrid();
                 }
-
             }
+
+            // Updading both grids
+            PopulatePurchasedItemsDataGrid();
+            PopulateReturedItemsDataGrid();
         }
         #endregion
 
