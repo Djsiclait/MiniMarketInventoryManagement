@@ -49,6 +49,16 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("This transaction has already been voided/returned");
         }
 
+        private void ReturnItemsButton_Click(object sender, EventArgs e)
+        {
+            if (sale.Status == "Valid")
+            {
+                ReturnItemsMiniForm returnItemsMiniForm = new ReturnItemsMiniForm(sale.Id);
+                returnItemsMiniForm.Show();
+            }
+            else
+                MessageBox.Show("This transaction has already been voided/returned");
+        }
         #endregion
 
         #region Auxiliary Functions
@@ -80,35 +90,36 @@ namespace GeneralStoreInventoryManagementSystem
             contentDataGridView.DataSource = new List<Product>();
             contentDataGridView.Refresh();
 
+            #region Grid Formating
+            // Hidding unnecessary fields
+            contentDataGridView.Columns["Key"].Visible = false;
+            contentDataGridView.Columns["Supplier"].Visible = false;
+            contentDataGridView.Columns["Category"].Visible = false;
+            contentDataGridView.Columns["Type"].Visible = false;
+            contentDataGridView.Columns["UnitCost"].Visible = false;
+            contentDataGridView.Columns["MinimumQuantity"].Visible = false;
+            contentDataGridView.Columns["MaximumQuantity"].Visible = false;
+            contentDataGridView.Columns["RegisteredBy"].Visible = false;
+            contentDataGridView.Columns["RegistrationDate"].Visible = false;
+            contentDataGridView.Columns["ModifiedBy"].Visible = false;
+            contentDataGridView.Columns["ModificationDate"].Visible = false;
+            contentDataGridView.Columns["Discontinued"].Visible = false;
+
+            // Formationg columns
+            contentDataGridView.Columns["Id"].Width = 60;
+            contentDataGridView.Columns["Name"].Width = 150;
+            contentDataGridView.Columns["Unit"].Width = 50;
+            contentDataGridView.Columns["UnitPrice"].Width = 80;
+            contentDataGridView.Columns["Brand"].Width = 70;
+            contentDataGridView.Columns["Quantity"].Width = 60;
+            #endregion
+
             List<Product> content = SaleInformationManager.ConsultTransactionContentInformation(sale.Id);
 
             if (content.Count > 0)
             {
                 contentDataGridView.DataSource = content;
                 contentDataGridView.Refresh();
-
-                // Hidding unnecessary fields
-                contentDataGridView.Columns["Key"].Visible = false;
-                contentDataGridView.Columns["Supplier"].Visible = false;
-                contentDataGridView.Columns["Category"].Visible = false;
-                contentDataGridView.Columns["Type"].Visible = false;
-                contentDataGridView.Columns["UnitCost"].Visible = false;
-                contentDataGridView.Columns["MinimumQuantity"].Visible = false;
-                contentDataGridView.Columns["MaximumQuantity"].Visible = false;
-                contentDataGridView.Columns["RegisteredBy"].Visible = false;
-                contentDataGridView.Columns["RegistrationDate"].Visible = false;
-                contentDataGridView.Columns["ModifiedBy"].Visible = false;
-                contentDataGridView.Columns["ModificationDate"].Visible = false;
-                contentDataGridView.Columns["Discontinued"].Visible = false;
-
-                // Formationg columns
-                contentDataGridView.Columns["Id"].Width = 60;
-                contentDataGridView.Columns["Name"].Width = 150;
-                contentDataGridView.Columns["Unit"].Width = 50;
-                contentDataGridView.Columns["UnitPrice"].Width = 80;
-                contentDataGridView.Columns["Brand"].Width = 70;
-                contentDataGridView.Columns["Quantity"].Width = 60;
-                //contentDataGridView.Columns["Total"].Width = 50;
 
                 int quantity = 0;
                 decimal total = 0;

@@ -40,6 +40,10 @@
             this.removeItemButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.confirmButton = new System.Windows.Forms.Button();
+            this.purchasedTotalLabel = new System.Windows.Forms.Label();
+            this.numberOfPurchasedItemsLabel = new System.Windows.Forms.Label();
+            this.returnTotalLabel = new System.Windows.Forms.Label();
+            this.numberOfReturnsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.purchasedItemsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnedItemsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +62,7 @@
             this.purchasedItemsDataGridView.RowHeadersVisible = false;
             this.purchasedItemsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.purchasedItemsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.purchasedItemsDataGridView.Size = new System.Drawing.Size(507, 253);
+            this.purchasedItemsDataGridView.Size = new System.Drawing.Size(567, 253);
             this.purchasedItemsDataGridView.TabIndex = 24;
             // 
             // returnedItemsDataGridView
@@ -75,7 +79,7 @@
             this.returnedItemsDataGridView.RowHeadersVisible = false;
             this.returnedItemsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.returnedItemsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.returnedItemsDataGridView.Size = new System.Drawing.Size(507, 253);
+            this.returnedItemsDataGridView.Size = new System.Drawing.Size(567, 253);
             this.returnedItemsDataGridView.TabIndex = 25;
             // 
             // label1
@@ -100,7 +104,7 @@
             // 
             // returnAllButton
             // 
-            this.returnAllButton.Location = new System.Drawing.Point(529, 87);
+            this.returnAllButton.Location = new System.Drawing.Point(589, 87);
             this.returnAllButton.Name = "returnAllButton";
             this.returnAllButton.Size = new System.Drawing.Size(100, 23);
             this.returnAllButton.TabIndex = 31;
@@ -109,16 +113,17 @@
             // 
             // returnOneButton
             // 
-            this.returnOneButton.Location = new System.Drawing.Point(529, 29);
+            this.returnOneButton.Location = new System.Drawing.Point(589, 29);
             this.returnOneButton.Name = "returnOneButton";
             this.returnOneButton.Size = new System.Drawing.Size(100, 23);
             this.returnOneButton.TabIndex = 30;
             this.returnOneButton.Text = "Return One Unit";
             this.returnOneButton.UseVisualStyleBackColor = true;
+            this.returnOneButton.Click += new System.EventHandler(this.ReturnOneButton_Click);
             // 
             // returnItemButton
             // 
-            this.returnItemButton.Location = new System.Drawing.Point(529, 58);
+            this.returnItemButton.Location = new System.Drawing.Point(589, 58);
             this.returnItemButton.Name = "returnItemButton";
             this.returnItemButton.Size = new System.Drawing.Size(100, 23);
             this.returnItemButton.TabIndex = 29;
@@ -172,11 +177,55 @@
             this.confirmButton.Text = "Confirm Return";
             this.confirmButton.UseVisualStyleBackColor = true;
             // 
+            // purchasedTotalLabel
+            // 
+            this.purchasedTotalLabel.AutoSize = true;
+            this.purchasedTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.purchasedTotalLabel.Location = new System.Drawing.Point(179, 9);
+            this.purchasedTotalLabel.Name = "purchasedTotalLabel";
+            this.purchasedTotalLabel.Size = new System.Drawing.Size(96, 17);
+            this.purchasedTotalLabel.TabIndex = 38;
+            this.purchasedTotalLabel.Text = "Total: $0.00";
+            // 
+            // numberOfPurchasedItemsLabel
+            // 
+            this.numberOfPurchasedItemsLabel.AutoSize = true;
+            this.numberOfPurchasedItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfPurchasedItemsLabel.Location = new System.Drawing.Point(13, 9);
+            this.numberOfPurchasedItemsLabel.Name = "numberOfPurchasedItemsLabel";
+            this.numberOfPurchasedItemsLabel.Size = new System.Drawing.Size(84, 17);
+            this.numberOfPurchasedItemsLabel.TabIndex = 37;
+            this.numberOfPurchasedItemsLabel.Text = "# of Items:";
+            // 
+            // returnTotalLabel
+            // 
+            this.returnTotalLabel.AutoSize = true;
+            this.returnTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnTotalLabel.Location = new System.Drawing.Point(469, 298);
+            this.returnTotalLabel.Name = "returnTotalLabel";
+            this.returnTotalLabel.Size = new System.Drawing.Size(96, 17);
+            this.returnTotalLabel.TabIndex = 40;
+            this.returnTotalLabel.Text = "Total: $0.00";
+            // 
+            // numberOfReturnsLabel
+            // 
+            this.numberOfReturnsLabel.AutoSize = true;
+            this.numberOfReturnsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfReturnsLabel.Location = new System.Drawing.Point(303, 298);
+            this.numberOfReturnsLabel.Name = "numberOfReturnsLabel";
+            this.numberOfReturnsLabel.Size = new System.Drawing.Size(84, 17);
+            this.numberOfReturnsLabel.TabIndex = 39;
+            this.numberOfReturnsLabel.Text = "# of Items:";
+            // 
             // ReturnItemsMiniForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 628);
+            this.ClientSize = new System.Drawing.Size(704, 628);
+            this.Controls.Add(this.returnTotalLabel);
+            this.Controls.Add(this.numberOfReturnsLabel);
+            this.Controls.Add(this.purchasedTotalLabel);
+            this.Controls.Add(this.numberOfPurchasedItemsLabel);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.removeAllButton);
@@ -214,5 +263,9 @@
         private System.Windows.Forms.Button removeItemButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button confirmButton;
+        private System.Windows.Forms.Label purchasedTotalLabel;
+        private System.Windows.Forms.Label numberOfPurchasedItemsLabel;
+        private System.Windows.Forms.Label returnTotalLabel;
+        private System.Windows.Forms.Label numberOfReturnsLabel;
     }
 }

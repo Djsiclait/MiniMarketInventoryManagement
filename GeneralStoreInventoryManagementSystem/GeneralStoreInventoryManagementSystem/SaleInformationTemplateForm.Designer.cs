@@ -200,6 +200,7 @@
             this.returnItemsButton.TabIndex = 13;
             this.returnItemsButton.Text = "Return Items";
             this.returnItemsButton.UseVisualStyleBackColor = true;
+            this.returnItemsButton.Click += new System.EventHandler(this.ReturnItemsButton_Click);
             // 
             // label4
             // 

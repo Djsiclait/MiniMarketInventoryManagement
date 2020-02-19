@@ -1,4 +1,4 @@
-alter PROC SP_Void_Registered_Transaction
+CREATE PROC SP_Void_Registered_Transaction
 	@sales_id varchar(10),
 	@username varchar(50)
 AS
