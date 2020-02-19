@@ -1,5 +1,4 @@
 CREATE PROC SP_Return_Purchased_Items
-	@sales_id varchar(10),
 	@product_id varchar(10),
 	@quantity int,
 	@username varchar(50)
@@ -22,7 +21,7 @@ go
 begin tran
 
 select * from Tbl_Products where fld_product_id = 'P5'
-exec SP_Return_Purchased_Items 'S10', 'P5', 2, 'b.siclait'
+exec SP_Return_Purchased_Items 'P5', 2, 'b.siclait'
 select * from Tbl_Products where fld_product_id = 'P5'
 
 rollback
