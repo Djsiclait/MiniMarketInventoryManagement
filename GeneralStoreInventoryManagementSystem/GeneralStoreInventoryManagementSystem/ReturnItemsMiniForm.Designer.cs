@@ -138,6 +138,7 @@
             this.removeItemButton.TabIndex = 32;
             this.removeItemButton.Text = "Remove An Item";
             this.removeItemButton.UseVisualStyleBackColor = true;
+            this.removeItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // cancelButton
             // 

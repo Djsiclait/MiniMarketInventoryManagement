@@ -217,6 +217,56 @@ namespace GeneralStoreInventoryManagementSystem
             PopulatePurchasedItemsDataGrid();
             PopulateReturedItemsDataGrid();
         }
+
+        private void RemoveItemButton_Click(object sender, EventArgs e)
+        {
+            // Capturing the data of multiple selected products
+            foreach (DataGridViewRow row in returnedItemsDataGridView.SelectedRows)
+                if (IsProductFoundInList(row.Cells[0].Value.ToString(), "P")) // Checking if at least one unit of the selected product has already been assigned to be returned
+                {
+                    foreach (Product item in purchasedItems)
+                        if (item.Id == row.Cells[0].Value.ToString())
+                        {
+                            item.Quantity += FormatToInt(row.Cells[10].Value.ToString());
+                            item.Total = item.UnitPrice * item.Quantity;
+                        }
+
+                    // purchasedItemsDataGridView.Rows.RemoveAt(row.Index); This requires an ibindinglist to work
+                    // Necessary evil for now
+                    foreach (Product item in returnedItems)
+                        if (item.Id == row.Cells[0].Value.ToString()) // No need to compare the purchased item list with the row id of the modified item given that datagrid allows direct modification of variable (refrence) instead of a copy (parameter)
+                        {
+                            returnedItems.Remove(item);
+                            break;
+                        }
+                }
+                else
+                {
+                    Product copy = new Product();
+
+                    copy.Id = row.Cells[0].Value.ToString(); // identification number of the selected product
+                    copy.Name = row.Cells[2].Value.ToString(); // name of the product not including company brand
+                    copy.Brand = row.Cells[3].Value.ToString(); // product brand company
+                    copy.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // sales price of an individual unit of the registered product
+                    copy.Quantity = FormatToInt(row.Cells[10].Value.ToString()); // current available total quantity of units in stock
+                    copy.Total = FormatToDecimal(row.Cells[18].Value.ToString()); // total price of the amount of units purchased
+
+                    // purchasedItemsDataGridView.Rows.RemoveAt(row.Index); This requires an ibindinglist to work
+                    // Necessary evil for now
+                    foreach (Product item in returnedItems)
+                        if (item.Id == row.Cells[0].Value.ToString()) // No need to compare the purchased item list with the row id of the modified item given that datagrid allows direct modification of variable (refrence) instead of a copy (parameter)
+                        {
+                            returnedItems.Remove(item);
+                            break;
+                        }
+
+                    purchasedItems.Add(copy);
+                }
+
+            // Updading both grids
+            PopulatePurchasedItemsDataGrid();
+            PopulateReturedItemsDataGrid();
+        }
         #endregion
 
         #region Auxiliary Functions
