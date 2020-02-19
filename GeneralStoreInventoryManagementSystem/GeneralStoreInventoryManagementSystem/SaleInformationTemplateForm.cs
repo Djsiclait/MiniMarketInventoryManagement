@@ -18,12 +18,23 @@ namespace GeneralStoreInventoryManagementSystem
     {
         Sale sale;
 
+        ReturnItemsMiniForm returnItemsMiniForm;
+
         public SaleInformationTemplateForm(String saleId)
         {
             InitializeComponent();
 
             DisplayTransactionInformation(saleId);
         }
+
+        #region On Form Closing Logic
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            DisposeOnlyChild();
+        }
+        #endregion
 
         #region Form Load Logic
         private void SaleInformationTemplateForm_Load(object sender, EventArgs e)
@@ -51,11 +62,13 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ReturnItemsButton_Click(object sender, EventArgs e)
         {
-            if (sale.Status == "Valid")
+            if (sale.Status == "Valid" && returnItemsMiniForm == null)
             {
-                ReturnItemsMiniForm returnItemsMiniForm = new ReturnItemsMiniForm(sale.Id);
+                returnItemsMiniForm = new ReturnItemsMiniForm(sale.Id);
                 returnItemsMiniForm.Show();
             }
+            if (sale.Status == "Valid" && returnItemsMiniForm != null)
+                returnItemsMiniForm.Focus();
             else
                 MessageBox.Show("This transaction has already been voided/returned");
         }
@@ -138,6 +151,14 @@ namespace GeneralStoreInventoryManagementSystem
                 numberOfItemsLabel.Text = "Number of Items: 0";
                 totalLabel.Text = "Total: $0.00";
             }
+        }
+
+        /// <summary>
+        /// Function to dispose of any open residual minimforms
+        /// </summary>
+        public void DisposeOnlyChild()
+        {
+            returnItemsMiniForm.Dispose();
         }
         #endregion
     }

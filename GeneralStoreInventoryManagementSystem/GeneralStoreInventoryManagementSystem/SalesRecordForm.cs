@@ -294,7 +294,10 @@ namespace GeneralStoreInventoryManagementSystem
         private void DisposeAllChildren()
         {
             foreach (SaleInformationTemplateForm child in children)
+            {
+                child.DisposeOnlyChild(); // disposing of any potential grandchildren
                 child.Dispose();
+            }
         }
 
         /// <summary>
