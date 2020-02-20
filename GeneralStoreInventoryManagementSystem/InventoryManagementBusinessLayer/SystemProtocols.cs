@@ -281,7 +281,7 @@ namespace InventoryManagementBusinessLayer
                 case 2: // Adding an item to the cart
 
                     if (IsProductIdPresent(product.Id)) // checking if a unit was already added before hand
-                        SystemResources.AddUnitsToAnItem(product.Id, product.UnitPrice, product.Quantity, limit); // adding an additional unit to the item
+                        SystemResources.AddUnitsToAnItem(product.Id, product.Unit, product.UnitPrice, product.Quantity, limit); // adding an additional unit to the item
                     else
                     {
                         product.UnitPrice *= product.Quantity;

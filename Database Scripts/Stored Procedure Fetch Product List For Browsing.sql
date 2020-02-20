@@ -9,8 +9,8 @@ AS
 			Select
 				(
 					CASE 
-						WHEN @format = 'FIFO' THEN (select MIN(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name and fld_product_brand = B.fld_brand_id) 
-						WHEN @format = 'LIFO' THEN (select MAX(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name and fld_product_brand = B.fld_brand_id)
+						WHEN @format = 'FIFO' THEN (select MIN(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name and fld_product_brand = B.fld_brand_id and fld_product_unit = A.fld_product_unit) 
+						WHEN @format = 'LIFO' THEN (select MAX(fld_product_id) from Tbl_Products where fld_product_quantity > 0 and fld_product_name = A.fld_product_name and fld_product_brand = B.fld_brand_id and fld_product_unit = A.fld_product_unit)
 					END
 				) as product_id,
 				MAX(A.fld_product_key) as product_key,
@@ -75,6 +75,8 @@ go
 
 Exec SP_Fetch_Product_List_For_Browsing 'Admin', '2%', 'LIFO'
 Exec SP_Fetch_Product_List_For_Browsing 'User', '2%', 'FIFO'
+Exec SP_Fetch_Product_List_For_Browsing 'Admin', 'DORI', 'LIFO'
+Exec SP_Fetch_Product_List_For_Browsing 'User', 'DORI', 'FIFO'
 
 
 
