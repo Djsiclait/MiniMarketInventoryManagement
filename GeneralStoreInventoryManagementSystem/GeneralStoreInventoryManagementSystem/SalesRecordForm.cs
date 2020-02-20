@@ -44,7 +44,6 @@ namespace GeneralStoreInventoryManagementSystem
                 SystemProtocols.ApplyActivityProtocols("SAL3", null, null);
 
             PopulateSalesDataGrid();
-
         }
         #endregion
 
@@ -262,12 +261,13 @@ namespace GeneralStoreInventoryManagementSystem
         {
             if (!SystemProtocols.ApplySessionsProtocols(1, null, null)) // option only available for non basic users
             {
-                if (!IsChildAlive(salesList.SelectedCells[0].Value.ToString()))
+                if (!IsChildAlive(salesList.SelectedCells[0].Value.ToString())) // Verifying that requested child is killed or active before proceeding
                 {
+                    // Starting or resecusating child
                     SaleInformationTemplateForm child = new SaleInformationTemplateForm(salesList.SelectedCells[0].Value.ToString());
                     child.Show();
 
-                    children.Add(child);
+                    children.Add(child); // adding child to the list of children to keep track of opened auxiliary forms
                 }
             }
         }
@@ -299,12 +299,12 @@ namespace GeneralStoreInventoryManagementSystem
             foreach (SaleInformationTemplateForm child in children)
             {
                 child.DisposeOnlyChild(); // disposing of any potential grandchildren
-                child.Dispose();
+                child.Dispose(); // disposing all the living child
             }
         }
 
         /// <summary>
-        /// Function to allow children to notify this form to update its information
+        /// Function to allow children and grandchildren to notify this form to update its information
         /// </summary>
         public void RefreshSalesRecordsDataGrid()
         {
@@ -319,10 +319,11 @@ namespace GeneralStoreInventoryManagementSystem
         {
             if (!SystemProtocols.ApplySessionsProtocols(1, null, null)) // option only available for non basic users
             {
+                // Creating a new child given the new information available
                 SaleInformationTemplateForm child = new SaleInformationTemplateForm(newSaleId);
                 child.Show();
 
-                children.Add(child);
+                children.Add(child); // adding that new child to the list of living children
             }
         }
 

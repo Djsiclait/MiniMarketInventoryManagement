@@ -387,13 +387,13 @@ namespace InventoryManagementBusinessLayer
         /// <returns>A message confirming the type of policy that was applied</returns>
         public static String ApplyReturnPolicyProtocols(Sale sale, List<Product> remainingProducts, List<Product> returnedProducts)
         {
-            if (remainingProducts.Count > 0)
+            if (remainingProducts.Count > 0) // Verifying if only some products have been returned
             {
-                // 1. Create a new sale and get it's id
+                // 1. Create a new sale and get its id
                 String saleId = SaleInformationManager.CreateNewSalesTransactionInformation(sale);
 
-                // 2. register the contents of new sale
-                if (saleId != null || saleId != "")
+                // 2. Register the contents of new sale
+                if (saleId != null || saleId != "") // if the new sale was successfully created
                 {
                     foreach (Product item in remainingProducts)
                         SaleInformationManager.CreateNewSalesTransactionContentInformation(item, saleId);
@@ -408,12 +408,12 @@ namespace InventoryManagementBusinessLayer
                         ProductInformationManager.UpdateRegisteredProductInformationForReturns(item.Id, item.Quantity);
                 }
 
-                return saleId;
+                return saleId; // returning the identification number of the new valid transaction
             }
-            else
+            else // All products have been returned
             {
                 SaleInformationManager.UpdateTransactionStatusInformationToVoid(sale.Id); // If no products remain, equivalent to returning everything, then this process counts as voiding the original transaction
-                return "VOIDED";
+                return "VOIDED"; // Confirms that returning all product is the equivalent of a voided transaction
             }
         }
 
