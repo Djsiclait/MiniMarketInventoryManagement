@@ -1,4 +1,4 @@
-Alter PROC SP_Register_New_Supplier
+CREATE PROC SP_Register_New_Supplier
 	@name varchar(100),
 	@phone_number varchar(100),
 	@email varchar(200),

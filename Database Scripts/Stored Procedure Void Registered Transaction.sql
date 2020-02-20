@@ -1,12 +1,14 @@
 CREATE PROC SP_Void_Registered_Transaction
-	@sales_id varchar(10)
+	@sales_id varchar(10),
+	@username varchar(50)
 AS
 	BEGIN
 		
 		Update 
 			Tbl_Sales
 		Set
-			fld_sale_status = 1 -- Void
+			fld_sale_status = 1, -- Void
+			fld_sale_last_modified = GETDATE()
 		Where
 			fld_sale_id = @sales_id
 
@@ -37,7 +39,9 @@ AS
 						Update 
 							Tbl_Products
 						Set
-							fld_product_quantity = fld_product_quantity + @quantity_sold
+							fld_product_quantity = fld_product_quantity + @quantity_sold,
+							fld_product_modification_date = GETDATE(),
+							fld_product_modified_by = @username
 						Where
 							fld_product_id = @current_product_id
 						
@@ -59,7 +63,7 @@ begin tran
 
 select Top 5 * from Tbl_Products
 
-exec SP_Void_Registered_Transaction 'S6'
+exec SP_Void_Registered_Transaction 'S6', 'p.siclait'
 
 select * from Tbl_Sales where fld_sale_id = 'S6'
 select Top 5 * from Tbl_Products

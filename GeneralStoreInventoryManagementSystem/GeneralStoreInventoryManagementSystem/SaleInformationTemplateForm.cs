@@ -18,12 +18,25 @@ namespace GeneralStoreInventoryManagementSystem
     {
         Sale sale;
 
+        ReturnItemsMiniForm returnItemsMiniForm;
+
         public SaleInformationTemplateForm(String saleId)
         {
             InitializeComponent();
 
             DisplayTransactionInformation(saleId);
         }
+
+        #region On Form Closing Logic
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            FormsMenuList.salesRecordForm.ChildWasKilled();
+
+            DisposeOnlyChild();
+        }
+        #endregion
 
         #region Form Load Logic
         private void SaleInformationTemplateForm_Load(object sender, EventArgs e)
@@ -33,7 +46,7 @@ namespace GeneralStoreInventoryManagementSystem
         #endregion
 
         #region Button Click Logic
-        private void voidSaleButton_Click(object sender, EventArgs e)
+        private void VoidSaleButton_Click(object sender, EventArgs e)
         {
             if (sale.Status == "Valid")
             {
@@ -49,6 +62,18 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("This transaction has already been voided/returned");
         }
 
+        private void ReturnItemsButton_Click(object sender, EventArgs e)
+        {
+            if (sale.Status == "Valid" && returnItemsMiniForm == null)
+            {
+                returnItemsMiniForm = new ReturnItemsMiniForm(sale.Id);
+                returnItemsMiniForm.Show();
+            }
+            if (sale.Status == "Valid" && returnItemsMiniForm != null)
+                returnItemsMiniForm.Focus();
+            else
+                MessageBox.Show("This transaction has already been voided/returned");
+        }
         #endregion
 
         #region Auxiliary Functions
@@ -60,7 +85,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             sale = SaleInformationManager.ConsultTransactionInformationBySalesId(saleId);
 
-            this.Text += " " + sale.Id;
+            this.Text = "Sale Information: " + sale.Id;
 
             saleIdLabel.Text = sale.Id;
             saleDateLabel.Text = sale.TransactionDate.ToString();
@@ -73,6 +98,15 @@ namespace GeneralStoreInventoryManagementSystem
         }
 
         /// <summary>
+        /// Function to dispose of any open residual minimforms
+        /// </summary>
+        public void DisposeOnlyChild()
+        {
+            if (returnItemsMiniForm != null)
+                returnItemsMiniForm.Dispose();
+        }
+
+        /// <summary>
         /// Function to populate the transaction content grid
         /// </summary>
         private void PopulateContentDataGrid()
@@ -80,35 +114,36 @@ namespace GeneralStoreInventoryManagementSystem
             contentDataGridView.DataSource = new List<Product>();
             contentDataGridView.Refresh();
 
+            #region Grid Formating
+            // Hidding unnecessary fields
+            contentDataGridView.Columns["Key"].Visible = false;
+            contentDataGridView.Columns["Supplier"].Visible = false;
+            contentDataGridView.Columns["Category"].Visible = false;
+            contentDataGridView.Columns["Type"].Visible = false;
+            contentDataGridView.Columns["UnitCost"].Visible = false;
+            contentDataGridView.Columns["MinimumQuantity"].Visible = false;
+            contentDataGridView.Columns["MaximumQuantity"].Visible = false;
+            contentDataGridView.Columns["RegisteredBy"].Visible = false;
+            contentDataGridView.Columns["RegistrationDate"].Visible = false;
+            contentDataGridView.Columns["ModifiedBy"].Visible = false;
+            contentDataGridView.Columns["ModificationDate"].Visible = false;
+            contentDataGridView.Columns["Discontinued"].Visible = false;
+
+            // Formationg columns
+            contentDataGridView.Columns["Id"].Width = 60;
+            contentDataGridView.Columns["Name"].Width = 150;
+            contentDataGridView.Columns["Unit"].Width = 50;
+            contentDataGridView.Columns["UnitPrice"].Width = 80;
+            contentDataGridView.Columns["Brand"].Width = 70;
+            contentDataGridView.Columns["Quantity"].Width = 60;
+            #endregion
+
             List<Product> content = SaleInformationManager.ConsultTransactionContentInformation(sale.Id);
 
             if (content.Count > 0)
             {
                 contentDataGridView.DataSource = content;
                 contentDataGridView.Refresh();
-
-                // Hidding unnecessary fields
-                contentDataGridView.Columns["Key"].Visible = false;
-                contentDataGridView.Columns["Supplier"].Visible = false;
-                contentDataGridView.Columns["Category"].Visible = false;
-                contentDataGridView.Columns["Type"].Visible = false;
-                contentDataGridView.Columns["UnitCost"].Visible = false;
-                contentDataGridView.Columns["MinimumQuantity"].Visible = false;
-                contentDataGridView.Columns["MaximumQuantity"].Visible = false;
-                contentDataGridView.Columns["RegisteredBy"].Visible = false;
-                contentDataGridView.Columns["RegistrationDate"].Visible = false;
-                contentDataGridView.Columns["ModifiedBy"].Visible = false;
-                contentDataGridView.Columns["ModificationDate"].Visible = false;
-                contentDataGridView.Columns["Discontinued"].Visible = false;
-
-                // Formationg columns
-                contentDataGridView.Columns["Id"].Width = 60;
-                contentDataGridView.Columns["Name"].Width = 150;
-                contentDataGridView.Columns["Unit"].Width = 50;
-                contentDataGridView.Columns["UnitPrice"].Width = 80;
-                contentDataGridView.Columns["Brand"].Width = 70;
-                contentDataGridView.Columns["Quantity"].Width = 60;
-                //contentDataGridView.Columns["Total"].Width = 50;
 
                 int quantity = 0;
                 decimal total = 0;
@@ -127,6 +162,16 @@ namespace GeneralStoreInventoryManagementSystem
                 numberOfItemsLabel.Text = "Number of Items: 0";
                 totalLabel.Text = "Total: $0.00";
             }
+        }
+
+        /// <summary>
+        /// Function used but this form's parent that notifies that its child has successfully made a return 
+        /// so this form can update the current transaction's information
+        /// </summary>
+        public void UpdateSelfAfterSuccessfulReturn()
+        {
+            DisplayTransactionInformation(sale.Id);
+            PopulateContentDataGrid();
         }
         #endregion
     }

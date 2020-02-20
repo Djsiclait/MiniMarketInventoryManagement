@@ -230,6 +230,32 @@ namespace InventoryManagementDataLayer
 
         #region Updates
         /// <summary>
+        /// This function modifies the status of a transaction from valid to returned
+        /// </summary>
+        /// <param name="oldSaleId">Identification of the original transaction</param>
+        /// <param name="newSaleId">Identification number of the resulting transaction</param>
+        /// <param name="username">Username of the user requesting the return</param>
+        public static void UpdateTransactionStatusDataToReturned(String oldSaleId, String newSaleId, String username)
+        {
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Mark_Transaction_As_Returned", // Stored procedure incharged of fetching required data  
+                    DatabaseManager.ActiveSqlConnection); // requesting an open active connection to the database from the manager 
+            cmd.CommandType = CommandType.StoredProcedure; // Confirming that the previous command is a recognized stored procedure within the database
+
+            #region Parameters
+            // Declaring the parameters required by the stored procedure to execute it's pre defined command
+            cmd.Parameters.Add("@sales_id", SqlDbType.VarChar, 10).Value = oldSaleId;
+            cmd.Parameters.Add("@child_id", SqlDbType.VarChar, 10).Value = newSaleId;
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+            #endregion
+
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+            DatabaseManager.DisconnectToDatabase();
+        }
+
+        /// <summary>
         /// This function allows a user to void a registered transaction and cancel the sale
         /// </summary>
         /// <param name="salesId">Identification number of the registered transaction</param>

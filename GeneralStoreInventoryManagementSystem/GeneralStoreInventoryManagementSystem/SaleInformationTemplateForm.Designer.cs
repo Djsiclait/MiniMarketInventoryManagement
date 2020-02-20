@@ -189,7 +189,7 @@
             this.voidSaleButton.TabIndex = 12;
             this.voidSaleButton.Text = "Void Sale";
             this.voidSaleButton.UseVisualStyleBackColor = false;
-            this.voidSaleButton.Click += new System.EventHandler(this.voidSaleButton_Click);
+            this.voidSaleButton.Click += new System.EventHandler(this.VoidSaleButton_Click);
             // 
             // returnItemsButton
             // 
@@ -200,6 +200,7 @@
             this.returnItemsButton.TabIndex = 13;
             this.returnItemsButton.Text = "Return Items";
             this.returnItemsButton.UseVisualStyleBackColor = true;
+            this.returnItemsButton.Click += new System.EventHandler(this.ReturnItemsButton_Click);
             // 
             // label4
             // 
@@ -300,7 +301,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(742, 372);
             this.Name = "SaleInformationTemplateForm";
-            this.Text = "Sale Information: ";
+            this.Text = "Sale Information:";
             this.Load += new System.EventHandler(this.SaleInformationTemplateForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.contentDataGridView)).EndInit();
             this.ResumeLayout(false);

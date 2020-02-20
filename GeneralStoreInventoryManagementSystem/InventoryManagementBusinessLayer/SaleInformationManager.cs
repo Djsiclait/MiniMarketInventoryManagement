@@ -73,12 +73,26 @@ namespace InventoryManagementBusinessLayer
 
         #region Updates
         /// <summary>
+        /// This function modifies the status of a transaction from valid to returned
+        /// </summary>
+        /// <param name="oldSaleId">Identification of the original transaction</param>
+        /// <param name="newSaleId">Identification number of the resulting transaction</param>
+        public static void UpdateTransactionStatusDataToReturned(String oldSaleId, String newSaleId)
+        {
+            SaleDataManager.UpdateTransactionStatusDataToReturned(oldSaleId, newSaleId, SystemResources.UserInSession.Username);
+
+            SystemProtocols.ApplyActivityProtocols("SAL7", oldSaleId, newSaleId);
+        }
+
+        /// <summary>
         /// This function allows a user to void a registered transaction and cancel the sale
         /// </summary>
         /// <param name="salesId">Identification number of the registered transaction</param>
         public static void UpdateTransactionStatusInformationToVoid(String salesId)
         {
             SaleDataManager.UpdateTransactionStatusDataToVoid(salesId, SystemResources.UserInSession.Username);
+
+            SystemProtocols.ApplyActivityProtocols("SAL6", salesId, null);
         }
         #endregion
     }
