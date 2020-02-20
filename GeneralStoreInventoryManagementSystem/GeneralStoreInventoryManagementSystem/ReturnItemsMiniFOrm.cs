@@ -74,6 +74,7 @@ namespace GeneralStoreInventoryManagementSystem
                     copy.Id = row.Cells[0].Value.ToString(); // identification number of the selected product
                     copy.Name = row.Cells[2].Value.ToString(); // name of the product not including company brand
                     copy.Brand = row.Cells[3].Value.ToString(); // product brand company
+                    copy.Unit = row.Cells[5].Value.ToString();
                     copy.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // sales price of an individual unit of the registered product
                     copy.Quantity = 1; // current available total quantity of units in stock
                     copy.Total = copy.UnitPrice; // total price of the amount of units purchased
@@ -138,6 +139,7 @@ namespace GeneralStoreInventoryManagementSystem
                     copy.Id = row.Cells[0].Value.ToString(); // identification number of the selected product
                     copy.Name = row.Cells[2].Value.ToString(); // name of the product not including company brand
                     copy.Brand = row.Cells[3].Value.ToString(); // product brand company
+                    copy.Unit = row.Cells[5].Value.ToString();
                     copy.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // sales price of an individual unit of the registered product
                     copy.Quantity = 1; // current available total quantity of units in stock
                     copy.Total = copy.UnitPrice; // total price of the amount of units purchased
@@ -196,6 +198,7 @@ namespace GeneralStoreInventoryManagementSystem
                     copy.Id = row.Cells[0].Value.ToString(); // identification number of the selected product
                     copy.Name = row.Cells[2].Value.ToString(); // name of the product not including company brand
                     copy.Brand = row.Cells[3].Value.ToString(); // product brand company
+                    copy.Unit = row.Cells[5].Value.ToString();
                     copy.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // sales price of an individual unit of the registered product
                     copy.Quantity = FormatToInt(row.Cells[10].Value.ToString()); // current available total quantity of units in stock
                     copy.Total = FormatToDecimal(row.Cells[18].Value.ToString()); // total price of the amount of units purchased
@@ -247,6 +250,7 @@ namespace GeneralStoreInventoryManagementSystem
                     copy.Id = row.Cells[0].Value.ToString(); // identification number of the selected product
                     copy.Name = row.Cells[2].Value.ToString(); // name of the product not including company brand
                     copy.Brand = row.Cells[3].Value.ToString(); // product brand company
+                    copy.Unit = row.Cells[5].Value.ToString();
                     copy.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // sales price of an individual unit of the registered product
                     copy.Quantity = FormatToInt(row.Cells[10].Value.ToString()); // current available total quantity of units in stock
                     copy.Total = FormatToDecimal(row.Cells[18].Value.ToString()); // total price of the amount of units purchased
@@ -277,6 +281,9 @@ namespace GeneralStoreInventoryManagementSystem
         {
             if (sale.NumberItems != purchasedItems.Count)
             {
+                // No need to change or nullify the old sales id, given that a new one will be assigned to the resulting transaction
+                // and the old id will still be needed for future refrence.
+
                 sale.NumberItems = FormatToInt(numberOfPurchasedItemsLabel.Text.Split(':')[1]);
                 sale.Total = FormatToDecimal(purchasedTotalLabel.Text.Split('$')[1]);
 
@@ -292,7 +299,9 @@ namespace GeneralStoreInventoryManagementSystem
                     MessageBox.Show("Products have successfully been returned to the inventory!");
 
                     FormsMenuList.salesRecordForm.RefreshSalesRecordsDataGrid(); // updating grandparent form
-                    // TODO: Update parent as well 
+                    FormsMenuList.salesRecordForm.ShowNewReturnedTransactionInformation(message); // requesting the grandparent to show the new resulting transaction
+                    FormsMenuList.salesRecordForm.UpdateChildAfterSuccessfulReturn(sale.Id); // requesting grandparent to update this form's parent as well 
+
                     this.Dispose();
                 }
             }

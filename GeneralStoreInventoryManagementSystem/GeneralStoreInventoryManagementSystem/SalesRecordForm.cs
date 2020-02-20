@@ -262,10 +262,13 @@ namespace GeneralStoreInventoryManagementSystem
         {
             if (!SystemProtocols.ApplySessionsProtocols(1, null, null)) // option only available for non basic users
             {
-                SaleInformationTemplateForm child = new SaleInformationTemplateForm(salesList.SelectedCells[0].Value.ToString());
-                child.Show();
+                if (!IsChildAlive(salesList.SelectedCells[0].Value.ToString()))
+                {
+                    SaleInformationTemplateForm child = new SaleInformationTemplateForm(salesList.SelectedCells[0].Value.ToString());
+                    child.Show();
 
-                children.Add(child);
+                    children.Add(child);
+                }
             }
         }
         #endregion
@@ -306,6 +309,68 @@ namespace GeneralStoreInventoryManagementSystem
         public void RefreshSalesRecordsDataGrid()
         {
             PopulateSalesDataGrid();
+        }
+
+        /// <summary>
+        /// Function used by grandchild to notify when a new transaction has originated from a successfull return
+        /// </summary>
+        /// <param name="newSaleId">Identification number of the new transaction</param>
+        public void ShowNewReturnedTransactionInformation(String newSaleId)
+        {
+            if (!SystemProtocols.ApplySessionsProtocols(1, null, null)) // option only available for non basic users
+            {
+                SaleInformationTemplateForm child = new SaleInformationTemplateForm(newSaleId);
+                child.Show();
+
+                children.Add(child);
+            }
+        }
+
+        /// <summary>
+        /// Function that notifies that a child has successfully made a return so the parent 
+        /// can update the current transaction's information
+        /// </summary>
+        public void UpdateChildAfterSuccessfulReturn(String childId)
+        {
+            foreach (SaleInformationTemplateForm child in children)
+                if (child.Text.Split(' ')[2] == childId)
+                {
+                    child.UpdateSelfAfterSuccessfulReturn();
+                    break;
+                }
+        }
+
+        /// <summary>
+        /// Function to prevent the user form opening multiple forms for the same sale transaction
+        /// </summary>
+        /// <param name="childId"></param>
+        /// <returns>True or False if the child form is active and open</returns>
+        private bool IsChildAlive(String childId)
+        {
+            foreach (SaleInformationTemplateForm child in children)
+                if (child.Text.Split(' ')[2] == childId)
+                    if (child != null)
+                    {
+                        child.Show();
+                        child.Focus();
+
+                        return true;
+                    }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Function to signify that a child was recently killed
+        /// </summary>
+        public void ChildWasKilled()
+        {
+            foreach (SaleInformationTemplateForm child in children)
+                if (child != null)
+                {
+                    children.Remove(child);
+                    break;
+                }
         }
         #endregion
     }

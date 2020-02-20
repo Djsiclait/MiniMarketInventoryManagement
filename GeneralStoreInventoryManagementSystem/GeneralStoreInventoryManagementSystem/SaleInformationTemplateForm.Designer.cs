@@ -301,7 +301,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(742, 372);
             this.Name = "SaleInformationTemplateForm";
-            this.Text = "Sale Information: ";
+            this.Text = "Sale Information:";
             this.Load += new System.EventHandler(this.SaleInformationTemplateForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.contentDataGridView)).EndInit();
             this.ResumeLayout(false);

@@ -32,6 +32,8 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
+            FormsMenuList.salesRecordForm.ChildWasKilled();
+
             DisposeOnlyChild();
         }
         #endregion
@@ -83,7 +85,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             sale = SaleInformationManager.ConsultTransactionInformationBySalesId(saleId);
 
-            this.Text += " " + sale.Id;
+            this.Text = "Sale Information: " + sale.Id;
 
             saleIdLabel.Text = sale.Id;
             saleDateLabel.Text = sale.TransactionDate.ToString();
@@ -93,6 +95,15 @@ namespace GeneralStoreInventoryManagementSystem
             parentIdLabel.Text = sale.Parent == "" ? "None" : sale.Parent;
             childIdLabel.Text = sale.Child == "" ? "None" : sale.Child;
             lastModifiedDateLabel.Text = sale.LastModified.ToString();
+        }
+
+        /// <summary>
+        /// Function to dispose of any open residual minimforms
+        /// </summary>
+        public void DisposeOnlyChild()
+        {
+            if (returnItemsMiniForm != null)
+                returnItemsMiniForm.Dispose();
         }
 
         /// <summary>
@@ -154,11 +165,13 @@ namespace GeneralStoreInventoryManagementSystem
         }
 
         /// <summary>
-        /// Function to dispose of any open residual minimforms
+        /// Function used but this form's parent that notifies that its child has successfully made a return 
+        /// so this form can update the current transaction's information
         /// </summary>
-        public void DisposeOnlyChild()
+        public void UpdateSelfAfterSuccessfulReturn()
         {
-            returnItemsMiniForm.Dispose();
+            DisplayTransactionInformation(sale.Id);
+            PopulateContentDataGrid();
         }
         #endregion
     }
