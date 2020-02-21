@@ -6,163 +6,166 @@ using System.Threading.Tasks;
 
 namespace InventoryManagementEntityLayer
 {
-    public class Sale
+    namespace Sale
     {
-        private String id;
-        private DateTime transactionDate;
-        private int numberItems;
-        private Decimal total;
-        private String soldBy;
-        private bool delivery;
-        private int status;
-        private String parent;
-        private String child;
-        private DateTime lastModified;
-
-        #region Getters and Setters
-        public string Id
+        public class Sale
         {
-            get
-            {
-                return id;
-            }
+            private String id;
+            private DateTime transactionDate;
+            private int numberItems;
+            private Decimal total;
+            private String soldBy;
+            private bool delivery;
+            private int status;
+            private String parent;
+            private String child;
+            private DateTime lastModified;
 
-            set
+            #region Getters and Setters
+            public string Id
             {
-                id = value;
-            }
-        }
-
-        public DateTime TransactionDate
-        {
-            get
-            {
-                return transactionDate;
-            }
-
-            set
-            {
-                transactionDate = value;
-            }
-        }
-
-        public int NumberItems
-        {
-            get
-            {
-                return numberItems;
-            }
-
-            set
-            {
-                numberItems = value;
-            }
-        }
-
-        public decimal Total
-        {
-            get
-            {
-                return total;
-            }
-
-            set
-            {
-                total = value;
-            }
-        }
-
-        public string SoldBy
-        {
-            get
-            {
-                return soldBy;
-            }
-
-            set
-            {
-                soldBy = value;
-            }
-        }
-
-        public bool Delivery
-        {
-            get
-            {
-                return delivery;
-            }
-
-            set
-            {
-                delivery = value;
-            }
-        }
-
-        public String Status
-        {
-            get
-            {
-                switch (status)
+                get
                 {
-                    case 0:
-                        return "Valid";
-                    case 1:
-                        return "Void";
-                    case 2:
-                        return "Returned";
-                    default:
-                        return "";
+                    return id;
+                }
+
+                set
+                {
+                    id = value;
                 }
             }
 
-            set
+            public DateTime TransactionDate
             {
-                int num;
+                get
+                {
+                    return transactionDate;
+                }
 
-                int.TryParse(value, out num);
-
-                status = num;
+                set
+                {
+                    transactionDate = value;
+                }
             }
+
+            public int NumberItems
+            {
+                get
+                {
+                    return numberItems;
+                }
+
+                set
+                {
+                    numberItems = value;
+                }
+            }
+
+            public decimal Total
+            {
+                get
+                {
+                    return total;
+                }
+
+                set
+                {
+                    total = value;
+                }
+            }
+
+            public string SoldBy
+            {
+                get
+                {
+                    return soldBy;
+                }
+
+                set
+                {
+                    soldBy = value;
+                }
+            }
+
+            public bool Delivery
+            {
+                get
+                {
+                    return delivery;
+                }
+
+                set
+                {
+                    delivery = value;
+                }
+            }
+
+            public String Status
+            {
+                get
+                {
+                    switch (status)
+                    {
+                        case 0:
+                            return "Valid";
+                        case 1:
+                            return "Void";
+                        case 2:
+                            return "Returned";
+                        default:
+                            return "";
+                    }
+                }
+
+                set
+                {
+                    int num;
+
+                    int.TryParse(value, out num);
+
+                    status = num;
+                }
+            }
+
+            public string Parent
+            {
+                get
+                {
+                    return parent;
+                }
+
+                set
+                {
+                    parent = value;
+                }
+            }
+
+            public string Child
+            {
+                get
+                {
+                    return child;
+                }
+
+                set
+                {
+                    child = value;
+                }
+            }
+
+            public DateTime LastModified
+            {
+                get
+                {
+                    return lastModified;
+                }
+
+                set
+                {
+                    lastModified = value;
+                }
+            }
+            #endregion
         }
-
-        public string Parent
-        {
-            get
-            {
-                return parent;
-            }
-
-            set
-            {
-                parent = value;
-            }
-        }
-
-        public string Child
-        {
-            get
-            {
-                return child;
-            }
-
-            set
-            {
-                child = value;
-            }
-        }
-
-        public DateTime LastModified
-        {
-            get
-            {
-                return lastModified;
-            }
-
-            set
-            {
-                lastModified = value;
-            }
-        }
-        #endregion
     }
 }

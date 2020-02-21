@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 // Custom Library
-using InventoryManagementDataLayer;
-using InventoryManagementEntityLayer;
+using InventoryManagementDataLayer.UserData;
+using InventoryManagementEntityLayer.UserProfile;
 
 namespace InventoryManagementBusinessLayer
 {

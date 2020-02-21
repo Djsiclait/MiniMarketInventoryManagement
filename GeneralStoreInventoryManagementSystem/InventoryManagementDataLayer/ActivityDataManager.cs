@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 // Custom Library 
-using InventoryManagementEntityLayer;
+using InventoryManagementEntityLayer.Activity;
 
 namespace InventoryManagementDataLayer
 {

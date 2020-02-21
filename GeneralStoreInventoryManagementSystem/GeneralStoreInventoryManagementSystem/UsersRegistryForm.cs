@@ -265,7 +265,8 @@ namespace GeneralStoreInventoryManagementSystem
             activityList.DataSource = ActivityInformationManager.ConsultActivityListInformation(activitySearchBox.Text, true);
 
             // Modifying data grid
-            activityList.Columns["Description"].Width = 550;
+            activityList.Columns["Description"].Width = 450;
+            activityList.Columns["Type"].Width = 200;
             activityList.Columns["Timestamp"].Width = 200;
         }
 

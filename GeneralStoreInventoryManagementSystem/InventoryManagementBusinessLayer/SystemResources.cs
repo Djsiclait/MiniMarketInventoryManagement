@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Custom Library
-using InventoryManagementBusinessLayer;
-using InventoryManagementEntityLayer;
+// Custom Libraries
+using InventoryManagementEntityLayer.Activity;
+using InventoryManagementEntityLayer.Product;
+using InventoryManagementEntityLayer.UserProfile;
 
 namespace InventoryManagementBusinessLayer
 {

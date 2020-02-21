@@ -10,7 +10,8 @@ using System.Windows.Forms;
 
 // Custom Library
 using InventoryManagementBusinessLayer;
-using InventoryManagementEntityLayer;
+using InventoryManagementEntityLayer.Product;
+using InventoryManagementEntityLayer.Sale;
 
 namespace GeneralStoreInventoryManagementSystem
 {
