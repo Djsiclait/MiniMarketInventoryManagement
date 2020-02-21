@@ -334,9 +334,9 @@ namespace GeneralStoreInventoryManagementSystem
         public void UpdateChildAfterSuccessfulReturn(String childId)
         {
             foreach (SaleInformationTemplateForm child in children)
-                if (child.Text.Split(' ')[2] == childId)
+                if (child.Text.Split(' ')[2] == childId) // Identifying which child has updated information
                 {
-                    child.UpdateSelfAfterSuccessfulReturn();
+                    child.UpdateSelfAfterSuccessfulReturn(); // Notifying the child to update itself
                     break;
                 }
         }
@@ -349,16 +349,17 @@ namespace GeneralStoreInventoryManagementSystem
         private bool IsChildAlive(String childId)
         {
             foreach (SaleInformationTemplateForm child in children)
-                if (child.Text.Split(' ')[2] == childId)
-                    if (child != null)
+                if (child.Text.Split(' ')[2] == childId) // Identifying which child is needed
+                    if (child != null) // verifying that it has not been killed
                     {
+                        // Bring focus to child if it is still alive;
                         child.Show();
                         child.Focus();
 
-                        return true;
+                        return true; // Confirming its activity
                     }
 
-            return false;
+            return false; // Requested child is not amongst the living children 
         }
 
         /// <summary>
@@ -367,9 +368,9 @@ namespace GeneralStoreInventoryManagementSystem
         public void ChildWasKilled()
         {
             foreach (SaleInformationTemplateForm child in children)
-                if (child != null)
+                if (child != null) // Searching which child has recently been disposed of
                 {
-                    children.Remove(child);
+                    children.Remove(child); // remove said child from amongst the living
                     break;
                 }
         }
