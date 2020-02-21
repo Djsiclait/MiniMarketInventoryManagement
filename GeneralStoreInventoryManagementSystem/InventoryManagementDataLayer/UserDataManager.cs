@@ -11,7 +11,6 @@ using InventoryManagementEntityLayer.UserProfile;
 
 namespace InventoryManagementDataLayer
 {
-
     namespace UserData
     {
         public static class UserDataManager
