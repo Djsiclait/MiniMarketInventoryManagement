@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 // Custom Library
 using InventoryManagementBusinessLayer;
+using InventoryManagementEntityLayer;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -211,6 +212,28 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #region Selected Value Changed Logic
+        private void ProductList_SelectionChanged(object sender, EventArgs e)
+        {
+            Product product = ProductInformationManager.ConsultProductInformationByID(productList.SelectedCells[0].Value.ToString());
+
+            keyDisplayLabel.Text = product.Key;
+            nameDisplayLabel.Text = product.Name;
+            brandDisplayLabel.Text = product.Brand;
+            supplierDisplayLabel.Text = product.Supplier;
+            categoryDisplayLabel.Text = product.Category;
+            typeDisplayLabel.Text = product.Type;
+            unitDisplayLabel.Text = product.Unit;
+            unitCostDisplayLabel.Text = "RD$" + product.UnitCost.ToString();
+            unitPriceDisplayLabel.Text = "RD$" + product.UnitPrice.ToString();
+            quantityDisplayLabel.Text = product.Quantity.ToString() + " units";
+            minimumDisplayLabel.Text = product.MinimumQuantity.ToString();
+            maximumDisplayLabel.Text = product.MaximumQuantity.ToString();
+
+            // TODO: introduce inventory chart for the product
+        }
+        #endregion
+
         #region Auxiliary Functions
         /// <summary>
         /// Function used to populate the data grid with products from the registered inventory
@@ -218,7 +241,8 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateProductListDataGrid()
         {
             // Requesting information to populate the product list 
-            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false);
+            productList.DataSource = new List<Product>(); // required initial instanciation given the display labels rely on abject without null value even if empty
+            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false); // can be overcome by try catch but is easily solved
 
             //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
             //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
@@ -241,7 +265,6 @@ namespace GeneralStoreInventoryManagementSystem
             productList.Columns["ModifiedBy"].Visible = false;
             productList.Columns["ModificationDate"].Visible = false;
             productList.Columns["Total"].Visible = false;
-
         }
         #endregion
     }

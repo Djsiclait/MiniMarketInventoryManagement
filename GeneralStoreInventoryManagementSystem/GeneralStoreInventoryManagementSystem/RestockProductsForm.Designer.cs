@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -77,14 +74,12 @@
             this.unitPriceDisplayLabel = new System.Windows.Forms.Label();
             this.unitDisplayLabel = new System.Windows.Forms.Label();
             this.quantityDisplayLabel = new System.Windows.Forms.Label();
-            this.temporaryChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.minimumDisplayLabel = new System.Windows.Forms.Label();
             this.maximumDisplayLabel = new System.Windows.Forms.Label();
             this.addedAmmountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.restockButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temporaryChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addedAmmountNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -278,6 +273,7 @@
             this.productList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productList.Size = new System.Drawing.Size(903, 145);
             this.productList.TabIndex = 12;
+            this.productList.SelectionChanged += new System.EventHandler(this.ProductList_SelectionChanged);
             // 
             // browserFormTitle
             // 
@@ -525,22 +521,6 @@
             this.quantityDisplayLabel.TabIndex = 80;
             this.quantityDisplayLabel.Text = "label1";
             // 
-            // temporaryChart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.temporaryChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.temporaryChart.Legends.Add(legend1);
-            this.temporaryChart.Location = new System.Drawing.Point(517, 234);
-            this.temporaryChart.Name = "temporaryChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.temporaryChart.Series.Add(series1);
-            this.temporaryChart.Size = new System.Drawing.Size(398, 157);
-            this.temporaryChart.TabIndex = 82;
-            this.temporaryChart.Text = "chart1";
-            // 
             // minimumDisplayLabel
             // 
             this.minimumDisplayLabel.AutoSize = true;
@@ -603,7 +583,6 @@
             this.Controls.Add(this.addedAmmountNumericUpDown);
             this.Controls.Add(this.minimumDisplayLabel);
             this.Controls.Add(this.maximumDisplayLabel);
-            this.Controls.Add(this.temporaryChart);
             this.Controls.Add(this.unitDisplayLabel);
             this.Controls.Add(this.quantityDisplayLabel);
             this.Controls.Add(this.unitCostDisplayLabel);
@@ -643,7 +622,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.temporaryChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addedAmmountNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -698,7 +676,6 @@
         private System.Windows.Forms.Label unitPriceDisplayLabel;
         private System.Windows.Forms.Label unitDisplayLabel;
         private System.Windows.Forms.Label quantityDisplayLabel;
-        private System.Windows.Forms.DataVisualization.Charting.Chart temporaryChart;
         private System.Windows.Forms.Label minimumDisplayLabel;
         private System.Windows.Forms.Label maximumDisplayLabel;
         private System.Windows.Forms.NumericUpDown addedAmmountNumericUpDown;
