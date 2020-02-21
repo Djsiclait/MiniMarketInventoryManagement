@@ -16,9 +16,9 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class ReturnItemsMiniForm : Form
     {
-        Sale sale;
-        List<Product> purchasedItems = new List<Product>();
-        List<Product> returnedItems = new List<Product>();
+        Sale sale; // Sale's object to host the current transaciton's information
+        List<Product> purchasedItems = new List<Product>(); // list to host products that have been previoussly purchased
+        List<Product> returnedItems = new List<Product>(); // list to host products to be returned
 
         bool trigger = true;
 
@@ -279,34 +279,35 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            if (sale.NumberItems != purchasedItems.Count)
+            if (sale.NumberItems != purchasedItems.Count) // Confirming at least one item has been returned
             {
                 // No need to change or nullify the old sales id, given that a new one will be assigned to the resulting transaction
                 // and the old id will still be needed for future refrence.
 
-                sale.NumberItems = FormatToInt(numberOfPurchasedItemsLabel.Text.Split(':')[1]);
-                sale.Total = FormatToDecimal(purchasedTotalLabel.Text.Split('$')[1]);
+                sale.NumberItems = FormatToInt(numberOfPurchasedItemsLabel.Text.Split(':')[1]); // updating the new amount of item that have not been returned
+                sale.Total = FormatToDecimal(purchasedTotalLabel.Text.Split('$')[1]); // updating the new total of the transaction
 
+                // Requesting a return policy
                 String message = SystemProtocols.ApplyReturnPolicyProtocols(sale, purchasedItems, returnedItems);
 
-                if (message == "VOIDED")
+                if (message == "VOIDED") // all products have been returned thus creating a void transaction instead of a partial return
                 {
                     MessageBox.Show("Transaction voided successfully!");
                     this.Dispose();
                 }
-                else
+                else // Return request has been approved
                 {
                     MessageBox.Show("Products have successfully been returned to the inventory!");
 
                     FormsMenuList.salesRecordForm.RefreshSalesRecordsDataGrid(); // updating grandparent form
-                    FormsMenuList.salesRecordForm.ShowNewReturnedTransactionInformation(message); // requesting the grandparent to show the new resulting transaction
+                    FormsMenuList.salesRecordForm.ShowNewReturnedTransactionInformation(message); // requesting the grandparent to show the new resulting transaction child form
                     FormsMenuList.salesRecordForm.UpdateChildAfterSuccessfulReturn(sale.Id); // requesting grandparent to update this form's parent as well 
 
                     this.Dispose();
                 }
             }
             else
-                MessageBox.Show("Nothing was returned, please check form or cancle process.");
+                MessageBox.Show("Nothing was returned, please check form or cancel process.");
         }
         #endregion
 
@@ -361,9 +362,9 @@ namespace GeneralStoreInventoryManagementSystem
         /// <returns>True or False depending if the product is included or not</returns>
         private bool IsProductFoundInList(String productId, String list)
         {
-            switch (list)
+            switch (list) // Indicating which list is required
             {
-                case "P":
+                case "P": // purchased items
 
                     foreach (Product item in purchasedItems)
                         if (item.Id == productId)
@@ -371,7 +372,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     return false;
 
-                case "R":
+                case "R": // returned items
 
                     foreach (Product item in returnedItems)
                         if (item.Id == productId)
@@ -416,7 +417,7 @@ namespace GeneralStoreInventoryManagementSystem
             purchasedItemsDataGridView.Columns["Quantity"].Width = 60;
             #endregion
 
-            if (purchasedItems.Count == 0 && trigger)
+            if (purchasedItems.Count == 0 && trigger) // requesting purchased items once to avoid reseting the list once changes have been made
                 purchasedItems = SaleInformationManager.ConsultTransactionContentInformation(sale.Id);
 
             if (purchasedItems.Count > 0)
@@ -429,8 +430,8 @@ namespace GeneralStoreInventoryManagementSystem
 
                 foreach (Product item in purchasedItems)
                 {
-                    quantity += item.Quantity;
-                    total += item.Total;
+                    quantity += item.Quantity; // counting units of items
+                    total += item.Total; // calculating total of purchased items
                 }
 
                 numberOfPurchasedItemsLabel.Text = "# of Items: " + quantity.ToString();
@@ -475,7 +476,7 @@ namespace GeneralStoreInventoryManagementSystem
             returnedItemsDataGridView.Columns["Quantity"].Width = 60;
             #endregion
 
-            //purchasedItems = SaleInformationManager.ConsultTransactionContentInformation(saleId);
+            // No need to request for a returned list given this list is generated en vivo
 
             if (returnedItems.Count > 0)
             {
@@ -487,8 +488,8 @@ namespace GeneralStoreInventoryManagementSystem
 
                 foreach (Product item in returnedItems)
                 {
-                    quantity += item.Quantity;
-                    total += item.Total;
+                    quantity += item.Quantity; // counting units of items
+                    total += item.Total; // calculating total of purchased items
                 }
 
                 numberOfReturnsLabel.Text = "# of Items: " + quantity.ToString();
