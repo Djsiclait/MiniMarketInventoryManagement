@@ -318,5 +318,20 @@ namespace GeneralStoreInventoryManagementSystem
                 child.Dispose();
         }
         #endregion
+
+        private void productList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void browserFormTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

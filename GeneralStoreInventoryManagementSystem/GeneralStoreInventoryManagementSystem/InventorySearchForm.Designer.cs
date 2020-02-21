@@ -71,6 +71,7 @@
             this.browserFormTitle.Size = new System.Drawing.Size(92, 13);
             this.browserFormTitle.TabIndex = 2;
             this.browserFormTitle.Text = "Inventory Browser";
+            this.browserFormTitle.Click += new System.EventHandler(this.browserFormTitle_Click);
             // 
             // productList
             // 
@@ -88,6 +89,7 @@
             this.productList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productList.Size = new System.Drawing.Size(903, 444);
             this.productList.TabIndex = 3;
+            this.productList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productList_CellContentClick);
             this.productList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductList_CellDoubleClick);
             // 
             // menuStrip1
@@ -262,6 +264,7 @@
             this.searchLabel.Size = new System.Drawing.Size(86, 13);
             this.searchLabel.TabIndex = 7;
             this.searchLabel.Text = "Search Products";
+            this.searchLabel.Click += new System.EventHandler(this.searchLabel_Click);
             // 
             // InventorySearchForm
             // 
