@@ -294,6 +294,7 @@
             this.inventorySearchBox.Name = "inventorySearchBox";
             this.inventorySearchBox.Size = new System.Drawing.Size(273, 20);
             this.inventorySearchBox.TabIndex = 10;
+            this.inventorySearchBox.TextChanged += new System.EventHandler(this.InventorySearchBox_TextChanged);
             // 
             // unitContributionMarginLabel
             // 
@@ -576,6 +577,7 @@
             this.addedAmmountNumericUpDown.Name = "addedAmmountNumericUpDown";
             this.addedAmmountNumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.addedAmmountNumericUpDown.TabIndex = 85;
+            this.addedAmmountNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.addedAmmountNumericUpDown.ThousandsSeparator = true;
             this.addedAmmountNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -635,6 +637,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "RestockProductsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Restock Products";
             this.Load += new System.EventHandler(this.RestockProductsForm_Load);
             this.menuStrip1.ResumeLayout(false);

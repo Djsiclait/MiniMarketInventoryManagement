@@ -274,7 +274,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateProductListDataGrid()
         {
             // Requesting information to populate the product list 
-            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false);//, false);
+            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false);
 
             //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
             //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
@@ -318,20 +318,5 @@ namespace GeneralStoreInventoryManagementSystem
                 child.Dispose();
         }
         #endregion
-
-        private void productList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void browserFormTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchLabel_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
