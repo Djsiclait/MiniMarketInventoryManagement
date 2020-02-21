@@ -188,6 +188,25 @@ namespace InventoryManagementBusinessLayer
         }
 
         /// <summary>
+        /// This fucntion allows users to restock registered products
+        /// </summary>
+        /// <param name="productId">Identification number of product to restock</param>
+        /// <param name="addedAmount">Amount to be added to the current stock of products</param>
+        /// <returns>A message to confirm or deny the restock process</returns>
+        public static String updateRegisteredProductInformationForRestock(String productId, int addedAmount)
+        {
+            String message = ProductDataManager.updateRegisteredProductDataForRestock(productId, addedAmount, SystemResources.UserInSession.Username);
+
+            if (message == "Product has been restocked successfully!")
+            {
+                SystemProtocols.ApplyActivityProtocols("PRO7", productId, addedAmount.ToString());
+                return "SUCCESS";
+            }
+            else
+                return "ERROR";
+        }
+
+        /// <summary>
         /// This function updates the inventory after a return has been made
         /// </summary>
         /// <param name="productId">Identification number of the product being returned</param>

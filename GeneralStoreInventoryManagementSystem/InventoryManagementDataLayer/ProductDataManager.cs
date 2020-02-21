@@ -440,6 +440,37 @@ namespace InventoryManagementDataLayer
         }
 
         /// <summary>
+        /// This fucntion allows users to restock registered products
+        /// </summary>
+        /// <param name="productId">Identification number of product to restock</param>
+        /// <param name="addedAmount">Amount to be added to the current stock of products</param>
+        /// <param name="username">Username of user managing the restock</param>
+        /// <returns>A message to confirm or deny the restock process</returns>
+        public static String updateRegisteredProductDataForRestock(String productId, int addedAmount, String username)
+        {
+            SqlCommand cmd = new SqlCommand(
+                    "SP_Restock_Registered_Product", // stored procedure to update the user's last login 
+                    DatabaseManager.ActiveSqlConnection); // Opening an active connection with the database
+            cmd.CommandType = CommandType.StoredProcedure; // confirming the command is a recognized stored procedure
+
+            #region Parameters
+            cmd.Parameters.Add("@product_id", SqlDbType.VarChar, 10).Value = productId;
+            cmd.Parameters.Add("@added_units", SqlDbType.Int).Value = addedAmount;
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+
+            SqlParameter message = new SqlParameter("@message", SqlDbType.VarChar, 100);
+            message.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(message);
+            #endregion
+
+            // Executing command
+            Int32 reply;
+            reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+            return cmd.Parameters["@message"].Value.ToString(); // returning the result of the query
+        }
+
+        /// <summary>
         /// This function updates the inventory after a return has been made
         /// </summary>
         /// <param name="productId">Identification number of the product being returned</param>

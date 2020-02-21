@@ -39,6 +39,7 @@ namespace GeneralStoreInventoryManagementSystem
             SystemProtocols.ApplyActivityProtocols("PRO1", null, null);
 
             PopulateProductListDataGrid();
+            UpdateDisplayLabels();
         }
         #endregion
 
@@ -205,15 +206,92 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
-        #region Text Change Logic
+        #region Text Changed Logic
         private void InventorySearchBox_TextChanged(object sender, EventArgs e)
         {
             PopulateProductListDataGrid();
+            UpdateDisplayLabels();
         }
         #endregion
 
-        #region Selected Value Changed Logic
-        private void ProductList_SelectionChanged(object sender, EventArgs e)
+        #region Click Logic
+        private void RestockButton_Click(object sender, EventArgs e)
+        {
+            String message = ProductInformationManager.updateRegisteredProductInformationForRestock(productList.SelectedCells[0].Value.ToString(), (int)addedAmmountNumericUpDown.Value);
+
+            if (message == "SUCCESS")
+            {
+                addedAmmountNumericUpDown.Value = 1;
+
+                inventorySearchBox.Text = productList.SelectedCells[2].Value.ToString();
+                UpdateDisplayLabels();
+
+                MessageBox.Show("Successful restock!");
+            }
+            else
+                MessageBox.Show("FATAL ERROR");
+        }
+
+        private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateDisplayLabels();
+            // TODO: introduce inventory chart for the product
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        /// <summary>
+        /// Function that calculates the unit contribution margin ratio of the product using the unit cost and price
+        /// UPM = (UP - UC) / UP * 100
+        /// </summary>
+        /// <returns>The string result of the formula</returns>
+        private String CalculateUnitContributionMargin(decimal cost, decimal price)
+        {
+            // Applying unitary profit margin formula
+            decimal contributionRatio = ((price - cost) / price) * 100; // Ratio form
+
+            decimal contributionDollar = price - cost; // Dollar form
+
+            decimal priceIncrease = price / cost; // Price multiplier
+
+            return contributionRatio.ToString("0.##") + "% ($" + contributionDollar.ToString("0.##") + " or " + (priceIncrease.ToString("0.##") == "1" ? "1" : priceIncrease.ToString("0.##")) + "x price increase)";
+        }
+
+        /// <summary>
+        /// Function used to populate the data grid with products from the registered inventory
+        /// </summary>
+        private void PopulateProductListDataGrid()
+        {
+            // Requesting information to populate the product list 
+            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false); 
+
+            //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
+            //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Name"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Brand"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Supplier"].SortMode = DataGridViewColumnSortMode.Automatic;
+
+            // TODO: Fix sortable mode on inventory browser
+            foreach (DataGridViewColumn column in productList.Columns)
+                column.SortMode = DataGridViewColumnSortMode.Automatic;
+
+            // Removing unnecesary information from the datagrid display
+            productList.Columns["Id"].Visible = false;
+            productList.Columns["Category"].Visible = false;
+            productList.Columns["Type"].Visible = false;
+            productList.Columns["MinimumQuantity"].Visible = false;
+            productList.Columns["MaximumQuantity"].Visible = false;
+            productList.Columns["RegisteredBy"].Visible = false;
+            productList.Columns["RegistrationDate"].Visible = false;
+            productList.Columns["ModifiedBy"].Visible = false;
+            productList.Columns["ModificationDate"].Visible = false;
+            productList.Columns["Total"].Visible = false;
+        }
+
+        /// <summary>
+        /// Function that updates all display labels
+        /// </summary>
+        private void UpdateDisplayLabels()
         {
             Product product = ProductInformationManager.ConsultProductInformationByID(productList.SelectedCells[0].Value.ToString());
 
@@ -230,41 +308,14 @@ namespace GeneralStoreInventoryManagementSystem
             minimumDisplayLabel.Text = product.MinimumQuantity.ToString();
             maximumDisplayLabel.Text = product.MaximumQuantity.ToString();
 
-            // TODO: introduce inventory chart for the product
-        }
-        #endregion
+            unitContributionMarginLabel.Text = CalculateUnitContributionMargin(product.UnitCost, product.UnitPrice);
 
-        #region Auxiliary Functions
-        /// <summary>
-        /// Function used to populate the data grid with products from the registered inventory
-        /// </summary>
-        private void PopulateProductListDataGrid()
-        {
-            // Requesting information to populate the product list 
-            productList.DataSource = new List<Product>(); // required initial instanciation given the display labels rely on abject without null value even if empty
-            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false); // can be overcome by try catch but is easily solved
-
-            //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
-            //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
-            //productList.Columns["Name"].SortMode = DataGridViewColumnSortMode.Automatic;
-            //productList.Columns["Brand"].SortMode = DataGridViewColumnSortMode.Automatic;
-            //productList.Columns["Supplier"].SortMode = DataGridViewColumnSortMode.Automatic;
-
-            // TODO: Fix sortable mode on inventory browser
-            foreach (DataGridViewColumn column in productList.Columns)
-                column.SortMode = DataGridViewColumnSortMode.Automatic;
-
-            // Remove unnecesary information from the datagrid display
-            productList.Columns["Id"].Visible = false;
-            productList.Columns["Category"].Visible = false;
-            productList.Columns["Type"].Visible = false;
-            productList.Columns["MinimumQuantity"].Visible = false;
-            productList.Columns["MaximumQuantity"].Visible = false;
-            productList.Columns["RegisteredBy"].Visible = false;
-            productList.Columns["RegistrationDate"].Visible = false;
-            productList.Columns["ModifiedBy"].Visible = false;
-            productList.Columns["ModificationDate"].Visible = false;
-            productList.Columns["Total"].Visible = false;
+            if (product.UnitPrice > product.UnitCost)
+                unitContributionMarginLabel.ForeColor = Color.Green;
+            else if (product.UnitPrice < product.UnitCost)
+                unitContributionMarginLabel.ForeColor = Color.Red;
+            else
+                unitContributionMarginLabel.ForeColor = Color.Black;
         }
         #endregion
     }

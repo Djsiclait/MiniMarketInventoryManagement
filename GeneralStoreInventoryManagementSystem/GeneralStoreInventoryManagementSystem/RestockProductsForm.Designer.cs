@@ -273,7 +273,7 @@
             this.productList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productList.Size = new System.Drawing.Size(903, 145);
             this.productList.TabIndex = 12;
-            this.productList.SelectionChanged += new System.EventHandler(this.ProductList_SelectionChanged);
+            this.productList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductList_CellDoubleClick);
             // 
             // browserFormTitle
             // 
@@ -295,7 +295,7 @@
             // unitContributionMarginLabel
             // 
             this.unitContributionMarginLabel.AutoSize = true;
-            this.unitContributionMarginLabel.Location = new System.Drawing.Point(462, 416);
+            this.unitContributionMarginLabel.Location = new System.Drawing.Point(702, 414);
             this.unitContributionMarginLabel.Name = "unitContributionMarginLabel";
             this.unitContributionMarginLabel.Size = new System.Drawing.Size(137, 13);
             this.unitContributionMarginLabel.TabIndex = 72;
@@ -573,6 +573,7 @@
             this.restockButton.TabIndex = 86;
             this.restockButton.Text = "Restock";
             this.restockButton.UseVisualStyleBackColor = true;
+            this.restockButton.Click += new System.EventHandler(this.RestockButton_Click);
             // 
             // RestockProductsForm
             // 

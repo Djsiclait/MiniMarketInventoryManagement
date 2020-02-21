@@ -138,6 +138,14 @@ namespace InventoryManagementBusinessLayer
                         SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has managed the return of " + meta2 + " unit(s) of " + meta1.ToUpper(), // description of activity
                         "PRODUCT RETURNED"); // type of activity
                     break;
+
+                case "PRO7": // Editing product information
+
+                    SystemResources.RecordActivity(
+                        SystemResources.UserInSession.Username, // username of user in session 
+                        SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has restocked " + meta2 + " unit(s) of " + meta1.ToUpper(), // description of activity
+                        "PRODUCT RESTOCK"); // type of activity
+                    break;
                 #endregion
 
                 #region Reports
