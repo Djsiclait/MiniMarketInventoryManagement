@@ -201,6 +201,12 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductInformationTemplateForm.es.resx">
+      <DependentUpon>ProductInformationTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductInformationTemplateForm.fr.resx">
+      <DependentUpon>ProductInformationTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductInformationTemplateForm.resx">
       <DependentUpon>ProductInformationTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
