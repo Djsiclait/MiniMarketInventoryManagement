@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesRecordForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.makeSaleMenuOption = new System.Windows.Forms.ToolStripMenuItem();
             this.productsMenuOption = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,209 +57,169 @@
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.makeSaleMenuOption,
             this.productsMenuOption,
             this.adminMenuOption});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // makeSaleMenuOption
             // 
+            resources.ApplyResources(this.makeSaleMenuOption, "makeSaleMenuOption");
             this.makeSaleMenuOption.Name = "makeSaleMenuOption";
-            this.makeSaleMenuOption.Size = new System.Drawing.Size(72, 20);
-            this.makeSaleMenuOption.Text = "Make Sale";
             this.makeSaleMenuOption.Click += new System.EventHandler(this.MakeSaleMenuOption_Click);
             // 
             // productsMenuOption
             // 
+            resources.ApplyResources(this.productsMenuOption, "productsMenuOption");
             this.productsMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.browseProductsMenuSubOption,
             this.registerNewProductMenuSubOption,
             this.restockProductsMenuSubOption});
             this.productsMenuOption.Name = "productsMenuOption";
-            this.productsMenuOption.Size = new System.Drawing.Size(66, 20);
-            this.productsMenuOption.Text = "Products";
             // 
             // browseProductsMenuSubOption
             // 
+            resources.ApplyResources(this.browseProductsMenuSubOption, "browseProductsMenuSubOption");
             this.browseProductsMenuSubOption.Name = "browseProductsMenuSubOption";
-            this.browseProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.browseProductsMenuSubOption.Text = "Browse Products";
             this.browseProductsMenuSubOption.Click += new System.EventHandler(this.BrowseProductsMenuSubOption_Click);
             // 
             // registerNewProductMenuSubOption
             // 
+            resources.ApplyResources(this.registerNewProductMenuSubOption, "registerNewProductMenuSubOption");
             this.registerNewProductMenuSubOption.Name = "registerNewProductMenuSubOption";
-            this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.registerNewProductMenuSubOption.Text = "Register New Product";
             this.registerNewProductMenuSubOption.Click += new System.EventHandler(this.RegisterNewProductMenuSubOption_Click);
             // 
             // restockProductsMenuSubOption
             // 
+            resources.ApplyResources(this.restockProductsMenuSubOption, "restockProductsMenuSubOption");
             this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
-            this.restockProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.restockProductsMenuSubOption.Text = "Restock Products";
             this.restockProductsMenuSubOption.Click += new System.EventHandler(this.RestockProductsMenuSubOption_Click);
             // 
             // adminMenuOption
             // 
+            resources.ApplyResources(this.adminMenuOption, "adminMenuOption");
             this.adminMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageUsersMenuSubOption,
             this.statisticsMenuSubOption,
             this.logsMenuSubOption});
             this.adminMenuOption.Name = "adminMenuOption";
-            this.adminMenuOption.Size = new System.Drawing.Size(55, 20);
-            this.adminMenuOption.Text = "Admin";
             // 
             // manageUsersMenuSubOption
             // 
+            resources.ApplyResources(this.manageUsersMenuSubOption, "manageUsersMenuSubOption");
             this.manageUsersMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(148, 22);
-            this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
             // 
+            resources.ApplyResources(this.viewUsersOption, "viewUsersOption");
             this.viewUsersOption.Name = "viewUsersOption";
-            this.viewUsersOption.Size = new System.Drawing.Size(169, 22);
-            this.viewUsersOption.Text = "View Users";
             this.viewUsersOption.Click += new System.EventHandler(this.ViewUsersOption_Click);
             // 
             // registerNewUserOption
             // 
+            resources.ApplyResources(this.registerNewUserOption, "registerNewUserOption");
             this.registerNewUserOption.Name = "registerNewUserOption";
-            this.registerNewUserOption.Size = new System.Drawing.Size(169, 22);
-            this.registerNewUserOption.Text = "Register New User";
             this.registerNewUserOption.Click += new System.EventHandler(this.RegisterNewUserOption_Click);
             // 
             // statisticsMenuSubOption
             // 
+            resources.ApplyResources(this.statisticsMenuSubOption, "statisticsMenuSubOption");
             this.statisticsMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(148, 22);
-            this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
             // 
+            resources.ApplyResources(this.viewGraphsOption, "viewGraphsOption");
             this.viewGraphsOption.Name = "viewGraphsOption";
-            this.viewGraphsOption.Size = new System.Drawing.Size(142, 22);
-            this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
+            resources.ApplyResources(this.viewReportsOption, "viewReportsOption");
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
-            this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
             // logsMenuSubOption
             // 
+            resources.ApplyResources(this.logsMenuSubOption, "logsMenuSubOption");
             this.logsMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(148, 22);
-            this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
             // 
+            resources.ApplyResources(this.viewActivityLogsOption, "viewActivityLogsOption");
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
-            this.viewActivityLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewActivityLogsOption.Text = "View Activity Logs";
             this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
+            resources.ApplyResources(this.viewErrorLogsOption, "viewErrorLogsOption");
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
-            this.viewErrorLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewErrorLogsOption.Text = "View Error Logs";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // viewCartLabel
             // 
-            this.viewCartLabel.AutoSize = true;
+            resources.ApplyResources(this.viewCartLabel, "viewCartLabel");
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
-            this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
-            this.viewCartLabel.TabIndex = 8;
-            this.viewCartLabel.Text = "View Cart";
             this.viewCartLabel.Click += new System.EventHandler(this.ViewCartLabel_Click);
             this.viewCartLabel.MouseLeave += new System.EventHandler(this.ViewCartLabel_MouseLeave);
             this.viewCartLabel.MouseHover += new System.EventHandler(this.ViewCartLabel_MouseHover);
             // 
             // logOutLabel
             // 
-            this.logOutLabel.AutoSize = true;
+            resources.ApplyResources(this.logOutLabel, "logOutLabel");
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(870, 9);
             this.logOutLabel.Name = "logOutLabel";
-            this.logOutLabel.Size = new System.Drawing.Size(45, 13);
-            this.logOutLabel.TabIndex = 7;
-            this.logOutLabel.Text = "Log Out";
             this.logOutLabel.Click += new System.EventHandler(this.LogOutLabel_Click);
             this.logOutLabel.MouseLeave += new System.EventHandler(this.LogOutLabel_MouseLeave);
             this.logOutLabel.MouseHover += new System.EventHandler(this.LogOutLabel_MouseHover);
             // 
             // searchLabel
             // 
-            this.searchLabel.AutoSize = true;
-            this.searchLabel.Location = new System.Drawing.Point(566, 49);
+            resources.ApplyResources(this.searchLabel, "searchLabel");
             this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(70, 13);
-            this.searchLabel.TabIndex = 12;
-            this.searchLabel.Text = "Search Sales";
             // 
             // salesList
             // 
+            resources.ApplyResources(this.salesList, "salesList");
             this.salesList.AllowUserToAddRows = false;
             this.salesList.AllowUserToDeleteRows = false;
             this.salesList.AllowUserToResizeColumns = false;
             this.salesList.AllowUserToResizeRows = false;
             this.salesList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.salesList.Location = new System.Drawing.Point(12, 73);
             this.salesList.MultiSelect = false;
             this.salesList.Name = "salesList";
             this.salesList.RowHeadersVisible = false;
-            this.salesList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.salesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.salesList.Size = new System.Drawing.Size(903, 444);
-            this.salesList.TabIndex = 11;
             this.salesList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SalesList_CellDoubleClick);
             // 
             // browserFormTitle
             // 
-            this.browserFormTitle.AutoSize = true;
-            this.browserFormTitle.Location = new System.Drawing.Point(66, 49);
+            resources.ApplyResources(this.browserFormTitle, "browserFormTitle");
             this.browserFormTitle.Name = "browserFormTitle";
-            this.browserFormTitle.Size = new System.Drawing.Size(68, 13);
-            this.browserFormTitle.TabIndex = 10;
-            this.browserFormTitle.Text = "Sales History";
             // 
             // salesSearchBox
             // 
-            this.salesSearchBox.Location = new System.Drawing.Point(642, 46);
+            resources.ApplyResources(this.salesSearchBox, "salesSearchBox");
             this.salesSearchBox.Name = "salesSearchBox";
-            this.salesSearchBox.Size = new System.Drawing.Size(273, 20);
-            this.salesSearchBox.TabIndex = 9;
             this.salesSearchBox.TextChanged += new System.EventHandler(this.SalesSearchBox_TextChanged);
             // 
             // SalesRecordForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 562);
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.salesList);
             this.Controls.Add(this.browserFormTitle);
@@ -266,10 +227,7 @@
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
-            this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "SalesRecordForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sales Record";
             this.Load += new System.EventHandler(this.SalesRecordForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
