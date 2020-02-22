@@ -219,6 +219,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegisterNewProductForm.es.resx">
+      <DependentUpon>RegisterNewProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterNewProductForm.fr.resx">
+      <DependentUpon>RegisterNewProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterNewProductForm.resx">
       <DependentUpon>RegisterNewProductForm.cs</DependentUpon>
     </EmbeddedResource>

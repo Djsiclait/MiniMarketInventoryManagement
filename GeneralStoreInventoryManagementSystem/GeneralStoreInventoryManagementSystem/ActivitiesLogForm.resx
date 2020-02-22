@@ -125,11 +125,8 @@
   <data name="viewCartLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;registerNewProductMenuSubOption.Name" xml:space="preserve">
-    <value>registerNewProductMenuSubOption</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>927, 562</value>
+  <data name="&gt;&gt;logOutLabel.Name" xml:space="preserve">
+    <value>logOutLabel</value>
   </data>
   <data name="&gt;&gt;activityList.Name" xml:space="preserve">
     <value>activityList</value>
@@ -148,9 +145,6 @@
   </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;searchLabel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -176,6 +170,9 @@
   <data name="&gt;&gt;viewCartLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>927, 24</value>
+  </data>
   <data name="logOutLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>870, 9</value>
   </data>
@@ -197,11 +194,11 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;productsMenuOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;activitySearchBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;restockProductsMenuSubOption.Name" xml:space="preserve">
+    <value>restockProductsMenuSubOption</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
@@ -210,8 +207,8 @@
   <data name="viewCartLabel.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;manageUsersMenuSubOption.Name" xml:space="preserve">
-    <value>manageUsersMenuSubOption</value>
+  <data name="&gt;&gt;viewGraphsOption.Name" xml:space="preserve">
+    <value>viewGraphsOption</value>
   </data>
   <data name="&gt;&gt;searchLabel.Name" xml:space="preserve">
     <value>searchLabel</value>
@@ -221,12 +218,6 @@
   </data>
   <data name="&gt;&gt;activityList.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="activityList.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
   </data>
   <data name="viewReportsOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 22</value>
@@ -261,6 +252,9 @@
   <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
     <value>menuStrip1</value>
   </data>
+  <data name="activityFormTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 13</value>
+  </data>
   <data name="viewUsersOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 22</value>
   </data>
@@ -278,6 +272,12 @@
   </data>
   <data name="&gt;&gt;viewReportsOption.Name" xml:space="preserve">
     <value>viewReportsOption</value>
+  </data>
+  <data name="registerNewProductMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;activityList.Parent" xml:space="preserve">
     <value>$this</value>
@@ -303,8 +303,11 @@
   <data name="&gt;&gt;viewCartLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="searchLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 13</value>
+  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="&gt;&gt;browseProductsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;activitySearchBox.Parent" xml:space="preserve">
     <value>$this</value>
@@ -342,8 +345,8 @@
   <data name="viewCartLabel.Text" xml:space="preserve">
     <value>View Cart</value>
   </data>
-  <data name="&gt;&gt;makeSaleMenuSubOption.Name" xml:space="preserve">
-    <value>makeSaleMenuSubOption</value>
+  <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
   </data>
   <data name="searchLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -351,8 +354,8 @@
   <data name="viewGraphsOption.Text" xml:space="preserve">
     <value>View Graphs</value>
   </data>
-  <data name="registerNewProductMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 22</value>
+  <data name="searchLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 13</value>
   </data>
   <data name="&gt;&gt;activityFormTitle.Name" xml:space="preserve">
     <value>activityFormTitle</value>
@@ -369,11 +372,8 @@
   <data name="&gt;&gt;viewCartLabel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="viewErrorLogsMenuSubOption.Text" xml:space="preserve">
-    <value>View Error Logs</value>
+  <data name="&gt;&gt;manageUsersMenuSubOption.Name" xml:space="preserve">
+    <value>manageUsersMenuSubOption</value>
   </data>
   <data name="viewGraphsOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 22</value>
@@ -384,8 +384,11 @@
   <data name="restockProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 22</value>
   </data>
-  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+  <data name="&gt;&gt;adminMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;makeSaleMenuSubOption.Name" xml:space="preserve">
+    <value>makeSaleMenuSubOption</value>
   </data>
   <data name="activitySearchBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>273, 20</value>
@@ -393,11 +396,11 @@
   <data name="&gt;&gt;statisticsMenuSubOption.Name" xml:space="preserve">
     <value>statisticsMenuSubOption</value>
   </data>
-  <data name="&gt;&gt;logOutLabel.Name" xml:space="preserve">
-    <value>logOutLabel</value>
+  <data name="viewErrorLogsMenuSubOption.Text" xml:space="preserve">
+    <value>View Error Logs</value>
   </data>
-  <data name="&gt;&gt;viewSalesMenuSubOption.Name" xml:space="preserve">
-    <value>viewSalesMenuSubOption</value>
+  <data name="activityList.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ActivitiesLogForm</value>
@@ -405,7 +408,7 @@
   <data name="&gt;&gt;viewUsersOption.Name" xml:space="preserve">
     <value>viewUsersOption</value>
   </data>
-  <data name="&gt;&gt;browseProductsMenuSubOption.Type" xml:space="preserve">
+  <data name="&gt;&gt;productsMenuOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="searchLabel.Location" type="System.Drawing.Point, System.Drawing">
@@ -414,17 +417,14 @@
   <data name="&gt;&gt;viewErrorLogsMenuSubOption.Name" xml:space="preserve">
     <value>viewErrorLogsMenuSubOption</value>
   </data>
-  <data name="registerNewProductMenuSubOption.Text" xml:space="preserve">
-    <value>Register New Product</value>
-  </data>
   <data name="menuStrip1.Text" xml:space="preserve">
     <value>menuStrip1</value>
   </data>
   <data name="logOutLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>927, 24</value>
+  <data name="&gt;&gt;viewSalesMenuSubOption.Name" xml:space="preserve">
+    <value>viewSalesMenuSubOption</value>
   </data>
   <data name="activitySearchBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>642, 46</value>
@@ -438,8 +438,8 @@
   <data name="activityList.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 73</value>
   </data>
-  <data name="&gt;&gt;restockProductsMenuSubOption.Name" xml:space="preserve">
-    <value>restockProductsMenuSubOption</value>
+  <data name="&gt;&gt;registerNewProductMenuSubOption.Name" xml:space="preserve">
+    <value>registerNewProductMenuSubOption</value>
   </data>
   <data name="&gt;&gt;salesMenuOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -465,26 +465,26 @@
   <data name="viewReportsOption.Text" xml:space="preserve">
     <value>View Reports</value>
   </data>
-  <data name="&gt;&gt;logOutLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="registerNewProductMenuSubOption.Text" xml:space="preserve">
+    <value>Register New Product</value>
   </data>
   <data name="makeSaleMenuSubOption.Text" xml:space="preserve">
     <value>Make Sale</value>
   </data>
-  <data name="activityFormTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 13</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>927, 562</value>
   </data>
   <data name="&gt;&gt;searchLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;viewGraphsOption.Name" xml:space="preserve">
-    <value>viewGraphsOption</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="adminMenuOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
   </data>
-  <data name="&gt;&gt;adminMenuOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="statisticsMenuSubOption.Text" xml:space="preserve">
     <value>Statistics</value>

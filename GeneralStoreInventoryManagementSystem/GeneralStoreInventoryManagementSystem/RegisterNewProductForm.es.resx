@@ -133,6 +133,12 @@
   <data name="logOutLabel.Text" xml:space="preserve">
     <value>Desconectarse</value>
   </data>
+  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="salesMenuOption.Text" xml:space="preserve">
+    <value>Ventas</value>
+  </data>
   <data name="viewSalesMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
   </data>
@@ -145,91 +151,160 @@
   <data name="makeSaleMenuSubOption.Text" xml:space="preserve">
     <value>Realizar Venta</value>
   </data>
-  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
-  </data>
-  <data name="salesMenuOption.Text" xml:space="preserve">
-    <value>Ventas</value>
-  </data>
-  <data name="browseProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="browseProductsMenuSubOption.Text" xml:space="preserve">
-    <value>Buscador de Productos</value>
-  </data>
-  <data name="registerNewProductMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="registerNewProductMenuSubOption.Text" xml:space="preserve">
-    <value>Registrar Nuevo Producto</value>
-  </data>
-  <data name="restockProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="restockProductsMenuSubOption.Text" xml:space="preserve">
-    <value>Reabastecer Producto</value>
-  </data>
   <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 20</value>
   </data>
   <data name="productsMenuOption.Text" xml:space="preserve">
     <value>Productos</value>
   </data>
+  <data name="browseProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="browseProductsMenuSubOption.Text" xml:space="preserve">
+    <value>Buscador de Productos</value>
+  </data>
+  <data name="restockProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="restockProductsMenuSubOption.Text" xml:space="preserve">
+    <value>Reabastecer Producto</value>
+  </data>
+  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
+    <value>Gestionar Usuarios</value>
+  </data>
   <data name="viewUsersOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 22</value>
+    <value>199, 22</value>
   </data>
   <data name="viewUsersOption.Text" xml:space="preserve">
     <value>Ver Usuarios</value>
   </data>
   <data name="registerNewUserOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 22</value>
+    <value>199, 22</value>
   </data>
   <data name="registerNewUserOption.Text" xml:space="preserve">
-    <value>Registrar Nuevo Usuario</value>
+    <value>Registrar nuevo Usuario</value>
   </data>
-  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 22</value>
+  <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
   </data>
-  <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
-    <value>Gestionar Usuarios</value>
+  <data name="statisticsMenuSubOption.Text" xml:space="preserve">
+    <value>Estadisticas</value>
   </data>
   <data name="viewGraphsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="viewGraphsOption.Text" xml:space="preserve">
     <value>Ver Gráficos</value>
   </data>
   <data name="viewReportsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="viewReportsOption.Text" xml:space="preserve">
     <value>Ver Reportes</value>
   </data>
-  <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 22</value>
+  <data name="logsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
   </data>
-  <data name="statisticsMenuSubOption.Text" xml:space="preserve">
-    <value>Estadisticas</value>
+  <data name="logsMenuSubOption.Text" xml:space="preserve">
+    <value>Registros</value>
   </data>
-  <data name="viewErrorLogsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 22</value>
+  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
   </data>
-  <data name="viewErrorLogsMenuSubOption.Text" xml:space="preserve">
+  <data name="viewActivityLogsOption.Text" xml:space="preserve">
+    <value>Ver Registros de Actividades</value>
+  </data>
+  <data name="viewErrorLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 22</value>
+  </data>
+  <data name="viewErrorLogsOption.Text" xml:space="preserve">
     <value>Ver Registros de Errores</value>
   </data>
-  <data name="searchLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 13</value>
+  <data name="registerNewProductTitleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 20</value>
   </data>
-  <data name="searchLabel.Text" xml:space="preserve">
-    <value>Buscar Actividades</value>
+  <data name="registerNewProductTitleLabel.Text" xml:space="preserve">
+    <value>Registrar Nuevo Producto</value>
   </data>
-  <data name="activityFormTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 13</value>
+  <data name="keyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
   </data>
-  <data name="activityFormTitle.Text" xml:space="preserve">
-    <value>Historial de Actividades</value>
+  <data name="keyLabel.Text" xml:space="preserve">
+    <value>Palabra Clave:</value>
+  </data>
+  <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 13</value>
+  </data>
+  <data name="nameLabel.Text" xml:space="preserve">
+    <value>Nombre del Producto:*</value>
+  </data>
+  <data name="brandLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
+  </data>
+  <data name="brandLabel.Text" xml:space="preserve">
+    <value>Marca:</value>
+  </data>
+  <data name="supplierLabel.Text" xml:space="preserve">
+    <value>Suplidor:</value>
+  </data>
+  <data name="categoryLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
+  </data>
+  <data name="categoryLabel.Text" xml:space="preserve">
+    <value>Categoria:</value>
+  </data>
+  <data name="typeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 13</value>
+  </data>
+  <data name="typeLabel.Text" xml:space="preserve">
+    <value>Tipo:</value>
+  </data>
+  <data name="unitLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 13</value>
+  </data>
+  <data name="unitLabel.Text" xml:space="preserve">
+    <value>Unidad de Medida:*</value>
+  </data>
+  <data name="costLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
+  </data>
+  <data name="costLabel.Text" xml:space="preserve">
+    <value>Costo Unitario:</value>
+  </data>
+  <data name="priceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
+  </data>
+  <data name="priceLabel.Text" xml:space="preserve">
+    <value>Precio Unitario:</value>
+  </data>
+  <data name="quantityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
+  </data>
+  <data name="quantityLabel.Text" xml:space="preserve">
+    <value>Cantidad:</value>
+  </data>
+  <data name="minimumLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 13</value>
+  </data>
+  <data name="minimumLabel.Text" xml:space="preserve">
+    <value>Nivel de Existencia Mínimo:</value>
+  </data>
+  <data name="maximumLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 13</value>
+  </data>
+  <data name="maximumLabel.Text" xml:space="preserve">
+    <value>Nivel de Existencia Máximo:</value>
+  </data>
+  <data name="createButton.Text" xml:space="preserve">
+    <value>Crear Nuevo Producto</value>
+  </data>
+  <data name="clearButton.Text" xml:space="preserve">
+    <value>Borrar Información</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Registros de Actividades</value>
+    <value>Registrar Nuevo Producto</value>
   </data>
 </root>
