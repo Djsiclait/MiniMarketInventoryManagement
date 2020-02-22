@@ -117,4 +117,610 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;changeAccessLevelButtom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="createdOnLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;suspendUserButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lastLoginLabel.Text" xml:space="preserve">
+    <value>Last Login:</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="activityList.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="&gt;&gt;createdOnLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lastNameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lastNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 161</value>
+  </data>
+  <data name="&gt;&gt;registrationDateLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;firstNameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="changePasswordButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 320</value>
+  </data>
+  <data name="&gt;&gt;lastLoginLabel.Name" xml:space="preserve">
+    <value>lastLoginLabel</value>
+  </data>
+  <data name="&gt;&gt;statusTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="creatorLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 13</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="usernameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="userTitleLabel.Text" xml:space="preserve">
+    <value>User:</value>
+  </data>
+  <data name="firstNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 109</value>
+  </data>
+  <data name="&gt;&gt;roleLabel.Name" xml:space="preserve">
+    <value>roleLabel</value>
+  </data>
+  <data name="changePasswordButton.Text" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="createdOnLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>179, 380</value>
+  </data>
+  <data name="&gt;&gt;firstNameLabel.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;LastLabel.Name" xml:space="preserve">
+    <value>LastLabel</value>
+  </data>
+  <data name="&gt;&gt;roleTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;usernameLabel.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;statusTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;userTitleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;roleTextBox.Name" xml:space="preserve">
+    <value>roleTextBox</value>
+  </data>
+  <data name="roleTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 20</value>
+  </data>
+  <data name="&gt;&gt;searchActivityLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;firstNameLabel.Name" xml:space="preserve">
+    <value>firstNameLabel</value>
+  </data>
+  <data name="&gt;&gt;creatorLabel.Name" xml:space="preserve">
+    <value>creatorLabel</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>User Profile</value>
+  </data>
+  <data name="&gt;&gt;userTitleLabel.Name" xml:space="preserve">
+    <value>userTitleLabel</value>
+  </data>
+  <data name="&gt;&gt;roleLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lastLoginLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;suspendUserButton.Name" xml:space="preserve">
+    <value>suspendUserButton</value>
+  </data>
+  <data name="lastNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 20</value>
+  </data>
+  <data name="statusLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;activitySearchBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;creatorTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="changeAccessLevelButtom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>560, 320</value>
+  </data>
+  <data name="&gt;&gt;firstNameTextBox.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;creatorTextBox.Name" xml:space="preserve">
+    <value>creatorTextBox</value>
+  </data>
+  <data name="&gt;&gt;registrationDateLabel.Name" xml:space="preserve">
+    <value>registrationDateLabel</value>
+  </data>
+  <data name="&gt;&gt;lastLoginLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;activitySearchBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="changeAccessLevelButtom.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="userTitleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>299, 9</value>
+  </data>
+  <data name="lastNameLabel.Text" xml:space="preserve">
+    <value>Last Name: </value>
+  </data>
+  <data name="&gt;&gt;lastLoginLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;roleLabel.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="creatorLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;statusLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="firstNameLabel.Text" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+  <data name="&gt;&gt;createdOnLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="roleLabel.Text" xml:space="preserve">
+    <value>Access Level:</value>
+  </data>
+  <data name="&gt;&gt;lastNameTextBox.Name" xml:space="preserve">
+    <value>lastNameTextBox</value>
+  </data>
+  <data name="&gt;&gt;registrationDateLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="firstNameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>723, 451</value>
+  </data>
+  <data name="&gt;&gt;activitySearchBox.Name" xml:space="preserve">
+    <value>activitySearchBox</value>
+  </data>
+  <data name="&gt;&gt;lastNameLabel.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="registrationDateLabel.Text" xml:space="preserve">
+    <value>Created on: </value>
+  </data>
+  <data name="&gt;&gt;statusTextBox.Name" xml:space="preserve">
+    <value>statusTextBox</value>
+  </data>
+  <data name="creatorLabel.Text" xml:space="preserve">
+    <value>Creator:</value>
+  </data>
+  <data name="&gt;&gt;roleTextBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="searchActivityLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="changePasswordButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 23</value>
+  </data>
+  <data name="LastLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>370, 380</value>
+  </data>
+  <data name="LastLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="createdOnLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;statusLabel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="registrationDateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 364</value>
+  </data>
+  <data name="lastNameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;creatorLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="changeAccessLevelButtom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 23</value>
+  </data>
+  <data name="&gt;&gt;activityList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>UserInformationTemplateForm</value>
+  </data>
+  <data name="&gt;&gt;usernameTextBox.Name" xml:space="preserve">
+    <value>usernameTextBox</value>
+  </data>
+  <data name="statusTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 320</value>
+  </data>
+  <data name="statusLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="LastLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;LastLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lastNameLabel.Name" xml:space="preserve">
+    <value>lastNameLabel</value>
+  </data>
+  <data name="LastLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="usernameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 55</value>
+  </data>
+  <data name="&gt;&gt;lastLoginLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="creatorLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 253</value>
+  </data>
+  <data name="&gt;&gt;userTitleLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="firstNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 20</value>
+  </data>
+  <data name="firstNameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;changePasswordButton.Name" xml:space="preserve">
+    <value>changePasswordButton</value>
+  </data>
+  <data name="usernameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="registrationDateLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="searchActivityLabel.Text" xml:space="preserve">
+    <value>Search Activity</value>
+  </data>
+  <data name="firstNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 93</value>
+  </data>
+  <data name="registrationDateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 13</value>
+  </data>
+  <data name="&gt;&gt;firstNameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="userTitleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 17</value>
+  </data>
+  <data name="suspendUserButton.Text" xml:space="preserve">
+    <value>Suspend User</value>
+  </data>
+  <data name="&gt;&gt;changePasswordButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="usernameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="suspendUserButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 320</value>
+  </data>
+  <data name="&gt;&gt;creatorLabel.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;changePasswordButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;createdOnLabel.Name" xml:space="preserve">
+    <value>createdOnLabel</value>
+  </data>
+  <data name="&gt;&gt;roleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lastNameTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="creatorLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="creatorTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 20</value>
+  </data>
+  <data name="lastNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 13</value>
+  </data>
+  <data name="statusLabel.Text" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="activityList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 65</value>
+  </data>
+  <data name="roleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 199</value>
+  </data>
+  <data name="&gt;&gt;activityList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="statusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
+  </data>
+  <data name="&gt;&gt;usernameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="searchActivityLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;searchActivityLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;creatorLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LastLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="createdOnLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="LastLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;suspendUserButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="searchActivityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 13</value>
+  </data>
+  <data name="&gt;&gt;usernameTextBox.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="activityList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>393, 249</value>
+  </data>
+  <data name="&gt;&gt;usernameLabel.Name" xml:space="preserve">
+    <value>usernameLabel</value>
+  </data>
+  <data name="&gt;&gt;suspendUserButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="userTitleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="changeAccessLevelButtom.Text" xml:space="preserve">
+    <value>Change Access Level</value>
+  </data>
+  <data name="&gt;&gt;activityList.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;registrationDateLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="createdOnLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="lastNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;searchActivityLabel.Name" xml:space="preserve">
+    <value>searchActivityLabel</value>
+  </data>
+  <data name="firstNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="creatorTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 269</value>
+  </data>
+  <data name="&gt;&gt;usernameLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lastNameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="usernameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 20</value>
+  </data>
+  <data name="roleTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 215</value>
+  </data>
+  <data name="&gt;&gt;roleTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="creatorTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lastLoginLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 364</value>
+  </data>
+  <data name="lastLoginLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="activitySearchBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>542, 39</value>
+  </data>
+  <data name="statusLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 304</value>
+  </data>
+  <data name="activitySearchBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 20</value>
+  </data>
+  <data name="&gt;&gt;statusLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;firstNameTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="userTitleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;changeAccessLevelButtom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;firstNameTextBox.Name" xml:space="preserve">
+    <value>firstNameTextBox</value>
+  </data>
+  <data name="activityList.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;statusTextBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="createdOnLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="searchActivityLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>458, 42</value>
+  </data>
+  <data name="&gt;&gt;LastLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 13</value>
+  </data>
+  <data name="suspendUserButton.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;changeAccessLevelButtom.Name" xml:space="preserve">
+    <value>changeAccessLevelButtom</value>
+  </data>
+  <data name="usernameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 39</value>
+  </data>
+  <data name="activitySearchBox.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="userTitleLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="lastLoginLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 13</value>
+  </data>
+  <data name="usernameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lastNameLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;creatorTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="suspendUserButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 23</value>
+  </data>
+  <data name="LastLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>707, 413</value>
+  </data>
+  <data name="&gt;&gt;userTitleLabel.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;usernameTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;activityList.Name" xml:space="preserve">
+    <value>activityList</value>
+  </data>
+  <data name="statusTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;createdOnLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;creatorTextBox.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="statusTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 20</value>
+  </data>
+  <data name="&gt;&gt;changePasswordButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lastNameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;statusLabel.Name" xml:space="preserve">
+    <value>statusLabel</value>
+  </data>
+  <data name="&gt;&gt;searchActivityLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usernameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="registrationDateLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="roleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="roleTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="changePasswordButton.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;firstNameLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="roleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lastNameTextBox.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="firstNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 13</value>
+  </data>
+  <data name="&gt;&gt;changeAccessLevelButtom.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="usernameLabel.Text" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="&gt;&gt;activitySearchBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lastNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 145</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>723, 451</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr</value>
+  </metadata>
 </root>

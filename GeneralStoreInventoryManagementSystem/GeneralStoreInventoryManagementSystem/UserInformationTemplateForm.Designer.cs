@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserInformationTemplateForm));
             this.userTitleLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
@@ -56,223 +57,145 @@
             // 
             // userTitleLabel
             // 
-            this.userTitleLabel.AutoSize = true;
-            this.userTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTitleLabel.Location = new System.Drawing.Point(299, 9);
+            resources.ApplyResources(this.userTitleLabel, "userTitleLabel");
             this.userTitleLabel.Name = "userTitleLabel";
-            this.userTitleLabel.Size = new System.Drawing.Size(47, 17);
-            this.userTitleLabel.TabIndex = 0;
-            this.userTitleLabel.Text = "User:";
             // 
             // usernameLabel
             // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(13, 39);
+            resources.ApplyResources(this.usernameLabel, "usernameLabel");
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(58, 13);
-            this.usernameLabel.TabIndex = 1;
-            this.usernameLabel.Text = "Username:";
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(49, 55);
+            resources.ApplyResources(this.usernameTextBox, "usernameTextBox");
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.ReadOnly = true;
-            this.usernameTextBox.Size = new System.Drawing.Size(165, 20);
-            this.usernameTextBox.TabIndex = 2;
             // 
             // firstNameLabel
             // 
-            this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(13, 93);
+            resources.ApplyResources(this.firstNameLabel, "firstNameLabel");
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(60, 13);
-            this.firstNameLabel.TabIndex = 3;
-            this.firstNameLabel.Text = "First Name:";
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(49, 109);
+            resources.ApplyResources(this.firstNameTextBox, "firstNameTextBox");
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.ReadOnly = true;
-            this.firstNameTextBox.Size = new System.Drawing.Size(247, 20);
-            this.firstNameTextBox.TabIndex = 4;
             // 
             // lastNameLabel
             // 
-            this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(13, 145);
+            resources.ApplyResources(this.lastNameLabel, "lastNameLabel");
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(64, 13);
-            this.lastNameLabel.TabIndex = 5;
-            this.lastNameLabel.Text = "Last Name: ";
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(49, 161);
+            resources.ApplyResources(this.lastNameTextBox, "lastNameTextBox");
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.ReadOnly = true;
-            this.lastNameTextBox.Size = new System.Drawing.Size(247, 20);
-            this.lastNameTextBox.TabIndex = 6;
             // 
             // roleLabel
             // 
-            this.roleLabel.AutoSize = true;
-            this.roleLabel.Location = new System.Drawing.Point(13, 199);
+            resources.ApplyResources(this.roleLabel, "roleLabel");
             this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(74, 13);
-            this.roleLabel.TabIndex = 7;
-            this.roleLabel.Text = "Access Level:";
             // 
             // roleTextBox
             // 
-            this.roleTextBox.Location = new System.Drawing.Point(49, 215);
+            resources.ApplyResources(this.roleTextBox, "roleTextBox");
             this.roleTextBox.Name = "roleTextBox";
             this.roleTextBox.ReadOnly = true;
-            this.roleTextBox.Size = new System.Drawing.Size(165, 20);
-            this.roleTextBox.TabIndex = 8;
             // 
             // creatorLabel
             // 
-            this.creatorLabel.AutoSize = true;
-            this.creatorLabel.Location = new System.Drawing.Point(13, 253);
+            resources.ApplyResources(this.creatorLabel, "creatorLabel");
             this.creatorLabel.Name = "creatorLabel";
-            this.creatorLabel.Size = new System.Drawing.Size(44, 13);
-            this.creatorLabel.TabIndex = 9;
-            this.creatorLabel.Text = "Creator:";
             // 
             // creatorTextBox
             // 
-            this.creatorTextBox.Location = new System.Drawing.Point(49, 269);
+            resources.ApplyResources(this.creatorTextBox, "creatorTextBox");
             this.creatorTextBox.Name = "creatorTextBox";
             this.creatorTextBox.ReadOnly = true;
-            this.creatorTextBox.Size = new System.Drawing.Size(165, 20);
-            this.creatorTextBox.TabIndex = 10;
             // 
             // statusLabel
             // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(13, 304);
+            resources.ApplyResources(this.statusLabel, "statusLabel");
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(40, 13);
-            this.statusLabel.TabIndex = 11;
-            this.statusLabel.Text = "Status:";
             // 
             // statusTextBox
             // 
-            this.statusTextBox.Location = new System.Drawing.Point(49, 320);
+            resources.ApplyResources(this.statusTextBox, "statusTextBox");
             this.statusTextBox.Name = "statusTextBox";
             this.statusTextBox.ReadOnly = true;
-            this.statusTextBox.Size = new System.Drawing.Size(165, 20);
-            this.statusTextBox.TabIndex = 12;
             // 
             // registrationDateLabel
             // 
-            this.registrationDateLabel.AutoSize = true;
-            this.registrationDateLabel.Location = new System.Drawing.Point(170, 364);
+            resources.ApplyResources(this.registrationDateLabel, "registrationDateLabel");
             this.registrationDateLabel.Name = "registrationDateLabel";
-            this.registrationDateLabel.Size = new System.Drawing.Size(65, 13);
-            this.registrationDateLabel.TabIndex = 13;
-            this.registrationDateLabel.Text = "Created on: ";
             // 
             // lastLoginLabel
             // 
-            this.lastLoginLabel.AutoSize = true;
-            this.lastLoginLabel.Location = new System.Drawing.Point(361, 364);
+            resources.ApplyResources(this.lastLoginLabel, "lastLoginLabel");
             this.lastLoginLabel.Name = "lastLoginLabel";
-            this.lastLoginLabel.Size = new System.Drawing.Size(59, 13);
-            this.lastLoginLabel.TabIndex = 15;
-            this.lastLoginLabel.Text = "Last Login:";
             // 
             // searchActivityLabel
             // 
-            this.searchActivityLabel.AutoSize = true;
-            this.searchActivityLabel.Location = new System.Drawing.Point(458, 42);
+            resources.ApplyResources(this.searchActivityLabel, "searchActivityLabel");
             this.searchActivityLabel.Name = "searchActivityLabel";
-            this.searchActivityLabel.Size = new System.Drawing.Size(78, 13);
-            this.searchActivityLabel.TabIndex = 21;
-            this.searchActivityLabel.Text = "Search Activity";
             // 
             // activitySearchBox
             // 
-            this.activitySearchBox.Location = new System.Drawing.Point(542, 39);
+            resources.ApplyResources(this.activitySearchBox, "activitySearchBox");
             this.activitySearchBox.Name = "activitySearchBox";
-            this.activitySearchBox.Size = new System.Drawing.Size(153, 20);
-            this.activitySearchBox.TabIndex = 20;
             this.activitySearchBox.TextChanged += new System.EventHandler(this.ActivitySearchBox_TextChanged);
             // 
             // activityList
             // 
+            resources.ApplyResources(this.activityList, "activityList");
             this.activityList.AllowUserToAddRows = false;
             this.activityList.AllowUserToDeleteRows = false;
             this.activityList.AllowUserToResizeColumns = false;
             this.activityList.AllowUserToResizeRows = false;
             this.activityList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.activityList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.activityList.Location = new System.Drawing.Point(302, 65);
             this.activityList.MultiSelect = false;
             this.activityList.Name = "activityList";
             this.activityList.RowHeadersVisible = false;
-            this.activityList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.activityList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.activityList.Size = new System.Drawing.Size(393, 249);
-            this.activityList.TabIndex = 19;
             // 
             // changePasswordButton
             // 
-            this.changePasswordButton.Location = new System.Drawing.Point(302, 320);
+            resources.ApplyResources(this.changePasswordButton, "changePasswordButton");
             this.changePasswordButton.Name = "changePasswordButton";
-            this.changePasswordButton.Size = new System.Drawing.Size(136, 23);
-            this.changePasswordButton.TabIndex = 22;
-            this.changePasswordButton.Text = "Change Password";
             this.changePasswordButton.UseVisualStyleBackColor = true;
             this.changePasswordButton.Click += new System.EventHandler(this.ChangePasswordButton_Click);
             // 
             // changeAccessLevelButtom
             // 
-            this.changeAccessLevelButtom.Location = new System.Drawing.Point(560, 320);
+            resources.ApplyResources(this.changeAccessLevelButtom, "changeAccessLevelButtom");
             this.changeAccessLevelButtom.Name = "changeAccessLevelButtom";
-            this.changeAccessLevelButtom.Size = new System.Drawing.Size(135, 23);
-            this.changeAccessLevelButtom.TabIndex = 23;
-            this.changeAccessLevelButtom.Text = "Change Access Level";
             this.changeAccessLevelButtom.UseVisualStyleBackColor = true;
             this.changeAccessLevelButtom.Click += new System.EventHandler(this.ChangeAccessLevelButtom_Click);
             // 
             // suspendUserButton
             // 
-            this.suspendUserButton.Location = new System.Drawing.Point(444, 320);
+            resources.ApplyResources(this.suspendUserButton, "suspendUserButton");
             this.suspendUserButton.Name = "suspendUserButton";
-            this.suspendUserButton.Size = new System.Drawing.Size(110, 23);
-            this.suspendUserButton.TabIndex = 24;
-            this.suspendUserButton.Text = "Suspend User";
             this.suspendUserButton.UseVisualStyleBackColor = true;
             this.suspendUserButton.Click += new System.EventHandler(this.SuspendUserButton_Click);
             // 
             // createdOnLabel
             // 
-            this.createdOnLabel.AutoSize = true;
-            this.createdOnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createdOnLabel.Location = new System.Drawing.Point(179, 380);
+            resources.ApplyResources(this.createdOnLabel, "createdOnLabel");
             this.createdOnLabel.Name = "createdOnLabel";
-            this.createdOnLabel.Size = new System.Drawing.Size(41, 13);
-            this.createdOnLabel.TabIndex = 25;
-            this.createdOnLabel.Text = "label1";
             // 
             // LastLabel
             // 
-            this.LastLabel.AutoSize = true;
-            this.LastLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastLabel.Location = new System.Drawing.Point(370, 380);
+            resources.ApplyResources(this.LastLabel, "LastLabel");
             this.LastLabel.Name = "LastLabel";
-            this.LastLabel.Size = new System.Drawing.Size(41, 13);
-            this.LastLabel.TabIndex = 26;
-            this.LastLabel.Text = "label1";
             // 
             // UserInformationTemplateForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 412);
             this.Controls.Add(this.LastLabel);
             this.Controls.Add(this.createdOnLabel);
             this.Controls.Add(this.suspendUserButton);
@@ -297,10 +220,7 @@
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.userTitleLabel);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(723, 451);
-            this.MinimumSize = new System.Drawing.Size(723, 451);
             this.Name = "UserInformationTemplateForm";
-            this.Text = "User Profile";
             this.Load += new System.EventHandler(this.UserInformationTemplateForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.activityList)).EndInit();
             this.ResumeLayout(false);

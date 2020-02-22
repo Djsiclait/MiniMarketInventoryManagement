@@ -285,6 +285,12 @@
     <EmbeddedResource Include="SalesRecordForm.resx">
       <DependentUpon>SalesRecordForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInformationTemplateForm.es.resx">
+      <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInformationTemplateForm.fr.resx">
+      <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInformationTemplateForm.resx">
       <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
