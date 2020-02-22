@@ -258,6 +258,12 @@
     <EmbeddedResource Include="RestockProductsForm.resx">
       <DependentUpon>RestockProductsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReturnItemsMiniForm.es.resx">
+      <DependentUpon>ReturnItemsMiniForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnItemsMiniForm.fr.resx">
+      <DependentUpon>ReturnItemsMiniForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReturnItemsMiniFOrm.resx">
       <DependentUpon>ReturnItemsMiniForm.cs</DependentUpon>
     </EmbeddedResource>

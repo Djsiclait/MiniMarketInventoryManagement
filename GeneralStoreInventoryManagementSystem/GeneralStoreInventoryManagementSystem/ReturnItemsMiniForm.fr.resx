@@ -118,163 +118,76 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="viewCartLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
-  </data>
-  <data name="viewCartLabel.Text" xml:space="preserve">
-    <value>Ver Carrito</value>
-  </data>
-  <data name="logOutLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>836, 9</value>
-  </data>
-  <data name="logOutLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 13</value>
-  </data>
-  <data name="logOutLabel.Text" xml:space="preserve">
-    <value>Desconectarse</value>
-  </data>
-  <data name="viewSalesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 20</value>
-  </data>
-  <data name="viewSalesMenuOption.Text" xml:space="preserve">
-    <value>Ver Ventas</value>
-  </data>
-  <data name="browseProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="browseProductsMenuSubOption.Text" xml:space="preserve">
-    <value>Buscador de Productos</value>
-  </data>
-  <data name="registerNewProductMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="registerNewProductMenuSubOption.Text" xml:space="preserve">
-    <value>Registrar Nuevo Producto</value>
-  </data>
-  <data name="restockProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 22</value>
-  </data>
-  <data name="restockProductsMenuSubOption.Text" xml:space="preserve">
-    <value>Reabastecer Producto</value>
-  </data>
-  <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
-  </data>
-  <data name="productsMenuOption.Text" xml:space="preserve">
-    <value>Productos</value>
-  </data>
-  <data name="viewUsersOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 22</value>
-  </data>
-  <data name="viewUsersOption.Text" xml:space="preserve">
-    <value>Ver Usuarios</value>
-  </data>
-  <data name="registerNewUserOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 22</value>
-  </data>
-  <data name="registerNewUserOption.Text" xml:space="preserve">
-    <value>Registrar Nuevo Usuario</value>
-  </data>
-  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
-  </data>
-  <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
-    <value>Gestionar Usuarios </value>
-  </data>
-  <data name="viewGraphsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="viewGraphsOption.Text" xml:space="preserve">
-    <value>Ver Gráficos</value>
-  </data>
-  <data name="viewReportsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
-  </data>
-  <data name="viewReportsOption.Text" xml:space="preserve">
-    <value>Ver Reportes</value>
-  </data>
-  <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
-  </data>
-  <data name="statisticsMenuSubOption.Text" xml:space="preserve">
-    <value>Estadisticas</value>
-  </data>
-  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 22</value>
-  </data>
-  <data name="viewActivityLogsOption.Text" xml:space="preserve">
-    <value>Ver Registros de Actividades</value>
-  </data>
-  <data name="viewErrorLogsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 22</value>
-  </data>
-  <data name="viewErrorLogsOption.Text" xml:space="preserve">
-    <value>Ver Registros de Errores</value>
-  </data>
-  <data name="logsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
-  </data>
-  <data name="logsMenuSubOption.Text" xml:space="preserve">
-    <value>Registros</value>
-  </data>
-  <data name="browserLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 13</value>
-  </data>
-  <data name="browserLabel.Text" xml:space="preserve">
-    <value>Navegador de Productos</value>
-  </data>
-  <data name="cartSummaryLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 13</value>
-  </data>
-  <data name="cartSummaryLabel.Text" xml:space="preserve">
-    <value>Resumen del Carrito</value>
-  </data>
-  <data name="addItemButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 527</value>
-  </data>
-  <data name="addItemButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 23</value>
-  </data>
-  <data name="addItemButton.Text" xml:space="preserve">
-    <value>Agregar Unidad(es)</value>
-  </data>
-  <data name="removeItemButton.Text" xml:space="preserve">
-    <value>Quitar Producto</value>
-  </data>
-  <data name="removeOneButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>685, 286</value>
-  </data>
-  <data name="removeOneButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 23</value>
-  </data>
-  <data name="removeOneButton.Text" xml:space="preserve">
-    <value>Quitar una Unidad</value>
-  </data>
-  <data name="clearCartButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>579, 286</value>
-  </data>
-  <data name="clearCartButton.Text" xml:space="preserve">
-    <value>Vaciar Carrito</value>
-  </data>
-  <data name="deliveryCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 21</value>
-  </data>
-  <data name="deliveryCheckBox.Text" xml:space="preserve">
-    <value>¿Marcar como servicio a domicilio?</value>
-  </data>
-  <data name="completeSaleButton.Text" xml:space="preserve">
-    <value>Realizar venta</value>
+  <data name="returnedItemsDataGridView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 318</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
+    <value>125, 17</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Buscar</value>
+    <value>Articles Achetés</value>
   </data>
-  <data name="quantityNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>319, 530</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 298</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 17</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Articles Retournés</value>
+  </data>
+  <data name="returnOneButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="returnOneButton.Text" xml:space="preserve">
+    <value>Retourner une Unité</value>
+  </data>
+  <data name="returnItemButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="returnItemButton.Text" xml:space="preserve">
+    <value>Retourner un Article</value>
+  </data>
+  <data name="removeOneButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="removeOneButton.Text" xml:space="preserve">
+    <value>Retirer une Unité</value>
+  </data>
+  <data name="removeItemButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="removeItemButton.Text" xml:space="preserve">
+    <value>Supprimer un Articles</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 582</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 34</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Annuler le Retour</value>
+  </data>
+  <data name="confirmButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 582</value>
+  </data>
+  <data name="confirmButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 34</value>
+  </data>
+  <data name="confirmButton.Text" xml:space="preserve">
+    <value>Effectuer le Retour</value>
+  </data>
+  <data name="returnTotalLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>490, 298</value>
+  </data>
+  <data name="numberOfReturnsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 298</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>725, 628</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Realizar Ventas</value>
+    <value>Retour d'Articles</value>
   </data>
 </root>

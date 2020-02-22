@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReturnItemsMiniForm));
             this.purchasedItemsDataGridView = new System.Windows.Forms.DataGridView();
             this.returnedItemsDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,14 +55,11 @@
             this.purchasedItemsDataGridView.AllowUserToResizeRows = false;
             this.purchasedItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.purchasedItemsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.purchasedItemsDataGridView.Location = new System.Drawing.Point(16, 29);
+            resources.ApplyResources(this.purchasedItemsDataGridView, "purchasedItemsDataGridView");
             this.purchasedItemsDataGridView.Name = "purchasedItemsDataGridView";
             this.purchasedItemsDataGridView.ReadOnly = true;
             this.purchasedItemsDataGridView.RowHeadersVisible = false;
-            this.purchasedItemsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.purchasedItemsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.purchasedItemsDataGridView.Size = new System.Drawing.Size(567, 253);
-            this.purchasedItemsDataGridView.TabIndex = 24;
             // 
             // returnedItemsDataGridView
             // 
@@ -71,142 +69,88 @@
             this.returnedItemsDataGridView.AllowUserToResizeRows = false;
             this.returnedItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.returnedItemsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.returnedItemsDataGridView.Location = new System.Drawing.Point(122, 318);
+            resources.ApplyResources(this.returnedItemsDataGridView, "returnedItemsDataGridView");
             this.returnedItemsDataGridView.Name = "returnedItemsDataGridView";
             this.returnedItemsDataGridView.ReadOnly = true;
             this.returnedItemsDataGridView.RowHeadersVisible = false;
-            this.returnedItemsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.returnedItemsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.returnedItemsDataGridView.Size = new System.Drawing.Size(567, 253);
-            this.returnedItemsDataGridView.TabIndex = 25;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(395, 9);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 17);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Items Purchased";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(118, 298);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 17);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Returned Items";
             // 
             // returnOneButton
             // 
-            this.returnOneButton.Location = new System.Drawing.Point(589, 29);
+            resources.ApplyResources(this.returnOneButton, "returnOneButton");
             this.returnOneButton.Name = "returnOneButton";
-            this.returnOneButton.Size = new System.Drawing.Size(100, 23);
-            this.returnOneButton.TabIndex = 30;
-            this.returnOneButton.Text = "Return One Unit";
             this.returnOneButton.UseVisualStyleBackColor = true;
             this.returnOneButton.Click += new System.EventHandler(this.ReturnOneButton_Click);
             // 
             // returnItemButton
             // 
-            this.returnItemButton.Location = new System.Drawing.Point(589, 58);
+            resources.ApplyResources(this.returnItemButton, "returnItemButton");
             this.returnItemButton.Name = "returnItemButton";
-            this.returnItemButton.Size = new System.Drawing.Size(100, 23);
-            this.returnItemButton.TabIndex = 29;
-            this.returnItemButton.Text = "Return An Item";
             this.returnItemButton.UseVisualStyleBackColor = true;
             this.returnItemButton.Click += new System.EventHandler(this.ReturnItemButton_Click);
             // 
             // removeOneButton
             // 
-            this.removeOneButton.Location = new System.Drawing.Point(16, 318);
+            resources.ApplyResources(this.removeOneButton, "removeOneButton");
             this.removeOneButton.Name = "removeOneButton";
-            this.removeOneButton.Size = new System.Drawing.Size(100, 23);
-            this.removeOneButton.TabIndex = 33;
-            this.removeOneButton.Text = "Remove One Unit";
             this.removeOneButton.UseVisualStyleBackColor = true;
             this.removeOneButton.Click += new System.EventHandler(this.RemoveOneButton_Click);
             // 
             // removeItemButton
             // 
-            this.removeItemButton.Location = new System.Drawing.Point(16, 347);
+            resources.ApplyResources(this.removeItemButton, "removeItemButton");
             this.removeItemButton.Name = "removeItemButton";
-            this.removeItemButton.Size = new System.Drawing.Size(100, 23);
-            this.removeItemButton.TabIndex = 32;
-            this.removeItemButton.Text = "Remove An Item";
             this.removeItemButton.UseVisualStyleBackColor = true;
             this.removeItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(122, 582);
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(143, 34);
-            this.cancelButton.TabIndex = 35;
-            this.cancelButton.Text = "Cancel Return";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // confirmButton
             // 
-            this.confirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButton.Location = new System.Drawing.Point(380, 582);
+            resources.ApplyResources(this.confirmButton, "confirmButton");
             this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(143, 34);
-            this.confirmButton.TabIndex = 36;
-            this.confirmButton.Text = "Confirm Return";
             this.confirmButton.UseVisualStyleBackColor = true;
             this.confirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // purchasedTotalLabel
             // 
-            this.purchasedTotalLabel.AutoSize = true;
-            this.purchasedTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchasedTotalLabel.Location = new System.Drawing.Point(179, 9);
+            resources.ApplyResources(this.purchasedTotalLabel, "purchasedTotalLabel");
             this.purchasedTotalLabel.Name = "purchasedTotalLabel";
-            this.purchasedTotalLabel.Size = new System.Drawing.Size(96, 17);
-            this.purchasedTotalLabel.TabIndex = 38;
-            this.purchasedTotalLabel.Text = "Total: $0.00";
             // 
             // numberOfPurchasedItemsLabel
             // 
-            this.numberOfPurchasedItemsLabel.AutoSize = true;
-            this.numberOfPurchasedItemsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfPurchasedItemsLabel.Location = new System.Drawing.Point(13, 9);
+            resources.ApplyResources(this.numberOfPurchasedItemsLabel, "numberOfPurchasedItemsLabel");
             this.numberOfPurchasedItemsLabel.Name = "numberOfPurchasedItemsLabel";
-            this.numberOfPurchasedItemsLabel.Size = new System.Drawing.Size(84, 17);
-            this.numberOfPurchasedItemsLabel.TabIndex = 37;
-            this.numberOfPurchasedItemsLabel.Text = "# of Items:";
             // 
             // returnTotalLabel
             // 
-            this.returnTotalLabel.AutoSize = true;
-            this.returnTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnTotalLabel.Location = new System.Drawing.Point(469, 298);
+            resources.ApplyResources(this.returnTotalLabel, "returnTotalLabel");
             this.returnTotalLabel.Name = "returnTotalLabel";
-            this.returnTotalLabel.Size = new System.Drawing.Size(96, 17);
-            this.returnTotalLabel.TabIndex = 40;
-            this.returnTotalLabel.Text = "Total: $0.00";
             // 
             // numberOfReturnsLabel
             // 
-            this.numberOfReturnsLabel.AutoSize = true;
-            this.numberOfReturnsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberOfReturnsLabel.Location = new System.Drawing.Point(303, 298);
+            resources.ApplyResources(this.numberOfReturnsLabel, "numberOfReturnsLabel");
             this.numberOfReturnsLabel.Name = "numberOfReturnsLabel";
-            this.numberOfReturnsLabel.Size = new System.Drawing.Size(84, 17);
-            this.numberOfReturnsLabel.TabIndex = 39;
-            this.numberOfReturnsLabel.Text = "# of Items:";
             // 
             // ReturnItemsMiniForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 628);
             this.Controls.Add(this.returnTotalLabel);
             this.Controls.Add(this.numberOfReturnsLabel);
             this.Controls.Add(this.purchasedTotalLabel);
@@ -223,7 +167,6 @@
             this.Controls.Add(this.purchasedItemsDataGridView);
             this.MaximizeBox = false;
             this.Name = "ReturnItemsMiniForm";
-            this.Text = "Returning Items";
             this.Load += new System.EventHandler(this.ReturnItemsMiniForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.purchasedItemsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.returnedItemsDataGridView)).EndInit();

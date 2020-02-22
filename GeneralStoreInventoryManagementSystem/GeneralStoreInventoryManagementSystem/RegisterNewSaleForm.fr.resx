@@ -239,7 +239,7 @@
     <value>131, 23</value>
   </data>
   <data name="removeItemButton.Text" xml:space="preserve">
-    <value>Supprimer un Elément</value>
+    <value>Supprimer un Articles</value>
   </data>
   <data name="removeOneButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>654, 286</value>
@@ -248,7 +248,7 @@
     <value>124, 23</value>
   </data>
   <data name="removeOneButton.Text" xml:space="preserve">
-    <value>Supprimer une Unité</value>
+    <value>Retirer une Unité</value>
   </data>
   <data name="clearCartButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>548, 286</value>
