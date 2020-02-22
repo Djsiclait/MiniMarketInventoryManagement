@@ -133,23 +133,11 @@
   <data name="logOutLabel.Text" xml:space="preserve">
     <value>Déconnecter</value>
   </data>
-  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+  <data name="viewSalesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 20</value>
   </data>
-  <data name="salesMenuOption.Text" xml:space="preserve">
-    <value>Ventes</value>
-  </data>
-  <data name="viewSalesMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="viewSalesMenuSubOption.Text" xml:space="preserve">
+  <data name="viewSalesMenuOption.Text" xml:space="preserve">
     <value>Voir les Ventes</value>
-  </data>
-  <data name="makeSaleMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="makeSaleMenuSubOption.Text" xml:space="preserve">
-    <value>Faire une Vente</value>
   </data>
   <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 20</value>
@@ -176,7 +164,7 @@
     <value>Réapprovisionner un Produit</value>
   </data>
   <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
     <value>Gérer les Utilisateurs</value>
@@ -194,7 +182,7 @@
     <value>Enregistrer un Nouvel Utilisateur</value>
   </data>
   <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="statisticsMenuSubOption.Text" xml:space="preserve">
     <value>Statistiques</value>
@@ -211,28 +199,79 @@
   <data name="viewReportsOption.Text" xml:space="preserve">
     <value>Voir les Rapports</value>
   </data>
-  <data name="viewErrorLogsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 22</value>
+  <data name="logsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
   </data>
-  <data name="viewErrorLogsMenuSubOption.Text" xml:space="preserve">
+  <data name="logsMenuSubOption.Text" xml:space="preserve">
+    <value>Journaux</value>
+  </data>
+  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="viewActivityLogsOption.Text" xml:space="preserve">
+    <value>Voir les Journaux D'Activité</value>
+  </data>
+  <data name="viewErrorLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="viewErrorLogsOption.Text" xml:space="preserve">
     <value>Voir les Journaux D'Erreurs</value>
   </data>
-  <data name="searchLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>528, 49</value>
+  <data name="browserLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 13</value>
   </data>
-  <data name="searchLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 13</value>
+  <data name="browserLabel.Text" xml:space="preserve">
+    <value>Navigateur de Produits</value>
   </data>
-  <data name="searchLabel.Text" xml:space="preserve">
-    <value>Recherche D'Activité</value>
+  <data name="cartSummaryLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 13</value>
   </data>
-  <data name="activityFormTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 13</value>
+  <data name="cartSummaryLabel.Text" xml:space="preserve">
+    <value>Résumé du Panier</value>
   </data>
-  <data name="activityFormTitle.Text" xml:space="preserve">
-    <value>Historique des Activités</value>
+  <data name="addItemButton.Text" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="removeItemButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>784, 286</value>
+  </data>
+  <data name="removeItemButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 23</value>
+  </data>
+  <data name="removeItemButton.Text" xml:space="preserve">
+    <value>Supprimer un Elément</value>
+  </data>
+  <data name="removeOneButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>654, 286</value>
+  </data>
+  <data name="removeOneButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 23</value>
+  </data>
+  <data name="removeOneButton.Text" xml:space="preserve">
+    <value>Supprimer une Unité</value>
+  </data>
+  <data name="clearCartButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>548, 286</value>
+  </data>
+  <data name="clearCartButton.Text" xml:space="preserve">
+    <value>Vider le Panier</value>
+  </data>
+  <data name="deliveryCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 21</value>
+  </data>
+  <data name="deliveryCheckBox.Text" xml:space="preserve">
+    <value>Marquer comme livraison?</value>
+  </data>
+  <data name="completeSaleButton.Text" xml:space="preserve">
+    <value>Effectuer la Vente</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Chercher</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Journaux D'Activité</value>
+    <value>Enregistrer les Ventes</value>
   </data>
 </root>

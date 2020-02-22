@@ -173,9 +173,6 @@
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>927, 24</value>
   </data>
-  <data name="logOutLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>870, 9</value>
-  </data>
   <data name="&gt;&gt;searchLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -188,11 +185,17 @@
   <data name="&gt;&gt;logOutLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="&gt;&gt;viewGraphsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;adminMenuOption.Name" xml:space="preserve">
     <value>adminMenuOption</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;productsMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;activitySearchBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -246,8 +249,8 @@
   <data name="logOutLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 13</value>
   </data>
-  <data name="&gt;&gt;viewGraphsOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="logOutLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>870, 9</value>
   </data>
   <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
     <value>menuStrip1</value>
@@ -399,17 +402,14 @@
   <data name="viewErrorLogsMenuSubOption.Text" xml:space="preserve">
     <value>View Error Logs</value>
   </data>
-  <data name="activityList.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ActivitiesLogForm</value>
   </data>
   <data name="&gt;&gt;viewUsersOption.Name" xml:space="preserve">
     <value>viewUsersOption</value>
   </data>
-  <data name="&gt;&gt;productsMenuOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Activity Logs</value>
   </data>
   <data name="searchLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>540, 49</value>
@@ -459,8 +459,8 @@
   <data name="viewCartLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 13</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Activity Logs</value>
+  <data name="activityList.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="viewReportsOption.Text" xml:space="preserve">
     <value>View Reports</value>
@@ -505,6 +505,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>es</value>
   </metadata>
 </root>

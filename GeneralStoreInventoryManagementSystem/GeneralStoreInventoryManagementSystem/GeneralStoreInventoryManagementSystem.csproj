@@ -228,6 +228,12 @@
     <EmbeddedResource Include="RegisterNewProductForm.resx">
       <DependentUpon>RegisterNewProductForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterNewSaleForm.es.resx">
+      <DependentUpon>RegisterNewSaleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterNewSaleForm.fr.resx">
+      <DependentUpon>RegisterNewSaleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterNewSaleForm.resx">
       <DependentUpon>RegisterNewSaleForm.cs</DependentUpon>
     </EmbeddedResource>
