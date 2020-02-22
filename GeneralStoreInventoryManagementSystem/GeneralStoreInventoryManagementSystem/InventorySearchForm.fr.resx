@@ -124,6 +124,12 @@
   <data name="browserFormTitle.Text" xml:space="preserve">
     <value>Navigateur D'Inventaire</value>
   </data>
+  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="salesMenuOption.Text" xml:space="preserve">
+    <value>Ventes</value>
+  </data>
   <data name="viewSalesMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>215, 22</value>
   </data>
@@ -138,12 +144,6 @@
   </data>
   <data name="makeSaleMenuSubOption.Text" xml:space="preserve">
     <value>Faire une Vente</value>
-  </data>
-  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
-  </data>
-  <data name="salesMenuOption.Text" xml:space="preserve">
-    <value>Ventes</value>
   </data>
   <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 20</value>

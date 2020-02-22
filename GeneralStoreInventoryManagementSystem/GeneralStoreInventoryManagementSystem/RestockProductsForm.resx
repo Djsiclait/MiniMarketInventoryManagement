@@ -117,7 +117,1204 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="maximumDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>83</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="unitLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;keyLabel.Name" xml:space="preserve">
+    <value>keyLabel</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="minimumQuantityLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="&gt;&gt;nameDisplayLabel.Name" xml:space="preserve">
+    <value>nameDisplayLabel</value>
+  </data>
+  <data name="keyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
+  </data>
+  <data name="keyDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="keyLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="maximumQuantityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 17</value>
+  </data>
+  <data name="&gt;&gt;maximumDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="categoryDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;typeDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="minimumQuantityLabel.Text" xml:space="preserve">
+    <value>Minimum Quantity:</value>
+  </data>
+  <data name="quantityLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 474</value>
+  </data>
+  <data name="&gt;&gt;unitLabel.Name" xml:space="preserve">
+    <value>unitLabel</value>
+  </data>
+  <data name="typeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="typeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 17</value>
+  </data>
+  <data name="unitPriceDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>680, 431</value>
+  </data>
+  <data name="inventorySearchBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 20</value>
+  </data>
+  <data name="&gt;&gt;inventorySearchBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="unitCostLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="&gt;&gt;unitPriceDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;minimumQuantityLabel.Name" xml:space="preserve">
+    <value>minimumQuantityLabel</value>
+  </data>
+  <data name="&gt;&gt;restockButton.Name" xml:space="preserve">
+    <value>restockButton</value>
+  </data>
+  <data name="&gt;&gt;unitPriceDisplayLabel.Name" xml:space="preserve">
+    <value>unitPriceDisplayLabel</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;brandLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;keyDisplayLabel.Name" xml:space="preserve">
+    <value>keyDisplayLabel</value>
+  </data>
+  <data name="productsMenuOption.Text" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="&gt;&gt;addedAmmountNumericUpDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitPriceDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>78</value>
+  </data>
+  <data name="&gt;&gt;unitPriceDisplayLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;unitDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;categoryDisplayLabel.Name" xml:space="preserve">
+    <value>categoryDisplayLabel</value>
+  </data>
+  <data name="supplierLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="&gt;&gt;brandDisplayLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;unitCostLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitContributionMarginLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>72</value>
+  </data>
+  <data name="typeDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>76</value>
+  </data>
+  <data name="unitPriceDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="&gt;&gt;viewReportsOption.Name" xml:space="preserve">
+    <value>viewReportsOption</value>
+  </data>
+  <data name="unitCostLabel.Text" xml:space="preserve">
+    <value>Unit Cost:</value>
+  </data>
+  <data name="keyDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="&gt;&gt;unitContributionMarginLabel.Name" xml:space="preserve">
+    <value>unitContributionMarginLabel</value>
+  </data>
+  <data name="searchLabel.Text" xml:space="preserve">
+    <value>Search Products</value>
+  </data>
+  <data name="&gt;&gt;addedAmmountNumericUpDown.Name" xml:space="preserve">
+    <value>addedAmmountNumericUpDown</value>
+  </data>
+  <data name="nameDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;supplierDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="registerNewProductMenuSubOption.Text" xml:space="preserve">
+    <value>Register New Product</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.Name" xml:space="preserve">
+    <value>typeLabel</value>
+  </data>
+  <data name="categoryDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 371</value>
+  </data>
+  <data name="quantityDisplayLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;typeDisplayLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;minimumDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="restockButton.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="&gt;&gt;brandLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>81</value>
+  </data>
+  <data name="viewUsersOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="quantityDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="brandDisplayLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;searchLabel.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;nameDisplayLabel.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;viewCartLabel.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="brandLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="keyDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 251</value>
+  </data>
+  <data name="&gt;&gt;quantityDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitPriceLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>65</value>
+  </data>
+  <data name="addedAmmountNumericUpDown.TabIndex" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nameLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="unitContributionMarginLabel.Text" xml:space="preserve">
+    <value>0% ($0 or 1x price increase)</value>
+  </data>
+  <data name="&gt;&gt;restockButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="logsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="maximumDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>680, 491</value>
+  </data>
+  <data name="&gt;&gt;maximumQuantityLabel.Name" xml:space="preserve">
+    <value>maximumQuantityLabel</value>
+  </data>
+  <data name="unitLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="productList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>903, 145</value>
+  </data>
+  <data name="&gt;&gt;unitDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;categoryLable.Name" xml:space="preserve">
+    <value>categoryLable</value>
+  </data>
+  <data name="&gt;&gt;supplierDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="quantityLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="supplierLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="&gt;&gt;nameDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="brandLabel.Text" xml:space="preserve">
+    <value>Brand:</value>
+  </data>
+  <data name="&gt;&gt;viewErrorLogsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="typeLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="&gt;&gt;typeDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="typeDisplayLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;makeSaleMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="unitCostLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>927, 24</value>
+  </data>
+  <data name="&gt;&gt;maximumDisplayLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="quantityLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="&gt;&gt;categoryLable.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;productsMenuOption.Name" xml:space="preserve">
+    <value>productsMenuOption</value>
+  </data>
+  <data name="&gt;&gt;brandDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewReportsOption.Text" xml:space="preserve">
+    <value>View Reports</value>
+  </data>
+  <data name="supplierDisplayLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;quantityLabel.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 17</value>
+  </data>
+  <data name="typeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>358, 354</value>
+  </data>
+  <data name="quantityDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;unitPriceLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyLabel.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="restockButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="nameDisplayLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;unitCostDisplayLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="unitPriceDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;registerNewUserOption.Name" xml:space="preserve">
+    <value>registerNewUserOption</value>
+  </data>
+  <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>358, 234</value>
+  </data>
+  <data name="&gt;&gt;productList.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;quantityLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="unitCostDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;supplierDisplayLabel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="unitPriceLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>623, 414</value>
+  </data>
+  <data name="&gt;&gt;makeSaleMenuSubOption.Name" xml:space="preserve">
+    <value>makeSaleMenuSubOption</value>
+  </data>
+  <data name="&gt;&gt;minimumDisplayLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;productList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="salesMenuOption.Text" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="restockButton.Text" xml:space="preserve">
+    <value>Restock</value>
+  </data>
+  <data name="&gt;&gt;keyLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;unitCostDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="quantityLabel.Text" xml:space="preserve">
+    <value>Quantity:</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="viewActivityLogsOption.Text" xml:space="preserve">
+    <value>View Activity Logs</value>
+  </data>
+  <data name="&gt;&gt;viewSalesMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;viewActivityLogsOption.Name" xml:space="preserve">
+    <value>viewActivityLogsOption</value>
+  </data>
+  <data name="unitContributionMarginLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;manageUsersMenuSubOption.Name" xml:space="preserve">
+    <value>manageUsersMenuSubOption</value>
+  </data>
+  <data name="browserFormTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="logOutLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="unitContributionMarginLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 13</value>
+  </data>
+  <data name="categoryLable.Text" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="&gt;&gt;unitLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
+  </data>
+  <data name="&gt;&gt;minimumQuantityLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;registerNewProductMenuSubOption.Name" xml:space="preserve">
+    <value>registerNewProductMenuSubOption</value>
+  </data>
+  <data name="nameDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 251</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;maximumQuantityLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>943, 600</value>
+  </data>
+  <data name="&gt;&gt;unitContributionMarginLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;minimumDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;supplierLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="maximumQuantityLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="viewCartLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 9</value>
+  </data>
+  <data name="&gt;&gt;supplierDisplayLabel.Name" xml:space="preserve">
+    <value>supplierDisplayLabel</value>
+  </data>
+  <data name="supplierDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="logOutLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="minimumQuantityLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>358, 474</value>
+  </data>
+  <data name="&gt;&gt;viewCartLabel.Name" xml:space="preserve">
+    <value>viewCartLabel</value>
+  </data>
+  <data name="&gt;&gt;quantityDisplayLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;typeDisplayLabel.Name" xml:space="preserve">
+    <value>typeDisplayLabel</value>
+  </data>
+  <data name="supplierLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;registerNewUserOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.Name" xml:space="preserve">
+    <value>nameLabel</value>
+  </data>
+  <data name="viewReportsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="minimumQuantityLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>67</value>
+  </data>
+  <data name="&gt;&gt;registerNewProductMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitCostDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="brandLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="categoryDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="&gt;&gt;inventorySearchBox.Name" xml:space="preserve">
+    <value>inventorySearchBox</value>
+  </data>
+  <data name="nameDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="registerNewUserOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="&gt;&gt;viewActivityLogsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 17</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 431</value>
+  </data>
+  <data name="maximumDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="unitCostDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>79</value>
+  </data>
+  <data name="&gt;&gt;keyDisplayLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;supplierLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statisticsMenuSubOption.Name" xml:space="preserve">
+    <value>statisticsMenuSubOption</value>
+  </data>
+  <data name="&gt;&gt;quantityDisplayLabel.Name" xml:space="preserve">
+    <value>quantityDisplayLabel</value>
+  </data>
+  <data name="categoryLable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="minimumDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="categoryDisplayLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;browserFormTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;maximumQuantityLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;unitPriceLabel.Name" xml:space="preserve">
+    <value>unitPriceLabel</value>
+  </data>
+  <data name="&gt;&gt;browserFormTitle.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;unitCostLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="maximumQuantityLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>623, 474</value>
+  </data>
+  <data name="unitContributionMarginLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>702, 414</value>
+  </data>
+  <data name="&gt;&gt;viewSalesMenuSubOption.Name" xml:space="preserve">
+    <value>viewSalesMenuSubOption</value>
+  </data>
+  <data name="unitLabel.Text" xml:space="preserve">
+    <value>Unit:</value>
+  </data>
+  <data name="minimumDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 491</value>
+  </data>
+  <data name="viewCartLabel.Text" xml:space="preserve">
+    <value>View Cart</value>
+  </data>
+  <data name="&gt;&gt;categoryLable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="supplierDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 311</value>
+  </data>
+  <data name="supplierLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="quantityLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>66</value>
+  </data>
+  <data name="&gt;&gt;manageUsersMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="typeDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;restockButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewSalesMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="supplierDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="viewErrorLogsOption.Text" xml:space="preserve">
+    <value>View Error Logs</value>
+  </data>
+  <data name="&gt;&gt;minimumQuantityLabel.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="searchLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 49</value>
+  </data>
+  <data name="quantityDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="unitPriceLabel.Text" xml:space="preserve">
+    <value>Unit Price:</value>
+  </data>
+  <data name="keyLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="nameDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="viewCartLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="logsMenuSubOption.Text" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="brandLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 17</value>
+  </data>
+  <data name="brandDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="nameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>57</value>
+  </data>
+  <data name="unitCostLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="brandDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;viewErrorLogsOption.Name" xml:space="preserve">
+    <value>viewErrorLogsOption</value>
+  </data>
+  <data name="&gt;&gt;viewGraphsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;unitCostLabel.Name" xml:space="preserve">
+    <value>unitCostLabel</value>
+  </data>
+  <data name="&gt;&gt;maximumQuantityLabel.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;brandLabel.Name" xml:space="preserve">
+    <value>brandLabel</value>
+  </data>
+  <data name="minimumQuantityLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;categoryDisplayLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="productList.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="brandDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 311</value>
+  </data>
+  <data name="logOutLabel.Text" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="makeSaleMenuSubOption.Text" xml:space="preserve">
+    <value>Make Sale</value>
+  </data>
+  <data name="&gt;&gt;minimumDisplayLabel.Name" xml:space="preserve">
+    <value>minimumDisplayLabel</value>
+  </data>
+  <data name="&gt;&gt;brandDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;viewUsersOption.Name" xml:space="preserve">
+    <value>viewUsersOption</value>
+  </data>
+  <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="unitCostDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 431</value>
+  </data>
+  <data name="&gt;&gt;productList.Name" xml:space="preserve">
+    <value>productList</value>
+  </data>
+  <data name="keyDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>73</value>
+  </data>
+  <data name="browserFormTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 49</value>
+  </data>
+  <data name="&gt;&gt;addedAmmountNumericUpDown.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="typeDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>401, 371</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="unitCostDisplayLabel.Text" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="minimumQuantityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 17</value>
+  </data>
+  <data name="viewCartLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
+  </data>
+  <data name="categoryDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>77</value>
+  </data>
+  <data name="adminMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 20</value>
+  </data>
+  <data name="keyLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 234</value>
+  </data>
+  <data name="&gt;&gt;supplierLabel.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;browseProductsMenuSubOption.Name" xml:space="preserve">
+    <value>browseProductsMenuSubOption</value>
+  </data>
+  <data name="categoryLable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 354</value>
+  </data>
+  <data name="&gt;&gt;restockButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="productList.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="viewCartLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;browserFormTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="searchLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="unitCostLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>358, 414</value>
+  </data>
+  <data name="supplierLabel.Text" xml:space="preserve">
+    <value>Supplier:</value>
+  </data>
+  <data name="browserFormTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 13</value>
+  </data>
+  <data name="minimumDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>RestockProductsForm</value>
+  </data>
+  <data name="&gt;&gt;salesMenuOption.Name" xml:space="preserve">
+    <value>salesMenuOption</value>
+  </data>
+  <data name="typeLabel.Text" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="&gt;&gt;unitPriceDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;unitDisplayLabel.Name" xml:space="preserve">
+    <value>unitDisplayLabel</value>
+  </data>
+  <data name="logOutLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;categoryLable.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;logsMenuSubOption.Name" xml:space="preserve">
+    <value>logsMenuSubOption</value>
+  </data>
+  <data name="&gt;&gt;maximumDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewErrorLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="unitDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="searchLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="&gt;&gt;productsMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="supplierDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;productList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;unitPriceLabel.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;searchLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;browseProductsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewSalesMenuSubOption.Text" xml:space="preserve">
+    <value>View Sales</value>
+  </data>
+  <data name="&gt;&gt;logsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="typeDisplayLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="maximumDisplayLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;adminMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitPriceDisplayLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="addedAmmountNumericUpDown.ThousandsSeparator" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nameDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="&gt;&gt;unitLabel.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="brandDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="nameLabel.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="unitDisplayLabel.Text" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="unitLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>63</value>
+  </data>
+  <data name="registerNewUserOption.Text" xml:space="preserve">
+    <value>Register New User</value>
+  </data>
+  <data name="makeSaleMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="&gt;&gt;unitPriceLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;nameDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;viewReportsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="addedAmmountNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 530</value>
+  </data>
+  <data name="&gt;&gt;unitCostDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitCostLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 17</value>
+  </data>
+  <data name="maximumDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;supplierLabel.Name" xml:space="preserve">
+    <value>supplierLabel</value>
+  </data>
+  <data name="maximumQuantityLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="browserFormTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="typeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;unitContributionMarginLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;brandDisplayLabel.Name" xml:space="preserve">
+    <value>brandDisplayLabel</value>
+  </data>
+  <data name="categoryDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;salesMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 414</value>
+  </data>
+  <data name="maximumQuantityLabel.Text" xml:space="preserve">
+    <value>Maximum Quantity:</value>
+  </data>
+  <data name="&gt;&gt;statisticsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;unitDisplayLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;categoryDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;viewUsersOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitCostDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="viewUsersOption.Text" xml:space="preserve">
+    <value>View Users</value>
+  </data>
+  <data name="&gt;&gt;quantityLabel.Name" xml:space="preserve">
+    <value>quantityLabel</value>
+  </data>
+  <data name="maximumDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="quantityDisplayLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 491</value>
+  </data>
+  <data name="quantityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 17</value>
+  </data>
+  <data name="unitPriceDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="inventorySearchBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>642, 46</value>
+  </data>
+  <data name="typeDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="browseProductsMenuSubOption.Text" xml:space="preserve">
+    <value>Browse Products</value>
+  </data>
+  <data name="&gt;&gt;unitCostLabel.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;keyLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="restockButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 527</value>
+  </data>
+  <data name="unitPriceLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;quantityLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="quantityDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="minimumDisplayLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="registerNewProductMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="brandLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;minimumQuantityLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitPriceLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="addedAmmountNumericUpDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="brandDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>75</value>
+  </data>
+  <data name="viewGraphsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>927, 562</value>
+  </data>
+  <data name="browseProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="&gt;&gt;viewCartLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="keyDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="supplierLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>358, 294</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Restock Products</value>
+  </data>
+  <data name="categoryLable.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="&gt;&gt;inventorySearchBox.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="categoryLable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 17</value>
+  </data>
+  <data name="inventorySearchBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="minimumDisplayLabel.Text" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;typeLabel.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Name" xml:space="preserve">
+    <value>logOutLabel</value>
+  </data>
+  <data name="categoryLable.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="&gt;&gt;maximumDisplayLabel.Name" xml:space="preserve">
+    <value>maximumDisplayLabel</value>
+  </data>
+  <data name="&gt;&gt;addedAmmountNumericUpDown.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;inventorySearchBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;categoryDisplayLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="statisticsMenuSubOption.Text" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <data name="searchLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;unitContributionMarginLabel.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="keyDisplayLabel.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="maximumQuantityLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>68</value>
+  </data>
+  <data name="&gt;&gt;adminMenuOption.Name" xml:space="preserve">
+    <value>adminMenuOption</value>
+  </data>
+  <data name="productList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 73</value>
+  </data>
+  <data name="&gt;&gt;browserFormTitle.Name" xml:space="preserve">
+    <value>browserFormTitle</value>
+  </data>
+  <data name="&gt;&gt;brandLabel.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="keyLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>58</value>
+  </data>
+  <data name="adminMenuOption.Text" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="&gt;&gt;unitCostDisplayLabel.Name" xml:space="preserve">
+    <value>unitCostDisplayLabel</value>
+  </data>
+  <data name="minimumDisplayLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;viewGraphsOption.Name" xml:space="preserve">
+    <value>viewGraphsOption</value>
+  </data>
+  <data name="supplierDisplayLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>74</value>
+  </data>
+  <data name="&gt;&gt;quantityDisplayLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="browserFormTitle.Text" xml:space="preserve">
+    <value>Inventory Browser</value>
+  </data>
+  <data name="brandLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 294</value>
+  </data>
+  <data name="viewGraphsOption.Text" xml:space="preserve">
+    <value>View Graphs</value>
+  </data>
+  <data name="&gt;&gt;viewCartLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;unitLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="unitPriceLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 17</value>
+  </data>
+  <data name="keyLabel.Text" xml:space="preserve">
+    <value>Key:</value>
+  </data>
+  <data name="addedAmmountNumericUpDown.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="nameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;searchLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="logOutLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>870, 9</value>
+  </data>
+  <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="&gt;&gt;searchLabel.Name" xml:space="preserve">
+    <value>searchLabel</value>
+  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr</value>
   </metadata>
 </root>

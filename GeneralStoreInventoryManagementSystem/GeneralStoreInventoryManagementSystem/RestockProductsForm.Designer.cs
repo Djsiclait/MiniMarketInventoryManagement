@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RestockProductsForm));
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -85,465 +86,301 @@
             // 
             // viewCartLabel
             // 
-            this.viewCartLabel.AutoSize = true;
+            resources.ApplyResources(this.viewCartLabel, "viewCartLabel");
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
-            this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
-            this.viewCartLabel.TabIndex = 9;
-            this.viewCartLabel.Text = "View Cart";
             this.viewCartLabel.Click += new System.EventHandler(this.ViewCartLabel_Click);
             this.viewCartLabel.MouseLeave += new System.EventHandler(this.ViewCartLabel_MouseLeave);
             this.viewCartLabel.MouseHover += new System.EventHandler(this.ViewCartLabel_MouseHover);
             // 
             // logOutLabel
             // 
-            this.logOutLabel.AutoSize = true;
+            resources.ApplyResources(this.logOutLabel, "logOutLabel");
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(870, 9);
             this.logOutLabel.Name = "logOutLabel";
-            this.logOutLabel.Size = new System.Drawing.Size(45, 13);
-            this.logOutLabel.TabIndex = 8;
-            this.logOutLabel.Text = "Log Out";
             this.logOutLabel.Click += new System.EventHandler(this.LogOutLabel_Click);
             this.logOutLabel.MouseLeave += new System.EventHandler(this.LogOutLabel_MouseLeave);
             this.logOutLabel.MouseHover += new System.EventHandler(this.LogOutLabel_MouseHover);
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salesMenuOption,
             this.productsMenuOption,
             this.adminMenuOption});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
-            this.menuStrip1.TabIndex = 7;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // salesMenuOption
             // 
+            resources.ApplyResources(this.salesMenuOption, "salesMenuOption");
             this.salesMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewSalesMenuSubOption,
             this.makeSaleMenuSubOption});
             this.salesMenuOption.Name = "salesMenuOption";
-            this.salesMenuOption.Size = new System.Drawing.Size(45, 20);
-            this.salesMenuOption.Text = "Sales";
             // 
             // viewSalesMenuSubOption
             // 
+            resources.ApplyResources(this.viewSalesMenuSubOption, "viewSalesMenuSubOption");
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
-            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(128, 22);
-            this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
             // makeSaleMenuSubOption
             // 
+            resources.ApplyResources(this.makeSaleMenuSubOption, "makeSaleMenuSubOption");
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
-            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(128, 22);
-            this.makeSaleMenuSubOption.Text = "Make Sale";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
             // productsMenuOption
             // 
+            resources.ApplyResources(this.productsMenuOption, "productsMenuOption");
             this.productsMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.browseProductsMenuSubOption,
             this.registerNewProductMenuSubOption});
             this.productsMenuOption.Name = "productsMenuOption";
-            this.productsMenuOption.Size = new System.Drawing.Size(66, 20);
-            this.productsMenuOption.Text = "Products";
             // 
             // browseProductsMenuSubOption
             // 
+            resources.ApplyResources(this.browseProductsMenuSubOption, "browseProductsMenuSubOption");
             this.browseProductsMenuSubOption.Name = "browseProductsMenuSubOption";
-            this.browseProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.browseProductsMenuSubOption.Text = "Browse Products";
             this.browseProductsMenuSubOption.Click += new System.EventHandler(this.BrowseProductsMenuSubOption_Click);
             // 
             // registerNewProductMenuSubOption
             // 
+            resources.ApplyResources(this.registerNewProductMenuSubOption, "registerNewProductMenuSubOption");
             this.registerNewProductMenuSubOption.Name = "registerNewProductMenuSubOption";
-            this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.registerNewProductMenuSubOption.Text = "Register New Product";
             this.registerNewProductMenuSubOption.Click += new System.EventHandler(this.RegisterNewProductMenuSubOption_Click);
             // 
             // adminMenuOption
             // 
+            resources.ApplyResources(this.adminMenuOption, "adminMenuOption");
             this.adminMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageUsersMenuSubOption,
             this.statisticsMenuSubOption,
             this.logsMenuSubOption});
             this.adminMenuOption.Name = "adminMenuOption";
-            this.adminMenuOption.Size = new System.Drawing.Size(55, 20);
-            this.adminMenuOption.Text = "Admin";
             // 
             // manageUsersMenuSubOption
             // 
+            resources.ApplyResources(this.manageUsersMenuSubOption, "manageUsersMenuSubOption");
             this.manageUsersMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(148, 22);
-            this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
             // 
+            resources.ApplyResources(this.viewUsersOption, "viewUsersOption");
             this.viewUsersOption.Name = "viewUsersOption";
-            this.viewUsersOption.Size = new System.Drawing.Size(169, 22);
-            this.viewUsersOption.Text = "View Users";
             this.viewUsersOption.Click += new System.EventHandler(this.ViewUsersOption_Click);
             // 
             // registerNewUserOption
             // 
+            resources.ApplyResources(this.registerNewUserOption, "registerNewUserOption");
             this.registerNewUserOption.Name = "registerNewUserOption";
-            this.registerNewUserOption.Size = new System.Drawing.Size(169, 22);
-            this.registerNewUserOption.Text = "Register New User";
             this.registerNewUserOption.Click += new System.EventHandler(this.RegisterNewUserOption_Click);
             // 
             // statisticsMenuSubOption
             // 
+            resources.ApplyResources(this.statisticsMenuSubOption, "statisticsMenuSubOption");
             this.statisticsMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(148, 22);
-            this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
             // 
+            resources.ApplyResources(this.viewGraphsOption, "viewGraphsOption");
             this.viewGraphsOption.Name = "viewGraphsOption";
-            this.viewGraphsOption.Size = new System.Drawing.Size(142, 22);
-            this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
+            resources.ApplyResources(this.viewReportsOption, "viewReportsOption");
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
-            this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
             // logsMenuSubOption
             // 
+            resources.ApplyResources(this.logsMenuSubOption, "logsMenuSubOption");
             this.logsMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(148, 22);
-            this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
             // 
+            resources.ApplyResources(this.viewActivityLogsOption, "viewActivityLogsOption");
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
-            this.viewActivityLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewActivityLogsOption.Text = "View Activity Logs";
             this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
+            resources.ApplyResources(this.viewErrorLogsOption, "viewErrorLogsOption");
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
-            this.viewErrorLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewErrorLogsOption.Text = "View Error Logs";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // searchLabel
             // 
-            this.searchLabel.AutoSize = true;
-            this.searchLabel.Location = new System.Drawing.Point(550, 49);
+            resources.ApplyResources(this.searchLabel, "searchLabel");
             this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(86, 13);
-            this.searchLabel.TabIndex = 13;
-            this.searchLabel.Text = "Search Products";
             // 
             // productList
             // 
+            resources.ApplyResources(this.productList, "productList");
             this.productList.AllowUserToAddRows = false;
             this.productList.AllowUserToDeleteRows = false;
             this.productList.AllowUserToResizeColumns = false;
             this.productList.AllowUserToResizeRows = false;
             this.productList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.productList.Location = new System.Drawing.Point(12, 73);
             this.productList.MultiSelect = false;
             this.productList.Name = "productList";
             this.productList.ReadOnly = true;
             this.productList.RowHeadersVisible = false;
-            this.productList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.productList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productList.Size = new System.Drawing.Size(903, 145);
-            this.productList.TabIndex = 12;
             this.productList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductList_CellDoubleClick);
             // 
             // browserFormTitle
             // 
-            this.browserFormTitle.AutoSize = true;
-            this.browserFormTitle.Location = new System.Drawing.Point(66, 49);
+            resources.ApplyResources(this.browserFormTitle, "browserFormTitle");
             this.browserFormTitle.Name = "browserFormTitle";
-            this.browserFormTitle.Size = new System.Drawing.Size(92, 13);
-            this.browserFormTitle.TabIndex = 11;
-            this.browserFormTitle.Text = "Inventory Browser";
             // 
             // inventorySearchBox
             // 
-            this.inventorySearchBox.Location = new System.Drawing.Point(642, 46);
+            resources.ApplyResources(this.inventorySearchBox, "inventorySearchBox");
             this.inventorySearchBox.Name = "inventorySearchBox";
-            this.inventorySearchBox.Size = new System.Drawing.Size(273, 20);
-            this.inventorySearchBox.TabIndex = 10;
             this.inventorySearchBox.TextChanged += new System.EventHandler(this.InventorySearchBox_TextChanged);
             // 
             // unitContributionMarginLabel
             // 
-            this.unitContributionMarginLabel.AutoSize = true;
-            this.unitContributionMarginLabel.Location = new System.Drawing.Point(702, 414);
+            resources.ApplyResources(this.unitContributionMarginLabel, "unitContributionMarginLabel");
             this.unitContributionMarginLabel.Name = "unitContributionMarginLabel";
-            this.unitContributionMarginLabel.Size = new System.Drawing.Size(137, 13);
-            this.unitContributionMarginLabel.TabIndex = 72;
-            this.unitContributionMarginLabel.Text = "0% ($0 or 1x price increase)";
             // 
             // nameDisplayLabel
             // 
-            this.nameDisplayLabel.AutoSize = true;
-            this.nameDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameDisplayLabel.Location = new System.Drawing.Point(401, 251);
+            resources.ApplyResources(this.nameDisplayLabel, "nameDisplayLabel");
             this.nameDisplayLabel.Name = "nameDisplayLabel";
-            this.nameDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.nameDisplayLabel.TabIndex = 71;
-            this.nameDisplayLabel.Text = "label1";
             // 
             // maximumQuantityLabel
             // 
-            this.maximumQuantityLabel.AutoSize = true;
-            this.maximumQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maximumQuantityLabel.Location = new System.Drawing.Point(623, 474);
+            resources.ApplyResources(this.maximumQuantityLabel, "maximumQuantityLabel");
             this.maximumQuantityLabel.Name = "maximumQuantityLabel";
-            this.maximumQuantityLabel.Size = new System.Drawing.Size(127, 17);
-            this.maximumQuantityLabel.TabIndex = 68;
-            this.maximumQuantityLabel.Text = "Maximum Quantity:";
             // 
             // minimumQuantityLabel
             // 
-            this.minimumQuantityLabel.AutoSize = true;
-            this.minimumQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimumQuantityLabel.Location = new System.Drawing.Point(358, 474);
+            resources.ApplyResources(this.minimumQuantityLabel, "minimumQuantityLabel");
             this.minimumQuantityLabel.Name = "minimumQuantityLabel";
-            this.minimumQuantityLabel.Size = new System.Drawing.Size(124, 17);
-            this.minimumQuantityLabel.TabIndex = 67;
-            this.minimumQuantityLabel.Text = "Minimum Quantity:";
             // 
             // quantityLabel
             // 
-            this.quantityLabel.AutoSize = true;
-            this.quantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityLabel.Location = new System.Drawing.Point(93, 474);
+            resources.ApplyResources(this.quantityLabel, "quantityLabel");
             this.quantityLabel.Name = "quantityLabel";
-            this.quantityLabel.Size = new System.Drawing.Size(65, 17);
-            this.quantityLabel.TabIndex = 66;
-            this.quantityLabel.Text = "Quantity:";
             // 
             // unitPriceLabel
             // 
-            this.unitPriceLabel.AutoSize = true;
-            this.unitPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitPriceLabel.Location = new System.Drawing.Point(623, 414);
+            resources.ApplyResources(this.unitPriceLabel, "unitPriceLabel");
             this.unitPriceLabel.Name = "unitPriceLabel";
-            this.unitPriceLabel.Size = new System.Drawing.Size(73, 17);
-            this.unitPriceLabel.TabIndex = 65;
-            this.unitPriceLabel.Text = "Unit Price:";
             // 
             // unitCostLabel
             // 
-            this.unitCostLabel.AutoSize = true;
-            this.unitCostLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitCostLabel.Location = new System.Drawing.Point(358, 414);
+            resources.ApplyResources(this.unitCostLabel, "unitCostLabel");
             this.unitCostLabel.Name = "unitCostLabel";
-            this.unitCostLabel.Size = new System.Drawing.Size(69, 17);
-            this.unitCostLabel.TabIndex = 64;
-            this.unitCostLabel.Text = "Unit Cost:";
             // 
             // unitLabel
             // 
-            this.unitLabel.AutoSize = true;
-            this.unitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitLabel.Location = new System.Drawing.Point(93, 414);
+            resources.ApplyResources(this.unitLabel, "unitLabel");
             this.unitLabel.Name = "unitLabel";
-            this.unitLabel.Size = new System.Drawing.Size(37, 17);
-            this.unitLabel.TabIndex = 63;
-            this.unitLabel.Text = "Unit:";
             // 
             // typeLabel
             // 
-            this.typeLabel.AutoSize = true;
-            this.typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeLabel.Location = new System.Drawing.Point(358, 354);
+            resources.ApplyResources(this.typeLabel, "typeLabel");
             this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(44, 17);
-            this.typeLabel.TabIndex = 62;
-            this.typeLabel.Text = "Type:";
             // 
             // categoryLable
             // 
-            this.categoryLable.AutoSize = true;
-            this.categoryLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLable.Location = new System.Drawing.Point(93, 354);
+            resources.ApplyResources(this.categoryLable, "categoryLable");
             this.categoryLable.Name = "categoryLable";
-            this.categoryLable.Size = new System.Drawing.Size(69, 17);
-            this.categoryLable.TabIndex = 61;
-            this.categoryLable.Text = "Category:";
             // 
             // supplierLabel
             // 
-            this.supplierLabel.AutoSize = true;
-            this.supplierLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supplierLabel.Location = new System.Drawing.Point(358, 294);
+            resources.ApplyResources(this.supplierLabel, "supplierLabel");
             this.supplierLabel.Name = "supplierLabel";
-            this.supplierLabel.Size = new System.Drawing.Size(64, 17);
-            this.supplierLabel.TabIndex = 60;
-            this.supplierLabel.Text = "Supplier:";
             // 
             // brandLabel
             // 
-            this.brandLabel.AutoSize = true;
-            this.brandLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brandLabel.Location = new System.Drawing.Point(93, 294);
+            resources.ApplyResources(this.brandLabel, "brandLabel");
             this.brandLabel.Name = "brandLabel";
-            this.brandLabel.Size = new System.Drawing.Size(50, 17);
-            this.brandLabel.TabIndex = 59;
-            this.brandLabel.Text = "Brand:";
             // 
             // keyLabel
             // 
-            this.keyLabel.AutoSize = true;
-            this.keyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keyLabel.Location = new System.Drawing.Point(93, 234);
+            resources.ApplyResources(this.keyLabel, "keyLabel");
             this.keyLabel.Name = "keyLabel";
-            this.keyLabel.Size = new System.Drawing.Size(36, 17);
-            this.keyLabel.TabIndex = 58;
-            this.keyLabel.Text = "Key:";
             // 
             // nameLabel
             // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(358, 234);
+            resources.ApplyResources(this.nameLabel, "nameLabel");
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(49, 17);
-            this.nameLabel.TabIndex = 57;
-            this.nameLabel.Text = "Name:";
             // 
             // keyDisplayLabel
             // 
-            this.keyDisplayLabel.AutoSize = true;
-            this.keyDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keyDisplayLabel.Location = new System.Drawing.Point(122, 251);
+            resources.ApplyResources(this.keyDisplayLabel, "keyDisplayLabel");
             this.keyDisplayLabel.Name = "keyDisplayLabel";
-            this.keyDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.keyDisplayLabel.TabIndex = 73;
-            this.keyDisplayLabel.Text = "label1";
             // 
             // brandDisplayLabel
             // 
-            this.brandDisplayLabel.AutoSize = true;
-            this.brandDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brandDisplayLabel.Location = new System.Drawing.Point(122, 311);
+            resources.ApplyResources(this.brandDisplayLabel, "brandDisplayLabel");
             this.brandDisplayLabel.Name = "brandDisplayLabel";
-            this.brandDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.brandDisplayLabel.TabIndex = 75;
-            this.brandDisplayLabel.Text = "label1";
             // 
             // supplierDisplayLabel
             // 
-            this.supplierDisplayLabel.AutoSize = true;
-            this.supplierDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supplierDisplayLabel.Location = new System.Drawing.Point(401, 311);
+            resources.ApplyResources(this.supplierDisplayLabel, "supplierDisplayLabel");
             this.supplierDisplayLabel.Name = "supplierDisplayLabel";
-            this.supplierDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.supplierDisplayLabel.TabIndex = 74;
-            this.supplierDisplayLabel.Text = "label1";
             // 
             // categoryDisplayLabel
             // 
-            this.categoryDisplayLabel.AutoSize = true;
-            this.categoryDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryDisplayLabel.Location = new System.Drawing.Point(122, 371);
+            resources.ApplyResources(this.categoryDisplayLabel, "categoryDisplayLabel");
             this.categoryDisplayLabel.Name = "categoryDisplayLabel";
-            this.categoryDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.categoryDisplayLabel.TabIndex = 77;
-            this.categoryDisplayLabel.Text = "label1";
             // 
             // typeDisplayLabel
             // 
-            this.typeDisplayLabel.AutoSize = true;
-            this.typeDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeDisplayLabel.Location = new System.Drawing.Point(401, 371);
+            resources.ApplyResources(this.typeDisplayLabel, "typeDisplayLabel");
             this.typeDisplayLabel.Name = "typeDisplayLabel";
-            this.typeDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.typeDisplayLabel.TabIndex = 76;
-            this.typeDisplayLabel.Text = "label1";
             // 
             // unitCostDisplayLabel
             // 
-            this.unitCostDisplayLabel.AutoSize = true;
-            this.unitCostDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitCostDisplayLabel.Location = new System.Drawing.Point(401, 431);
+            resources.ApplyResources(this.unitCostDisplayLabel, "unitCostDisplayLabel");
             this.unitCostDisplayLabel.Name = "unitCostDisplayLabel";
-            this.unitCostDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.unitCostDisplayLabel.TabIndex = 79;
-            this.unitCostDisplayLabel.Text = "label3";
             // 
             // unitPriceDisplayLabel
             // 
-            this.unitPriceDisplayLabel.AutoSize = true;
-            this.unitPriceDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitPriceDisplayLabel.Location = new System.Drawing.Point(680, 431);
+            resources.ApplyResources(this.unitPriceDisplayLabel, "unitPriceDisplayLabel");
             this.unitPriceDisplayLabel.Name = "unitPriceDisplayLabel";
-            this.unitPriceDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.unitPriceDisplayLabel.TabIndex = 78;
-            this.unitPriceDisplayLabel.Text = "label1";
             // 
             // unitDisplayLabel
             // 
-            this.unitDisplayLabel.AutoSize = true;
-            this.unitDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitDisplayLabel.Location = new System.Drawing.Point(122, 431);
+            resources.ApplyResources(this.unitDisplayLabel, "unitDisplayLabel");
             this.unitDisplayLabel.Name = "unitDisplayLabel";
-            this.unitDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.unitDisplayLabel.TabIndex = 81;
-            this.unitDisplayLabel.Text = "label3";
             // 
             // quantityDisplayLabel
             // 
-            this.quantityDisplayLabel.AutoSize = true;
-            this.quantityDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityDisplayLabel.Location = new System.Drawing.Point(122, 491);
+            resources.ApplyResources(this.quantityDisplayLabel, "quantityDisplayLabel");
             this.quantityDisplayLabel.Name = "quantityDisplayLabel";
-            this.quantityDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.quantityDisplayLabel.TabIndex = 80;
-            this.quantityDisplayLabel.Text = "label1";
             // 
             // minimumDisplayLabel
             // 
-            this.minimumDisplayLabel.AutoSize = true;
-            this.minimumDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimumDisplayLabel.Location = new System.Drawing.Point(401, 491);
+            resources.ApplyResources(this.minimumDisplayLabel, "minimumDisplayLabel");
             this.minimumDisplayLabel.Name = "minimumDisplayLabel";
-            this.minimumDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.minimumDisplayLabel.TabIndex = 84;
-            this.minimumDisplayLabel.Text = "label3";
             // 
             // maximumDisplayLabel
             // 
-            this.maximumDisplayLabel.AutoSize = true;
-            this.maximumDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maximumDisplayLabel.Location = new System.Drawing.Point(680, 491);
+            resources.ApplyResources(this.maximumDisplayLabel, "maximumDisplayLabel");
             this.maximumDisplayLabel.Name = "maximumDisplayLabel";
-            this.maximumDisplayLabel.Size = new System.Drawing.Size(57, 20);
-            this.maximumDisplayLabel.TabIndex = 83;
-            this.maximumDisplayLabel.Text = "label1";
             // 
             // addedAmmountNumericUpDown
             // 
-            this.addedAmmountNumericUpDown.Location = new System.Drawing.Point(361, 530);
+            resources.ApplyResources(this.addedAmmountNumericUpDown, "addedAmmountNumericUpDown");
             this.addedAmmountNumericUpDown.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -555,10 +392,6 @@
             0,
             0});
             this.addedAmmountNumericUpDown.Name = "addedAmmountNumericUpDown";
-            this.addedAmmountNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.addedAmmountNumericUpDown.TabIndex = 85;
-            this.addedAmmountNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.addedAmmountNumericUpDown.ThousandsSeparator = true;
             this.addedAmmountNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -567,19 +400,15 @@
             // 
             // restockButton
             // 
-            this.restockButton.Location = new System.Drawing.Point(487, 527);
+            resources.ApplyResources(this.restockButton, "restockButton");
             this.restockButton.Name = "restockButton";
-            this.restockButton.Size = new System.Drawing.Size(75, 23);
-            this.restockButton.TabIndex = 86;
-            this.restockButton.Text = "Restock";
             this.restockButton.UseVisualStyleBackColor = true;
             this.restockButton.Click += new System.EventHandler(this.RestockButton_Click);
             // 
             // RestockProductsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 562);
             this.Controls.Add(this.restockButton);
             this.Controls.Add(this.addedAmmountNumericUpDown);
             this.Controls.Add(this.minimumDisplayLabel);
@@ -615,10 +444,7 @@
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "RestockProductsForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Restock Products";
             this.Load += new System.EventHandler(this.RestockProductsForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

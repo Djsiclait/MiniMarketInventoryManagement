@@ -249,6 +249,12 @@
     <EmbeddedResource Include="ReportsAnalyticsForm.resx">
       <DependentUpon>ReportsAnalyticsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RestockProductsForm.es.resx">
+      <DependentUpon>RestockProductsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestockProductsForm.fr.resx">
+      <DependentUpon>RestockProductsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RestockProductsForm.resx">
       <DependentUpon>RestockProductsForm.cs</DependentUpon>
     </EmbeddedResource>

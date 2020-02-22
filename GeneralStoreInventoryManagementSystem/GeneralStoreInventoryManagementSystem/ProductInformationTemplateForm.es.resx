@@ -140,10 +140,10 @@
     <value>Suplidor:</value>
   </data>
   <data name="categoryLable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
+    <value>57, 13</value>
   </data>
   <data name="categoryLable.Text" xml:space="preserve">
-    <value>Categoria:</value>
+    <value>Categoría:</value>
   </data>
   <data name="typeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>31, 13</value>
