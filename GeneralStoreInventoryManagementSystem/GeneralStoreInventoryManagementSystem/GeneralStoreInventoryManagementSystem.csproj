@@ -159,9 +159,6 @@
     <Compile Include="ViewCartForm.Designer.cs">
       <DependentUpon>ViewCartForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ActivitiesLogForm.es-DO.resx">
-      <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ActivitiesLogForm.es.resx">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +167,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ActivitiesLogForm.resx">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePasswordMiniForm.es.resx">
+      <DependentUpon>ChangePasswordMiniForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePasswordMiniForm.fr.resx">
+      <DependentUpon>ChangePasswordMiniForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePasswordMiniForm.resx">
       <DependentUpon>ChangePasswordMiniForm.cs</DependentUpon>
@@ -182,9 +185,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InventorySearchForm.resx">
       <DependentUpon>InventorySearchForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.es-DO.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.es.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

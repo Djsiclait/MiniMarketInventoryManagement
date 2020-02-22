@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePasswordMiniForm));
             this.passwordErrorLabel = new System.Windows.Forms.Label();
             this.confirmationPasswordErrorLabel = new System.Windows.Forms.Label();
             this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
@@ -39,78 +40,51 @@
             // 
             // passwordErrorLabel
             // 
-            this.passwordErrorLabel.AutoSize = true;
+            resources.ApplyResources(this.passwordErrorLabel, "passwordErrorLabel");
             this.passwordErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.passwordErrorLabel.Location = new System.Drawing.Point(73, 20);
             this.passwordErrorLabel.Name = "passwordErrorLabel";
-            this.passwordErrorLabel.Size = new System.Drawing.Size(87, 13);
-            this.passwordErrorLabel.TabIndex = 36;
-            this.passwordErrorLabel.Text = "Invalid Password";
-            this.passwordErrorLabel.Visible = false;
             // 
             // confirmationPasswordErrorLabel
             // 
-            this.confirmationPasswordErrorLabel.AutoSize = true;
+            resources.ApplyResources(this.confirmationPasswordErrorLabel, "confirmationPasswordErrorLabel");
             this.confirmationPasswordErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.confirmationPasswordErrorLabel.Location = new System.Drawing.Point(114, 87);
             this.confirmationPasswordErrorLabel.Name = "confirmationPasswordErrorLabel";
-            this.confirmationPasswordErrorLabel.Size = new System.Drawing.Size(275, 13);
-            this.confirmationPasswordErrorLabel.TabIndex = 35;
-            this.confirmationPasswordErrorLabel.Text = "Confirmation password does not match chosen password";
             // 
             // confirmPasswordTextBox
             // 
-            this.confirmPasswordTextBox.Location = new System.Drawing.Point(44, 103);
+            resources.ApplyResources(this.confirmPasswordTextBox, "confirmPasswordTextBox");
             this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
-            this.confirmPasswordTextBox.PasswordChar = '*';
-            this.confirmPasswordTextBox.Size = new System.Drawing.Size(316, 20);
-            this.confirmPasswordTextBox.TabIndex = 34;
             this.confirmPasswordTextBox.TextChanged += new System.EventHandler(this.ConfirmPasswordTextBox_TextChanged);
             this.confirmPasswordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConfirmPasswordTextBox_KeyDown);
             // 
             // confirmPasswordLabel
             // 
-            this.confirmPasswordLabel.AutoSize = true;
-            this.confirmPasswordLabel.Location = new System.Drawing.Point(14, 86);
+            resources.ApplyResources(this.confirmPasswordLabel, "confirmPasswordLabel");
             this.confirmPasswordLabel.Name = "confirmPasswordLabel";
-            this.confirmPasswordLabel.Size = new System.Drawing.Size(94, 13);
-            this.confirmPasswordLabel.TabIndex = 33;
-            this.confirmPasswordLabel.Text = "Confirm Password:";
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(44, 36);
+            resources.ApplyResources(this.passwordTextBox, "passwordTextBox");
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(316, 20);
-            this.passwordTextBox.TabIndex = 32;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             this.passwordTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyDown);
             // 
             // passwordLabel
             // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(11, 19);
+            resources.ApplyResources(this.passwordLabel, "passwordLabel");
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(56, 13);
-            this.passwordLabel.TabIndex = 31;
-            this.passwordLabel.Text = "Password:";
             // 
             // changePasswordButton
             // 
-            this.changePasswordButton.Location = new System.Drawing.Point(117, 147);
+            resources.ApplyResources(this.changePasswordButton, "changePasswordButton");
             this.changePasswordButton.Name = "changePasswordButton";
-            this.changePasswordButton.Size = new System.Drawing.Size(168, 23);
-            this.changePasswordButton.TabIndex = 37;
-            this.changePasswordButton.Text = "Change Password";
             this.changePasswordButton.UseVisualStyleBackColor = true;
             this.changePasswordButton.Click += new System.EventHandler(this.ChangePasswordButton_Click);
             // 
             // ChangePasswordMiniForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 188);
             this.Controls.Add(this.changePasswordButton);
             this.Controls.Add(this.passwordErrorLabel);
             this.Controls.Add(this.confirmationPasswordErrorLabel);
@@ -119,12 +93,8 @@
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.passwordLabel);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(413, 227);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(413, 227);
             this.Name = "ChangePasswordMiniForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Changing Password";
             this.Load += new System.EventHandler(this.ChangePasswordMiniForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
