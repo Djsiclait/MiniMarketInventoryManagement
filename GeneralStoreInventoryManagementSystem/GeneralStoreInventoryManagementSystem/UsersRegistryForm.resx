@@ -117,25 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
+  <data name="&gt;&gt;userSearchBox.Name" xml:space="preserve">
+    <value>userSearchBox</value>
   </data>
   <data name="LogOutLabel.Text" xml:space="preserve">
     <value>Log Out</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="activityList.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="viewCartLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
   </data>
   <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 22</value>
   </data>
   <data name="&gt;&gt;viewSalesMenuSubOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;profileButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;browserFormTitle.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -152,8 +148,8 @@
   <data name="&gt;&gt;profileButton.Name" xml:space="preserve">
     <value>profileButton</value>
   </data>
-  <data name="&gt;&gt;registerNewProductMenuSubOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="viewGraphsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
   </data>
   <data name="statisticsMenuSubOption.Text" xml:space="preserve">
     <value>Statistics</value>
@@ -165,8 +161,14 @@
     <value>userList</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="activityTitleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
   <data name="LogOutLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="registerNewProductMenuSubOption.Text" xml:space="preserve">
+    <value>Register New Product</value>
   </data>
   <data name="&gt;&gt;makeSaleMenuSubOption.Name" xml:space="preserve">
     <value>makeSaleMenuSubOption</value>
@@ -179,6 +181,9 @@
   </data>
   <data name="browserFormTitle.Text" xml:space="preserve">
     <value>Registered Users</value>
+  </data>
+  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
   </data>
   <data name="&gt;&gt;userSearchBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -231,6 +236,9 @@
   <data name="&gt;&gt;activitySearchBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="searchLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>570, 49</value>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
@@ -248,9 +256,6 @@
   </data>
   <data name="&gt;&gt;statisticsMenuSubOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;searchLabel.Name" xml:space="preserve">
-    <value>searchLabel</value>
   </data>
   <data name="&gt;&gt;productsMenuOption.Name" xml:space="preserve">
     <value>productsMenuOption</value>
@@ -294,6 +299,10 @@
   <data name="&gt;&gt;searchLabel.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="activityList.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
   <data name="&gt;&gt;viewErrorLogsOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -305,6 +314,9 @@
   </data>
   <data name="activitySearchBox.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
+  </data>
+  <data name="profileButton.Text" xml:space="preserve">
+    <value>View My Profile</value>
   </data>
   <data name="userSearchBox.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -332,9 +344,6 @@
   </data>
   <data name="&gt;&gt;userList.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="viewGraphsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
   </data>
   <data name="&gt;&gt;registerNewUserMenuSubOption.Name" xml:space="preserve">
     <value>registerNewUserMenuSubOption</value>
@@ -372,9 +381,6 @@
   <data name="adminMenuOption.Text" xml:space="preserve">
     <value>Admin</value>
   </data>
-  <data name="&gt;&gt;userSearchBox.Name" xml:space="preserve">
-    <value>userSearchBox</value>
-  </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
@@ -396,9 +402,6 @@
   <data name="&gt;&gt;viewActivityLogsOption.Name" xml:space="preserve">
     <value>viewActivityLogsOption</value>
   </data>
-  <data name="&gt;&gt;viewReportsOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="registerNewUserMenuSubOption.Text" xml:space="preserve">
     <value>Register New User</value>
   </data>
@@ -410,9 +413,6 @@
   </data>
   <data name="&gt;&gt;activityTitleLabel.Parent" xml:space="preserve">
     <value>$this</value>
-  </data>
-  <data name="viewCartLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="activityList.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 341</value>
@@ -501,9 +501,6 @@
   <data name="userSearchBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 20</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
   <data name="productsMenuOption.Text" xml:space="preserve">
     <value>Products</value>
   </data>
@@ -513,17 +510,20 @@
   <data name="&gt;&gt;restockProductsMenuSubOption.Name" xml:space="preserve">
     <value>restockProductsMenuSubOption</value>
   </data>
-  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
-  </data>
   <data name="&gt;&gt;makeSaleMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;registerNewProductMenuSubOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="activitySearchBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>642, 315</value>
   </data>
-  <data name="viewCartLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
+  <data name="viewCartLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="searchLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
   <data name="activityList.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -591,17 +591,17 @@
   <data name="makeSaleMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 22</value>
   </data>
-  <data name="registerNewProductMenuSubOption.Text" xml:space="preserve">
-    <value>Register New Product</value>
+  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
   </data>
-  <data name="searchLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>570, 49</value>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
   </data>
-  <data name="searchLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="&gt;&gt;searchLabel.Name" xml:space="preserve">
+    <value>searchLabel</value>
   </data>
-  <data name="profileButton.Text" xml:space="preserve">
-    <value>View My Profile</value>
+  <data name="&gt;&gt;profileButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="viewSalesMenuSubOption.Text" xml:space="preserve">
     <value>View Sales</value>
@@ -612,8 +612,8 @@
   <data name="&gt;&gt;browseProductsMenuSubOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="activityTitleLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="&gt;&gt;viewReportsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;userList.Parent" xml:space="preserve">
     <value>$this</value>

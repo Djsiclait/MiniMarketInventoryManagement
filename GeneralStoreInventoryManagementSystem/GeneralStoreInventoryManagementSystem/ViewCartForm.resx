@@ -117,7 +117,532 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="removeItemButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>557, 524</value>
+  </data>
+  <data name="&gt;&gt;removeOneButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
+  </data>
+  <data name="viewUsersOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="cartSummaryDataGridView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 63</value>
+  </data>
+  <data name="clearCartButton.Text" xml:space="preserve">
+    <value>Clear Cart</value>
+  </data>
+  <data name="&gt;&gt;viewSalesMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="restockProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="logsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="logOutLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="viewGraphsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="statisticsMenuSubOption.Text" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="numberLabel.Text" xml:space="preserve">
+    <value>Number of Items: </value>
+  </data>
+  <data name="deliveryCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>707, 295</value>
+  </data>
+  <data name="&gt;&gt;cartSummaryLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;numberLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cartSummaryLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="clearCartButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Name" xml:space="preserve">
+    <value>logOutLabel</value>
+  </data>
+  <data name="&gt;&gt;completeSaleButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>927, 24</value>
+  </data>
+  <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="&gt;&gt;removeOneButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;numberLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cartSummaryDataGridView.Name" xml:space="preserve">
+    <value>cartSummaryDataGridView</value>
+  </data>
+  <data name="deliveryCheckBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;completeSaleButton.Name" xml:space="preserve">
+    <value>completeSaleButton</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Cart Items</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="completeSaleButton.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="removeItemButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="&gt;&gt;restockProductsMenuSubOption.Name" xml:space="preserve">
+    <value>restockProductsMenuSubOption</value>
+  </data>
+  <data name="registerNewProductMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="&gt;&gt;statisticsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cartSummaryLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;totalLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;adminMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="browseProductsMenuSubOption.Text" xml:space="preserve">
+    <value>Browse Products</value>
+  </data>
+  <data name="logOutLabel.Text" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="cartSummaryLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>225, 47</value>
+  </data>
+  <data name="&gt;&gt;removeOneButton.Name" xml:space="preserve">
+    <value>removeOneButton</value>
+  </data>
+  <data name="deliveryCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;productsMenuOption.Name" xml:space="preserve">
+    <value>productsMenuOption</value>
+  </data>
+  <data name="logOutLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;cartSummaryLabel.Name" xml:space="preserve">
+    <value>cartSummaryLabel</value>
+  </data>
+  <data name="viewErrorLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="logOutLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>870, 9</value>
+  </data>
+  <data name="removeOneButton.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="clearCartButton.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="viewErrorLogsOption.Text" xml:space="preserve">
+    <value>View Error Logs</value>
+  </data>
+  <data name="adminMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 20</value>
+  </data>
+  <data name="&gt;&gt;numberLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;registerNewUserOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cartSummaryLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="logsMenuSubOption.Text" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="viewReportsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="&gt;&gt;removeItemButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="removeOneButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="totalLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="registerNewUserOption.Text" xml:space="preserve">
+    <value>Register New User</value>
+  </data>
+  <data name="&gt;&gt;viewErrorLogsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;viewUsersOption.Name" xml:space="preserve">
+    <value>viewUsersOption</value>
+  </data>
+  <data name="numberLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;viewReportsOption.Name" xml:space="preserve">
+    <value>viewReportsOption</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ViewCartForm</value>
+  </data>
+  <data name="&gt;&gt;manageUsersMenuSubOption.Name" xml:space="preserve">
+    <value>manageUsersMenuSubOption</value>
+  </data>
+  <data name="cartSummaryDataGridView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>507, 455</value>
+  </data>
+  <data name="totalLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 17</value>
+  </data>
+  <data name="numberLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>704, 239</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>943, 600</value>
+  </data>
+  <data name="cartSummaryDataGridView.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="viewGraphsOption.Text" xml:space="preserve">
+    <value>View Graphs</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;registerNewProductMenuSubOption.Name" xml:space="preserve">
+    <value>registerNewProductMenuSubOption</value>
+  </data>
+  <data name="adminMenuOption.Text" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="totalLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>704, 266</value>
+  </data>
+  <data name="&gt;&gt;makeSaleMenuSubOption.Name" xml:space="preserve">
+    <value>makeSaleMenuSubOption</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;cartSummaryDataGridView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="cartSummaryLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;browseProductsMenuSubOption.Name" xml:space="preserve">
+    <value>browseProductsMenuSubOption</value>
+  </data>
+  <data name="removeOneButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>399, 524</value>
+  </data>
+  <data name="&gt;&gt;viewActivityLogsOption.Name" xml:space="preserve">
+    <value>viewActivityLogsOption</value>
+  </data>
+  <data name="viewUsersOption.Text" xml:space="preserve">
+    <value>View Users</value>
+  </data>
+  <data name="&gt;&gt;viewGraphsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="&gt;&gt;viewUsersOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;salesMenuOption.Name" xml:space="preserve">
+    <value>salesMenuOption</value>
+  </data>
+  <data name="&gt;&gt;cartSummaryDataGridView.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;registerNewUserOption.Name" xml:space="preserve">
+    <value>registerNewUserOption</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;removeItemButton.Name" xml:space="preserve">
+    <value>removeItemButton</value>
+  </data>
+  <data name="deliveryCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 21</value>
+  </data>
+  <data name="totalLabel.Text" xml:space="preserve">
+    <value>Total: $0.00</value>
+  </data>
+  <data name="&gt;&gt;makeSaleMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;manageUsersMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="clearCartButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 524</value>
+  </data>
+  <data name="&gt;&gt;logsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cartSummaryDataGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;logsMenuSubOption.Name" xml:space="preserve">
+    <value>logsMenuSubOption</value>
+  </data>
+  <data name="completeSaleButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>707, 322</value>
+  </data>
+  <data name="deliveryCheckBox.Text" xml:space="preserve">
+    <value>Mark as Delivery?</value>
+  </data>
+  <data name="cartSummaryDataGridView.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="restockProductsMenuSubOption.Text" xml:space="preserve">
+    <value>Restock Products</value>
+  </data>
+  <data name="&gt;&gt;viewSalesMenuSubOption.Name" xml:space="preserve">
+    <value>viewSalesMenuSubOption</value>
+  </data>
+  <data name="&gt;&gt;salesMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="salesMenuOption.Text" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="totalLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="browseProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="removeOneButton.Text" xml:space="preserve">
+    <value>Remove One</value>
+  </data>
+  <data name="&gt;&gt;viewActivityLogsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;totalLabel.Name" xml:space="preserve">
+    <value>totalLabel</value>
+  </data>
+  <data name="&gt;&gt;numberLabel.Name" xml:space="preserve">
+    <value>numberLabel</value>
+  </data>
+  <data name="logOutLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;completeSaleButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;completeSaleButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;statisticsMenuSubOption.Name" xml:space="preserve">
+    <value>statisticsMenuSubOption</value>
+  </data>
+  <data name="completeSaleButton.Text" xml:space="preserve">
+    <value>Complete Sale</value>
+  </data>
+  <data name="productsMenuOption.Text" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="&gt;&gt;adminMenuOption.Name" xml:space="preserve">
+    <value>adminMenuOption</value>
+  </data>
+  <data name="&gt;&gt;totalLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;removeOneButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;registerNewProductMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deliveryCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cartSummaryLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="removeItemButton.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="totalLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;viewErrorLogsOption.Name" xml:space="preserve">
+    <value>viewErrorLogsOption</value>
+  </data>
+  <data name="&gt;&gt;removeItemButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;totalLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;deliveryCheckBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;deliveryCheckBox.Name" xml:space="preserve">
+    <value>deliveryCheckBox</value>
+  </data>
+  <data name="viewSalesMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="numberLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="viewReportsOption.Text" xml:space="preserve">
+    <value>View Reports</value>
+  </data>
+  <data name="&gt;&gt;viewGraphsOption.Name" xml:space="preserve">
+    <value>viewGraphsOption</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>927, 562</value>
+  </data>
+  <data name="makeSaleMenuSubOption.Text" xml:space="preserve">
+    <value>Make Sale</value>
+  </data>
+  <data name="completeSaleButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 40</value>
+  </data>
+  <data name="&gt;&gt;clearCartButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="cartSummaryLabel.Text" xml:space="preserve">
+    <value>Cart Summary</value>
+  </data>
+  <data name="viewActivityLogsOption.Text" xml:space="preserve">
+    <value>View Activity Logs</value>
+  </data>
+  <data name="&gt;&gt;restockProductsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;clearCartButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="numberLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;removeItemButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="completeSaleButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;clearCartButton.Name" xml:space="preserve">
+    <value>clearCartButton</value>
+  </data>
+  <data name="registerNewUserOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="&gt;&gt;deliveryCheckBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="numberLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 17</value>
+  </data>
+  <data name="&gt;&gt;productsMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="makeSaleMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="registerNewProductMenuSubOption.Text" xml:space="preserve">
+    <value>Register New Product</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;clearCartButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 22</value>
+  </data>
+  <data name="viewSalesMenuSubOption.Text" xml:space="preserve">
+    <value>View Sales</value>
+  </data>
+  <data name="&gt;&gt;browseProductsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;viewReportsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="deliveryCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="removeItemButton.Text" xml:space="preserve">
+    <value>Remove Item</value>
+  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr</value>
   </metadata>
 </root>

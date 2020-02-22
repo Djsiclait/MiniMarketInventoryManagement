@@ -303,6 +303,12 @@
     <EmbeddedResource Include="UsersRegistryForm.resx">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewCartForm.es.resx">
+      <DependentUpon>ViewCartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewCartForm.fr.resx">
+      <DependentUpon>ViewCartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewCartForm.resx">
       <DependentUpon>ViewCartForm.cs</DependentUpon>
     </EmbeddedResource>
