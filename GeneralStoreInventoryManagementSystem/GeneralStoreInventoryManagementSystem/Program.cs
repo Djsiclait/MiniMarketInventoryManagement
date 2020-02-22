@@ -17,6 +17,8 @@ namespace GeneralStoreInventoryManagementSystem
         [STAThread]
         static void Main()
         {
+            #region Localization Settings
+            // code source: https://stackoverflow.com/questions/5710127/get-operating-system-language-in-c-sharp
             CultureInfo ci = CultureInfo.InstalledUICulture;
 
             Console.WriteLine("Default Language Info:");
@@ -26,12 +28,17 @@ namespace GeneralStoreInventoryManagementSystem
             Console.WriteLine("* 2-letter ISO Name: {0}", ci.TwoLetterISOLanguageName);
             Console.WriteLine("* 3-letter ISO Name: {0}", ci.ThreeLetterISOLanguageName);
             Console.WriteLine("* 3-letter Win32 API Name: {0}", ci.ThreeLetterWindowsLanguageName);
-            
+
+            // If pc language does not find a locolization intanciation in the code the default language will be English
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(ci.Name); // setting the default language according to pc system default language
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(ci.Name); // setting the default language according to pc system default language
+
             // code source: https://www.youtube.com/watch?v=D5cUhEXu8Jg
             var language = ConfigurationManager.AppSettings["language"]; // Fetching the default language established in the App.Config files 
 
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(language); // setting the default language according to the config files
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language); // setting the default language according to the config files
+            //Thread.CurrentThread.CurrentCulture = new CultureInfo(language); // setting the default language according to the config files
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo(language); // setting the default language according to the config files
+            #endregion
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
