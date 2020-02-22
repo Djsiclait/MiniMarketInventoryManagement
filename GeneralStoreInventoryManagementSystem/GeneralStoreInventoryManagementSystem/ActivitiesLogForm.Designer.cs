@@ -75,114 +75,114 @@
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salesMenuOption,
             this.productsMenuOption,
             this.adminMenuOption});
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
             // salesMenuOption
             // 
+            resources.ApplyResources(this.salesMenuOption, "salesMenuOption");
             this.salesMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewSalesMenuSubOption,
             this.makeSaleMenuSubOption});
             this.salesMenuOption.Name = "salesMenuOption";
-            resources.ApplyResources(this.salesMenuOption, "salesMenuOption");
             // 
             // viewSalesMenuSubOption
             // 
-            this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
             resources.ApplyResources(this.viewSalesMenuSubOption, "viewSalesMenuSubOption");
+            this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
             // makeSaleMenuSubOption
             // 
-            this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
             resources.ApplyResources(this.makeSaleMenuSubOption, "makeSaleMenuSubOption");
+            this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
             // productsMenuOption
             // 
+            resources.ApplyResources(this.productsMenuOption, "productsMenuOption");
             this.productsMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.browseProductsMenuSubOption,
             this.registerNewProductMenuSubOption,
             this.restockProductsMenuSubOption});
             this.productsMenuOption.Name = "productsMenuOption";
-            resources.ApplyResources(this.productsMenuOption, "productsMenuOption");
             // 
             // browseProductsMenuSubOption
             // 
-            this.browseProductsMenuSubOption.Name = "browseProductsMenuSubOption";
             resources.ApplyResources(this.browseProductsMenuSubOption, "browseProductsMenuSubOption");
+            this.browseProductsMenuSubOption.Name = "browseProductsMenuSubOption";
             this.browseProductsMenuSubOption.Click += new System.EventHandler(this.BrowseProductsMenuSubOption_Click);
             // 
             // registerNewProductMenuSubOption
             // 
-            this.registerNewProductMenuSubOption.Name = "registerNewProductMenuSubOption";
             resources.ApplyResources(this.registerNewProductMenuSubOption, "registerNewProductMenuSubOption");
+            this.registerNewProductMenuSubOption.Name = "registerNewProductMenuSubOption";
             this.registerNewProductMenuSubOption.Click += new System.EventHandler(this.RegisterNewProductMenuSubOption_Click);
             // 
             // restockProductsMenuSubOption
             // 
-            this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
             resources.ApplyResources(this.restockProductsMenuSubOption, "restockProductsMenuSubOption");
+            this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
             this.restockProductsMenuSubOption.Click += new System.EventHandler(this.RestockProductsMenuSubOption_Click);
             // 
             // adminMenuOption
             // 
+            resources.ApplyResources(this.adminMenuOption, "adminMenuOption");
             this.adminMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageUsersMenuSubOption,
             this.statisticsMenuSubOption,
             this.viewErrorLogsMenuSubOption});
             this.adminMenuOption.Name = "adminMenuOption";
-            resources.ApplyResources(this.adminMenuOption, "adminMenuOption");
             // 
             // manageUsersMenuSubOption
             // 
+            resources.ApplyResources(this.manageUsersMenuSubOption, "manageUsersMenuSubOption");
             this.manageUsersMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            resources.ApplyResources(this.manageUsersMenuSubOption, "manageUsersMenuSubOption");
             // 
             // viewUsersOption
             // 
-            this.viewUsersOption.Name = "viewUsersOption";
             resources.ApplyResources(this.viewUsersOption, "viewUsersOption");
+            this.viewUsersOption.Name = "viewUsersOption";
             this.viewUsersOption.Click += new System.EventHandler(this.ViewUsersOption_Click);
             // 
             // registerNewUserOption
             // 
-            this.registerNewUserOption.Name = "registerNewUserOption";
             resources.ApplyResources(this.registerNewUserOption, "registerNewUserOption");
+            this.registerNewUserOption.Name = "registerNewUserOption";
             this.registerNewUserOption.Click += new System.EventHandler(this.RegisterNewUserOption_Click);
             // 
             // statisticsMenuSubOption
             // 
+            resources.ApplyResources(this.statisticsMenuSubOption, "statisticsMenuSubOption");
             this.statisticsMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            resources.ApplyResources(this.statisticsMenuSubOption, "statisticsMenuSubOption");
             // 
             // viewGraphsOption
             // 
-            this.viewGraphsOption.Name = "viewGraphsOption";
             resources.ApplyResources(this.viewGraphsOption, "viewGraphsOption");
+            this.viewGraphsOption.Name = "viewGraphsOption";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
-            this.viewReportsOption.Name = "viewReportsOption";
             resources.ApplyResources(this.viewReportsOption, "viewReportsOption");
+            this.viewReportsOption.Name = "viewReportsOption";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
             // viewErrorLogsMenuSubOption
             // 
-            this.viewErrorLogsMenuSubOption.Name = "viewErrorLogsMenuSubOption";
             resources.ApplyResources(this.viewErrorLogsMenuSubOption, "viewErrorLogsMenuSubOption");
+            this.viewErrorLogsMenuSubOption.Name = "viewErrorLogsMenuSubOption";
             this.viewErrorLogsMenuSubOption.Click += new System.EventHandler(this.ViewErrorLogsMenuSubOption_Click);
             // 
             // searchLabel
@@ -192,13 +192,13 @@
             // 
             // activityList
             // 
+            resources.ApplyResources(this.activityList, "activityList");
             this.activityList.AllowUserToAddRows = false;
             this.activityList.AllowUserToDeleteRows = false;
             this.activityList.AllowUserToResizeColumns = false;
             this.activityList.AllowUserToResizeRows = false;
             this.activityList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.activityList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            resources.ApplyResources(this.activityList, "activityList");
             this.activityList.MultiSelect = false;
             this.activityList.Name = "activityList";
             this.activityList.RowHeadersVisible = false;

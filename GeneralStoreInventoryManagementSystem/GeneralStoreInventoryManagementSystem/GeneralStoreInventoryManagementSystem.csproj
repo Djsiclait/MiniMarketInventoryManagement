@@ -162,6 +162,9 @@
     <EmbeddedResource Include="ActivitiesLogForm.es-DO.resx">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ActivitiesLogForm.es.resx">
+      <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ActivitiesLogForm.fr.resx">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +184,9 @@
       <DependentUpon>InventorySearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.es-DO.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.es.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.fr.resx">
