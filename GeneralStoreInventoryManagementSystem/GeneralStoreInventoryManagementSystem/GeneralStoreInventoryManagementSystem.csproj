@@ -159,6 +159,12 @@
     <Compile Include="ViewCartForm.Designer.cs">
       <DependentUpon>ViewCartForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ActivitiesLogForm.es-DO.resx">
+      <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivitiesLogForm.fr.resx">
+      <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ActivitiesLogForm.resx">
       <DependentUpon>ActivitiesLogForm.cs</DependentUpon>
     </EmbeddedResource>
