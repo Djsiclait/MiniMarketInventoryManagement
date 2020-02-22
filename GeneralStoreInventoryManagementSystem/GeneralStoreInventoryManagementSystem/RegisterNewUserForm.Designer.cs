@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterNewUserForm));
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.LogOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -69,333 +70,241 @@
             // 
             // viewCartLabel
             // 
-            this.viewCartLabel.AutoSize = true;
+            resources.ApplyResources(this.viewCartLabel, "viewCartLabel");
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
-            this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
-            this.viewCartLabel.TabIndex = 12;
-            this.viewCartLabel.Text = "View Cart";
             this.viewCartLabel.Click += new System.EventHandler(this.ViewCartLabel_Click);
             this.viewCartLabel.MouseLeave += new System.EventHandler(this.ViewCartLabel_MouseLeave);
             this.viewCartLabel.MouseHover += new System.EventHandler(this.ViewCartLabel_MouseHover);
             // 
             // LogOutLabel
             // 
-            this.LogOutLabel.AutoSize = true;
+            resources.ApplyResources(this.LogOutLabel, "LogOutLabel");
             this.LogOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.LogOutLabel.Location = new System.Drawing.Point(870, 9);
             this.LogOutLabel.Name = "LogOutLabel";
-            this.LogOutLabel.Size = new System.Drawing.Size(45, 13);
-            this.LogOutLabel.TabIndex = 11;
-            this.LogOutLabel.Text = "Log Out";
             this.LogOutLabel.Click += new System.EventHandler(this.LogOutLabel_Click);
             this.LogOutLabel.MouseLeave += new System.EventHandler(this.LogOutLabel_MouseLeave);
             this.LogOutLabel.MouseHover += new System.EventHandler(this.LogOutLabel_MouseHover);
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salesMenuOption,
             this.productsMenuOption,
             this.adminMenuOption});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
-            this.menuStrip1.TabIndex = 10;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // salesMenuOption
             // 
+            resources.ApplyResources(this.salesMenuOption, "salesMenuOption");
             this.salesMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewSalesMenuSubOption,
             this.makeSaleMenuSubOption});
             this.salesMenuOption.Name = "salesMenuOption";
-            this.salesMenuOption.Size = new System.Drawing.Size(45, 20);
-            this.salesMenuOption.Text = "Sales";
             // 
             // viewSalesMenuSubOption
             // 
+            resources.ApplyResources(this.viewSalesMenuSubOption, "viewSalesMenuSubOption");
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
-            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(128, 22);
-            this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
             // makeSaleMenuSubOption
             // 
+            resources.ApplyResources(this.makeSaleMenuSubOption, "makeSaleMenuSubOption");
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
-            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(128, 22);
-            this.makeSaleMenuSubOption.Text = "Make Sale";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
             // productsMenuOption
             // 
+            resources.ApplyResources(this.productsMenuOption, "productsMenuOption");
             this.productsMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.browseProductsMenuSubOption,
             this.registerNewProductMenuSubOption,
             this.restockProductsMenuSubOption});
             this.productsMenuOption.Name = "productsMenuOption";
-            this.productsMenuOption.Size = new System.Drawing.Size(66, 20);
-            this.productsMenuOption.Text = "Products";
             // 
             // browseProductsMenuSubOption
             // 
+            resources.ApplyResources(this.browseProductsMenuSubOption, "browseProductsMenuSubOption");
             this.browseProductsMenuSubOption.Name = "browseProductsMenuSubOption";
-            this.browseProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.browseProductsMenuSubOption.Text = "Browse Products";
             this.browseProductsMenuSubOption.Click += new System.EventHandler(this.BrowseProductsMenuSubOption_Click);
             // 
             // registerNewProductMenuSubOption
             // 
+            resources.ApplyResources(this.registerNewProductMenuSubOption, "registerNewProductMenuSubOption");
             this.registerNewProductMenuSubOption.Name = "registerNewProductMenuSubOption";
-            this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.registerNewProductMenuSubOption.Text = "Register New Product";
             this.registerNewProductMenuSubOption.Click += new System.EventHandler(this.RegisterNewProductMenuSubOption_Click);
             // 
             // restockProductsMenuSubOption
             // 
+            resources.ApplyResources(this.restockProductsMenuSubOption, "restockProductsMenuSubOption");
             this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
-            this.restockProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.restockProductsMenuSubOption.Text = "Restock Products";
             this.restockProductsMenuSubOption.Click += new System.EventHandler(this.RestockProductsMenuSubOption_Click);
             // 
             // adminMenuOption
             // 
+            resources.ApplyResources(this.adminMenuOption, "adminMenuOption");
             this.adminMenuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewUsersMenuSubOption,
             this.statisticsMenuSubOption,
             this.logsMenuSubOption});
             this.adminMenuOption.Name = "adminMenuOption";
-            this.adminMenuOption.Size = new System.Drawing.Size(55, 20);
-            this.adminMenuOption.Text = "Admin";
             // 
             // viewUsersMenuSubOption
             // 
+            resources.ApplyResources(this.viewUsersMenuSubOption, "viewUsersMenuSubOption");
             this.viewUsersMenuSubOption.Name = "viewUsersMenuSubOption";
-            this.viewUsersMenuSubOption.Size = new System.Drawing.Size(130, 22);
-            this.viewUsersMenuSubOption.Text = "View Users";
             this.viewUsersMenuSubOption.Click += new System.EventHandler(this.ViewUsersMenuSubOption_Click);
             // 
             // statisticsMenuSubOption
             // 
+            resources.ApplyResources(this.statisticsMenuSubOption, "statisticsMenuSubOption");
             this.statisticsMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(130, 22);
-            this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
             // 
+            resources.ApplyResources(this.viewGraphsOption, "viewGraphsOption");
             this.viewGraphsOption.Name = "viewGraphsOption";
-            this.viewGraphsOption.Size = new System.Drawing.Size(142, 22);
-            this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
+            resources.ApplyResources(this.viewReportsOption, "viewReportsOption");
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
-            this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
             // logsMenuSubOption
             // 
+            resources.ApplyResources(this.logsMenuSubOption, "logsMenuSubOption");
             this.logsMenuSubOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(130, 22);
-            this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
             // 
+            resources.ApplyResources(this.viewActivityLogsOption, "viewActivityLogsOption");
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
-            this.viewActivityLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewActivityLogsOption.Text = "View Activity Logs";
             this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
+            resources.ApplyResources(this.viewErrorLogsOption, "viewErrorLogsOption");
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
-            this.viewErrorLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewErrorLogsOption.Text = "View Error Logs";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // titleLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(356, 54);
+            resources.ApplyResources(this.titleLabel, "titleLabel");
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(215, 20);
-            this.titleLabel.TabIndex = 13;
-            this.titleLabel.Text = "Register New User Profile";
             // 
             // usernameLabel
             // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(297, 97);
+            resources.ApplyResources(this.usernameLabel, "usernameLabel");
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(61, 13);
-            this.usernameLabel.TabIndex = 14;
-            this.usernameLabel.Text = "Username: ";
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(333, 113);
+            resources.ApplyResources(this.usernameTextBox, "usernameTextBox");
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(261, 20);
-            this.usernameTextBox.TabIndex = 15;
             this.usernameTextBox.TextChanged += new System.EventHandler(this.UsernameTextBox_TextChanged);
             // 
             // firstNameLabel
             // 
-            this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(297, 156);
+            resources.ApplyResources(this.firstNameLabel, "firstNameLabel");
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(63, 13);
-            this.firstNameLabel.TabIndex = 16;
-            this.firstNameLabel.Text = "First Name: ";
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(333, 173);
+            resources.ApplyResources(this.firstNameTextBox, "firstNameTextBox");
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(261, 20);
-            this.firstNameTextBox.TabIndex = 17;
             this.firstNameTextBox.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextChanged);
             // 
             // lastNameLabel
             // 
-            this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(297, 213);
+            resources.ApplyResources(this.lastNameLabel, "lastNameLabel");
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(64, 13);
-            this.lastNameLabel.TabIndex = 18;
-            this.lastNameLabel.Text = "Last Name: ";
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(333, 230);
+            resources.ApplyResources(this.lastNameTextBox, "lastNameTextBox");
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(261, 20);
-            this.lastNameTextBox.TabIndex = 19;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.LastNameTextBox_TextChanged);
             // 
             // passwordLabel
             // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(300, 267);
+            resources.ApplyResources(this.passwordLabel, "passwordLabel");
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(56, 13);
-            this.passwordLabel.TabIndex = 20;
-            this.passwordLabel.Text = "Password:";
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(333, 284);
+            resources.ApplyResources(this.passwordTextBox, "passwordTextBox");
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(261, 20);
-            this.passwordTextBox.TabIndex = 21;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             // 
             // confirmPasswordLabel
             // 
-            this.confirmPasswordLabel.AutoSize = true;
-            this.confirmPasswordLabel.Location = new System.Drawing.Point(303, 317);
+            resources.ApplyResources(this.confirmPasswordLabel, "confirmPasswordLabel");
             this.confirmPasswordLabel.Name = "confirmPasswordLabel";
-            this.confirmPasswordLabel.Size = new System.Drawing.Size(94, 13);
-            this.confirmPasswordLabel.TabIndex = 22;
-            this.confirmPasswordLabel.Text = "Confirm Password:";
             // 
             // confirmPasswordTextBox
             // 
-            this.confirmPasswordTextBox.Location = new System.Drawing.Point(333, 334);
+            resources.ApplyResources(this.confirmPasswordTextBox, "confirmPasswordTextBox");
             this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
-            this.confirmPasswordTextBox.PasswordChar = '*';
-            this.confirmPasswordTextBox.Size = new System.Drawing.Size(261, 20);
-            this.confirmPasswordTextBox.TabIndex = 23;
             this.confirmPasswordTextBox.TextChanged += new System.EventHandler(this.ConfirmPasswordTextBox_TextChanged);
             // 
             // grantAdminCheckbox
             // 
-            this.grantAdminCheckbox.AutoSize = true;
-            this.grantAdminCheckbox.Location = new System.Drawing.Point(391, 377);
+            resources.ApplyResources(this.grantAdminCheckbox, "grantAdminCheckbox");
             this.grantAdminCheckbox.Name = "grantAdminCheckbox";
-            this.grantAdminCheckbox.Size = new System.Drawing.Size(125, 17);
-            this.grantAdminCheckbox.TabIndex = 24;
-            this.grantAdminCheckbox.Text = "Grant Admin Controls";
             this.grantAdminCheckbox.UseVisualStyleBackColor = true;
             // 
             // createNewUserButton
             // 
-            this.createNewUserButton.Location = new System.Drawing.Point(333, 421);
+            resources.ApplyResources(this.createNewUserButton, "createNewUserButton");
             this.createNewUserButton.Name = "createNewUserButton";
-            this.createNewUserButton.Size = new System.Drawing.Size(261, 23);
-            this.createNewUserButton.TabIndex = 25;
-            this.createNewUserButton.Text = "Create New User";
             this.createNewUserButton.UseVisualStyleBackColor = true;
             this.createNewUserButton.Click += new System.EventHandler(this.CreateNewUserButton_Click);
             // 
             // createAndReturnButton
             // 
-            this.createAndReturnButton.Location = new System.Drawing.Point(333, 459);
+            resources.ApplyResources(this.createAndReturnButton, "createAndReturnButton");
             this.createAndReturnButton.Name = "createAndReturnButton";
-            this.createAndReturnButton.Size = new System.Drawing.Size(261, 23);
-            this.createAndReturnButton.TabIndex = 26;
-            this.createAndReturnButton.Text = "Create and Return to User Registry";
             this.createAndReturnButton.UseVisualStyleBackColor = true;
             this.createAndReturnButton.Click += new System.EventHandler(this.CreateAndReturnButton_Click);
             // 
             // messageLabel
             // 
-            this.messageLabel.AutoSize = true;
-            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageLabel.Location = new System.Drawing.Point(330, 510);
+            resources.ApplyResources(this.messageLabel, "messageLabel");
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(46, 17);
-            this.messageLabel.TabIndex = 27;
-            this.messageLabel.Text = "label1";
             // 
             // usernameErrorLable
             // 
-            this.usernameErrorLable.AutoSize = true;
+            resources.ApplyResources(this.usernameErrorLable, "usernameErrorLable");
             this.usernameErrorLable.ForeColor = System.Drawing.Color.Red;
-            this.usernameErrorLable.Location = new System.Drawing.Point(600, 116);
             this.usernameErrorLable.Name = "usernameErrorLable";
-            this.usernameErrorLable.Size = new System.Drawing.Size(122, 13);
-            this.usernameErrorLable.TabIndex = 28;
-            this.usernameErrorLable.Text = "Username is unavailable";
             // 
             // confirmationPasswordErrorLabel
             // 
-            this.confirmationPasswordErrorLabel.AutoSize = true;
+            resources.ApplyResources(this.confirmationPasswordErrorLabel, "confirmationPasswordErrorLabel");
             this.confirmationPasswordErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.confirmationPasswordErrorLabel.Location = new System.Drawing.Point(600, 337);
             this.confirmationPasswordErrorLabel.Name = "confirmationPasswordErrorLabel";
-            this.confirmationPasswordErrorLabel.Size = new System.Drawing.Size(275, 13);
-            this.confirmationPasswordErrorLabel.TabIndex = 29;
-            this.confirmationPasswordErrorLabel.Text = "Confirmation password does not match chosen password";
             // 
             // passwordErrorLabel
             // 
-            this.passwordErrorLabel.AutoSize = true;
+            resources.ApplyResources(this.passwordErrorLabel, "passwordErrorLabel");
             this.passwordErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.passwordErrorLabel.Location = new System.Drawing.Point(600, 287);
             this.passwordErrorLabel.Name = "passwordErrorLabel";
-            this.passwordErrorLabel.Size = new System.Drawing.Size(87, 13);
-            this.passwordErrorLabel.TabIndex = 30;
-            this.passwordErrorLabel.Text = "Invalid Password";
-            this.passwordErrorLabel.Visible = false;
             // 
             // RegisterNewUserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 562);
             this.Controls.Add(this.passwordErrorLabel);
             this.Controls.Add(this.confirmationPasswordErrorLabel);
             this.Controls.Add(this.usernameErrorLable);
@@ -418,10 +327,7 @@
             this.Controls.Add(this.LogOutLabel);
             this.Controls.Add(this.menuStrip1);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(943, 600);
             this.Name = "RegisterNewUserForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Register New User";
             this.Load += new System.EventHandler(this.RegisterNewUserForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

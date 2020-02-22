@@ -237,6 +237,12 @@
     <EmbeddedResource Include="RegisterNewSaleForm.resx">
       <DependentUpon>RegisterNewSaleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterNewUserForm.es.resx">
+      <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterNewUserForm.fr.resx">
+      <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterNewUserForm.resx">
       <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
     </EmbeddedResource>

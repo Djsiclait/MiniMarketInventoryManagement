@@ -124,6 +124,9 @@
   <data name="&gt;&gt;removeOneButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="removeItemButton.Text" xml:space="preserve">
+    <value>Remove Item</value>
+  </data>
   <data name="viewUsersOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 22</value>
   </data>
@@ -136,9 +139,6 @@
   <data name="clearCartButton.Text" xml:space="preserve">
     <value>Empty Cart</value>
   </data>
-  <data name="&gt;&gt;productDataGridView.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
   <data name="restockProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 22</value>
   </data>
@@ -147,10 +147,6 @@
   </data>
   <data name="&gt;&gt;addItemButton.Name" xml:space="preserve">
     <value>addItemButton</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="quantityNumericUpDown.ThousandsSeparator" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="logOutLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 13</value>
@@ -182,6 +178,7 @@
   <data name="&gt;&gt;cartSummaryLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="numberLabel.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
@@ -203,8 +200,8 @@
   <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 20</value>
   </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
+  <data name="&gt;&gt;removeOneButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;productDataGridView.Name" xml:space="preserve">
     <value>productDataGridView</value>
@@ -217,9 +214,6 @@
   </data>
   <data name="&gt;&gt;quantityNumericUpDown.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="totalLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 17</value>
   </data>
   <data name="deliveryCheckBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt, style=Bold</value>
@@ -235,6 +229,9 @@
   </data>
   <data name="&gt;&gt;viewCartLabel.ZOrder" xml:space="preserve">
     <value>15</value>
+  </data>
+  <data name="completeSaleButton.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
   <data name="&gt;&gt;logOutLabel.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -254,14 +251,14 @@
   <data name="&gt;&gt;totalLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>943, 600</value>
-  </data>
   <data name="&gt;&gt;adminMenuOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;deliveryCheckBox.Name" xml:space="preserve">
+    <value>deliveryCheckBox</value>
   </data>
   <data name="browserLabel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -272,17 +269,14 @@
   <data name="browseProductsMenuSubOption.Text" xml:space="preserve">
     <value>Browse Products</value>
   </data>
-  <data name="&gt;&gt;viewGraphsOption.Name" xml:space="preserve">
-    <value>viewGraphsOption</value>
-  </data>
   <data name="logOutLabel.Text" xml:space="preserve">
     <value>Log Out</value>
   </data>
   <data name="cartSummaryLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>533, 47</value>
   </data>
-  <data name="totalLabel.Text" xml:space="preserve">
-    <value>Total: $0.00</value>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
   </data>
   <data name="&gt;&gt;removeOneButton.Name" xml:space="preserve">
     <value>removeOneButton</value>
@@ -292,6 +286,9 @@
   </data>
   <data name="deliveryCheckBox.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
+  </data>
+  <data name="viewSalesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
   </data>
   <data name="addItemButton.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -311,9 +308,6 @@
   <data name="removeOneButton.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
   <data name="clearCartButton.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
@@ -329,11 +323,17 @@
   <data name="&gt;&gt;registerNewUserOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;cartSummaryLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
   <data name="logsMenuSubOption.Text" xml:space="preserve">
     <value>Logs</value>
   </data>
   <data name="viewReportsOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 22</value>
+  </data>
+  <data name="deliveryCheckBox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="removeItemButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>815, 286</value>
@@ -343,9 +343,6 @@
   </data>
   <data name="removeOneButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
-  </data>
-  <data name="totalLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
   </data>
   <data name="viewSalesMenuOption.Text" xml:space="preserve">
     <value>View Sales</value>
@@ -361,9 +358,6 @@
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>316, 43</value>
-  </data>
-  <data name="addItemButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 527</value>
   </data>
   <data name="numberLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt, style=Bold</value>
@@ -383,14 +377,8 @@
   <data name="quantityNumericUpDown.Location" type="System.Drawing.Point, System.Drawing">
     <value>363, 528</value>
   </data>
-  <data name="&gt;&gt;adminMenuOption.Name" xml:space="preserve">
-    <value>adminMenuOption</value>
-  </data>
   <data name="numberLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>600, 331</value>
-  </data>
-  <data name="&gt;&gt;clearCartButton.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="browserLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 47</value>
@@ -401,8 +389,8 @@
   <data name="viewGraphsOption.Text" xml:space="preserve">
     <value>View Graphs</value>
   </data>
-  <data name="&gt;&gt;browseProductsMenuSubOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="removeItemButton.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
   </data>
   <data name="viewCartLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>765, 9</value>
@@ -419,6 +407,9 @@
   </data>
   <data name="totalLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>682, 379</value>
+  </data>
+  <data name="productDataGridView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>507, 455</value>
   </data>
   <data name="productSearchTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 20</value>
@@ -444,8 +435,11 @@
   <data name="&gt;&gt;browseProductsMenuSubOption.Name" xml:space="preserve">
     <value>browseProductsMenuSubOption</value>
   </data>
-  <data name="cartSummaryDataGridView.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
+  <data name="removeOneButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>709, 286</value>
+  </data>
+  <data name="&gt;&gt;addItemButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;quantityNumericUpDown.Name" xml:space="preserve">
     <value>quantityNumericUpDown</value>
@@ -468,6 +462,9 @@
   <data name="&gt;&gt;viewUsersOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="numberLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 17</value>
+  </data>
   <data name="&gt;&gt;cartSummaryDataGridView.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -483,8 +480,11 @@
   <data name="deliveryCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 21</value>
   </data>
-  <data name="viewSalesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
+  <data name="totalLabel.Text" xml:space="preserve">
+    <value>Total: $0.00</value>
+  </data>
+  <data name="registerNewUserOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
   </data>
   <data name="addItemButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -495,6 +495,9 @@
   <data name="completeSaleButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>652, 481</value>
   </data>
+  <data name="&gt;&gt;productSearchTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="clearCartButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>603, 286</value>
   </data>
@@ -503,9 +506,6 @@
   </data>
   <data name="&gt;&gt;logsMenuSubOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
   </data>
   <data name="&gt;&gt;cartSummaryDataGridView.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -534,17 +534,11 @@
   <data name="&gt;&gt;quantityNumericUpDown.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;clearCartButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="restockProductsMenuSubOption.Text" xml:space="preserve">
     <value>Restock Products</value>
   </data>
   <data name="viewCartLabel.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
-  </data>
-  <data name="quantityNumericUpDown.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
   </data>
   <data name="&gt;&gt;viewCartLabel.Parent" xml:space="preserve">
     <value>$this</value>
@@ -555,14 +549,14 @@
   <data name="&gt;&gt;viewCartLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;restockProductsMenuSubOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="removeOneButton.Text" xml:space="preserve">
     <value>Remove One Unit</value>
   </data>
   <data name="&gt;&gt;viewActivityLogsOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;removeOneButton.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;totalLabel.Name" xml:space="preserve">
     <value>totalLabel</value>
@@ -600,8 +594,8 @@
   <data name="productsMenuOption.Text" xml:space="preserve">
     <value>Products</value>
   </data>
-  <data name="productDataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>507, 455</value>
+  <data name="&gt;&gt;adminMenuOption.Name" xml:space="preserve">
+    <value>adminMenuOption</value>
   </data>
   <data name="&gt;&gt;productSearchTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -612,17 +606,14 @@
   <data name="&gt;&gt;totalLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;removeOneButton.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="cartSummaryDataGridView.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
   </data>
   <data name="&gt;&gt;registerNewProductMenuSubOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 13</value>
-  </data>
-  <data name="&gt;&gt;deliveryCheckBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cartSummaryLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 13</value>
@@ -633,8 +624,8 @@
   <data name="totalLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="removeItemButton.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="totalLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -648,8 +639,14 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="&gt;&gt;addItemButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;viewErrorLogsOption.Name" xml:space="preserve">
     <value>viewErrorLogsOption</value>
+  </data>
+  <data name="&gt;&gt;clearCartButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;removeItemButton.Parent" xml:space="preserve">
     <value>$this</value>
@@ -660,20 +657,20 @@
   <data name="&gt;&gt;totalLabel.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;removeOneButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
   </data>
   <data name="&gt;&gt;deliveryCheckBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;deliveryCheckBox.Name" xml:space="preserve">
-    <value>deliveryCheckBox</value>
+  <data name="totalLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 17</value>
   </data>
   <data name="browserLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 13</value>
   </data>
-  <data name="&gt;&gt;addItemButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;deliveryCheckBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="numberLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -684,11 +681,14 @@
   <data name="viewReportsOption.Text" xml:space="preserve">
     <value>View Reports</value>
   </data>
-  <data name="&gt;&gt;cartSummaryLabel.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="&gt;&gt;viewGraphsOption.Name" xml:space="preserve">
+    <value>viewGraphsOption</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>927, 562</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="productSearchTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -702,11 +702,11 @@
   <data name="&gt;&gt;browserLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;clearCartButton.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
   <data name="cartSummaryLabel.Text" xml:space="preserve">
     <value>Cart Summary</value>
-  </data>
-  <data name="&gt;&gt;addItemButton.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="viewActivityLogsOption.Text" xml:space="preserve">
     <value>View Activity Logs</value>
@@ -714,11 +714,11 @@
   <data name="&gt;&gt;viewCartLabel.Name" xml:space="preserve">
     <value>viewCartLabel</value>
   </data>
-  <data name="removeOneButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>709, 286</value>
+  <data name="&gt;&gt;restockProductsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;clearCartButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="addItemButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 527</value>
   </data>
   <data name="&gt;&gt;productDataGridView.Parent" xml:space="preserve">
     <value>$this</value>
@@ -732,8 +732,8 @@
   <data name="&gt;&gt;clearCartButton.Name" xml:space="preserve">
     <value>clearCartButton</value>
   </data>
-  <data name="registerNewUserOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
+  <data name="quantityNumericUpDown.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
     <value>Manage Users</value>
@@ -741,8 +741,8 @@
   <data name="&gt;&gt;deliveryCheckBox.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="numberLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 17</value>
+  <data name="quantityNumericUpDown.ThousandsSeparator" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;productsMenuOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -759,26 +759,26 @@
   <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
     <value>menuStrip1</value>
   </data>
-  <data name="removeItemButton.Text" xml:space="preserve">
-    <value>Remove Item</value>
+  <data name="&gt;&gt;clearCartButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 22</value>
   </data>
-  <data name="completeSaleButton.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="&gt;&gt;browseProductsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;viewReportsOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="deliveryCheckBox.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
   </data>
   <data name="productDataGridView.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 66</value>
   </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;productDataGridView.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="clearCartButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
@@ -786,8 +786,8 @@
   <data name="browserLabel.Text" xml:space="preserve">
     <value>Product Browser</value>
   </data>
-  <data name="&gt;&gt;productSearchTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>943, 600</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -796,6 +796,6 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>fr</value>
+    <value>es</value>
   </metadata>
 </root>
