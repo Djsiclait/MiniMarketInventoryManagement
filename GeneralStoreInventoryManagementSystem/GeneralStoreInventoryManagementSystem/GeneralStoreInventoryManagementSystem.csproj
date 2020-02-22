@@ -183,6 +183,12 @@
     <EmbeddedResource Include="GraphsAnalyticsForm.resx">
       <DependentUpon>GraphsAnalyticsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InventorySearchForm.es.resx">
+      <DependentUpon>InventorySearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventorySearchForm.fr.resx">
+      <DependentUpon>InventorySearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InventorySearchForm.resx">
       <DependentUpon>InventorySearchForm.cs</DependentUpon>
     </EmbeddedResource>
