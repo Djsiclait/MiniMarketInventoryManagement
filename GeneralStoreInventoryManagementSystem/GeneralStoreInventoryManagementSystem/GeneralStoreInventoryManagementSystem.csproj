@@ -267,6 +267,12 @@
     <EmbeddedResource Include="ReturnItemsMiniFOrm.resx">
       <DependentUpon>ReturnItemsMiniForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SaleInformationTemplateForm.es.resx">
+      <DependentUpon>SaleInformationTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleInformationTemplateForm.fr.resx">
+      <DependentUpon>SaleInformationTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SaleInformationTemplateForm.resx">
       <DependentUpon>SaleInformationTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
