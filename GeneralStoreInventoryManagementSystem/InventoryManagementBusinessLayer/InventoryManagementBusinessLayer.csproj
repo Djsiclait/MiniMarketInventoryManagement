@@ -56,6 +56,7 @@
     <Compile Include="ProductInformationManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportInformationManager.cs" />
     <Compile Include="SaleInformationManager.cs" />
     <Compile Include="SystemProtocols.cs" />
     <Compile Include="SystemResources.cs" />
