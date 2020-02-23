@@ -48,9 +48,19 @@
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.reportTabControl = new System.Windows.Forms.TabControl();
             this.userTimesheetTabPage = new System.Windows.Forms.TabPage();
+            this.printTimesheetLastMonthButton = new System.Windows.Forms.Button();
+            this.printTimesheetButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.newestDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.oldestDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.reportTabControl.SuspendLayout();
+            this.userTimesheetTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
@@ -221,6 +231,14 @@
             // 
             // userTimesheetTabPage
             // 
+            this.userTimesheetTabPage.Controls.Add(this.printTimesheetLastMonthButton);
+            this.userTimesheetTabPage.Controls.Add(this.printTimesheetButton);
+            this.userTimesheetTabPage.Controls.Add(this.label3);
+            this.userTimesheetTabPage.Controls.Add(this.newestDateTimePicker);
+            this.userTimesheetTabPage.Controls.Add(this.label2);
+            this.userTimesheetTabPage.Controls.Add(this.oldestDateTimePicker);
+            this.userTimesheetTabPage.Controls.Add(this.dataGridView1);
+            this.userTimesheetTabPage.Controls.Add(this.label1);
             this.userTimesheetTabPage.Location = new System.Drawing.Point(4, 22);
             this.userTimesheetTabPage.Name = "userTimesheetTabPage";
             this.userTimesheetTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -229,12 +247,80 @@
             this.userTimesheetTabPage.Text = "User Timesheets";
             this.userTimesheetTabPage.UseVisualStyleBackColor = true;
             // 
+            // printTimesheetLastMonthButton
+            // 
+            this.printTimesheetLastMonthButton.Location = new System.Drawing.Point(630, 309);
+            this.printTimesheetLastMonthButton.Name = "printTimesheetLastMonthButton";
+            this.printTimesheetLastMonthButton.Size = new System.Drawing.Size(194, 23);
+            this.printTimesheetLastMonthButton.TabIndex = 7;
+            this.printTimesheetLastMonthButton.Text = "Print Last Month\'s Timesheet";
+            this.printTimesheetLastMonthButton.UseVisualStyleBackColor = true;
+            // 
+            // printTimesheetButton
+            // 
+            this.printTimesheetButton.Location = new System.Drawing.Point(630, 280);
+            this.printTimesheetButton.Name = "printTimesheetButton";
+            this.printTimesheetButton.Size = new System.Drawing.Size(194, 23);
+            this.printTimesheetButton.TabIndex = 6;
+            this.printTimesheetButton.Text = "Print Timesheet";
+            this.printTimesheetButton.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(601, 218);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Up to:";
+            // 
+            // newestDateTimePicker
+            // 
+            this.newestDateTimePicker.Location = new System.Drawing.Point(644, 234);
+            this.newestDateTimePicker.Name = "newestDateTimePicker";
+            this.newestDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.newestDateTimePicker.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(601, 169);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Starting From:";
+            // 
+            // oldestDateTimePicker
+            // 
+            this.oldestDateTimePicker.Location = new System.Drawing.Point(644, 185);
+            this.oldestDateTimePicker.Name = "oldestDateTimePicker";
+            this.oldestDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.oldestDateTimePicker.TabIndex = 2;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(61, 119);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(491, 254);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(41, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "User Timesheet ";
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.Size = new System.Drawing.Size(895, 497);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -254,6 +340,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.reportTabControl.ResumeLayout(false);
+            this.userTimesheetTabPage.ResumeLayout(false);
+            this.userTimesheetTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,5 +371,13 @@
         private System.Windows.Forms.TabControl reportTabControl;
         private System.Windows.Forms.TabPage userTimesheetTabPage;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button printTimesheetLastMonthButton;
+        private System.Windows.Forms.Button printTimesheetButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker newestDateTimePicker;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker oldestDateTimePicker;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
     }
 }
