@@ -46,14 +46,18 @@
             this.logsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewActivityLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportTabControl = new System.Windows.Forms.TabControl();
+            this.userTimesheetTabPage = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
+            this.reportTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // viewCartLabel
             // 
             this.viewCartLabel.AutoSize = true;
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
             this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
             this.viewCartLabel.TabIndex = 12;
@@ -66,7 +70,7 @@
             // 
             this.logOutLabel.AutoSize = true;
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.logOutLabel.Location = new System.Drawing.Point(870, 9);
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(45, 13);
             this.logOutLabel.TabIndex = 11;
@@ -84,7 +88,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -205,11 +209,42 @@
             this.viewErrorLogsOption.Text = "View Error Logs";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
+            // reportTabControl
+            // 
+            this.reportTabControl.Controls.Add(this.userTimesheetTabPage);
+            this.reportTabControl.Controls.Add(this.tabPage2);
+            this.reportTabControl.Location = new System.Drawing.Point(12, 27);
+            this.reportTabControl.Name = "reportTabControl";
+            this.reportTabControl.SelectedIndex = 0;
+            this.reportTabControl.Size = new System.Drawing.Size(903, 523);
+            this.reportTabControl.TabIndex = 13;
+            // 
+            // userTimesheetTabPage
+            // 
+            this.userTimesheetTabPage.Location = new System.Drawing.Point(4, 22);
+            this.userTimesheetTabPage.Name = "userTimesheetTabPage";
+            this.userTimesheetTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.userTimesheetTabPage.Size = new System.Drawing.Size(895, 497);
+            this.userTimesheetTabPage.TabIndex = 0;
+            this.userTimesheetTabPage.Text = "User Timesheets";
+            this.userTimesheetTabPage.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // ReportsAnalyticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 462);
+            this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.reportTabControl);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
@@ -218,6 +253,7 @@
             this.Load += new System.EventHandler(this.ReportsAnalyticsForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.reportTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +279,8 @@
         private System.Windows.Forms.ToolStripMenuItem logsMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem viewActivityLogsOption;
         private System.Windows.Forms.ToolStripMenuItem viewErrorLogsOption;
+        private System.Windows.Forms.TabControl reportTabControl;
+        private System.Windows.Forms.TabPage userTimesheetTabPage;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

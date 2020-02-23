@@ -26,7 +26,7 @@ AS
 
 go
 
-exec SP_Generate_User_Timesheet '2020-02-23', '2020-02-18'
+exec SP_Generate_User_Timesheet '2020-02-24', '2020-02-18'
 
 
 
