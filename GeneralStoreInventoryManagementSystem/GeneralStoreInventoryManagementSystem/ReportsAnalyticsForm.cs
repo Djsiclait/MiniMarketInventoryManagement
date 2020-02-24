@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 // Custom Library
 using InventoryManagementBusinessLayer.Protocols;
+using InventoryManagementBusinessLayer.ReportInformation;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -36,6 +37,12 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Visible = false;
                 adminMenuOption.Enabled = false;
             }
+
+            newestDateTimePicker.Value = DateTime.Now;
+            oldestDateTimePicker.Value = DateTime.Today.AddMonths(-1);
+            oldestDateTimePicker.MaxDate = DateTime.Today.AddDays(-1);
+
+            UpdateTimesheetDataGrid();
 
             SystemProtocols.ApplyActivityProtocols("REP1", null, null);
         }
@@ -202,6 +209,31 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #endregion
+
+        #region Value Changed Logic
+        private void newestDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            oldestDateTimePicker.Value = newestDateTimePicker.Value.AddMonths(-1);
+            oldestDateTimePicker.MaxDate = newestDateTimePicker.Value.AddDays(-1);
+
+            UpdateTimesheetDataGrid();
+        }
+
+        private void oldestDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateTimesheetDataGrid();
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        private void UpdateTimesheetDataGrid()
+        {
+            timeSheetDataGridView.DataSource = ReportInformationManager.ConsultTimesheetSummaryInformation(newestDateTimePicker.Value, oldestDateTimePicker.Value);
+
+            timeSheetDataGridView.Columns["AverageMinutesPerSession"].Width = 150;
+            timeSheetDataGridView.Columns["FullName"].Width = 150;
+        }
         #endregion
     }
 }
