@@ -117,7 +117,7 @@
             // 
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
             this.viewSalesMenuSubOption.ShortcutKeyDisplayString = "F1";
-            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(147, 22);
+            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(152, 22);
             this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
@@ -125,8 +125,8 @@
             // 
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
             this.makeSaleMenuSubOption.ShortcutKeyDisplayString = "F2";
-            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(147, 22);
-            this.makeSaleMenuSubOption.Text = "Make Sale";
+            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.makeSaleMenuSubOption.Text = "Make Sales";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
             // productsMenuOption
@@ -170,7 +170,7 @@
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(148, 22);
+            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(152, 22);
             this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
@@ -195,7 +195,7 @@
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(148, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(152, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
@@ -220,23 +220,23 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(148, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(152, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
             // 
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
             this.viewActivityLogsOption.ShortcutKeyDisplayString = "F10";
-            this.viewActivityLogsOption.Size = new System.Drawing.Size(195, 22);
-            this.viewActivityLogsOption.Text = "View Activity Logs";
+            this.viewActivityLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewActivityLogsOption.Text = "View Activities Log";
             this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
             this.viewErrorLogsOption.ShortcutKeyDisplayString = "F11";
-            this.viewErrorLogsOption.Size = new System.Drawing.Size(195, 22);
-            this.viewErrorLogsOption.Text = "View Error Logs";
+            this.viewErrorLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewErrorLogsOption.Text = "View Errors Log";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // logOutLabel
@@ -294,7 +294,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Browser";
             this.Load += new System.EventHandler(this.InventorySearchForm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventorySearchForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
