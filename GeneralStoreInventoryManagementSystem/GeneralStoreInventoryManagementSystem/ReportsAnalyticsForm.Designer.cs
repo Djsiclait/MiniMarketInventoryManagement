@@ -48,19 +48,20 @@
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.reportTabControl = new System.Windows.Forms.TabControl();
             this.userTimesheetTabPage = new System.Windows.Forms.TabPage();
-            this.printTimesheetLastMonthButton = new System.Windows.Forms.Button();
+            this.printLastMonthButton = new System.Windows.Forms.Button();
             this.printTimesheetButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.newestDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.oldestDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.timeSheetDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.printYesterdayButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.reportTabControl.SuspendLayout();
             this.userTimesheetTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeSheetDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
@@ -231,13 +232,14 @@
             // 
             // userTimesheetTabPage
             // 
-            this.userTimesheetTabPage.Controls.Add(this.printTimesheetLastMonthButton);
+            this.userTimesheetTabPage.Controls.Add(this.printYesterdayButton);
+            this.userTimesheetTabPage.Controls.Add(this.printLastMonthButton);
             this.userTimesheetTabPage.Controls.Add(this.printTimesheetButton);
             this.userTimesheetTabPage.Controls.Add(this.label3);
             this.userTimesheetTabPage.Controls.Add(this.newestDateTimePicker);
             this.userTimesheetTabPage.Controls.Add(this.label2);
             this.userTimesheetTabPage.Controls.Add(this.oldestDateTimePicker);
-            this.userTimesheetTabPage.Controls.Add(this.dataGridView1);
+            this.userTimesheetTabPage.Controls.Add(this.timeSheetDataGridView);
             this.userTimesheetTabPage.Controls.Add(this.label1);
             this.userTimesheetTabPage.Location = new System.Drawing.Point(4, 22);
             this.userTimesheetTabPage.Name = "userTimesheetTabPage";
@@ -247,22 +249,22 @@
             this.userTimesheetTabPage.Text = "User Timesheets";
             this.userTimesheetTabPage.UseVisualStyleBackColor = true;
             // 
-            // printTimesheetLastMonthButton
+            // printLastMonthButton
             // 
-            this.printTimesheetLastMonthButton.Location = new System.Drawing.Point(630, 309);
-            this.printTimesheetLastMonthButton.Name = "printTimesheetLastMonthButton";
-            this.printTimesheetLastMonthButton.Size = new System.Drawing.Size(194, 23);
-            this.printTimesheetLastMonthButton.TabIndex = 7;
-            this.printTimesheetLastMonthButton.Text = "Print Last Month\'s Timesheet";
-            this.printTimesheetLastMonthButton.UseVisualStyleBackColor = true;
+            this.printLastMonthButton.Location = new System.Drawing.Point(358, 379);
+            this.printLastMonthButton.Name = "printLastMonthButton";
+            this.printLastMonthButton.Size = new System.Drawing.Size(194, 23);
+            this.printLastMonthButton.TabIndex = 7;
+            this.printLastMonthButton.Text = "Print Last Month\'s Report";
+            this.printLastMonthButton.UseVisualStyleBackColor = true;
             // 
             // printTimesheetButton
             // 
-            this.printTimesheetButton.Location = new System.Drawing.Point(630, 280);
+            this.printTimesheetButton.Location = new System.Drawing.Point(644, 273);
             this.printTimesheetButton.Name = "printTimesheetButton";
-            this.printTimesheetButton.Size = new System.Drawing.Size(194, 23);
+            this.printTimesheetButton.Size = new System.Drawing.Size(200, 23);
             this.printTimesheetButton.TabIndex = 6;
-            this.printTimesheetButton.Text = "Print Timesheet";
+            this.printTimesheetButton.Text = "Print Timesheet Report";
             this.printTimesheetButton.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -280,6 +282,7 @@
             this.newestDateTimePicker.Name = "newestDateTimePicker";
             this.newestDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.newestDateTimePicker.TabIndex = 4;
+            this.newestDateTimePicker.ValueChanged += new System.EventHandler(this.newestDateTimePicker_ValueChanged);
             // 
             // label2
             // 
@@ -296,14 +299,25 @@
             this.oldestDateTimePicker.Name = "oldestDateTimePicker";
             this.oldestDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.oldestDateTimePicker.TabIndex = 2;
+            this.oldestDateTimePicker.ValueChanged += new System.EventHandler(this.oldestDateTimePicker_ValueChanged);
             // 
-            // dataGridView1
+            // timeSheetDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(61, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(491, 254);
-            this.dataGridView1.TabIndex = 1;
+            this.timeSheetDataGridView.AllowUserToAddRows = false;
+            this.timeSheetDataGridView.AllowUserToDeleteRows = false;
+            this.timeSheetDataGridView.AllowUserToResizeColumns = false;
+            this.timeSheetDataGridView.AllowUserToResizeRows = false;
+            this.timeSheetDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.timeSheetDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.timeSheetDataGridView.Location = new System.Drawing.Point(61, 119);
+            this.timeSheetDataGridView.MultiSelect = false;
+            this.timeSheetDataGridView.Name = "timeSheetDataGridView";
+            this.timeSheetDataGridView.ReadOnly = true;
+            this.timeSheetDataGridView.RowHeadersVisible = false;
+            this.timeSheetDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.timeSheetDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.timeSheetDataGridView.Size = new System.Drawing.Size(491, 254);
+            this.timeSheetDataGridView.TabIndex = 1;
             // 
             // label1
             // 
@@ -325,6 +339,15 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // printYesterdayButton
+            // 
+            this.printYesterdayButton.Location = new System.Drawing.Point(158, 379);
+            this.printYesterdayButton.Name = "printYesterdayButton";
+            this.printYesterdayButton.Size = new System.Drawing.Size(194, 23);
+            this.printYesterdayButton.TabIndex = 8;
+            this.printYesterdayButton.Text = "Print Yesterday\'s Report";
+            this.printYesterdayButton.UseVisualStyleBackColor = true;
+            // 
             // ReportsAnalyticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,6 +358,7 @@
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
             this.Name = "ReportsAnalyticsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Analytics --- Reports";
             this.Load += new System.EventHandler(this.ReportsAnalyticsForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -342,7 +366,7 @@
             this.reportTabControl.ResumeLayout(false);
             this.userTimesheetTabPage.ResumeLayout(false);
             this.userTimesheetTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeSheetDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,13 +395,14 @@
         private System.Windows.Forms.TabControl reportTabControl;
         private System.Windows.Forms.TabPage userTimesheetTabPage;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button printTimesheetLastMonthButton;
+        private System.Windows.Forms.Button printLastMonthButton;
         private System.Windows.Forms.Button printTimesheetButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker newestDateTimePicker;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker oldestDateTimePicker;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView timeSheetDataGridView;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button printYesterdayButton;
     }
 }
