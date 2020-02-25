@@ -252,12 +252,16 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F4:
 
                     #region Register New User
-                    // Summon Register New Product Form
-                    FormsMenuList.registerNewProduct = new RegisterNewProductForm();
-                    FormsMenuList.registerNewProduct.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New Product Form
+                        FormsMenuList.registerNewProduct = new RegisterNewProductForm();
+                        FormsMenuList.registerNewProduct.Show();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -265,12 +269,16 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F5:
 
                     #region Restock Product
-                    // Summon Restock Products Form
-                    FormsMenuList.restockProductsFrom = new RestockProductsForm();
-                    FormsMenuList.restockProductsFrom.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Restock Products Form
+                        FormsMenuList.restockProductsFrom = new RestockProductsForm();
+                        FormsMenuList.restockProductsFrom.Show();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -278,12 +286,16 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F6:
 
                     #region View Users
-                    // Summon Users Registry Form
-                    FormsMenuList.usersRegistryForm = new UsersRegistryForm();
-                    FormsMenuList.usersRegistryForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Users Registry Form
+                        FormsMenuList.usersRegistryForm = new UsersRegistryForm();
+                        FormsMenuList.usersRegistryForm.Show();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -291,12 +303,16 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F7:
 
                     #region Register New User
-                    // Summon Register New User Form
-                    FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
-                    FormsMenuList.registerNewUserForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New User Form
+                        FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
+                        FormsMenuList.registerNewUserForm.Show();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -310,12 +326,16 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F9:
 
                     #region View Reports
-                    // Summon Reports Analytics Form
-                    FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
-                    FormsMenuList.reportsAnalyticsForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Reports Analytics Form
+                        FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
+                        FormsMenuList.reportsAnalyticsForm.Show();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -323,12 +343,16 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F10:
 
                     #region View Activities Log
-                    // Summon Activity Logs Form
-                    FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
-                    FormsMenuList.activitiesLogForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Activity Logs Form
+                        FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
+                        FormsMenuList.activitiesLogForm.Show();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -336,12 +360,16 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F11:
 
                     #region View Errors Log
-                    // Summon Error Logs Form
-                    FormsMenuList.errorsLogForm = new ErrorsLogForm();
-                    FormsMenuList.errorsLogForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Error Logs Form
+                        FormsMenuList.errorsLogForm = new ErrorsLogForm();
+                        FormsMenuList.errorsLogForm.Show();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
                     #endregion
 
                     break;

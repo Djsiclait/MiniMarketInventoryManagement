@@ -294,15 +294,19 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F4:
 
                     #region Register New Product
-                    // Summon Register New Product Form
-                    FormsMenuList.registerNewProduct = new RegisterNewProductForm();
-                    FormsMenuList.registerNewProduct.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New Product Form
+                        FormsMenuList.registerNewProduct = new RegisterNewProductForm();
+                        FormsMenuList.registerNewProduct.Show();
 
-                    // Disposing any open child
-                    DisposeAllChildren();
+                        // Disposing any open child
+                        DisposeAllChildren();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.inventorySearchForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -310,15 +314,19 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F5:
 
                     #region Restock Products
-                    // Summon Restock Products Form
-                    FormsMenuList.restockProductsFrom = new RestockProductsForm();
-                    FormsMenuList.restockProductsFrom.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Restock Products Form
+                        FormsMenuList.restockProductsFrom = new RestockProductsForm();
+                        FormsMenuList.restockProductsFrom.Show();
 
-                    // Disposing any open child
-                    DisposeAllChildren();
+                        // Disposing any open child
+                        DisposeAllChildren();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.inventorySearchForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -326,15 +334,19 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F6:
 
                     #region View Users
-                    // Summon Users Registry Form
-                    FormsMenuList.usersRegistryForm = new UsersRegistryForm();
-                    FormsMenuList.usersRegistryForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Users Registry Form
+                        FormsMenuList.usersRegistryForm = new UsersRegistryForm();
+                        FormsMenuList.usersRegistryForm.Show();
 
-                    // Disposing any open child
-                    DisposeAllChildren();
+                        // Disposing any open child
+                        DisposeAllChildren();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.inventorySearchForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -342,15 +354,19 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F7:
 
                     #region Register New User
-                    // Summon Register New User Form
-                    FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
-                    FormsMenuList.registerNewUserForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New User Form
+                        FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
+                        FormsMenuList.registerNewUserForm.Show();
 
-                    // Disposing any open child
-                    DisposeAllChildren();
+                        // Disposing any open child
+                        DisposeAllChildren();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.inventorySearchForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -358,15 +374,19 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F8:
 
                     #region Graphs Analytics
-                    // Summon Graphs Analytics Form
-                    FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
-                    FormsMenuList.graphsAnaliticsForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Graphs Analytics Form
+                        FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
+                        FormsMenuList.graphsAnaliticsForm.Show();
 
-                    // Disposing any open child
-                    DisposeAllChildren();
+                        // Disposing any open child
+                        DisposeAllChildren();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.inventorySearchForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -374,15 +394,19 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F9:
 
                     #region Reports Analytics
-                    // Summon Reports Analytics Form
-                    FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
-                    FormsMenuList.reportsAnalyticsForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Reports Analytics Form
+                        FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
+                        FormsMenuList.reportsAnalyticsForm.Show();
 
-                    // Disposing any open child
-                    DisposeAllChildren();
+                        // Disposing any open child
+                        DisposeAllChildren();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.inventorySearchForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -390,15 +414,19 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F10:
 
                     #region Activity Logs
-                    // Summon Activity Logs Form
-                    FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
-                    FormsMenuList.activitiesLogForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Activity Logs Form
+                        FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
+                        FormsMenuList.activitiesLogForm.Show();
 
-                    // Disposing any open child
-                    DisposeAllChildren();
+                        // Disposing any open child
+                        DisposeAllChildren();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.inventorySearchForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
                     #endregion
 
                     break;
@@ -406,15 +434,19 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F11:
 
                     #region Error Logs
-                    // Summon Error Logs Form
-                    FormsMenuList.errorsLogForm = new ErrorsLogForm();
-                    FormsMenuList.errorsLogForm.Show();
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Error Logs Form
+                        FormsMenuList.errorsLogForm = new ErrorsLogForm();
+                        FormsMenuList.errorsLogForm.Show();
 
-                    // Disposing any open child
-                    DisposeAllChildren();
+                        // Disposing any open child
+                        DisposeAllChildren();
 
-                    // Closing form while freeing system resources
-                    FormsMenuList.inventorySearchForm.Dispose();
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
                     #endregion
 
                     break;
