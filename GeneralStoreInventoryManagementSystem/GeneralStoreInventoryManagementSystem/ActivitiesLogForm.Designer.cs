@@ -106,7 +106,7 @@
             // 
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
             this.viewSalesMenuSubOption.ShortcutKeyDisplayString = "F1";
-            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(151, 22);
             this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
@@ -114,7 +114,7 @@
             // 
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
             this.makeSaleMenuSubOption.ShortcutKeyDisplayString = "F2";
-            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(151, 22);
             this.makeSaleMenuSubOption.Text = "Make Sales";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
@@ -246,6 +246,7 @@
             this.activityList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.activityList.Size = new System.Drawing.Size(903, 444);
             this.activityList.TabIndex = 12;
+            this.activityList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ActivitiesLogForm_KeyDown);
             // 
             // activityFormTitle
             // 
@@ -263,7 +264,7 @@
             this.activitySearchBox.Size = new System.Drawing.Size(273, 20);
             this.activitySearchBox.TabIndex = 10;
             this.activitySearchBox.TextChanged += new System.EventHandler(this.ActivitySearchBox_TextChanged);
-            this.activitySearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ActivitySearchBox_KeyDown);
+            this.activitySearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ActivitiesLogForm_KeyDown);
             // 
             // ActivitiesLogForm
             // 
@@ -282,6 +283,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Activity Logs";
             this.Load += new System.EventHandler(this.ActivitiesLogForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ActivitiesLogForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activityList)).EndInit();

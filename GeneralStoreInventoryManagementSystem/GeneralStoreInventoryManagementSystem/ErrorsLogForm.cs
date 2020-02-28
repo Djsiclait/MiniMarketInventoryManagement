@@ -200,7 +200,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
-        #region Key Down Logic
+        #region Key Down Shortcut Logic
         // POSSIBLY WILL BE MODIFIED DEPENDING ON FUTURE DESIGN
         private void ErrorsLogForm_KeyDown(object sender, KeyEventArgs e)
         {

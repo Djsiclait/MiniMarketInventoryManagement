@@ -208,8 +208,8 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
-        #region Key Down Logic
-        private void ActivitySearchBox_KeyDown(object sender, KeyEventArgs e)
+        #region Key Down Shortcut Logic
+        private void ActivitiesLogForm_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {

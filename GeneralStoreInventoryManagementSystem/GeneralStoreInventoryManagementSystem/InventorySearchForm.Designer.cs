@@ -62,7 +62,7 @@
             this.inventorySearchBox.Size = new System.Drawing.Size(273, 20);
             this.inventorySearchBox.TabIndex = 1;
             this.inventorySearchBox.TextChanged += new System.EventHandler(this.InventorySearchBox_TextChanged);
-            this.inventorySearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventorySearchBox_KeyDown);
+            this.inventorySearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventoryBrowserForm_KeyDown);
             // 
             // browserFormTitle
             // 
@@ -90,6 +90,7 @@
             this.productList.Size = new System.Drawing.Size(903, 444);
             this.productList.TabIndex = 3;
             this.productList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductList_CellDoubleClick);
+            this.productList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventoryBrowserForm_KeyDown);
             // 
             // menuStrip1
             // 
@@ -117,7 +118,7 @@
             // 
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
             this.viewSalesMenuSubOption.ShortcutKeyDisplayString = "F1";
-            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(180, 22);
             this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
@@ -125,7 +126,7 @@
             // 
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
             this.makeSaleMenuSubOption.ShortcutKeyDisplayString = "F2";
-            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(180, 22);
             this.makeSaleMenuSubOption.Text = "Make Sales";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
@@ -170,7 +171,7 @@
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(180, 22);
             this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
@@ -195,7 +196,7 @@
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(180, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
@@ -220,7 +221,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(152, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(180, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
@@ -294,6 +295,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Browser";
             this.Load += new System.EventHandler(this.InventorySearchForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventoryBrowserForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

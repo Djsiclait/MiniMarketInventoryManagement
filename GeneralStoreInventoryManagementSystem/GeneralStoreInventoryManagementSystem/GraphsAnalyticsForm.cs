@@ -204,7 +204,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
-        #region Key Down Logic
+        #region Key Down Shortcut Logic
         // POSSIBLY SUBJECT TO CHANGE DUE TO FUTURE DESIGNS
         private void GraphsAnalyticsForm_KeyDown(object sender, KeyEventArgs e)
         {

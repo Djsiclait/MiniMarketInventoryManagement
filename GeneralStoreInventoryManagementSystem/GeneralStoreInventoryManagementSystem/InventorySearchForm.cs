@@ -247,10 +247,9 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
-        #region Shortcut Logic
-        private void InventorySearchBox_KeyDown(object sender, KeyEventArgs e)
+        #region Key Down Shortcut Logic
+        private void InventoryBrowserForm_KeyDown(object sender, KeyEventArgs e)
         {
-
             switch (e.KeyCode)
             {
                 case Keys.F1:
