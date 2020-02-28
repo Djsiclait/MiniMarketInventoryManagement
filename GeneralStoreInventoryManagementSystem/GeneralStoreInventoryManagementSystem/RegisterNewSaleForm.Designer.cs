@@ -221,16 +221,16 @@
             // 
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
             this.viewActivityLogsOption.ShortcutKeyDisplayString = "F10";
-            this.viewActivityLogsOption.Size = new System.Drawing.Size(195, 22);
-            this.viewActivityLogsOption.Text = "View Activity Logs";
+            this.viewActivityLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewActivityLogsOption.Text = "View Activities Log";
             this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
             this.viewErrorLogsOption.ShortcutKeyDisplayString = "F11";
-            this.viewErrorLogsOption.Size = new System.Drawing.Size(195, 22);
-            this.viewErrorLogsOption.Text = "View Error Logs";
+            this.viewErrorLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewErrorLogsOption.Text = "View Errors Log";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // productDataGridView
