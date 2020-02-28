@@ -7,11 +7,11 @@ AS
 
 		Select 
 			A.fld_user_activity_timestamp as 'Log In',
-			(select MIN(fld_user_activity_timestamp) from Tbl_User_Activity_Logs where fld_user_activity_timestamp > A.fld_user_activity_timestamp and fld_user_activity_type = 'LOG OUT') as 'Log Out',
+			ISNULL((select MIN(fld_user_activity_timestamp) from Tbl_User_Activity_Logs where fld_user_activity_timestamp > A.fld_user_activity_timestamp and fld_user_activity_type = 'LOG OUT'), A.fld_user_activity_timestamp) as 'Log Out',
 			DATEDIFF(
 				MINUTE, 
 				A.fld_user_activity_timestamp,
-				(select MIN(fld_user_activity_timestamp) from Tbl_User_Activity_Logs where fld_user_activity_timestamp > A.fld_user_activity_timestamp and fld_user_activity_type = 'LOG OUT')) as 'Minutes'
+				ISNULL((select MIN(fld_user_activity_timestamp) from Tbl_User_Activity_Logs where fld_user_activity_timestamp > A.fld_user_activity_timestamp and fld_user_activity_type = 'LOG OUT'), A.fld_user_activity_timestamp)) as 'Minutes'
 		From
 			Tbl_User_Activity_Logs as A
 		Where
@@ -22,6 +22,11 @@ AS
 			A.fld_user_activity_timestamp >= @oldest_date and 
 			A.fld_user_activity_timestamp <= @newest_date
 			)
+		and	
+			DATEDIFF(
+				SECOND, 
+				A.fld_user_activity_timestamp,
+				ISNULL((select MIN(fld_user_activity_timestamp) from Tbl_User_Activity_Logs where fld_user_activity_timestamp > A.fld_user_activity_timestamp and fld_user_activity_type = 'LOG OUT'), A.fld_user_activity_timestamp)) > 0
 		Order by
 			A.fld_user_activity_timestamp Asc
 
