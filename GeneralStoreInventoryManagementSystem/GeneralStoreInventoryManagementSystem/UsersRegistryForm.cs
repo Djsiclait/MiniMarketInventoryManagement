@@ -18,6 +18,8 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class UsersRegistryForm : Form
     {
+        UserInformationTemplateForm userInformationForm;
+
         int assistance = 0;
 
         public UsersRegistryForm()
@@ -60,6 +62,9 @@ namespace GeneralStoreInventoryManagementSystem
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
 
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
+
             SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
 
             // Closing form while freeing system resources
@@ -74,6 +79,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.salesRecordForm = new SalesRecordForm();
             FormsMenuList.salesRecordForm.Show();
 
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
+
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
         }
@@ -83,6 +91,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon Register New Sale Form
             FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
             FormsMenuList.registerNewSaleForm.Show();
+
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
 
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
@@ -94,6 +105,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.inventorySearchForm = new InventorySearchForm();
             FormsMenuList.inventorySearchForm.Show();
 
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
+
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
         }
@@ -103,6 +117,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon Register New Product Form
             FormsMenuList.registerNewProduct = new RegisterNewProductForm();
             FormsMenuList.registerNewProduct.Show();
+
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
 
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
@@ -114,6 +131,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.restockProductsFrom = new RestockProductsForm();
             FormsMenuList.restockProductsFrom.Show();
 
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
+
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
         }
@@ -123,6 +143,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon Register New User Form
             FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
             FormsMenuList.registerNewUserForm.Show();
+
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
 
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
@@ -134,6 +157,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
             FormsMenuList.graphsAnaliticsForm.Show();
 
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
+
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
         }
@@ -143,6 +169,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon Reports Analytics Form
             FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
             FormsMenuList.reportsAnalyticsForm.Show();
+
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
 
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
@@ -154,6 +183,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
             FormsMenuList.activitiesLogForm.Show();
 
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
+
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
         }
@@ -164,6 +196,9 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.errorsLogForm = new ErrorsLogForm();
             FormsMenuList.errorsLogForm.Show();
 
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
+
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
         }
@@ -173,6 +208,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Summon View Cart Form
             FormsMenuList.viewCartForm = new ViewCartForm();
             FormsMenuList.viewCartForm.Show();
+
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
 
             // Closing form while freeing system resources
             FormsMenuList.usersRegistryForm.Dispose();
@@ -194,6 +232,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Executing correct log out processes
             SystemProtocols.ApplyLogOutProtocols();
             FormsMenuList.loginForm.Show();
+
+            if (userInformationForm != null)
+                userInformationForm.Dispose(); // Closing Child
 
             SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
 
@@ -226,6 +267,9 @@ namespace GeneralStoreInventoryManagementSystem
                     FormsMenuList.salesRecordForm = new SalesRecordForm();
                     FormsMenuList.salesRecordForm.Show();
 
+                    if (userInformationForm != null)
+                        userInformationForm.Dispose(); // Closing Child
+
                     // Closing form while freeing system resources
                     FormsMenuList.usersRegistryForm.Dispose();
                     #endregion
@@ -239,6 +283,9 @@ namespace GeneralStoreInventoryManagementSystem
                     FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
                     FormsMenuList.registerNewSaleForm.Show();
 
+                    if (userInformationForm != null)
+                        userInformationForm.Dispose(); // Closing Child
+
                     // Closing form while freeing system resources
                     FormsMenuList.usersRegistryForm.Dispose();
                     #endregion
@@ -251,6 +298,9 @@ namespace GeneralStoreInventoryManagementSystem
                     // Summon Product Browser Form
                     FormsMenuList.inventorySearchForm = new InventorySearchForm();
                     FormsMenuList.inventorySearchForm.Show();
+
+                    if (userInformationForm != null)
+                        userInformationForm.Dispose(); // Closing Child
 
                     // Closing form while freeing system resources
                     FormsMenuList.usersRegistryForm.Dispose();
@@ -268,6 +318,9 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.registerNewProduct = new RegisterNewProductForm();
                         FormsMenuList.registerNewProduct.Show();
 
+                        if (userInformationForm != null)
+                            userInformationForm.Dispose(); // Closing Child
+
                         // Closing form while freeing system resources
                         FormsMenuList.usersRegistryForm.Dispose();
                     }
@@ -284,6 +337,9 @@ namespace GeneralStoreInventoryManagementSystem
                         // Summon Restock Products Form
                         FormsMenuList.restockProductsFrom = new RestockProductsForm();
                         FormsMenuList.restockProductsFrom.Show();
+
+                        if (userInformationForm != null)
+                            userInformationForm.Dispose(); // Closing Child
 
                         // Closing form while freeing system resources
                         FormsMenuList.usersRegistryForm.Dispose();
@@ -324,6 +380,9 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
                         FormsMenuList.registerNewUserForm.Show();
 
+                        if (userInformationForm != null)
+                            userInformationForm.Dispose(); // Closing Child
+
                         // Closing form while freeing system resources
                         FormsMenuList.usersRegistryForm.Dispose();
                     }
@@ -340,6 +399,9 @@ namespace GeneralStoreInventoryManagementSystem
                         // Summon Graphs Analytics Form
                         FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
                         FormsMenuList.graphsAnaliticsForm.Show();
+
+                        if (userInformationForm != null)
+                            userInformationForm.Dispose(); // Closing Child
 
                         // Closing form while freeing system resources
                         FormsMenuList.usersRegistryForm.Dispose();
@@ -358,6 +420,9 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
                         FormsMenuList.reportsAnalyticsForm.Show();
 
+                        if (userInformationForm != null)
+                            userInformationForm.Dispose(); // Closing Child
+
                         // Closing form while freeing system resources
                         FormsMenuList.usersRegistryForm.Dispose();
                     }
@@ -374,6 +439,9 @@ namespace GeneralStoreInventoryManagementSystem
                         // Summon Activity Logs Form
                         FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
                         FormsMenuList.activitiesLogForm.Show();
+
+                        if (userInformationForm != null)
+                            userInformationForm.Dispose(); // Closing Child
 
                         // Closing form while freeing system resources
                         FormsMenuList.usersRegistryForm.Dispose();
@@ -392,6 +460,9 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.errorsLogForm = new ErrorsLogForm();
                         FormsMenuList.errorsLogForm.Show();
 
+                        if (userInformationForm != null)
+                            userInformationForm.Dispose(); // Closing Child
+
                         // Closing form while freeing system resources
                         FormsMenuList.usersRegistryForm.Dispose();
                     }
@@ -405,6 +476,9 @@ namespace GeneralStoreInventoryManagementSystem
                     // Summon View Cart Form
                     FormsMenuList.viewCartForm = new ViewCartForm();
                     FormsMenuList.viewCartForm.Show();
+
+                    if (userInformationForm != null)
+                        userInformationForm.Dispose(); // Closing Child
 
                     // Closing form while freeing system resources
                     FormsMenuList.usersRegistryForm.Dispose();
@@ -433,7 +507,10 @@ namespace GeneralStoreInventoryManagementSystem
         #region Button Click Logic
         private void ProfileButton_Click(object sender, EventArgs e)
         {
-            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(SystemResources.UserInSession.Username);
+            if (userInformationForm != null)
+                userInformationForm.Dispose();
+
+            userInformationForm = new UserInformationTemplateForm(SystemResources.UserInSession.Username);
             userInformationForm.Show();
         }
         #endregion
@@ -441,7 +518,10 @@ namespace GeneralStoreInventoryManagementSystem
         #region Cell Double Click Logic
         private void UserList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            UserInformationTemplateForm userInformationForm = new UserInformationTemplateForm(userList.SelectedCells[0].Value.ToString());
+            if (userInformationForm != null)
+                userInformationForm.Dispose();
+
+            userInformationForm = new UserInformationTemplateForm(userList.SelectedCells[0].Value.ToString());
             userInformationForm.Show();
         }
         #endregion
