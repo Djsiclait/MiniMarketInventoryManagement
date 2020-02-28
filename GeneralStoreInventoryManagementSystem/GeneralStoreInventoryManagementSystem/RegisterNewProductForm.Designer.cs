@@ -125,6 +125,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // salesMenuOption
             // 

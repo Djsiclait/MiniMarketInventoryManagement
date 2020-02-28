@@ -105,6 +105,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewUserForm_KeyDown);
             // 
             // salesMenuOption
             // 
@@ -119,7 +120,7 @@
             // 
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
             this.viewSalesMenuSubOption.ShortcutKeyDisplayString = "F1";
-            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(151, 22);
             this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
@@ -127,7 +128,7 @@
             // 
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
             this.makeSaleMenuSubOption.ShortcutKeyDisplayString = "F2";
-            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(151, 22);
             this.makeSaleMenuSubOption.Text = "Make Sales";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
@@ -179,7 +180,7 @@
             // 
             this.viewUsersMenuSubOption.Name = "viewUsersMenuSubOption";
             this.viewUsersMenuSubOption.ShortcutKeyDisplayString = "F6";
-            this.viewUsersMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.viewUsersMenuSubOption.Size = new System.Drawing.Size(149, 22);
             this.viewUsersMenuSubOption.Text = "View Users";
             this.viewUsersMenuSubOption.Click += new System.EventHandler(this.ViewUsersMenuSubOption_Click);
             // 
@@ -189,14 +190,14 @@
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(149, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
             // 
             this.viewGraphsOption.Name = "viewGraphsOption";
             this.viewGraphsOption.ShortcutKeyDisplayString = "F8";
-            this.viewGraphsOption.Size = new System.Drawing.Size(180, 22);
+            this.viewGraphsOption.Size = new System.Drawing.Size(161, 22);
             this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
@@ -204,7 +205,7 @@
             // 
             this.viewReportsOption.Name = "viewReportsOption";
             this.viewReportsOption.ShortcutKeyDisplayString = "F9";
-            this.viewReportsOption.Size = new System.Drawing.Size(180, 22);
+            this.viewReportsOption.Size = new System.Drawing.Size(161, 22);
             this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
@@ -214,7 +215,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(149, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
