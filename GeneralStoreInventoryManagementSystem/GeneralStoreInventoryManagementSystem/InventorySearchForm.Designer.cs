@@ -104,6 +104,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventoryBrowserForm_KeyDown);
             // 
             // salesMenuOption
             // 
@@ -118,7 +119,7 @@
             // 
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
             this.viewSalesMenuSubOption.ShortcutKeyDisplayString = "F1";
-            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(151, 22);
             this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
@@ -126,7 +127,7 @@
             // 
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
             this.makeSaleMenuSubOption.ShortcutKeyDisplayString = "F2";
-            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(151, 22);
             this.makeSaleMenuSubOption.Text = "Make Sales";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
@@ -171,7 +172,7 @@
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
@@ -196,7 +197,7 @@
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
@@ -221,7 +222,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(148, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
