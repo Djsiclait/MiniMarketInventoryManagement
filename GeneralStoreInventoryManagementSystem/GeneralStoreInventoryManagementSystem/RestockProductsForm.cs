@@ -207,6 +207,19 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
+        #region Added Ammount Numeric Up Down Key Down Logic
+        private void AddedAmmountNumericUpDown_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                AttempRestockProcess();
+
+        }
+        #endregion
+
+        #region  Key Down Shortcut Logic
+
+        #endregion
+
         #region Text Changed Logic
         private void InventorySearchBox_TextChanged(object sender, EventArgs e)
         {
@@ -218,7 +231,23 @@ namespace GeneralStoreInventoryManagementSystem
         #region Click Logic
         private void RestockButton_Click(object sender, EventArgs e)
         {
-            String message = ProductInformationManager.updateRegisteredProductInformationForRestock(productList.SelectedCells[0].Value.ToString(), (int)addedAmmountNumericUpDown.Value);
+            AttempRestockProcess();
+        }
+
+        private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateDisplayLabels();
+            // TODO: introduce inventory chart for the product
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        /// <summary>
+        /// Function that requests a product restock
+        /// </summary>
+        private void AttempRestockProcess()
+        {
+            String message = ProductInformationManager.UpdateRegisteredProductInformationForRestock(productList.SelectedCells[0].Value.ToString(), (int)addedAmmountNumericUpDown.Value);
 
             if (message == "SUCCESS")
             {
@@ -233,14 +262,6 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("FATAL ERROR");
         }
 
-        private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            UpdateDisplayLabels();
-            // TODO: introduce inventory chart for the product
-        }
-        #endregion
-
-        #region Auxiliary Functions
         /// <summary>
         /// Function that calculates the unit contribution margin ratio of the product using the unit cost and price
         /// UPM = (UP - UC) / UP * 100

@@ -448,7 +448,7 @@ namespace InventoryManagementDataLayer
             /// <param name="addedAmount">Amount to be added to the current stock of products</param>
             /// <param name="username">Username of user managing the restock</param>
             /// <returns>A message to confirm or deny the restock process</returns>
-            public static String updateRegisteredProductDataForRestock(String productId, int addedAmount, String username)
+            public static String UpdateRegisteredProductDataForRestock(String productId, int addedAmount, String username)
             {
                 SqlCommand cmd = new SqlCommand(
                         "SP_Restock_Registered_Product", // stored procedure to update the user's last login 

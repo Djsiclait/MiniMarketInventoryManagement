@@ -564,6 +564,7 @@
             0,
             0,
             0});
+            this.addedAmmountNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddedAmmountNumericUpDown_KeyDown);
             // 
             // restockButton
             // 
