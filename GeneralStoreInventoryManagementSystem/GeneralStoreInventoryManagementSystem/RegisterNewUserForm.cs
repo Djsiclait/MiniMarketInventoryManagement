@@ -18,6 +18,8 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class RegisterNewUserForm : Form
     {
+        int assistance = 0;
+
         public RegisterNewUserForm()
         {
             InitializeComponent();
@@ -312,6 +314,22 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F7:
 
                     // The user is already viewing the desired page
+                    if (assistance < 3)
+                        assistance++;
+                    else
+                        MessageBox.Show("\t---Menu Shortcuts---\n\n" +
+                            "View Sales\t\t(F1)\n" +
+                            "Make Sales\t(F2)\n" +
+                            "Product Browser\t(F3)\n" +
+                            "Register Product\t(F4)\n" +
+                            "Restock Products\t(F5)\n" +
+                            "View Users\t(F6)\n" +
+                            "Register New User\t(You are here!)\n" +
+                            "View Graphs\t(F8)\n" +
+                            "View Reports\t(F9)\n" +
+                            "View Activities Log\t(F10)\n" +
+                            "View Errors Log\t(F11)\n" +
+                            "View Cart\t\t(F12)");
 
                     break;
 

@@ -15,6 +15,8 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class GraphsAnalyticsForm : Form
     {
+        int assistance = 0;
+
         public GraphsAnalyticsForm()
         {
             InitializeComponent();
@@ -320,6 +322,22 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F8:
 
                     // The user is already viewing the desired page
+                    if (assistance < 3)
+                        assistance++;
+                    else
+                        MessageBox.Show("\t---Menu Shortcuts---\n\n" +
+                            "View Sales\t\t(F1)\n" +
+                            "Make Sales\t(F2)\n" +
+                            "Product Browser\t(F3)\n" +
+                            "Register Product\t(F4)\n" +
+                            "Restock Products\t(F5)\n" +
+                            "View Users\t(F6)\n" +
+                            "Register New User\t(F7)\n" +
+                            "View Graphs\t(You are here!)\n" +
+                            "View Reports\t(F9)\n" +
+                            "View Activities Log\t(F10)\n" +
+                            "View Errors Log\t(F11)\n" +
+                            "View Cart\t\t(F12)");
 
                     break;
 
