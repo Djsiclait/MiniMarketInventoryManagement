@@ -221,6 +221,9 @@
     <EmbeddedResource Include="UserInformationTemplateForm.resx">
       <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserSessionActivitiesReportTemplateForm.resx">
+      <DependentUpon>UserSessionActivitiesReportTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsersRegistryForm.resx">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>
     </EmbeddedResource>

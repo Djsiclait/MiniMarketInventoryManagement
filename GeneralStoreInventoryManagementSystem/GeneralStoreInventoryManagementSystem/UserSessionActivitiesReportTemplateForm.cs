@@ -16,5 +16,10 @@ namespace GeneralStoreInventoryManagementSystem
         {
             InitializeComponent();
         }
+
+        private void UserSessionActivitiesReportTemplateForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
