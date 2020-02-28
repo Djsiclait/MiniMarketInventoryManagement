@@ -286,7 +286,7 @@
             this.keyTextBox.Name = "keyTextBox";
             this.keyTextBox.Size = new System.Drawing.Size(206, 20);
             this.keyTextBox.TabIndex = 12;
-            this.keyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.keyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // nameLabel
             // 
@@ -304,7 +304,7 @@
             this.nameTextBox.Size = new System.Drawing.Size(206, 20);
             this.nameTextBox.TabIndex = 14;
             this.nameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
-            this.nameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.nameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // brandLabel
             // 
@@ -330,7 +330,7 @@
             this.brandSearchBox.Size = new System.Drawing.Size(186, 20);
             this.brandSearchBox.TabIndex = 17;
             this.brandSearchBox.TextChanged += new System.EventHandler(this.BrandSearchBox_TextChanged);
-            this.brandSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.brandSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // addNewBrandButton
             // 
@@ -367,7 +367,7 @@
             this.supplierSearchBox.Size = new System.Drawing.Size(176, 20);
             this.supplierSearchBox.TabIndex = 21;
             this.supplierSearchBox.TextChanged += new System.EventHandler(this.SupplierSearchBox_TextChanged);
-            this.supplierSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.supplierSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // categoryLabel
             // 
@@ -385,7 +385,7 @@
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(206, 21);
             this.categoryComboBox.TabIndex = 23;
-            this.categoryComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.categoryComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // typeLabel
             // 
@@ -403,7 +403,7 @@
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(206, 21);
             this.typeComboBox.TabIndex = 25;
-            this.typeComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.typeComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // addNewSupplierButton
             // 
@@ -432,7 +432,7 @@
             this.unitTextBox.Size = new System.Drawing.Size(136, 20);
             this.unitTextBox.TabIndex = 28;
             this.unitTextBox.TextChanged += new System.EventHandler(this.UnitTextBox_TextChanged);
-            this.unitTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.unitTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // costLabel
             // 
@@ -467,7 +467,7 @@
             0,
             131072});
             this.costNumericUpDown.ValueChanged += new System.EventHandler(this.CostNumericUpDown_ValueChanged);
-            this.costNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.costNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // priceLabel
             // 
@@ -502,7 +502,7 @@
             0,
             131072});
             this.priceNumericUpDown.ValueChanged += new System.EventHandler(this.PriceNumericUpDown_ValueChanged);
-            this.priceNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.priceNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // quantityLabel
             // 
@@ -541,7 +541,7 @@
             0,
             0,
             0});
-            this.quantityNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.quantityNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // minimumLabel
             // 
@@ -581,7 +581,7 @@
             0,
             0});
             this.minimumNumericUpDown.ValueChanged += new System.EventHandler(this.MinimumNumericUpDown_ValueChanged);
-            this.minimumNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.minimumNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // maximumLabel
             // 
@@ -620,7 +620,7 @@
             0,
             0,
             0});
-            this.maximumNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.maximumNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // createButton
             // 
@@ -698,7 +698,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New Product";
             this.Load += new System.EventHandler(this.RegisterNewProductForm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FieldBoxes_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).EndInit();

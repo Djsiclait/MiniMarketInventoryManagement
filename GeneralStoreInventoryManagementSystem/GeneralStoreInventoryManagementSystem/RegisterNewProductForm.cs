@@ -210,8 +210,8 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
-        #region Key Down Logic
-        private void FieldBoxes_KeyDown(object sender, KeyEventArgs e)
+        #region Key Down Shortcut Logic
+        private void RegisterNewProductForm_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
