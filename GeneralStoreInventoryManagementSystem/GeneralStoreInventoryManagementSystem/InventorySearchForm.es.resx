@@ -124,29 +124,23 @@
   <data name="browserFormTitle.Text" xml:space="preserve">
     <value>Navegador de Inventario</value>
   </data>
-  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
-  </data>
-  <data name="salesMenuOption.Text" xml:space="preserve">
-    <value>Ventas</value>
-  </data>
   <data name="viewSalesMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>146, 22</value>
   </data>
   <data name="viewSalesMenuSubOption.Text" xml:space="preserve">
     <value>Ver Ventas</value>
   </data>
   <data name="makeSaleMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>146, 22</value>
   </data>
   <data name="makeSaleMenuSubOption.Text" xml:space="preserve">
     <value>Realizar Venta</value>
   </data>
-  <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
+  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
   </data>
-  <data name="productsMenuOption.Text" xml:space="preserve">
-    <value>Productos</value>
+  <data name="salesMenuOption.Text" xml:space="preserve">
+    <value>Ventas</value>
   </data>
   <data name="registerNewProductMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 22</value>
@@ -160,11 +154,11 @@
   <data name="restockProductsMenuSubOption.Text" xml:space="preserve">
     <value>Reabastecer Producto</value>
   </data>
-  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
+  <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
   </data>
-  <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
-    <value>Gestionar Usuarios</value>
+  <data name="productsMenuOption.Text" xml:space="preserve">
+    <value>Productos</value>
   </data>
   <data name="viewUsersOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 22</value>
@@ -178,41 +172,47 @@
   <data name="registerNewUserOption.Text" xml:space="preserve">
     <value>Registrar Nuevo Usuario</value>
   </data>
+  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
+    <value>Gestionar Usuarios</value>
+  </data>
+  <data name="viewGraphsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 22</value>
+  </data>
+  <data name="viewGraphsOption.Text" xml:space="preserve">
+    <value>Ver Gráficos</value>
+  </data>
+  <data name="viewReportsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 22</value>
+  </data>
+  <data name="viewReportsOption.Text" xml:space="preserve">
+    <value>Ver Reportes</value>
+  </data>
   <data name="statisticsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 22</value>
   </data>
   <data name="statisticsMenuSubOption.Text" xml:space="preserve">
     <value>Estadisticas</value>
   </data>
-  <data name="viewGraphsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 22</value>
   </data>
-  <data name="viewGraphsOption.Text" xml:space="preserve">
-    <value>Ver Gráficos</value>
+  <data name="viewActivityLogsOption.Text" xml:space="preserve">
+    <value>Ver Registros de Actividades</value>
   </data>
-  <data name="viewReportsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+  <data name="viewErrorLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 22</value>
   </data>
-  <data name="viewReportsOption.Text" xml:space="preserve">
-    <value>Ver Reportes</value>
+  <data name="viewErrorLogsOption.Text" xml:space="preserve">
+    <value>Ver Registros de Errores</value>
   </data>
   <data name="logsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 22</value>
   </data>
   <data name="logsMenuSubOption.Text" xml:space="preserve">
     <value>Registros</value>
-  </data>
-  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 22</value>
-  </data>
-  <data name="viewActivityLogsOption.Text" xml:space="preserve">
-    <value>Ver Registros de Actividades</value>
-  </data>
-  <data name="viewErrorLogsOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 22</value>
-  </data>
-  <data name="viewErrorLogsOption.Text" xml:space="preserve">
-    <value>Ver Registros de Errores</value>
   </data>
   <data name="logOutLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>836, 9</value>
