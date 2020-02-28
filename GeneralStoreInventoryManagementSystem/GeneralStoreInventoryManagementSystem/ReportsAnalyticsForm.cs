@@ -16,6 +16,8 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class ReportsAnalyticsForm : Form
     {
+        UserSessionActivitiesReportTemplateForm child;
+
         int assistance = 0;
 
         public ReportsAnalyticsForm()
@@ -430,6 +432,17 @@ namespace GeneralStoreInventoryManagementSystem
         private void oldestDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             UpdateTimesheetDataGrid();
+        }
+        #endregion
+
+        #region Cell Double Click Logic
+        private void TimeSheetDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (child != null)
+                child.Dispose();
+
+            child = new UserSessionActivitiesReportTemplateForm(timeSheetDataGridView.SelectedCells[0].Value.ToString());
+            child.Show();
         }
         #endregion
 

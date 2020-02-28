@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 // Custom Library
 using InventoryManagementEntityLayer.Timesheet;
+using InventoryManagementEntityLayer.Session;
 
 namespace InventoryManagementDataLayer
 {
@@ -55,7 +56,50 @@ namespace InventoryManagementDataLayer
 
                 return timesheets;
             }
+            #endregion
 
+            #region Session Log Logic
+            /// <summary>
+            /// This function requests the session log data of a chosen user, specifying a time frame
+            /// </summary>
+            /// <param name="username">Username of desired user</param>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <returns>A list of the user's session log</returns>
+            public static List<SessionLog> ConsultUserSessionLogData(String username, DateTime oldestDate, DateTime newestDate)
+            {
+                List<SessionLog> sessionLogs = new List<SessionLog>();
+
+                SqlCommand cmd = new SqlCommand(
+                        "SP_Generate_User_Session_Log",
+                        DatabaseManager.ActiveSqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                #region Parameters
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.Add("@newest_date", SqlDbType.DateTime).Value = newestDate;
+                cmd.Parameters.Add("@oldest_date", SqlDbType.DateTime).Value = oldestDate;
+                #endregion
+
+                SqlDataReader sqlDataReader;
+                sqlDataReader = cmd.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    SessionLog session = new SessionLog
+                    {
+                        LogIn = DateTime.Parse(sqlDataReader["Log In"].ToString()),
+                        LogOut = DateTime.Parse(sqlDataReader["Log Out"].ToString()),
+                        TotalSessionMinutes = FormatToDecimal(sqlDataReader["Minutes"].ToString())
+                    };
+
+                    sessionLogs.Add(session);
+                }
+
+                DatabaseManager.DisconnectToDatabase();
+
+                return sessionLogs;
+            }
             #endregion
 
             #region Auxiliary Functions
