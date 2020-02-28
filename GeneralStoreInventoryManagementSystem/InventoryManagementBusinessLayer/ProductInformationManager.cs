@@ -197,9 +197,9 @@ namespace InventoryManagementBusinessLayer
             /// <param name="productId">Identification number of product to restock</param>
             /// <param name="addedAmount">Amount to be added to the current stock of products</param>
             /// <returns>A message to confirm or deny the restock process</returns>
-            public static String updateRegisteredProductInformationForRestock(String productId, int addedAmount)
+            public static String UpdateRegisteredProductInformationForRestock(String productId, int addedAmount)
             {
-                String message = ProductDataManager.updateRegisteredProductDataForRestock(productId, addedAmount, SystemResources.UserInSession.Username);
+                String message = ProductDataManager.UpdateRegisteredProductDataForRestock(productId, addedAmount, SystemResources.UserInSession.Username);
 
                 if (message == "Product has been restocked successfully!")
                 {

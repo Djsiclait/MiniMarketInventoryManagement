@@ -15,6 +15,8 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class GraphsAnalyticsForm : Form
     {
+        int assistance = 0;
+
         public GraphsAnalyticsForm()
         {
             InitializeComponent();
@@ -202,6 +204,211 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #endregion
+
+        #region Key Down Shortcut Logic
+        // POSSIBLY SUBJECT TO CHANGE DUE TO FUTURE DESIGNS
+        private void GraphsAnalyticsForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F1:
+
+                    #region View Sales
+                    // Summon Sales Registry Form
+                    FormsMenuList.salesRecordForm = new SalesRecordForm();
+                    FormsMenuList.salesRecordForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F2:
+
+                    #region Make Sales
+                    // Summon Register New Sale Form
+                    FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
+                    FormsMenuList.registerNewSaleForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F3:
+
+                    #region Product Browser
+                    // Summon Product Browser Form
+                    FormsMenuList.inventorySearchForm = new InventorySearchForm();
+                    FormsMenuList.inventorySearchForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F4:
+
+                    #region Register New User
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New Product Form
+                        FormsMenuList.registerNewProduct = new RegisterNewProductForm();
+                        FormsMenuList.registerNewProduct.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F5:
+
+                    #region Restock Product
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Restock Products Form
+                        FormsMenuList.restockProductsFrom = new RestockProductsForm();
+                        FormsMenuList.restockProductsFrom.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F6:
+
+                    #region View Users
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Users Registry Form
+                        FormsMenuList.usersRegistryForm = new UsersRegistryForm();
+                        FormsMenuList.usersRegistryForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F7:
+
+                    #region Register New User
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New User Form
+                        FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
+                        FormsMenuList.registerNewUserForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F8:
+
+                    // The user is already viewing the desired page
+                    if (assistance < 3)
+                        assistance++;
+                    else
+                        MessageBox.Show("\t---Menu Shortcuts---\n\n" +
+                            "View Sales\t\t(F1)\n" +
+                            "Make Sales\t(F2)\n" +
+                            "Product Browser\t(F3)\n" +
+                            "Register Product\t(F4)\n" +
+                            "Restock Products\t(F5)\n" +
+                            "View Users\t(F6)\n" +
+                            "Register New User\t(F7)\n" +
+                            "View Graphs\t(You are here!)\n" +
+                            "View Reports\t(F9)\n" +
+                            "View Activities Log\t(F10)\n" +
+                            "View Errors Log\t(F11)\n" +
+                            "View Cart\t\t(F12)");
+
+                    break;
+
+                case Keys.F9:
+
+                    #region View Reports
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Reports Analytics Form
+                        FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
+                        FormsMenuList.reportsAnalyticsForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F10:
+
+                    #region View Activities Log
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Activity Logs Form
+                        FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
+                        FormsMenuList.activitiesLogForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F11:
+
+                    #region View Errors Log
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Error Logs Form
+                        FormsMenuList.errorsLogForm = new ErrorsLogForm();
+                        FormsMenuList.errorsLogForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.graphsAnaliticsForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F12:
+
+                    #region View Cart
+                    // Summon View Cart Form
+                    FormsMenuList.viewCartForm = new ViewCartForm();
+                    FormsMenuList.viewCartForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.graphsAnaliticsForm.Dispose();
+                    #endregion
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
         #endregion
     }
 }

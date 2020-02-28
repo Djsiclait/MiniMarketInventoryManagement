@@ -61,6 +61,7 @@
             resources.ApplyResources(this.inventorySearchBox, "inventorySearchBox");
             this.inventorySearchBox.Name = "inventorySearchBox";
             this.inventorySearchBox.TextChanged += new System.EventHandler(this.InventorySearchBox_TextChanged);
+            this.inventorySearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventoryBrowserForm_KeyDown);
             // 
             // browserFormTitle
             // 
@@ -81,6 +82,7 @@
             this.productList.RowHeadersVisible = false;
             this.productList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductList_CellDoubleClick);
+            this.productList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventoryBrowserForm_KeyDown);
             // 
             // menuStrip1
             // 
@@ -91,6 +93,10 @@
             this.productsMenuOption,
             this.adminMenuOption});
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventoryBrowserForm_KeyDown);
             // 
             // salesMenuOption
             // 
@@ -104,12 +110,18 @@
             // 
             resources.ApplyResources(this.viewSalesMenuSubOption, "viewSalesMenuSubOption");
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
+            this.viewSalesMenuSubOption.ShortcutKeyDisplayString = "F1";
+            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(151, 22);
+            this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
             // makeSaleMenuSubOption
             // 
             resources.ApplyResources(this.makeSaleMenuSubOption, "makeSaleMenuSubOption");
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
+            this.makeSaleMenuSubOption.ShortcutKeyDisplayString = "F2";
+            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(151, 22);
+            this.makeSaleMenuSubOption.Text = "Make Sales";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
             // productsMenuOption
@@ -124,12 +136,18 @@
             // 
             resources.ApplyResources(this.registerNewProductMenuSubOption, "registerNewProductMenuSubOption");
             this.registerNewProductMenuSubOption.Name = "registerNewProductMenuSubOption";
+            this.registerNewProductMenuSubOption.ShortcutKeyDisplayString = "F4";
+            this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(207, 22);
+            this.registerNewProductMenuSubOption.Text = "Register New Product";
             this.registerNewProductMenuSubOption.Click += new System.EventHandler(this.RegisterNewProductMenuSubOption_Click);
             // 
             // restockProductsMenuSubOption
             // 
             resources.ApplyResources(this.restockProductsMenuSubOption, "restockProductsMenuSubOption");
             this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
+            this.restockProductsMenuSubOption.ShortcutKeyDisplayString = "F5";
+            this.restockProductsMenuSubOption.Size = new System.Drawing.Size(207, 22);
+            this.restockProductsMenuSubOption.Text = "Restock Products";
             this.restockProductsMenuSubOption.Click += new System.EventHandler(this.RestockProductsMenuSubOption_Click);
             // 
             // adminMenuOption
@@ -153,12 +171,18 @@
             // 
             resources.ApplyResources(this.viewUsersOption, "viewUsersOption");
             this.viewUsersOption.Name = "viewUsersOption";
+            this.viewUsersOption.ShortcutKeyDisplayString = "F6";
+            this.viewUsersOption.Size = new System.Drawing.Size(188, 22);
+            this.viewUsersOption.Text = "View Users";
             this.viewUsersOption.Click += new System.EventHandler(this.ViewUsersOption_Click);
             // 
             // registerNewUserOption
             // 
             resources.ApplyResources(this.registerNewUserOption, "registerNewUserOption");
             this.registerNewUserOption.Name = "registerNewUserOption";
+            this.registerNewUserOption.ShortcutKeyDisplayString = "F7";
+            this.registerNewUserOption.Size = new System.Drawing.Size(188, 22);
+            this.registerNewUserOption.Text = "Register New User";
             this.registerNewUserOption.Click += new System.EventHandler(this.RegisterNewUserOption_Click);
             // 
             // statisticsMenuSubOption
@@ -173,12 +197,18 @@
             // 
             resources.ApplyResources(this.viewGraphsOption, "viewGraphsOption");
             this.viewGraphsOption.Name = "viewGraphsOption";
+            this.viewGraphsOption.ShortcutKeyDisplayString = "F8";
+            this.viewGraphsOption.Size = new System.Drawing.Size(161, 22);
+            this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
             resources.ApplyResources(this.viewReportsOption, "viewReportsOption");
             this.viewReportsOption.Name = "viewReportsOption";
+            this.viewReportsOption.ShortcutKeyDisplayString = "F9";
+            this.viewReportsOption.Size = new System.Drawing.Size(161, 22);
+            this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
             // logsMenuSubOption
@@ -193,12 +223,18 @@
             // 
             resources.ApplyResources(this.viewActivityLogsOption, "viewActivityLogsOption");
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
+            this.viewActivityLogsOption.ShortcutKeyDisplayString = "F10";
+            this.viewActivityLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewActivityLogsOption.Text = "View Activities Log";
             this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
             resources.ApplyResources(this.viewErrorLogsOption, "viewErrorLogsOption");
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
+            this.viewErrorLogsOption.ShortcutKeyDisplayString = "F11";
+            this.viewErrorLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewErrorLogsOption.Text = "View Errors Log";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // logOutLabel
@@ -240,6 +276,7 @@
             this.MaximizeBox = false;
             this.Name = "InventorySearchForm";
             this.Load += new System.EventHandler(this.InventorySearchForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InventoryBrowserForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.productList)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

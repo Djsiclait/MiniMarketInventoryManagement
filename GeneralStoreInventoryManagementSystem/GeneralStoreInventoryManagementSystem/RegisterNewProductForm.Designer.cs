@@ -115,6 +115,10 @@
             this.productsMenuOption,
             this.adminMenuOption});
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // salesMenuOption
             // 
@@ -128,12 +132,18 @@
             // 
             resources.ApplyResources(this.viewSalesMenuSubOption, "viewSalesMenuSubOption");
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
+            this.viewSalesMenuSubOption.ShortcutKeyDisplayString = "F1";
+            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(151, 22);
+            this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
             // makeSaleMenuSubOption
             // 
             resources.ApplyResources(this.makeSaleMenuSubOption, "makeSaleMenuSubOption");
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
+            this.makeSaleMenuSubOption.ShortcutKeyDisplayString = "F2";
+            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(151, 22);
+            this.makeSaleMenuSubOption.Text = "Make Sales";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
             // productsMenuOption
@@ -148,12 +158,18 @@
             // 
             resources.ApplyResources(this.browseProductsMenuSubOption, "browseProductsMenuSubOption");
             this.browseProductsMenuSubOption.Name = "browseProductsMenuSubOption";
+            this.browseProductsMenuSubOption.ShortcutKeyDisplayString = "F3";
+            this.browseProductsMenuSubOption.Size = new System.Drawing.Size(184, 22);
+            this.browseProductsMenuSubOption.Text = "Product Browser";
             this.browseProductsMenuSubOption.Click += new System.EventHandler(this.BrowseProductsMenuSubOption_Click);
             // 
             // restockProductsMenuSubOption
             // 
             resources.ApplyResources(this.restockProductsMenuSubOption, "restockProductsMenuSubOption");
             this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
+            this.restockProductsMenuSubOption.ShortcutKeyDisplayString = "F5";
+            this.restockProductsMenuSubOption.Size = new System.Drawing.Size(184, 22);
+            this.restockProductsMenuSubOption.Text = "Restock Products";
             this.restockProductsMenuSubOption.Click += new System.EventHandler(this.RestockProductsMenuSubOption_Click);
             // 
             // adminMenuOption
@@ -177,12 +193,18 @@
             // 
             resources.ApplyResources(this.viewUsersOption, "viewUsersOption");
             this.viewUsersOption.Name = "viewUsersOption";
+            this.viewUsersOption.ShortcutKeyDisplayString = "F6";
+            this.viewUsersOption.Size = new System.Drawing.Size(188, 22);
+            this.viewUsersOption.Text = "View Users";
             this.viewUsersOption.Click += new System.EventHandler(this.ViewUsersOption_Click);
             // 
             // registerNewUserOption
             // 
             resources.ApplyResources(this.registerNewUserOption, "registerNewUserOption");
             this.registerNewUserOption.Name = "registerNewUserOption";
+            this.registerNewUserOption.ShortcutKeyDisplayString = "F7";
+            this.registerNewUserOption.Size = new System.Drawing.Size(188, 22);
+            this.registerNewUserOption.Text = "Register New User";
             this.registerNewUserOption.Click += new System.EventHandler(this.RegisterNewUserOption_Click);
             // 
             // statisticsMenuSubOption
@@ -197,12 +219,18 @@
             // 
             resources.ApplyResources(this.viewGraphsOption, "viewGraphsOption");
             this.viewGraphsOption.Name = "viewGraphsOption";
+            this.viewGraphsOption.ShortcutKeyDisplayString = "F8";
+            this.viewGraphsOption.Size = new System.Drawing.Size(161, 22);
+            this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
             resources.ApplyResources(this.viewReportsOption, "viewReportsOption");
             this.viewReportsOption.Name = "viewReportsOption";
+            this.viewReportsOption.ShortcutKeyDisplayString = "F9";
+            this.viewReportsOption.Size = new System.Drawing.Size(161, 22);
+            this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
             // logsMenuSubOption
@@ -217,12 +245,18 @@
             // 
             resources.ApplyResources(this.viewActivityLogsOption, "viewActivityLogsOption");
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
+            this.viewActivityLogsOption.ShortcutKeyDisplayString = "F10";
+            this.viewActivityLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewActivityLogsOption.Text = "View Activities Log";
             this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
             resources.ApplyResources(this.viewErrorLogsOption, "viewErrorLogsOption");
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
+            this.viewErrorLogsOption.ShortcutKeyDisplayString = "F11";
+            this.viewErrorLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewErrorLogsOption.Text = "View Errors Log";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // registerNewProductTitleLabel
@@ -239,6 +273,9 @@
             // 
             resources.ApplyResources(this.keyTextBox, "keyTextBox");
             this.keyTextBox.Name = "keyTextBox";
+            this.keyTextBox.Size = new System.Drawing.Size(206, 20);
+            this.keyTextBox.TabIndex = 12;
+            this.keyTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // nameLabel
             // 
@@ -250,6 +287,7 @@
             resources.ApplyResources(this.nameTextBox, "nameTextBox");
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
+            this.nameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // brandLabel
             // 
@@ -267,6 +305,7 @@
             resources.ApplyResources(this.brandSearchBox, "brandSearchBox");
             this.brandSearchBox.Name = "brandSearchBox";
             this.brandSearchBox.TextChanged += new System.EventHandler(this.BrandSearchBox_TextChanged);
+            this.brandSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // addNewBrandButton
             // 
@@ -291,6 +330,7 @@
             resources.ApplyResources(this.supplierSearchBox, "supplierSearchBox");
             this.supplierSearchBox.Name = "supplierSearchBox";
             this.supplierSearchBox.TextChanged += new System.EventHandler(this.SupplierSearchBox_TextChanged);
+            this.supplierSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // categoryLabel
             // 
@@ -302,6 +342,9 @@
             resources.ApplyResources(this.categoryComboBox, "categoryComboBox");
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(206, 21);
+            this.categoryComboBox.TabIndex = 23;
+            this.categoryComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // typeLabel
             // 
@@ -313,6 +356,9 @@
             resources.ApplyResources(this.typeComboBox, "typeComboBox");
             this.typeComboBox.FormattingEnabled = true;
             this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(206, 21);
+            this.typeComboBox.TabIndex = 25;
+            this.typeComboBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // addNewSupplierButton
             // 
@@ -331,6 +377,7 @@
             resources.ApplyResources(this.unitTextBox, "unitTextBox");
             this.unitTextBox.Name = "unitTextBox";
             this.unitTextBox.TextChanged += new System.EventHandler(this.UnitTextBox_TextChanged);
+            this.unitTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // costLabel
             // 
@@ -358,6 +405,7 @@
             0,
             131072});
             this.costNumericUpDown.ValueChanged += new System.EventHandler(this.CostNumericUpDown_ValueChanged);
+            this.costNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // priceLabel
             // 
@@ -385,6 +433,7 @@
             0,
             131072});
             this.priceNumericUpDown.ValueChanged += new System.EventHandler(this.PriceNumericUpDown_ValueChanged);
+            this.priceNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // quantityLabel
             // 
@@ -416,6 +465,7 @@
             0,
             0,
             0});
+            this.quantityNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // minimumLabel
             // 
@@ -448,6 +498,7 @@
             0,
             0});
             this.minimumNumericUpDown.ValueChanged += new System.EventHandler(this.MinimumNumericUpDown_ValueChanged);
+            this.minimumNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // maximumLabel
             // 
@@ -479,6 +530,7 @@
             0,
             0,
             0});
+            this.maximumNumericUpDown.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             // 
             // createButton
             // 
@@ -542,6 +594,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "RegisterNewProductForm";
             this.Load += new System.EventHandler(this.RegisterNewProductForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewProductForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.costNumericUpDown)).EndInit();
