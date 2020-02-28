@@ -98,6 +98,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsersRegistryForm_KeyDown);
             // 
             // salesMenuOption
             // 
@@ -111,15 +112,17 @@
             // viewSalesMenuSubOption
             // 
             this.viewSalesMenuSubOption.Name = "viewSalesMenuSubOption";
-            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(128, 22);
+            this.viewSalesMenuSubOption.ShortcutKeyDisplayString = "F1";
+            this.viewSalesMenuSubOption.Size = new System.Drawing.Size(180, 22);
             this.viewSalesMenuSubOption.Text = "View Sales";
             this.viewSalesMenuSubOption.Click += new System.EventHandler(this.ViewSalesMenuSubOption_Click);
             // 
             // makeSaleMenuSubOption
             // 
             this.makeSaleMenuSubOption.Name = "makeSaleMenuSubOption";
-            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(128, 22);
-            this.makeSaleMenuSubOption.Text = "Make Sale";
+            this.makeSaleMenuSubOption.ShortcutKeyDisplayString = "F2";
+            this.makeSaleMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.makeSaleMenuSubOption.Text = "Make Sales";
             this.makeSaleMenuSubOption.Click += new System.EventHandler(this.MakeSaleMenuSubOption_Click);
             // 
             // productsMenuOption
@@ -135,21 +138,24 @@
             // browseProductsMenuSubOption
             // 
             this.browseProductsMenuSubOption.Name = "browseProductsMenuSubOption";
-            this.browseProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.browseProductsMenuSubOption.Text = "Browse Products";
+            this.browseProductsMenuSubOption.ShortcutKeyDisplayString = "F3";
+            this.browseProductsMenuSubOption.Size = new System.Drawing.Size(207, 22);
+            this.browseProductsMenuSubOption.Text = "Product Browser";
             this.browseProductsMenuSubOption.Click += new System.EventHandler(this.BrowseProductsMenuSubOption_Click);
             // 
             // registerNewProductMenuSubOption
             // 
             this.registerNewProductMenuSubOption.Name = "registerNewProductMenuSubOption";
-            this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(188, 22);
+            this.registerNewProductMenuSubOption.ShortcutKeyDisplayString = "F4";
+            this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(207, 22);
             this.registerNewProductMenuSubOption.Text = "Register New Product";
             this.registerNewProductMenuSubOption.Click += new System.EventHandler(this.RegisterNewProductMenuSubOption_Click);
             // 
             // restockProductsMenuSubOption
             // 
             this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
-            this.restockProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
+            this.restockProductsMenuSubOption.ShortcutKeyDisplayString = "F5";
+            this.restockProductsMenuSubOption.Size = new System.Drawing.Size(207, 22);
             this.restockProductsMenuSubOption.Text = "Restock Products";
             this.restockProductsMenuSubOption.Click += new System.EventHandler(this.RestockProductsMenuSubOption_Click);
             // 
@@ -166,7 +172,8 @@
             // registerNewUserMenuSubOption
             // 
             this.registerNewUserMenuSubOption.Name = "registerNewUserMenuSubOption";
-            this.registerNewUserMenuSubOption.Size = new System.Drawing.Size(169, 22);
+            this.registerNewUserMenuSubOption.ShortcutKeyDisplayString = "F7";
+            this.registerNewUserMenuSubOption.Size = new System.Drawing.Size(188, 22);
             this.registerNewUserMenuSubOption.Text = "Register New User";
             this.registerNewUserMenuSubOption.Click += new System.EventHandler(this.RegisterNewUserMenuSubOption_Click);
             // 
@@ -176,20 +183,22 @@
             this.viewGraphsOption,
             this.viewReportsOption});
             this.statisticsMenuSubOption.Name = "statisticsMenuSubOption";
-            this.statisticsMenuSubOption.Size = new System.Drawing.Size(169, 22);
+            this.statisticsMenuSubOption.Size = new System.Drawing.Size(188, 22);
             this.statisticsMenuSubOption.Text = "Statistics";
             // 
             // viewGraphsOption
             // 
             this.viewGraphsOption.Name = "viewGraphsOption";
-            this.viewGraphsOption.Size = new System.Drawing.Size(142, 22);
+            this.viewGraphsOption.ShortcutKeyDisplayString = "F8";
+            this.viewGraphsOption.Size = new System.Drawing.Size(180, 22);
             this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
+            this.viewReportsOption.ShortcutKeyDisplayString = "F9";
+            this.viewReportsOption.Size = new System.Drawing.Size(180, 22);
             this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
@@ -199,21 +208,23 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(169, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(188, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
             // 
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
-            this.viewActivityLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewActivityLogsOption.Text = "View Activity Logs";
+            this.viewActivityLogsOption.ShortcutKeyDisplayString = "F10";
+            this.viewActivityLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewActivityLogsOption.Text = "View Activities Log";
             this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
-            this.viewErrorLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewErrorLogsOption.Text = "View Error Logs";
+            this.viewErrorLogsOption.ShortcutKeyDisplayString = "F11";
+            this.viewErrorLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewErrorLogsOption.Text = "View Errors Log";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // searchLabel
@@ -242,6 +253,7 @@
             this.userList.Size = new System.Drawing.Size(603, 209);
             this.userList.TabIndex = 12;
             this.userList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserList_CellDoubleClick);
+            this.userList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsersRegistryForm_KeyDown);
             // 
             // browserFormTitle
             // 
@@ -259,6 +271,7 @@
             this.userSearchBox.Size = new System.Drawing.Size(128, 20);
             this.userSearchBox.TabIndex = 10;
             this.userSearchBox.TextChanged += new System.EventHandler(this.UserSearchBox_TextChanged);
+            this.userSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsersRegistryForm_KeyDown);
             // 
             // profileButton
             // 
@@ -269,6 +282,7 @@
             this.profileButton.Text = "View My Profile";
             this.profileButton.UseVisualStyleBackColor = true;
             this.profileButton.Click += new System.EventHandler(this.ProfileButton_Click);
+            this.profileButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsersRegistryForm_KeyDown);
             // 
             // activityList
             // 
@@ -286,6 +300,7 @@
             this.activityList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.activityList.Size = new System.Drawing.Size(903, 209);
             this.activityList.TabIndex = 15;
+            this.activityList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsersRegistryForm_KeyDown);
             // 
             // activityTitleLabel
             // 
@@ -312,6 +327,7 @@
             this.activitySearchBox.Size = new System.Drawing.Size(273, 20);
             this.activitySearchBox.TabIndex = 17;
             this.activitySearchBox.TextChanged += new System.EventHandler(this.activitySearchBox_TextChanged);
+            this.activitySearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsersRegistryForm_KeyDown);
             // 
             // UsersRegistryForm
             // 
@@ -336,6 +352,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Registry";
             this.Load += new System.EventHandler(this.UsersRegistryForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsersRegistryForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userList)).EndInit();

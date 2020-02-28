@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Custom Library
+using InventoryManagementBusinessLayer.UserInformation;
+
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class ChangePasswordMiniForm : Form
@@ -144,7 +147,7 @@ namespace GeneralStoreInventoryManagementSystem
             if (ValidateUserInput())
             {
                 // Requesting a password change for a target user
-                InventoryManagementBusinessLayer.UserInformationManager.UpdateUserPasswordInformation(username, passwordTextBox.Text);
+                UserInformationManager.UpdateUserPasswordInformation(username, passwordTextBox.Text);
 
                 MessageBox.Show("Password changed successfully!");
 

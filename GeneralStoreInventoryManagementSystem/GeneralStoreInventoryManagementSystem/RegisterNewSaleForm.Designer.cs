@@ -105,10 +105,12 @@
             this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // viewSalesMenuOption
             // 
             this.viewSalesMenuOption.Name = "viewSalesMenuOption";
+            this.viewSalesMenuOption.ShortcutKeyDisplayString = "F1";
             this.viewSalesMenuOption.Size = new System.Drawing.Size(73, 20);
             this.viewSalesMenuOption.Text = "View Sales";
             this.viewSalesMenuOption.Click += new System.EventHandler(this.ViewSalesMenuOption_Click);
@@ -126,21 +128,24 @@
             // browseProductsMenuSubOption
             // 
             this.browseProductsMenuSubOption.Name = "browseProductsMenuSubOption";
-            this.browseProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
-            this.browseProductsMenuSubOption.Text = "Browse Products";
+            this.browseProductsMenuSubOption.ShortcutKeyDisplayString = "F3";
+            this.browseProductsMenuSubOption.Size = new System.Drawing.Size(207, 22);
+            this.browseProductsMenuSubOption.Text = "Product Browser";
             this.browseProductsMenuSubOption.Click += new System.EventHandler(this.BrowseProductsMenuSubOption_Click);
             // 
             // registerNewProductMenuSubOption
             // 
             this.registerNewProductMenuSubOption.Name = "registerNewProductMenuSubOption";
-            this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(188, 22);
+            this.registerNewProductMenuSubOption.ShortcutKeyDisplayString = "F4";
+            this.registerNewProductMenuSubOption.Size = new System.Drawing.Size(207, 22);
             this.registerNewProductMenuSubOption.Text = "Register New Product";
             this.registerNewProductMenuSubOption.Click += new System.EventHandler(this.RegisterNewProductMenuSubOption_Click);
             // 
             // restockProductsMenuSubOption
             // 
             this.restockProductsMenuSubOption.Name = "restockProductsMenuSubOption";
-            this.restockProductsMenuSubOption.Size = new System.Drawing.Size(188, 22);
+            this.restockProductsMenuSubOption.ShortcutKeyDisplayString = "F5";
+            this.restockProductsMenuSubOption.Size = new System.Drawing.Size(207, 22);
             this.restockProductsMenuSubOption.Text = "Restock Products";
             this.restockProductsMenuSubOption.Click += new System.EventHandler(this.RestockProductsMenuSubOption_Click);
             // 
@@ -166,14 +171,16 @@
             // viewUsersOption
             // 
             this.viewUsersOption.Name = "viewUsersOption";
-            this.viewUsersOption.Size = new System.Drawing.Size(169, 22);
+            this.viewUsersOption.ShortcutKeyDisplayString = "F6";
+            this.viewUsersOption.Size = new System.Drawing.Size(188, 22);
             this.viewUsersOption.Text = "View Users";
             this.viewUsersOption.Click += new System.EventHandler(this.ViewUsersOption_Click);
             // 
             // registerNewUserOption
             // 
             this.registerNewUserOption.Name = "registerNewUserOption";
-            this.registerNewUserOption.Size = new System.Drawing.Size(169, 22);
+            this.registerNewUserOption.ShortcutKeyDisplayString = "F7";
+            this.registerNewUserOption.Size = new System.Drawing.Size(188, 22);
             this.registerNewUserOption.Text = "Register New User";
             this.registerNewUserOption.Click += new System.EventHandler(this.RegisterNewUserOption_Click);
             // 
@@ -189,14 +196,16 @@
             // viewGraphsOption
             // 
             this.viewGraphsOption.Name = "viewGraphsOption";
-            this.viewGraphsOption.Size = new System.Drawing.Size(142, 22);
+            this.viewGraphsOption.ShortcutKeyDisplayString = "F8";
+            this.viewGraphsOption.Size = new System.Drawing.Size(161, 22);
             this.viewGraphsOption.Text = "View Graphs";
             this.viewGraphsOption.Click += new System.EventHandler(this.ViewGraphsOption_Click);
             // 
             // viewReportsOption
             // 
             this.viewReportsOption.Name = "viewReportsOption";
-            this.viewReportsOption.Size = new System.Drawing.Size(142, 22);
+            this.viewReportsOption.ShortcutKeyDisplayString = "F9";
+            this.viewReportsOption.Size = new System.Drawing.Size(161, 22);
             this.viewReportsOption.Text = "View Reports";
             this.viewReportsOption.Click += new System.EventHandler(this.ViewReportsOption_Click);
             // 
@@ -212,15 +221,17 @@
             // viewActivityLogsOption
             // 
             this.viewActivityLogsOption.Name = "viewActivityLogsOption";
-            this.viewActivityLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewActivityLogsOption.Text = "View Activity Logs";
+            this.viewActivityLogsOption.ShortcutKeyDisplayString = "F10";
+            this.viewActivityLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewActivityLogsOption.Text = "View Activities Log";
             this.viewActivityLogsOption.Click += new System.EventHandler(this.ViewActivityLogsOption_Click);
             // 
             // viewErrorLogsOption
             // 
             this.viewErrorLogsOption.Name = "viewErrorLogsOption";
-            this.viewErrorLogsOption.Size = new System.Drawing.Size(170, 22);
-            this.viewErrorLogsOption.Text = "View Error Logs";
+            this.viewErrorLogsOption.ShortcutKeyDisplayString = "F11";
+            this.viewErrorLogsOption.Size = new System.Drawing.Size(198, 22);
+            this.viewErrorLogsOption.Text = "View Errors Log";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
             // productDataGridView
@@ -240,6 +251,7 @@
             this.productDataGridView.Size = new System.Drawing.Size(507, 455);
             this.productDataGridView.TabIndex = 12;
             this.productDataGridView.Click += new System.EventHandler(this.ProductDataGridView_Click);
+            this.productDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // browserLabel
             // 
@@ -268,6 +280,7 @@
             this.addItemButton.Text = "Add Item";
             this.addItemButton.UseVisualStyleBackColor = true;
             this.addItemButton.Click += new System.EventHandler(this.AddItemButton_Click);
+            this.addItemButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // removeItemButton
             // 
@@ -278,6 +291,7 @@
             this.removeItemButton.Text = "Remove Item";
             this.removeItemButton.UseVisualStyleBackColor = true;
             this.removeItemButton.Click += new System.EventHandler(this.RemoveItemButton_Click);
+            this.removeItemButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // removeOneButton
             // 
@@ -288,6 +302,7 @@
             this.removeOneButton.Text = "Remove One";
             this.removeOneButton.UseVisualStyleBackColor = true;
             this.removeOneButton.Click += new System.EventHandler(this.RemoveOneButton_Click);
+            this.removeOneButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // clearCartButton
             // 
@@ -298,6 +313,7 @@
             this.clearCartButton.Text = "Clear Cart";
             this.clearCartButton.UseVisualStyleBackColor = true;
             this.clearCartButton.Click += new System.EventHandler(this.ClearCartButton_Click);
+            this.clearCartButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // numberLabel
             // 
@@ -329,6 +345,7 @@
             this.deliveryCheckBox.TabIndex = 23;
             this.deliveryCheckBox.Text = "Mark as Delivery?";
             this.deliveryCheckBox.UseVisualStyleBackColor = true;
+            this.deliveryCheckBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // completeSaleButton
             // 
@@ -340,6 +357,7 @@
             this.completeSaleButton.Text = "Complete Sale";
             this.completeSaleButton.UseVisualStyleBackColor = true;
             this.completeSaleButton.Click += new System.EventHandler(this.CompleteSaleButton_Click);
+            this.completeSaleButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // productSearchTextBox
             // 
@@ -348,6 +366,7 @@
             this.productSearchTextBox.Size = new System.Drawing.Size(156, 20);
             this.productSearchTextBox.TabIndex = 25;
             this.productSearchTextBox.TextChanged += new System.EventHandler(this.ProductSearchTextBox_TextChanged);
+            this.productSearchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // label1
             // 
@@ -374,6 +393,7 @@
             this.cartSummaryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cartSummaryDataGridView.Size = new System.Drawing.Size(379, 214);
             this.cartSummaryDataGridView.TabIndex = 27;
+            this.cartSummaryDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             // 
             // quantityNumericUpDown
             // 
@@ -429,6 +449,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New Sale";
             this.Load += new System.EventHandler(this.RegisterNewSaleFrom_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterNewSaleFrom_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();

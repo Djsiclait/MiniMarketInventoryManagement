@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Library
-using InventoryManagementBusinessLayer;
+using InventoryManagementBusinessLayer.ProductInformation;
+using InventoryManagementBusinessLayer.Protocols;
+using InventoryManagementEntityLayer.Product;
 
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class RestockProductsForm : Form
     {
+        int assistance = 0;
+
         public RestockProductsForm()
         {
             InitializeComponent();
@@ -36,6 +40,9 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             SystemProtocols.ApplyActivityProtocols("PRO1", null, null);
+
+            PopulateProductListDataGrid();
+            UpdateDisplayLabels();
         }
         #endregion
 
@@ -200,6 +207,341 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #endregion
+
+        #region Added Ammount Numeric Up Down Key Down Logic
+        private void AddedAmmountNumericUpDown_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                AttempRestockProcess();
+            else
+                RestockProductsForm_KeyDown(sender, e);
+        }
+        #endregion
+
+        #region  Key Down Shortcut Logic
+        private void RestockProductsForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F1:
+
+                    #region View Sales
+                    // Summon Sales Registry Form
+                    FormsMenuList.salesRecordForm = new SalesRecordForm();
+                    FormsMenuList.salesRecordForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.restockProductsFrom.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F2:
+
+                    #region Make Sales
+                    // Summon Register New Sale Form
+                    FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
+                    FormsMenuList.registerNewSaleForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.restockProductsFrom.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F3:
+
+                    #region Product Browser
+                    // Summon Product Browser Form
+                    FormsMenuList.inventorySearchForm = new InventorySearchForm();
+                    FormsMenuList.inventorySearchForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.restockProductsFrom.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F4:
+
+                    #region Register New Product
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New Product Form
+                        FormsMenuList.registerNewProduct = new RegisterNewProductForm();
+                        FormsMenuList.registerNewProduct.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.restockProductsFrom.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F5:
+
+                    // The user is already viewing the desired page
+                    if (assistance < 3)
+                        assistance++;
+                    else
+                        MessageBox.Show("\t---Menu Shortcuts---\n\n" +
+                            "View Sales\t\t(F1)\n" +
+                            "Make Sales\t(F2)\n" +
+                            "Product Browser\t(F3)\n" +
+                            "Register Product\t(F4)\n" +
+                            "Restock Products\t(You are here!)\n" +
+                            "View Users\t(F6)\n" +
+                            "Register New User\t(F7)\n" +
+                            "View Graphs\t(F8)\n" +
+                            "View Reports\t(F9)\n" +
+                            "View Activities Log\t(F10)\n" +
+                            "View Errors Log\t(F11)\n" +
+                            "View Cart\t\t(F12)");
+
+                    break;
+
+                case Keys.F6:
+
+                    #region View Users
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Users Registry Form
+                        FormsMenuList.usersRegistryForm = new UsersRegistryForm();
+                        FormsMenuList.usersRegistryForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.restockProductsFrom.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F7:
+
+                    #region Register New User
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New User Form
+                        FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
+                        FormsMenuList.registerNewUserForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.restockProductsFrom.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F8:
+
+                    #region View Graphs
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Graphs Analytics Form
+                        FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
+                        FormsMenuList.graphsAnaliticsForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.restockProductsFrom.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F9:
+
+                    #region View Reports
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Reports Analytics Form
+                        FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
+                        FormsMenuList.reportsAnalyticsForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.restockProductsFrom.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F10:
+
+                    #region View Activities Log
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Activity Logs Form
+                        FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
+                        FormsMenuList.activitiesLogForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.restockProductsFrom.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F11:
+
+                    #region View Errors Log
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Error Logs Form
+                        FormsMenuList.errorsLogForm = new ErrorsLogForm();
+                        FormsMenuList.errorsLogForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.restockProductsFrom.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F12:
+
+                    #region View Cart
+                    // Summon View Cart Form
+                    FormsMenuList.viewCartForm = new ViewCartForm();
+                    FormsMenuList.viewCartForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.restockProductsFrom.Dispose();
+                    #endregion
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        #endregion
+
+        #region Text Changed Logic
+        private void InventorySearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateProductListDataGrid();
+            UpdateDisplayLabels();
+        }
+        #endregion
+
+        #region Click Logic
+        private void RestockButton_Click(object sender, EventArgs e)
+        {
+            AttempRestockProcess();
+        }
+
+        private void ProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateDisplayLabels();
+            // TODO: introduce inventory chart for the product
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        /// <summary>
+        /// Function that requests a product restock
+        /// </summary>
+        private void AttempRestockProcess()
+        {
+            String message = ProductInformationManager.UpdateRegisteredProductInformationForRestock(productList.SelectedCells[0].Value.ToString(), (int)addedAmmountNumericUpDown.Value);
+
+            if (message == "SUCCESS")
+            {
+                addedAmmountNumericUpDown.Value = 1;
+
+                inventorySearchBox.Text = productList.SelectedCells[2].Value.ToString();
+                UpdateDisplayLabels();
+
+                MessageBox.Show("Successful restock!");
+            }
+            else
+                MessageBox.Show("FATAL ERROR");
+        }
+
+        /// <summary>
+        /// Function that calculates the unit contribution margin ratio of the product using the unit cost and price
+        /// UPM = (UP - UC) / UP * 100
+        /// </summary>
+        /// <returns>The string result of the formula</returns>
+        private String CalculateUnitContributionMargin(decimal cost, decimal price)
+        {
+            // Applying unitary profit margin formula
+            decimal contributionRatio = ((price - cost) / price) * 100; // Ratio form
+
+            decimal contributionDollar = price - cost; // Dollar form
+
+            decimal priceIncrease = price / cost; // Price multiplier
+
+            return contributionRatio.ToString("0.##") + "% ($" + contributionDollar.ToString("0.##") + " or " + (priceIncrease.ToString("0.##") == "1" ? "1" : priceIncrease.ToString("0.##")) + "x price increase)";
+        }
+
+        /// <summary>
+        /// Function used to populate the data grid with products from the registered inventory
+        /// </summary>
+        private void PopulateProductListDataGrid()
+        {
+            // Requesting information to populate the product list 
+            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false); 
+
+            //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
+            //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Name"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Brand"].SortMode = DataGridViewColumnSortMode.Automatic;
+            //productList.Columns["Supplier"].SortMode = DataGridViewColumnSortMode.Automatic;
+
+            // TODO: Fix sortable mode on inventory browser
+            foreach (DataGridViewColumn column in productList.Columns)
+                column.SortMode = DataGridViewColumnSortMode.Automatic;
+
+            // Removing unnecesary information from the datagrid display
+            productList.Columns["Id"].Visible = false;
+            productList.Columns["Category"].Visible = false;
+            productList.Columns["Type"].Visible = false;
+            productList.Columns["MinimumQuantity"].Visible = false;
+            productList.Columns["MaximumQuantity"].Visible = false;
+            productList.Columns["RegisteredBy"].Visible = false;
+            productList.Columns["RegistrationDate"].Visible = false;
+            productList.Columns["ModifiedBy"].Visible = false;
+            productList.Columns["ModificationDate"].Visible = false;
+            productList.Columns["Total"].Visible = false;
+        }
+
+        /// <summary>
+        /// Function that updates all display labels
+        /// </summary>
+        private void UpdateDisplayLabels()
+        {
+            Product product = ProductInformationManager.ConsultProductInformationByID(productList.SelectedCells[0].Value.ToString());
+
+            keyDisplayLabel.Text = product.Key;
+            nameDisplayLabel.Text = product.Name;
+            brandDisplayLabel.Text = product.Brand;
+            supplierDisplayLabel.Text = product.Supplier;
+            categoryDisplayLabel.Text = product.Category;
+            typeDisplayLabel.Text = product.Type;
+            unitDisplayLabel.Text = product.Unit;
+            unitCostDisplayLabel.Text = "RD$" + product.UnitCost.ToString();
+            unitPriceDisplayLabel.Text = "RD$" + product.UnitPrice.ToString();
+            quantityDisplayLabel.Text = product.Quantity.ToString() + " units";
+            minimumDisplayLabel.Text = product.MinimumQuantity.ToString();
+            maximumDisplayLabel.Text = product.MaximumQuantity.ToString();
+
+            unitContributionMarginLabel.Text = CalculateUnitContributionMargin(product.UnitCost, product.UnitPrice);
+
+            if (product.UnitPrice > product.UnitCost)
+                unitContributionMarginLabel.ForeColor = Color.Green;
+            else if (product.UnitPrice < product.UnitCost)
+                unitContributionMarginLabel.ForeColor = Color.Red;
+            else
+                unitContributionMarginLabel.ForeColor = Color.Black;
+        }
         #endregion
     }
 }

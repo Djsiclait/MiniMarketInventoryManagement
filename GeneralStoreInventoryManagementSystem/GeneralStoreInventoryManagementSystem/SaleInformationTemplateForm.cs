@@ -9,22 +9,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Library
-using InventoryManagementBusinessLayer;
-using InventoryManagementEntityLayer;
+using InventoryManagementBusinessLayer.SaleInformation;
+using InventoryManagementEntityLayer.Product;
+using InventoryManagementEntityLayer.Sale;
 
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class SaleInformationTemplateForm : Form
     {
-        Sale sale;
+        Sale sale; // Sale object to host transaction information
 
-        ReturnItemsMiniForm returnItemsMiniForm;
+        ReturnItemsMiniForm returnItemsMiniForm; // Child form to facilitate returns
 
         public SaleInformationTemplateForm(String saleId)
         {
             InitializeComponent();
 
-            DisplayTransactionInformation(saleId);
+            DisplayTransactionInformation(saleId); // Fetching and displaying the information of requested transaction
         }
 
         #region On Form Closing Logic
@@ -32,8 +33,10 @@ namespace GeneralStoreInventoryManagementSystem
         {
             base.OnFormClosing(e);
 
-            FormsMenuList.salesRecordForm.ChildWasKilled();
+            // Notifying parent that this process was killed  
+            FormsMenuList.salesRecordForm.ChildWasKilled(); 
 
+            // Disposing this form's child if and active
             DisposeOnlyChild();
         }
         #endregion
@@ -48,13 +51,14 @@ namespace GeneralStoreInventoryManagementSystem
         #region Button Click Logic
         private void VoidSaleButton_Click(object sender, EventArgs e)
         {
-            if (sale.Status == "Valid")
+            if (sale.Status == "Valid") // Confirming that the current transaction is valid
             {
+                // Requesting to void the current transaction
                 SaleInformationManager.UpdateTransactionStatusInformationToVoid(sale.Id);
 
-                DisplayTransactionInformation(sale.Id);
+                DisplayTransactionInformation(sale.Id); // Updating the sale's information
 
-                FormsMenuList.salesRecordForm.RefreshSalesRecordsDataGrid();
+                FormsMenuList.salesRecordForm.RefreshSalesRecordsDataGrid(); // Notifying the parent to update its information
 
                 MessageBox.Show("Transaction has been voided!");
             }
@@ -64,13 +68,13 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void ReturnItemsButton_Click(object sender, EventArgs e)
         {
-            if (sale.Status == "Valid" && returnItemsMiniForm == null)
+            if (sale.Status == "Valid" && returnItemsMiniForm == null) // Confirming that the current transaction is valid and a child form hasn't been opened
             {
-                returnItemsMiniForm = new ReturnItemsMiniForm(sale.Id);
+                returnItemsMiniForm = new ReturnItemsMiniForm(sale.Id); // calling child form
                 returnItemsMiniForm.Show();
             }
             if (sale.Status == "Valid" && returnItemsMiniForm != null)
-                returnItemsMiniForm.Focus();
+                returnItemsMiniForm.Focus(); // focusing on already opened child
             else
                 MessageBox.Show("This transaction has already been voided/returned");
         }
@@ -83,6 +87,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// <param name="saleId">Identification number of the desired transaction</param>
         private void DisplayTransactionInformation(String saleId)
         {
+            // Requesting transaction information
             sale = SaleInformationManager.ConsultTransactionInformationBySalesId(saleId);
 
             this.Text = "Sale Information: " + sale.Id;
@@ -103,7 +108,7 @@ namespace GeneralStoreInventoryManagementSystem
         public void DisposeOnlyChild()
         {
             if (returnItemsMiniForm != null)
-                returnItemsMiniForm.Dispose();
+                returnItemsMiniForm.Dispose(); // killing its opened child
         }
 
         /// <summary>
@@ -138,6 +143,7 @@ namespace GeneralStoreInventoryManagementSystem
             contentDataGridView.Columns["Quantity"].Width = 60;
             #endregion
 
+            // Fetching purchased products associated with this transaction
             List<Product> content = SaleInformationManager.ConsultTransactionContentInformation(sale.Id);
 
             if (content.Count > 0)
@@ -150,8 +156,8 @@ namespace GeneralStoreInventoryManagementSystem
 
                 foreach (Product item in content)
                 {
-                    quantity += item.Quantity;
-                    total += item.Total;
+                    quantity += item.Quantity; // counting how manu units of products were previously purchased in this transaction
+                    total += item.Total; // calculating total cost of transaction 
                 }
 
                 numberOfItemsLabel.Text = "Number of Items: " + quantity.ToString();

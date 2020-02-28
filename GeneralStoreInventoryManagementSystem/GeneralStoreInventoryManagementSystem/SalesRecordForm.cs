@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Library
-using InventoryManagementBusinessLayer;
+using InventoryManagementBusinessLayer.Protocols;
+using InventoryManagementBusinessLayer.SaleInformation;
 
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class SalesRecordForm : Form
     {
         List<SaleInformationTemplateForm> children = new List<SaleInformationTemplateForm>();
+
+        int assistance = 0;
 
         public SalesRecordForm()
         {
@@ -44,7 +47,6 @@ namespace GeneralStoreInventoryManagementSystem
                 SystemProtocols.ApplyActivityProtocols("SAL3", null, null);
 
             PopulateSalesDataGrid();
-
         }
         #endregion
 
@@ -250,6 +252,247 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
+        #region  Key Down Shortcut Logic
+        private void SalesRecordForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F1:
+
+                    // The user is already viewing the desired page
+                    if (assistance < 3)
+                        assistance++;
+                    else
+                        MessageBox.Show("\t---Menu Shortcuts---\n\n" +
+                            "View Sales\t\t(You are here!)\n" +
+                            "Make Sales\t(F2)\n" +
+                            "Product Browser\t(F3)\n" +
+                            "Register Product\t(F4)\n" +
+                            "Restock Products\t(F5)\n" +
+                            "View Users\t(F6)\n" +
+                            "Register New User\t(F7)\n" +
+                            "View Graphs\t(F8)\n" +
+                            "View Reports\t(F9)\n" +
+                            "View Activities Log\t(F10)\n" +
+                            "View Errors Log\t(F11)\n" +
+                            "View Cart\t\t(F12)");
+
+                    break;
+
+                case Keys.F2:
+
+                    #region Make Sales
+                    // Summon Register New Sale Form
+                    FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
+                    FormsMenuList.registerNewSaleForm.Show();
+
+                    // Disposing any open child
+                    DisposeAllChildren();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.salesRecordForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F3:
+
+                    #region Product Browser
+                    // Summon Product Browser Form
+                    FormsMenuList.inventorySearchForm = new InventorySearchForm();
+                    FormsMenuList.inventorySearchForm.Show();
+
+                    // Disposing any open child
+                    DisposeAllChildren();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.salesRecordForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F4:
+
+                    #region Register New Product
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New Product Form
+                        FormsMenuList.registerNewProduct = new RegisterNewProductForm();
+                        FormsMenuList.registerNewProduct.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.salesRecordForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F5:
+
+                    #region Restock Products
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Restock Products Form
+                        FormsMenuList.restockProductsFrom = new RestockProductsForm();
+                        FormsMenuList.restockProductsFrom.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.salesRecordForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F6:
+
+                    #region View Users
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Users Registry Form
+                        FormsMenuList.usersRegistryForm = new UsersRegistryForm();
+                        FormsMenuList.usersRegistryForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.salesRecordForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F7:
+
+                    #region Register New User
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New User Form
+                        FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
+                        FormsMenuList.registerNewUserForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.salesRecordForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F8:
+
+                    #region View Graphs
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Graphs Analytics Form
+                        FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
+                        FormsMenuList.graphsAnaliticsForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.salesRecordForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F9:
+
+                    #region View Reports
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Reports Analytics Form
+                        FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
+                        FormsMenuList.reportsAnalyticsForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.salesRecordForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F10:
+
+                    #region View Activities Log
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Activity Logs Form
+                        FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
+                        FormsMenuList.activitiesLogForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.salesRecordForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F11:
+
+                    #region View Errors Log
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Error Logs Form
+                        FormsMenuList.errorsLogForm = new ErrorsLogForm();
+                        FormsMenuList.errorsLogForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.salesRecordForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F12:
+
+                    #region View Cart
+                    // Summon View Cart Form
+                    FormsMenuList.viewCartForm = new ViewCartForm();
+                    FormsMenuList.viewCartForm.Show();
+
+                    // Disposing any open child
+                    DisposeAllChildren();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.salesRecordForm.Dispose();
+                    #endregion
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        #endregion
+
         #region Text Change Logic
         private void SalesSearchBox_TextChanged(object sender, EventArgs e)
         {
@@ -262,12 +505,13 @@ namespace GeneralStoreInventoryManagementSystem
         {
             if (!SystemProtocols.ApplySessionsProtocols(1, null, null)) // option only available for non basic users
             {
-                if (!IsChildAlive(salesList.SelectedCells[0].Value.ToString()))
+                if (!IsChildAlive(salesList.SelectedCells[0].Value.ToString())) // Verifying that requested child is killed or active before proceeding
                 {
+                    // Starting or resecusating child
                     SaleInformationTemplateForm child = new SaleInformationTemplateForm(salesList.SelectedCells[0].Value.ToString());
                     child.Show();
 
-                    children.Add(child);
+                    children.Add(child); // adding child to the list of children to keep track of opened auxiliary forms
                 }
             }
         }
@@ -299,12 +543,12 @@ namespace GeneralStoreInventoryManagementSystem
             foreach (SaleInformationTemplateForm child in children)
             {
                 child.DisposeOnlyChild(); // disposing of any potential grandchildren
-                child.Dispose();
+                child.Dispose(); // disposing all the living child
             }
         }
 
         /// <summary>
-        /// Function to allow children to notify this form to update its information
+        /// Function to allow children and grandchildren to notify this form to update its information
         /// </summary>
         public void RefreshSalesRecordsDataGrid()
         {
@@ -319,10 +563,11 @@ namespace GeneralStoreInventoryManagementSystem
         {
             if (!SystemProtocols.ApplySessionsProtocols(1, null, null)) // option only available for non basic users
             {
+                // Creating a new child given the new information available
                 SaleInformationTemplateForm child = new SaleInformationTemplateForm(newSaleId);
                 child.Show();
 
-                children.Add(child);
+                children.Add(child); // adding that new child to the list of living children
             }
         }
 
@@ -333,9 +578,9 @@ namespace GeneralStoreInventoryManagementSystem
         public void UpdateChildAfterSuccessfulReturn(String childId)
         {
             foreach (SaleInformationTemplateForm child in children)
-                if (child.Text.Split(' ')[2] == childId)
+                if (child.Text.Split(' ')[2] == childId) // Identifying which child has updated information
                 {
-                    child.UpdateSelfAfterSuccessfulReturn();
+                    child.UpdateSelfAfterSuccessfulReturn(); // Notifying the child to update itself
                     break;
                 }
         }
@@ -348,16 +593,17 @@ namespace GeneralStoreInventoryManagementSystem
         private bool IsChildAlive(String childId)
         {
             foreach (SaleInformationTemplateForm child in children)
-                if (child.Text.Split(' ')[2] == childId)
-                    if (child != null)
+                if (child.Text.Split(' ')[2] == childId) // Identifying which child is needed
+                    if (child != null) // verifying that it has not been killed
                     {
+                        // Bring focus to child if it is still alive;
                         child.Show();
                         child.Focus();
 
-                        return true;
+                        return true; // Confirming its activity
                     }
 
-            return false;
+            return false; // Requested child is not amongst the living children 
         }
 
         /// <summary>
@@ -366,9 +612,9 @@ namespace GeneralStoreInventoryManagementSystem
         public void ChildWasKilled()
         {
             foreach (SaleInformationTemplateForm child in children)
-                if (child != null)
+                if (child != null) // Searching which child has recently been disposed of
                 {
-                    children.Remove(child);
+                    children.Remove(child); // remove said child from amongst the living
                     break;
                 }
         }

@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Libraries
-using InventoryManagementBusinessLayer;
+using InventoryManagementBusinessLayer.ProductInformation;
+using InventoryManagementBusinessLayer.Protocols;
 
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class InventorySearchForm : Form
     {
         List<ProductInformationTemplateForm> children = new List<ProductInformationTemplateForm>();
+
+        int assistance = 0;
 
         public InventorySearchForm()
         {
@@ -246,6 +249,247 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
+        #region Key Down Shortcut Logic
+        private void InventoryBrowserForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F1:
+
+                    #region View Sales
+                    // Summon Sales Registry Form
+                    FormsMenuList.salesRecordForm = new SalesRecordForm();
+                    FormsMenuList.salesRecordForm.Show();
+
+                    // Disposing any open child
+                    DisposeAllChildren();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.inventorySearchForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F2:
+
+                    #region Make a Sale
+                    // Summon Register New Sale Form
+                    FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
+                    FormsMenuList.registerNewSaleForm.Show();
+
+                    // Disposing any open child
+                    DisposeAllChildren();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.inventorySearchForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F3:
+
+                    // The user is already viewing the desired page
+                    if (assistance < 3)
+                        assistance++;
+                    else
+                        MessageBox.Show("\t---Menu Shortcuts---\n\n" +
+                            "View Sales\t\t(F1)\n" +
+                            "Make Sales\t(F2)\n" +
+                            "Product Browser\t(You are here!)\n" +
+                            "Register Product\t(F4)\n" +
+                            "Restock Products\t(F5)\n" +
+                            "View Users\t(F6)\n" +
+                            "Register New User\t(F7)\n" +
+                            "View Graphs\t(F8)\n" +
+                            "View Reports\t(F9)\n" +
+                            "View Activities Log\t(F10)\n" +
+                            "View Errors Log\t(F11)\n" +
+                            "View Cart\t\t(F12)");
+
+                    break;
+
+                case Keys.F4:
+
+                    #region Register New Product
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New Product Form
+                        FormsMenuList.registerNewProduct = new RegisterNewProductForm();
+                        FormsMenuList.registerNewProduct.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F5:
+
+                    #region Restock Products
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Restock Products Form
+                        FormsMenuList.restockProductsFrom = new RestockProductsForm();
+                        FormsMenuList.restockProductsFrom.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F6:
+
+                    #region View Users
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Users Registry Form
+                        FormsMenuList.usersRegistryForm = new UsersRegistryForm();
+                        FormsMenuList.usersRegistryForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F7:
+
+                    #region Register New User
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Register New User Form
+                        FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
+                        FormsMenuList.registerNewUserForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F8:
+
+                    #region Graphs Analytics
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Graphs Analytics Form
+                        FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
+                        FormsMenuList.graphsAnaliticsForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F9:
+
+                    #region Reports Analytics
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Reports Analytics Form
+                        FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
+                        FormsMenuList.reportsAnalyticsForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F10:
+
+                    #region Activity Logs
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Activity Logs Form
+                        FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
+                        FormsMenuList.activitiesLogForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F11:
+
+                    #region Error Logs
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Error Logs Form
+                        FormsMenuList.errorsLogForm = new ErrorsLogForm();
+                        FormsMenuList.errorsLogForm.Show();
+
+                        // Disposing any open child
+                        DisposeAllChildren();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.inventorySearchForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F12:
+
+                    #region View Cart
+                    // Summon View Cart Form
+                    FormsMenuList.viewCartForm = new ViewCartForm();
+                    FormsMenuList.viewCartForm.Show();
+
+                    // Disposing any open child
+                    DisposeAllChildren();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.inventorySearchForm.Dispose();
+                    #endregion
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        #endregion
+
         #region Inventory Seach Text Box Logic
         private void InventorySearchBox_TextChanged(object sender, EventArgs e)
         {
@@ -274,7 +518,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateProductListDataGrid()
         {
             // Requesting information to populate the product list 
-            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false);//, false);
+            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false);
 
             //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
             //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
