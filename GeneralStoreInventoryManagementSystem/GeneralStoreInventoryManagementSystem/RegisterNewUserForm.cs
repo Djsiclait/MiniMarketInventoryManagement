@@ -215,6 +215,193 @@ namespace GeneralStoreInventoryManagementSystem
 
         #endregion
 
+        #region  Key Down Shortcut Logic
+        private void RegisterNewUserForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F1:
+
+                    #region View Sales
+                    // Summon Sales Registry Form
+                    FormsMenuList.salesRecordForm = new SalesRecordForm();
+                    FormsMenuList.salesRecordForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.registerNewUserForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F2:
+
+                    #region Make Sales
+                    // Summon Register New Sale Form
+                    FormsMenuList.registerNewSaleForm = new RegisterNewSaleFrom();
+                    FormsMenuList.registerNewSaleForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.registerNewUserForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F3:
+
+                    #region Product Browser
+                    // Summon Product Browser Form
+                    FormsMenuList.inventorySearchForm = new InventorySearchForm();
+                    FormsMenuList.inventorySearchForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.registerNewUserForm.Dispose();
+                    #endregion
+
+                    break;
+
+                case Keys.F4:
+
+                    #region Register New Product
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        FormsMenuList.registerNewProduct = new RegisterNewProductForm();
+                        FormsMenuList.registerNewProduct.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.registerNewUserForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F5:
+
+                    #region Restock Products
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Restock Products Form
+                        FormsMenuList.restockProductsFrom = new RestockProductsForm();
+                        FormsMenuList.restockProductsFrom.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.registerNewUserForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F6:
+
+                    #region View Users
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Users Registry Form
+                        FormsMenuList.usersRegistryForm = new UsersRegistryForm();
+                        FormsMenuList.usersRegistryForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.registerNewUserForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F7:
+
+                    // The user is already viewing the desired page
+
+                    break;
+
+                case Keys.F8:
+
+                    #region View Graphs
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Graphs Analytics Form
+                        FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
+                        FormsMenuList.graphsAnaliticsForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.registerNewUserForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F9:
+
+                    #region View Reports
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Reports Analytics Form
+                        FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
+                        FormsMenuList.reportsAnalyticsForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.registerNewUserForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F10:
+
+                    #region View Activities Log
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Activity Logs Form
+                        FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
+                        FormsMenuList.activitiesLogForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.registerNewUserForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F11:
+
+                    #region View Errors Log
+                    // Identifying correct protocol for current user in session
+                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    {
+                        // Summon Error Logs Form
+                        FormsMenuList.errorsLogForm = new ErrorsLogForm();
+                        FormsMenuList.errorsLogForm.Show();
+
+                        // Closing form while freeing system resources
+                        FormsMenuList.registerNewUserForm.Dispose();
+                    }
+                    #endregion
+
+                    break;
+
+                case Keys.F12:
+
+                    #region View Cart
+                    // Summon View Cart Form
+                    FormsMenuList.viewCartForm = new ViewCartForm();
+                    FormsMenuList.viewCartForm.Show();
+
+                    // Closing form while freeing system resources
+                    FormsMenuList.registerNewUserForm.Dispose();
+                    #endregion
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        #endregion
+
         #region Text Changed Logic
         private void UsernameTextBox_TextChanged(object sender, EventArgs e)
         {
