@@ -44,6 +44,8 @@
             this.salesLabel = new System.Windows.Forms.Label();
             this.printCurrentButton = new System.Windows.Forms.Button();
             this.printEntireButton = new System.Windows.Forms.Button();
+            this.returnsLabel = new System.Windows.Forms.Label();
+            this.saleMessageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sessionsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.activitiesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -141,6 +143,8 @@
             this.sessionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sessionsDataGridView.Size = new System.Drawing.Size(492, 154);
             this.sessionsDataGridView.TabIndex = 10;
+            this.sessionsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SessionsDataGridView_CellClick);
+            this.sessionsDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SessionsDataGridView_KeyDown);
             // 
             // label5
             // 
@@ -196,9 +200,11 @@
             this.salesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesLabel.Location = new System.Drawing.Point(371, 426);
             this.salesLabel.Name = "salesLabel";
-            this.salesLabel.Size = new System.Drawing.Size(46, 13);
+            this.salesLabel.Size = new System.Drawing.Size(51, 13);
             this.salesLabel.TabIndex = 15;
-            this.salesLabel.Text = "Sales: ";
+            this.salesLabel.Text = "Sales*: ";
+            this.salesLabel.MouseLeave += new System.EventHandler(this.SalesLabel_MouseLeave);
+            this.salesLabel.MouseHover += new System.EventHandler(this.SalesLabel_MouseHover);
             // 
             // printCurrentButton
             // 
@@ -218,11 +224,35 @@
             this.printEntireButton.Text = "Print Entire Set ";
             this.printEntireButton.UseVisualStyleBackColor = true;
             // 
+            // returnsLabel
+            // 
+            this.returnsLabel.AutoSize = true;
+            this.returnsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnsLabel.Location = new System.Drawing.Point(533, 426);
+            this.returnsLabel.Name = "returnsLabel";
+            this.returnsLabel.Size = new System.Drawing.Size(59, 13);
+            this.returnsLabel.TabIndex = 18;
+            this.returnsLabel.Text = "Returns: ";
+            // 
+            // saleMessageLabel
+            // 
+            this.saleMessageLabel.AutoSize = true;
+            this.saleMessageLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.saleMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saleMessageLabel.Location = new System.Drawing.Point(139, 400);
+            this.saleMessageLabel.Name = "saleMessageLabel";
+            this.saleMessageLabel.Size = new System.Drawing.Size(528, 13);
+            this.saleMessageLabel.TabIndex = 19;
+            this.saleMessageLabel.Text = "The sales counter only takes into account transactions that have not resulted fro" +
+    "m a return.";
+            // 
             // UserSessionActivitiesReportTemplateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 481);
+            this.Controls.Add(this.saleMessageLabel);
+            this.Controls.Add(this.returnsLabel);
             this.Controls.Add(this.printEntireButton);
             this.Controls.Add(this.printCurrentButton);
             this.Controls.Add(this.salesLabel);
@@ -269,5 +299,7 @@
         private System.Windows.Forms.Label salesLabel;
         private System.Windows.Forms.Button printCurrentButton;
         private System.Windows.Forms.Button printEntireButton;
+        private System.Windows.Forms.Label returnsLabel;
+        private System.Windows.Forms.Label saleMessageLabel;
     }
 }

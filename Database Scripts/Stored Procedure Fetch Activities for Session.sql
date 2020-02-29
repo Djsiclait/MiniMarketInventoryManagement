@@ -13,6 +13,10 @@ AS
 			Tbl_User_Activity_Logs
 		Where
 			fld_user_activity_username = @username
+		and 
+			fld_user_activity_type <> 'LOG IN'
+		and 
+			fld_user_activity_type <> 'LOG OUT'
 		and (
 			fld_user_activity_timestamp > @session_start and
 			fld_user_activity_timestamp < @session_end

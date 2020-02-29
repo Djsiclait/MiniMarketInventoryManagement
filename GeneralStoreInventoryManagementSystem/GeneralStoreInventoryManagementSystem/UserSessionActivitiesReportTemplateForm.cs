@@ -11,6 +11,7 @@ using System.Windows.Forms;
 // Custom Libraries
 using InventoryManagementBusinessLayer.ReportInformation;
 using InventoryManagementBusinessLayer.UserInformation;
+using InventoryManagementEntityLayer.Activity;
 using InventoryManagementEntityLayer.UserProfile;
 
 namespace GeneralStoreInventoryManagementSystem
@@ -32,11 +33,22 @@ namespace GeneralStoreInventoryManagementSystem
         #region On Form Load Logic
         private void UserSessionActivitiesReportTemplateForm_Load(object sender, EventArgs e)
         {
+            saleMessageLabel.Visible = false;
+
             newestDateTimePicker.Value = DateTime.Now;
             oldestDateTimePicker.Value = DateTime.Today.AddDays(-1);
             oldestDateTimePicker.MaxDate = DateTime.Today.AddDays(-1);
 
             PopulateSessionLogDataGrid();
+            DisplaySelectedSessionActivities();
+        }
+        #endregion
+
+        #region Key Down Logic
+        private void SessionsDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Up)
+                DisplaySelectedSessionActivities();
         }
         #endregion
 
@@ -47,11 +59,32 @@ namespace GeneralStoreInventoryManagementSystem
             oldestDateTimePicker.Value = newestDateTimePicker.Value.AddDays(-1);
 
             PopulateSessionLogDataGrid();
+            DisplaySelectedSessionActivities();
         }
 
         private void OldestDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             PopulateSessionLogDataGrid();
+            DisplaySelectedSessionActivities();
+        }
+        #endregion
+
+        #region Cell Click Logic
+        private void SessionsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DisplaySelectedSessionActivities();
+        }
+        #endregion
+
+        #region Sales Message Label Logic
+        private void SalesLabel_MouseHover(object sender, EventArgs e)
+        {
+            saleMessageLabel.Visible = true;
+        }
+
+        private void SalesLabel_MouseLeave(object sender, EventArgs e)
+        {
+            saleMessageLabel.Visible = false;
         }
         #endregion
 
@@ -66,6 +99,47 @@ namespace GeneralStoreInventoryManagementSystem
             sessionsDataGridView.Columns["LogIn"].Width = 170;
             sessionsDataGridView.Columns["LogOut"].Width = 170;
             sessionsDataGridView.Columns["TotalSessionMinutes"].Width = 150;
+        }
+
+        /// <summary>
+        /// Function to display all activities complete during a selected session 
+        /// </summary>
+        private void DisplaySelectedSessionActivities()
+        {
+            activitiesDataGridView.DataSource = new List<Activity>();
+            activitiesDataGridView.Refresh();
+
+            activitiesDataGridView.Columns["Username"].Visible = false;
+            activitiesDataGridView.Columns["Description"].Width = 300;
+            activitiesDataGridView.Columns["Type"].Width = 200;
+            activitiesDataGridView.Columns["Timestamp"].Width = 200;
+
+            // TODO: Take into account warnings
+            List<Activity> activities = ReportInformationManager.ConsultUserActivitiesDuringSessionInformation(user.Username, DateTime.Parse(sessionsDataGridView.SelectedCells[0].Value.ToString()), DateTime.Parse(sessionsDataGridView.SelectedCells[1].Value.ToString()));
+          
+            activitiesDataGridView.DataSource = activities;
+            activitiesDataGridView.Refresh();
+
+            int errorCounter = 0;
+            int salesCounter = 0;
+            int returnsCounter = 0;
+
+            foreach (Activity activity in activities)
+            {
+                if (activity.Type == "ERROR")
+                    errorCounter++;
+
+                if (activity.Type == "NEW TRANSACTION")
+                    salesCounter++;
+
+                if (activity.Type == "RETURN TRANSACTION")
+                    returnsCounter++;
+            }
+
+            totalLabel.Text = totalLabel.Text.Split(':')[0] + ": " + activities.Count;
+            errorsLabel.Text = errorsLabel.Text.Split(':')[0] + ": " + errorCounter;
+            salesLabel.Text = salesLabel.Text.Split(':')[0] + ": " + (salesCounter - returnsCounter); // only counts sales that have not originated from returns
+            returnsLabel.Text = returnsLabel.Text.Split(':')[0] + ": " + returnsCounter; 
         }
         #endregion
     }

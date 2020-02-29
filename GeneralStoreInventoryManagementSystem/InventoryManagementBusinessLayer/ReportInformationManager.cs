@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 // Custom Library
 using InventoryManagementDataLayer.ReportData;
-using InventoryManagementEntityLayer.Timesheet;
+using InventoryManagementEntityLayer.Activity;
 using InventoryManagementEntityLayer.Session;
+using InventoryManagementEntityLayer.Timesheet;
 
 namespace InventoryManagementBusinessLayer
 {
@@ -39,6 +40,18 @@ namespace InventoryManagementBusinessLayer
             public static List<SessionLog> ConsultUserSessionLogInformation(String username, DateTime oldestDate, DateTime newestDate)
             {
                 return ReportDataManager.ConsultUserSessionLogData(username, oldestDate, newestDate);
+            }
+
+            /// <summary>
+            /// This function fetches all user activities registered during a user's session
+            /// </summary>
+            /// <param name="username">Username of the target user</param>
+            /// <param name="sessionStart">Log in time of the session</param>
+            /// <param name="sessionEnd">Log out time of the session</param>
+            /// <returns>A list of all activities generated durring the given time interval</returns>
+            public static List<Activity> ConsultUserActivitiesDuringSessionInformation(String username, DateTime sessionStart, DateTime sessionEnd)
+            {
+                return ReportDataManager.ConsultUserActivitiesDuringSessionData(username, sessionStart, sessionEnd);
             }
             #endregion
         }
