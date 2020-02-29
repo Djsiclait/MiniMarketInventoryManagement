@@ -104,6 +104,7 @@
             this.newestDateTimePicker.Name = "newestDateTimePicker";
             this.newestDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.newestDateTimePicker.TabIndex = 8;
+            this.newestDateTimePicker.ValueChanged += new System.EventHandler(this.NewestDateTimePicker_ValueChanged);
             // 
             // label4
             // 
@@ -121,6 +122,7 @@
             this.oldestDateTimePicker.Name = "oldestDateTimePicker";
             this.oldestDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.oldestDateTimePicker.TabIndex = 6;
+            this.oldestDateTimePicker.ValueChanged += new System.EventHandler(this.OldestDateTimePicker_ValueChanged);
             // 
             // sessionsDataGridView
             // 
