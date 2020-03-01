@@ -589,7 +589,7 @@ namespace GeneralStoreInventoryManagementSystem
 
             string[] words = usernameTextBox.Text.Split(' '); // detecting white spaces
 
-            if (words.Count() > 1) // if white spaces are detected the username will be split into multiple words
+            if (words.Length > 1) // if white spaces are detected the username will be split into multiple words
                 result = true;
 
             return result;
@@ -603,7 +603,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             bool validate = true; // No error has been detected
 
-            if (usernameTextBox.Text == "") // username has been left empty
+            if (usernameTextBox.Text.Length == 0) // username has been left empty
             {
                 validate = false;
                 usernameTextBox.BackColor = Color.Red;
@@ -615,19 +615,19 @@ namespace GeneralStoreInventoryManagementSystem
                 usernameTextBox.BackColor = Color.Red;
             }
 
-            if (firstNameTextBox.Text == "") // first name has been left empty 
+            if (firstNameTextBox.Text.Length == 0) // first name has been left empty 
             {
                 validate = false;
                 firstNameTextBox.BackColor = Color.Red;
             }
 
-            if (lastNameTextBox.Text == "") // last name has been left empty
+            if (lastNameTextBox.Text.Length == 0) // last name has been left empty
             {
                 validate = false;
                 lastNameTextBox.BackColor = Color.Red;
             }
 
-            if (passwordTextBox.Text == "") // password has been left empty
+            if (passwordTextBox.Text.Length == 0) // password has been left empty
             {
                 validate = false;
                 passwordTextBox.BackColor = Color.Red;
@@ -639,7 +639,7 @@ namespace GeneralStoreInventoryManagementSystem
                 passwordTextBox.BackColor = Color.Red;
             }
 
-            if (confirmPasswordTextBox.Text == "") // confirmation password has been left empty
+            if (confirmPasswordTextBox.Text.Length == 0) // confirmation password has been left empty
             {
                 validate = false;
                 confirmPasswordTextBox.BackColor = Color.Red;

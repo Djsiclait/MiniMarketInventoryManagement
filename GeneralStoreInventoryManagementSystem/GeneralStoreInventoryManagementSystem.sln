@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralStoreInventoryManagementSystem", "GeneralStoreInventoryManagementSystem\GeneralStoreInventoryManagementSystem.csproj", "{FF43F00C-0005-485A-BB64-823D66F0E66F}"
 EndProject
@@ -10,6 +10,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagementEntityLayer", "InventoryManagementEntityLayer\InventoryManagementEntityLayer.csproj", "{C8586729-0BBD-4D6B-BF95-5B509708D14E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagementBusinessLayer", "InventoryManagementBusinessLayer\InventoryManagementBusinessLayer.csproj", "{FFA050A3-8ABF-4F87-BB18-B465C87E6062}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{04FE7D03-8921-4259-AC7B-3427C2DE9EA3}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +41,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E6CAEE1-D62A-48E0-894C-E16BD0641458}
 	EndGlobalSection
 EndGlobal
