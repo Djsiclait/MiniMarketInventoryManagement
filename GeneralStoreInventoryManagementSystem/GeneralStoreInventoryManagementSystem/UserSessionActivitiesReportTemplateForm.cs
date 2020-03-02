@@ -40,7 +40,6 @@ namespace GeneralStoreInventoryManagementSystem
             oldestDateTimePicker.MaxDate = DateTime.Today.AddDays(-1);
 
             PopulateSessionLogDataGrid();
-            DisplaySelectedSessionActivities();
         }
         #endregion
 
@@ -114,8 +113,11 @@ namespace GeneralStoreInventoryManagementSystem
             activitiesDataGridView.Columns["Type"].Width = 200;
             activitiesDataGridView.Columns["Timestamp"].Width = 200;
 
+            List<Activity> activities = new List<Activity>();
+
             // TODO: Take into account warnings
-            List<Activity> activities = ReportInformationManager.ConsultUserActivitiesDuringSessionInformation(user.Username, DateTime.Parse(sessionsDataGridView.SelectedCells[0].Value.ToString()), DateTime.Parse(sessionsDataGridView.SelectedCells[1].Value.ToString()));
+            if (sessionsDataGridView.RowCount > 0)
+                activities = ReportInformationManager.ConsultUserActivitiesDuringSessionInformation(user.Username, DateTime.Parse(sessionsDataGridView.SelectedCells[0].Value.ToString()), DateTime.Parse(sessionsDataGridView.SelectedCells[1].Value.ToString()));
           
             activitiesDataGridView.DataSource = activities;
             activitiesDataGridView.Refresh();
