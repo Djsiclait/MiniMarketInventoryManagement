@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagementEntityLayer
 {
-    namespace Timesheet
+    namespace ReportEssentials
     {
         public class Timesheet
         {

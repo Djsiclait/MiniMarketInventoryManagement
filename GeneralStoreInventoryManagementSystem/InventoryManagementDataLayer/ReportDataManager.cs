@@ -7,9 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 // Custom Library
-using InventoryManagementEntityLayer.Timesheet;
 using InventoryManagementEntityLayer.Activity;
-using InventoryManagementEntityLayer.Session;
+using InventoryManagementEntityLayer.ReportEssentials;
 
 namespace InventoryManagementDataLayer
 {
