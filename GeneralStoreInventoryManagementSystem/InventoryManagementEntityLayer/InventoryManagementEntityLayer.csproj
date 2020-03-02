@@ -57,6 +57,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sale.cs" />
+    <Compile Include="SalesRecord.cs" />
     <Compile Include="SessionLog.cs" />
     <Compile Include="Timesheet.cs" />
     <Compile Include="UserProfile.cs" />
