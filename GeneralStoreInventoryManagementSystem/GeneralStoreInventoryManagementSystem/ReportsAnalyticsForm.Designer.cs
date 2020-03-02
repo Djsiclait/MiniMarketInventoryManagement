@@ -47,21 +47,37 @@
             this.viewActivityLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.reportTabControl = new System.Windows.Forms.TabControl();
-            this.userTimesheetTabPage = new System.Windows.Forms.TabPage();
-            this.printYesterdayButton = new System.Windows.Forms.Button();
-            this.printLastMonthButton = new System.Windows.Forms.Button();
+            this.usersTimesheetTabPage = new System.Windows.Forms.TabPage();
+            this.printYesterdayTimesheetButton = new System.Windows.Forms.Button();
+            this.printLastMonthTimesheetButton = new System.Windows.Forms.Button();
             this.printTimesheetButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.newestDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.newestTimesheetDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.oldestDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.oldestTimesheetDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.timeSheetDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.usersSalesRecordsTabPage = new System.Windows.Forms.TabPage();
+            this.returnsTotalLabel = new System.Windows.Forms.Label();
+            this.numberOfReturnsLabel = new System.Windows.Forms.Label();
+            this.salesTotalLabel = new System.Windows.Forms.Label();
+            this.numberOfSalesLabel = new System.Windows.Forms.Label();
+            this.printYesterdayRecordsButton = new System.Windows.Forms.Button();
+            this.printLastMonthsRecordsButton = new System.Windows.Forms.Button();
+            this.printSalesRecordsButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.newestSalesRecordDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.oldestSalesRecordDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.salesRecordsDataGridView = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.reportTabControl.SuspendLayout();
-            this.userTimesheetTabPage.SuspendLayout();
+            this.usersTimesheetTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeSheetDataGridView)).BeginInit();
+            this.usersSalesRecordsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.salesRecordsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
@@ -233,8 +249,9 @@
             // 
             // reportTabControl
             // 
-            this.reportTabControl.Controls.Add(this.userTimesheetTabPage);
-            this.reportTabControl.Controls.Add(this.tabPage2);
+            this.reportTabControl.Controls.Add(this.usersTimesheetTabPage);
+            this.reportTabControl.Controls.Add(this.usersSalesRecordsTabPage);
+            this.reportTabControl.Controls.Add(this.tabPage1);
             this.reportTabControl.Location = new System.Drawing.Point(12, 27);
             this.reportTabControl.Name = "reportTabControl";
             this.reportTabControl.SelectedIndex = 0;
@@ -242,44 +259,44 @@
             this.reportTabControl.TabIndex = 13;
             this.reportTabControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportsAnalyticsForm_KeyDown);
             // 
-            // userTimesheetTabPage
+            // usersTimesheetTabPage
             // 
-            this.userTimesheetTabPage.Controls.Add(this.printYesterdayButton);
-            this.userTimesheetTabPage.Controls.Add(this.printLastMonthButton);
-            this.userTimesheetTabPage.Controls.Add(this.printTimesheetButton);
-            this.userTimesheetTabPage.Controls.Add(this.label3);
-            this.userTimesheetTabPage.Controls.Add(this.newestDateTimePicker);
-            this.userTimesheetTabPage.Controls.Add(this.label2);
-            this.userTimesheetTabPage.Controls.Add(this.oldestDateTimePicker);
-            this.userTimesheetTabPage.Controls.Add(this.timeSheetDataGridView);
-            this.userTimesheetTabPage.Controls.Add(this.label1);
-            this.userTimesheetTabPage.Location = new System.Drawing.Point(4, 22);
-            this.userTimesheetTabPage.Name = "userTimesheetTabPage";
-            this.userTimesheetTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.userTimesheetTabPage.Size = new System.Drawing.Size(895, 497);
-            this.userTimesheetTabPage.TabIndex = 0;
-            this.userTimesheetTabPage.Text = "User Timesheets";
-            this.userTimesheetTabPage.UseVisualStyleBackColor = true;
+            this.usersTimesheetTabPage.Controls.Add(this.printYesterdayTimesheetButton);
+            this.usersTimesheetTabPage.Controls.Add(this.printLastMonthTimesheetButton);
+            this.usersTimesheetTabPage.Controls.Add(this.printTimesheetButton);
+            this.usersTimesheetTabPage.Controls.Add(this.label3);
+            this.usersTimesheetTabPage.Controls.Add(this.newestTimesheetDateTimePicker);
+            this.usersTimesheetTabPage.Controls.Add(this.label2);
+            this.usersTimesheetTabPage.Controls.Add(this.oldestTimesheetDateTimePicker);
+            this.usersTimesheetTabPage.Controls.Add(this.timeSheetDataGridView);
+            this.usersTimesheetTabPage.Controls.Add(this.label1);
+            this.usersTimesheetTabPage.Location = new System.Drawing.Point(4, 22);
+            this.usersTimesheetTabPage.Name = "usersTimesheetTabPage";
+            this.usersTimesheetTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.usersTimesheetTabPage.Size = new System.Drawing.Size(895, 497);
+            this.usersTimesheetTabPage.TabIndex = 0;
+            this.usersTimesheetTabPage.Text = "Users\' Timesheets";
+            this.usersTimesheetTabPage.UseVisualStyleBackColor = true;
             // 
-            // printYesterdayButton
+            // printYesterdayTimesheetButton
             // 
-            this.printYesterdayButton.Location = new System.Drawing.Point(158, 379);
-            this.printYesterdayButton.Name = "printYesterdayButton";
-            this.printYesterdayButton.Size = new System.Drawing.Size(194, 23);
-            this.printYesterdayButton.TabIndex = 8;
-            this.printYesterdayButton.Text = "Print Yesterday\'s Report";
-            this.printYesterdayButton.UseVisualStyleBackColor = true;
-            this.printYesterdayButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportsAnalyticsForm_KeyDown);
+            this.printYesterdayTimesheetButton.Location = new System.Drawing.Point(158, 379);
+            this.printYesterdayTimesheetButton.Name = "printYesterdayTimesheetButton";
+            this.printYesterdayTimesheetButton.Size = new System.Drawing.Size(194, 23);
+            this.printYesterdayTimesheetButton.TabIndex = 8;
+            this.printYesterdayTimesheetButton.Text = "Print Yesterday\'s Report";
+            this.printYesterdayTimesheetButton.UseVisualStyleBackColor = true;
+            this.printYesterdayTimesheetButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportsAnalyticsForm_KeyDown);
             // 
-            // printLastMonthButton
+            // printLastMonthTimesheetButton
             // 
-            this.printLastMonthButton.Location = new System.Drawing.Point(358, 379);
-            this.printLastMonthButton.Name = "printLastMonthButton";
-            this.printLastMonthButton.Size = new System.Drawing.Size(194, 23);
-            this.printLastMonthButton.TabIndex = 7;
-            this.printLastMonthButton.Text = "Print Last Month\'s Report";
-            this.printLastMonthButton.UseVisualStyleBackColor = true;
-            this.printLastMonthButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportsAnalyticsForm_KeyDown);
+            this.printLastMonthTimesheetButton.Location = new System.Drawing.Point(358, 379);
+            this.printLastMonthTimesheetButton.Name = "printLastMonthTimesheetButton";
+            this.printLastMonthTimesheetButton.Size = new System.Drawing.Size(194, 23);
+            this.printLastMonthTimesheetButton.TabIndex = 7;
+            this.printLastMonthTimesheetButton.Text = "Print Last Month\'s Report";
+            this.printLastMonthTimesheetButton.UseVisualStyleBackColor = true;
+            this.printLastMonthTimesheetButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportsAnalyticsForm_KeyDown);
             // 
             // printTimesheetButton
             // 
@@ -300,14 +317,14 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Up to:";
             // 
-            // newestDateTimePicker
+            // newestTimesheetDateTimePicker
             // 
-            this.newestDateTimePicker.Location = new System.Drawing.Point(644, 234);
-            this.newestDateTimePicker.Name = "newestDateTimePicker";
-            this.newestDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.newestDateTimePicker.TabIndex = 4;
-            this.newestDateTimePicker.ValueChanged += new System.EventHandler(this.newestDateTimePicker_ValueChanged);
-            this.newestDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportsAnalyticsForm_KeyDown);
+            this.newestTimesheetDateTimePicker.Location = new System.Drawing.Point(644, 234);
+            this.newestTimesheetDateTimePicker.Name = "newestTimesheetDateTimePicker";
+            this.newestTimesheetDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.newestTimesheetDateTimePicker.TabIndex = 4;
+            this.newestTimesheetDateTimePicker.ValueChanged += new System.EventHandler(this.NewestTimesheetDateTimePicker_ValueChanged);
+            this.newestTimesheetDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportsAnalyticsForm_KeyDown);
             // 
             // label2
             // 
@@ -318,14 +335,14 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Starting From:";
             // 
-            // oldestDateTimePicker
+            // oldestTimesheetDateTimePicker
             // 
-            this.oldestDateTimePicker.Location = new System.Drawing.Point(644, 185);
-            this.oldestDateTimePicker.Name = "oldestDateTimePicker";
-            this.oldestDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.oldestDateTimePicker.TabIndex = 2;
-            this.oldestDateTimePicker.ValueChanged += new System.EventHandler(this.oldestDateTimePicker_ValueChanged);
-            this.oldestDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportsAnalyticsForm_KeyDown);
+            this.oldestTimesheetDateTimePicker.Location = new System.Drawing.Point(644, 185);
+            this.oldestTimesheetDateTimePicker.Name = "oldestTimesheetDateTimePicker";
+            this.oldestTimesheetDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.oldestTimesheetDateTimePicker.TabIndex = 2;
+            this.oldestTimesheetDateTimePicker.ValueChanged += new System.EventHandler(this.OldestTimesheetDateTimePicker_ValueChanged);
+            this.oldestTimesheetDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ReportsAnalyticsForm_KeyDown);
             // 
             // timeSheetDataGridView
             // 
@@ -353,19 +370,174 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(41, 96);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 20);
+            this.label1.Size = new System.Drawing.Size(157, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "User Timesheet ";
+            this.label1.Text = "Users\' Timesheets";
             // 
-            // tabPage2
+            // usersSalesRecordsTabPage
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(895, 497);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.usersSalesRecordsTabPage.Controls.Add(this.returnsTotalLabel);
+            this.usersSalesRecordsTabPage.Controls.Add(this.numberOfReturnsLabel);
+            this.usersSalesRecordsTabPage.Controls.Add(this.salesTotalLabel);
+            this.usersSalesRecordsTabPage.Controls.Add(this.numberOfSalesLabel);
+            this.usersSalesRecordsTabPage.Controls.Add(this.printYesterdayRecordsButton);
+            this.usersSalesRecordsTabPage.Controls.Add(this.printLastMonthsRecordsButton);
+            this.usersSalesRecordsTabPage.Controls.Add(this.printSalesRecordsButton);
+            this.usersSalesRecordsTabPage.Controls.Add(this.label4);
+            this.usersSalesRecordsTabPage.Controls.Add(this.newestSalesRecordDateTimePicker);
+            this.usersSalesRecordsTabPage.Controls.Add(this.label5);
+            this.usersSalesRecordsTabPage.Controls.Add(this.oldestSalesRecordDateTimePicker);
+            this.usersSalesRecordsTabPage.Controls.Add(this.salesRecordsDataGridView);
+            this.usersSalesRecordsTabPage.Controls.Add(this.label6);
+            this.usersSalesRecordsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.usersSalesRecordsTabPage.Name = "usersSalesRecordsTabPage";
+            this.usersSalesRecordsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.usersSalesRecordsTabPage.Size = new System.Drawing.Size(895, 497);
+            this.usersSalesRecordsTabPage.TabIndex = 1;
+            this.usersSalesRecordsTabPage.Text = "Users\' Sales Records";
+            this.usersSalesRecordsTabPage.UseVisualStyleBackColor = true;
+            this.usersSalesRecordsTabPage.Click += new System.EventHandler(this.UsersSalesRecordsTabPage_Click);
+            // 
+            // returnsTotalLabel
+            // 
+            this.returnsTotalLabel.AutoSize = true;
+            this.returnsTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.returnsTotalLabel.ForeColor = System.Drawing.Color.Red;
+            this.returnsTotalLabel.Location = new System.Drawing.Point(275, 379);
+            this.returnsTotalLabel.Name = "returnsTotalLabel";
+            this.returnsTotalLabel.Size = new System.Drawing.Size(126, 17);
+            this.returnsTotalLabel.TabIndex = 21;
+            this.returnsTotalLabel.Text = "Returns Total: $";
+            // 
+            // numberOfReturnsLabel
+            // 
+            this.numberOfReturnsLabel.AutoSize = true;
+            this.numberOfReturnsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfReturnsLabel.ForeColor = System.Drawing.Color.Red;
+            this.numberOfReturnsLabel.Location = new System.Drawing.Point(62, 379);
+            this.numberOfReturnsLabel.Name = "numberOfReturnsLabel";
+            this.numberOfReturnsLabel.Size = new System.Drawing.Size(150, 17);
+            this.numberOfReturnsLabel.TabIndex = 20;
+            this.numberOfReturnsLabel.Text = "Number of Returns:";
+            // 
+            // salesTotalLabel
+            // 
+            this.salesTotalLabel.AutoSize = true;
+            this.salesTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesTotalLabel.ForeColor = System.Drawing.Color.DarkGreen;
+            this.salesTotalLabel.Location = new System.Drawing.Point(292, 334);
+            this.salesTotalLabel.Name = "salesTotalLabel";
+            this.salesTotalLabel.Size = new System.Drawing.Size(109, 17);
+            this.salesTotalLabel.TabIndex = 19;
+            this.salesTotalLabel.Text = "Sales Total: $";
+            // 
+            // numberOfSalesLabel
+            // 
+            this.numberOfSalesLabel.AutoSize = true;
+            this.numberOfSalesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberOfSalesLabel.ForeColor = System.Drawing.Color.DarkGreen;
+            this.numberOfSalesLabel.Location = new System.Drawing.Point(79, 334);
+            this.numberOfSalesLabel.Name = "numberOfSalesLabel";
+            this.numberOfSalesLabel.Size = new System.Drawing.Size(133, 17);
+            this.numberOfSalesLabel.TabIndex = 18;
+            this.numberOfSalesLabel.Text = "Number of Sales:";
+            // 
+            // printYesterdayRecordsButton
+            // 
+            this.printYesterdayRecordsButton.Location = new System.Drawing.Point(150, 413);
+            this.printYesterdayRecordsButton.Name = "printYesterdayRecordsButton";
+            this.printYesterdayRecordsButton.Size = new System.Drawing.Size(200, 23);
+            this.printYesterdayRecordsButton.TabIndex = 17;
+            this.printYesterdayRecordsButton.Text = "Print Yesterday\'s Records";
+            this.printYesterdayRecordsButton.UseVisualStyleBackColor = true;
+            // 
+            // printLastMonthsRecordsButton
+            // 
+            this.printLastMonthsRecordsButton.Location = new System.Drawing.Point(356, 413);
+            this.printLastMonthsRecordsButton.Name = "printLastMonthsRecordsButton";
+            this.printLastMonthsRecordsButton.Size = new System.Drawing.Size(200, 23);
+            this.printLastMonthsRecordsButton.TabIndex = 16;
+            this.printLastMonthsRecordsButton.Text = "Print Last Month\'s Records";
+            this.printLastMonthsRecordsButton.UseVisualStyleBackColor = true;
+            // 
+            // printSalesRecordsButton
+            // 
+            this.printSalesRecordsButton.Location = new System.Drawing.Point(648, 231);
+            this.printSalesRecordsButton.Name = "printSalesRecordsButton";
+            this.printSalesRecordsButton.Size = new System.Drawing.Size(200, 23);
+            this.printSalesRecordsButton.TabIndex = 15;
+            this.printSalesRecordsButton.Text = "Print Sales Records";
+            this.printSalesRecordsButton.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(605, 176);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Up to:";
+            // 
+            // newestSalesRecordDateTimePicker
+            // 
+            this.newestSalesRecordDateTimePicker.Location = new System.Drawing.Point(648, 192);
+            this.newestSalesRecordDateTimePicker.Name = "newestSalesRecordDateTimePicker";
+            this.newestSalesRecordDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.newestSalesRecordDateTimePicker.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(605, 127);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Starting From:";
+            // 
+            // oldestSalesRecordDateTimePicker
+            // 
+            this.oldestSalesRecordDateTimePicker.Location = new System.Drawing.Point(648, 143);
+            this.oldestSalesRecordDateTimePicker.Name = "oldestSalesRecordDateTimePicker";
+            this.oldestSalesRecordDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.oldestSalesRecordDateTimePicker.TabIndex = 11;
+            // 
+            // salesRecordsDataGridView
+            // 
+            this.salesRecordsDataGridView.AllowUserToAddRows = false;
+            this.salesRecordsDataGridView.AllowUserToDeleteRows = false;
+            this.salesRecordsDataGridView.AllowUserToResizeColumns = false;
+            this.salesRecordsDataGridView.AllowUserToResizeRows = false;
+            this.salesRecordsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.salesRecordsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.salesRecordsDataGridView.Location = new System.Drawing.Point(65, 77);
+            this.salesRecordsDataGridView.MultiSelect = false;
+            this.salesRecordsDataGridView.Name = "salesRecordsDataGridView";
+            this.salesRecordsDataGridView.ReadOnly = true;
+            this.salesRecordsDataGridView.RowHeadersVisible = false;
+            this.salesRecordsDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.salesRecordsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.salesRecordsDataGridView.Size = new System.Drawing.Size(491, 254);
+            this.salesRecordsDataGridView.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(45, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(182, 20);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Users\' Sales Records";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(895, 497);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // ReportsAnalyticsForm
             // 
@@ -384,9 +556,12 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.reportTabControl.ResumeLayout(false);
-            this.userTimesheetTabPage.ResumeLayout(false);
-            this.userTimesheetTabPage.PerformLayout();
+            this.usersTimesheetTabPage.ResumeLayout(false);
+            this.usersTimesheetTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeSheetDataGridView)).EndInit();
+            this.usersSalesRecordsTabPage.ResumeLayout(false);
+            this.usersSalesRecordsTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.salesRecordsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,16 +588,30 @@
         private System.Windows.Forms.ToolStripMenuItem viewActivityLogsOption;
         private System.Windows.Forms.ToolStripMenuItem viewErrorLogsOption;
         private System.Windows.Forms.TabControl reportTabControl;
-        private System.Windows.Forms.TabPage userTimesheetTabPage;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button printLastMonthButton;
+        private System.Windows.Forms.TabPage usersTimesheetTabPage;
+        private System.Windows.Forms.TabPage usersSalesRecordsTabPage;
+        private System.Windows.Forms.Button printLastMonthTimesheetButton;
         private System.Windows.Forms.Button printTimesheetButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker newestDateTimePicker;
+        private System.Windows.Forms.DateTimePicker newestTimesheetDateTimePicker;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker oldestDateTimePicker;
+        private System.Windows.Forms.DateTimePicker oldestTimesheetDateTimePicker;
         private System.Windows.Forms.DataGridView timeSheetDataGridView;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button printYesterdayButton;
+        private System.Windows.Forms.Button printYesterdayTimesheetButton;
+        private System.Windows.Forms.Button printYesterdayRecordsButton;
+        private System.Windows.Forms.Button printLastMonthsRecordsButton;
+        private System.Windows.Forms.Button printSalesRecordsButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker newestSalesRecordDateTimePicker;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker oldestSalesRecordDateTimePicker;
+        private System.Windows.Forms.DataGridView salesRecordsDataGridView;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label numberOfSalesLabel;
+        private System.Windows.Forms.Label salesTotalLabel;
+        private System.Windows.Forms.Label returnsTotalLabel;
+        private System.Windows.Forms.Label numberOfReturnsLabel;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
