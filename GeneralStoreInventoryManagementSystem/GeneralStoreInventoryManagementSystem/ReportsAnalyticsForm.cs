@@ -11,6 +11,7 @@ using System.Windows.Forms;
 // Custom Library
 using InventoryManagementBusinessLayer.Protocols;
 using InventoryManagementBusinessLayer.ReportInformation;
+using InventoryManagementEntityLayer.ReportEssentials;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -19,6 +20,8 @@ namespace GeneralStoreInventoryManagementSystem
         UserSessionActivitiesReportTemplateForm timesheetChild;
 
         int assistance = 0;
+
+        bool requestSalesRecord = true;
 
         public ReportsAnalyticsForm()
         {
@@ -45,14 +48,13 @@ namespace GeneralStoreInventoryManagementSystem
             #region Users' Timesheet Report
             newestTimesheetDateTimePicker.Value = DateTime.Now;
             newestTimesheetDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
-            oldestTimesheetDateTimePicker.Value = DateTime.Today.AddMonths(-1);
-            oldestTimesheetDateTimePicker.MaxDate = DateTime.Today.AddDays(-1);
 
-            UpdateTimesheetDataGrid();
+            //UpdateTimesheetDataGrid();
             #endregion
 
-            #region Users' Sales Records
-
+            #region Users's Sales Record
+            newestSalesRecordDateTimePicker.Value = DateTime.Today;
+            newestSalesRecordDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
             #endregion
 
             SystemProtocols.ApplyActivityProtocols("REP1", null, null);
@@ -502,8 +504,8 @@ namespace GeneralStoreInventoryManagementSystem
         #region Value Changed Logic
         private void NewestTimesheetDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            oldestTimesheetDateTimePicker.Value = newestTimesheetDateTimePicker.Value.AddMonths(-1);
             oldestTimesheetDateTimePicker.MaxDate = newestTimesheetDateTimePicker.Value.AddDays(-1);
+            oldestTimesheetDateTimePicker.Value = newestTimesheetDateTimePicker.Value.AddMonths(-1);
 
             UpdateTimesheetDataGrid();
         }
@@ -511,6 +513,21 @@ namespace GeneralStoreInventoryManagementSystem
         private void OldestTimesheetDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             UpdateTimesheetDataGrid();
+        }
+
+        private void NewestSalesRecordDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            oldestSalesRecordDateTimePicker.MaxDate = newestSalesRecordDateTimePicker.Value.AddDays(-1);
+            oldestSalesRecordDateTimePicker.Value = newestSalesRecordDateTimePicker.Value.AddMonths(-1);
+
+            if (!requestSalesRecord)
+                UpdateSalesRecordsDataGrid();
+        }
+
+        private void OldestSalesRecordDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (!requestSalesRecord)
+                UpdateSalesRecordsDataGrid();
         }
         #endregion
 
@@ -525,10 +542,15 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
-        #region Tab Click Logic
-        private void UsersSalesRecordsTabPage_Click(object sender, EventArgs e)
+        #region Tab Enter Logic
+        private void UsersSalesRecordsTabPage_Enter(object sender, EventArgs e)
         {
-
+            if (requestSalesRecord)
+            {
+                UpdateSalesRecordsDataGrid();
+                
+                requestSalesRecord = false;
+            }
         }
         #endregion
 
@@ -542,6 +564,38 @@ namespace GeneralStoreInventoryManagementSystem
 
             timeSheetDataGridView.Columns["AverageMinutesPerSession"].Width = 150;
             timeSheetDataGridView.Columns["FullName"].Width = 150;
+        }
+
+        /// <summary>
+        /// Function to update the sales records data grid
+        /// </summary>
+        private void UpdateSalesRecordsDataGrid()
+        {
+            salesRecordsDataGridView.DataSource = new List<SalesRecord>();
+            salesRecordsDataGridView.Refresh();
+
+            List<SalesRecord> salesRecords = ReportInformationManager.ConsultUsersSalesRecordsInformation(oldestSalesRecordDateTimePicker.Value, newestSalesRecordDateTimePicker.Value);
+
+            salesRecordsDataGridView.DataSource = salesRecords;
+            salesRecordsDataGridView.Refresh();
+
+            int sales = 0;
+            Decimal salesTotal = 0;
+            int returns = 0;
+            Decimal returnsTotal = 0;
+
+            foreach (SalesRecord record in salesRecords)
+            {
+                sales += record.Sales;
+                salesTotal += record.SalesTotal;
+                returns += record.Returns;
+                returnsTotal += record.ReturnsTotal;
+            }
+
+            numberOfSalesLabel.Text = numberOfSalesLabel.Text.Split(':')[0] + ": " + sales;
+            salesTotalLabel.Text = salesTotalLabel.Text.Split('$')[0] + "$ " + salesTotal.ToString("0.00");
+            numberOfReturnsLabel.Text = numberOfReturnsLabel.Text.Split(':')[0] + ": " + returns;
+            returnsTotalLabel.Text = returnsTotalLabel.Text.Split('$')[0] + "$ " + returnsTotal.ToString("0.00");
         }
         #endregion
     }

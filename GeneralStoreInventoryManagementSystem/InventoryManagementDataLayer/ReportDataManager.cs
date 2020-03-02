@@ -144,6 +144,50 @@ namespace InventoryManagementDataLayer
             }
             #endregion
 
+            #region Sales Records Logic
+            /// <summary>
+            /// This function fetches the sales records of every user for a specific time frame
+            /// </summary>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <returns> A list of the sales record for chosen time interval</returns>
+            public static List<SalesRecord> ConsultUsersSalesRecordsData(DateTime oldestDate, DateTime newestDate)
+            {
+                List<SalesRecord> salesRecords = new List<SalesRecord>();
+
+                SqlCommand cmd = new SqlCommand(
+                        "SP_Generate_Users_Sales_Records",
+                        DatabaseManager.ActiveSqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                #region Parameters
+                cmd.Parameters.AddWithValue("@newest_date", newestDate);
+                cmd.Parameters.AddWithValue("@oldest_date", oldestDate);
+                #endregion
+
+                SqlDataReader sqlDataReader;
+                sqlDataReader = cmd.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    SalesRecord salesRecord = new SalesRecord()
+                    {
+                        Username = sqlDataReader["fld_sold_by"].ToString(),
+                        Returns = FormatToInt(sqlDataReader["Returns"].ToString()),
+                        ReturnsTotal = FormatToDecimal(sqlDataReader["Returns Total"].ToString()),
+                        Sales = FormatToInt(sqlDataReader["Sales"].ToString()),
+                        SalesTotal = FormatToDecimal(sqlDataReader["Sales Total"].ToString())
+                    };
+
+                    salesRecords.Add(salesRecord);
+                }
+
+                DatabaseManager.DisconnectToDatabase();
+
+                return salesRecords;
+            }
+            #endregion
+
             #region Auxiliary Functions
             /// <summary>
             /// Function to convert strings to decimals

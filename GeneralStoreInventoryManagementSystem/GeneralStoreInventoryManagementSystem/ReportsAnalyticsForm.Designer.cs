@@ -396,7 +396,7 @@
             this.usersSalesRecordsTabPage.TabIndex = 1;
             this.usersSalesRecordsTabPage.Text = "Users\' Sales Records";
             this.usersSalesRecordsTabPage.UseVisualStyleBackColor = true;
-            this.usersSalesRecordsTabPage.Click += new System.EventHandler(this.UsersSalesRecordsTabPage_Click);
+            this.usersSalesRecordsTabPage.Enter += new System.EventHandler(this.UsersSalesRecordsTabPage_Enter);
             // 
             // returnsTotalLabel
             // 
@@ -484,6 +484,7 @@
             this.newestSalesRecordDateTimePicker.Name = "newestSalesRecordDateTimePicker";
             this.newestSalesRecordDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.newestSalesRecordDateTimePicker.TabIndex = 13;
+            this.newestSalesRecordDateTimePicker.ValueChanged += new System.EventHandler(this.NewestSalesRecordDateTimePicker_ValueChanged);
             // 
             // label5
             // 
@@ -500,6 +501,7 @@
             this.oldestSalesRecordDateTimePicker.Name = "oldestSalesRecordDateTimePicker";
             this.oldestSalesRecordDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.oldestSalesRecordDateTimePicker.TabIndex = 11;
+            this.oldestSalesRecordDateTimePicker.ValueChanged += new System.EventHandler(this.OldestSalesRecordDateTimePicker_ValueChanged);
             // 
             // salesRecordsDataGridView
             // 

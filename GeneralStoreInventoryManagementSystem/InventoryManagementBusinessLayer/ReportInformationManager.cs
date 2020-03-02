@@ -53,6 +53,19 @@ namespace InventoryManagementBusinessLayer
                 return ReportDataManager.ConsultUserActivitiesDuringSessionData(username, sessionStart, sessionEnd);
             }
             #endregion
+
+            #region Sales Records Logic
+            /// <summary>
+            /// This function fetches the sales records of every user for a specific time frame
+            /// </summary>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <returns> A list of the sales record for chosen time interval</returns>
+            public static List<SalesRecord> ConsultUsersSalesRecordsInformation(DateTime oldestDate, DateTime newestDate)
+            {
+                return ReportDataManager.ConsultUsersSalesRecordsData(oldestDate, newestDate);
+            }
+            #endregion
         }
     }
 }
