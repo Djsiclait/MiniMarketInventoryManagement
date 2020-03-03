@@ -610,8 +610,13 @@ namespace GeneralStoreInventoryManagementSystem
             if (timesheetChild != null)
                 timesheetChild.Dispose();
 
-            timesheetChild = new UserSessionActivitiesReportTemplateForm(timeSheetDataGridView.SelectedCells[0].Value.ToString());
-            timesheetChild.Show();
+            if (timeSheetDataGridView.Rows.Count > 0)
+            {
+                timesheetChild = new UserSessionActivitiesReportTemplateForm(timeSheetDataGridView.SelectedCells[0].Value.ToString());
+                timesheetChild.Show();
+            }
+            else
+                MessageBox.Show("There is no available information at the moment");
         }
 
         private void salesRecordsDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -619,8 +624,13 @@ namespace GeneralStoreInventoryManagementSystem
             if (salesRecordChild != null)
                 salesRecordChild.Dispose();
 
-            salesRecordChild = new UserSalesRecordsTemplateForm(salesRecordsDataGridView.SelectedCells[0].Value.ToString());
-            salesRecordChild.Show();
+            if (salesRecordsDataGridView.Rows.Count > 0)
+            {
+                salesRecordChild = new UserSalesRecordsTemplateForm(salesRecordsDataGridView.SelectedCells[0].Value.ToString());
+                salesRecordChild.Show();
+            }
+            else
+                MessageBox.Show("There is no available information at the moment");
         }
         #endregion
 
