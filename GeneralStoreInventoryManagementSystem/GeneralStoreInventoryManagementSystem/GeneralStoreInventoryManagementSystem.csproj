@@ -153,6 +153,12 @@
     <Compile Include="UserInformationTemplateForm.Designer.cs">
       <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSalesRecordsTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserSalesRecordsTemplateForm.Designer.cs">
+      <DependentUpon>UserSalesRecordsTemplateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserSessionActivitiesReportTemplateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserInformationTemplateForm.resx">
       <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSalesRecordsTemplateForm.resx">
+      <DependentUpon>UserSalesRecordsTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserSessionActivitiesReportTemplateForm.resx">
       <DependentUpon>UserSessionActivitiesReportTemplateForm.cs</DependentUpon>

@@ -18,7 +18,7 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class UserSessionActivitiesReportTemplateForm : Form
     {
-        UserProfile user;
+        readonly UserProfile user;
 
         public UserSessionActivitiesReportTemplateForm(String username)
         {

@@ -520,6 +520,7 @@
             this.salesRecordsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.salesRecordsDataGridView.Size = new System.Drawing.Size(491, 254);
             this.salesRecordsDataGridView.TabIndex = 10;
+            this.salesRecordsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.salesRecordsDataGridView_CellDoubleClick);
             // 
             // label6
             // 

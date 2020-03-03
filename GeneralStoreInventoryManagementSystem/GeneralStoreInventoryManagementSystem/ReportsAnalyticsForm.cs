@@ -18,6 +18,7 @@ namespace GeneralStoreInventoryManagementSystem
     public partial class ReportsAnalyticsForm : Form
     {
         UserSessionActivitiesReportTemplateForm timesheetChild;
+        UserSalesRecordsTemplateForm salesRecordChild;
 
         int assistance = 0;
 
@@ -73,6 +74,9 @@ namespace GeneralStoreInventoryManagementSystem
             if (timesheetChild != null)
                 timesheetChild.Dispose();
 
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
+
             SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
 
             // Closing form while freeing system resources
@@ -90,6 +94,9 @@ namespace GeneralStoreInventoryManagementSystem
             if (timesheetChild != null)
                 timesheetChild.Dispose();
 
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
+
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
         }
@@ -102,6 +109,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             if (timesheetChild != null)
                 timesheetChild.Dispose();
+
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -116,6 +126,9 @@ namespace GeneralStoreInventoryManagementSystem
             if (timesheetChild != null)
                 timesheetChild.Dispose();
 
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
+
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
         }
@@ -128,6 +141,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             if (timesheetChild != null)
                 timesheetChild.Dispose();
+
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -142,6 +158,9 @@ namespace GeneralStoreInventoryManagementSystem
             if (timesheetChild != null)
                 timesheetChild.Dispose();
 
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
+
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
         }
@@ -154,6 +173,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             if (timesheetChild != null)
                 timesheetChild.Dispose();
+
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -168,6 +190,9 @@ namespace GeneralStoreInventoryManagementSystem
             if (timesheetChild != null)
                 timesheetChild.Dispose();
 
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
+
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
         }
@@ -180,6 +205,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             if (timesheetChild != null)
                 timesheetChild.Dispose();
+
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -194,6 +222,9 @@ namespace GeneralStoreInventoryManagementSystem
             if (timesheetChild != null)
                 timesheetChild.Dispose();
 
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
+
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
         }
@@ -207,6 +238,9 @@ namespace GeneralStoreInventoryManagementSystem
             if (timesheetChild != null)
                 timesheetChild.Dispose();
 
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
+
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
         }
@@ -219,6 +253,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             if (timesheetChild != null)
                 timesheetChild.Dispose();
+
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -243,6 +280,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             if (timesheetChild != null)
                 timesheetChild.Dispose();
+
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
 
             SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
 
@@ -278,6 +318,9 @@ namespace GeneralStoreInventoryManagementSystem
                     if (timesheetChild != null)
                         timesheetChild.Dispose();
 
+                    if (salesRecordChild != null)
+                        salesRecordChild.Dispose();
+
                     // Closing form while freeing system resources
                     FormsMenuList.reportsAnalyticsForm.Dispose();
                     #endregion
@@ -294,6 +337,9 @@ namespace GeneralStoreInventoryManagementSystem
                     if (timesheetChild != null)
                         timesheetChild.Dispose();
 
+                    if (salesRecordChild != null)
+                        salesRecordChild.Dispose();
+
                     // Closing form while freeing system resources
                     FormsMenuList.reportsAnalyticsForm.Dispose();
                     #endregion
@@ -309,6 +355,9 @@ namespace GeneralStoreInventoryManagementSystem
 
                     if (timesheetChild != null)
                         timesheetChild.Dispose();
+
+                    if (salesRecordChild != null)
+                        salesRecordChild.Dispose();
 
                     // Closing form while freeing system resources
                     FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -330,6 +379,9 @@ namespace GeneralStoreInventoryManagementSystem
                         if (timesheetChild != null)
                             timesheetChild.Dispose();
 
+                        if (salesRecordChild != null)
+                            salesRecordChild.Dispose();
+
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
                     }
@@ -349,6 +401,9 @@ namespace GeneralStoreInventoryManagementSystem
 
                         if (timesheetChild != null)
                             timesheetChild.Dispose();
+
+                        if (salesRecordChild != null)
+                            salesRecordChild.Dispose();
 
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -370,6 +425,9 @@ namespace GeneralStoreInventoryManagementSystem
                         if (timesheetChild != null)
                             timesheetChild.Dispose();
 
+                        if (salesRecordChild != null)
+                            salesRecordChild.Dispose();
+
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
                     }
@@ -390,6 +448,9 @@ namespace GeneralStoreInventoryManagementSystem
                         if (timesheetChild != null)
                             timesheetChild.Dispose();
 
+                        if (salesRecordChild != null)
+                            salesRecordChild.Dispose();
+
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
                     }
@@ -409,6 +470,9 @@ namespace GeneralStoreInventoryManagementSystem
 
                         if (timesheetChild != null)
                             timesheetChild.Dispose();
+
+                        if (salesRecordChild != null)
+                            salesRecordChild.Dispose();
 
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -452,6 +516,9 @@ namespace GeneralStoreInventoryManagementSystem
                         if (timesheetChild != null)
                             timesheetChild.Dispose();
 
+                        if (salesRecordChild != null)
+                            salesRecordChild.Dispose();
+
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
                     }
@@ -472,6 +539,9 @@ namespace GeneralStoreInventoryManagementSystem
                         if (timesheetChild != null)
                             timesheetChild.Dispose();
 
+                        if (salesRecordChild != null)
+                            salesRecordChild.Dispose();
+
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
                     }
@@ -488,6 +558,9 @@ namespace GeneralStoreInventoryManagementSystem
 
                     if (timesheetChild != null)
                         timesheetChild.Dispose();
+
+                    if (salesRecordChild != null)
+                        salesRecordChild.Dispose();
 
                     // Closing form while freeing system resources
                     FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -539,6 +612,15 @@ namespace GeneralStoreInventoryManagementSystem
 
             timesheetChild = new UserSessionActivitiesReportTemplateForm(timeSheetDataGridView.SelectedCells[0].Value.ToString());
             timesheetChild.Show();
+        }
+
+        private void salesRecordsDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (salesRecordChild != null)
+                salesRecordChild.Dispose();
+
+            salesRecordChild = new UserSalesRecordsTemplateForm(salesRecordsDataGridView.SelectedCells[0].Value.ToString());
+            salesRecordChild.Show();
         }
         #endregion
 
