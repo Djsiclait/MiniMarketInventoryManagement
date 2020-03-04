@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 // Custom Library
 using InventoryManagementEntityLayer.Activity;
 using InventoryManagementEntityLayer.ReportEssentials;
+using InventoryManagementEntityLayer.Sale;
 
 namespace InventoryManagementDataLayer
 {
@@ -157,8 +158,10 @@ namespace InventoryManagementDataLayer
 
                 SqlCommand cmd = new SqlCommand(
                         "SP_Generate_Users_Sales_Records",
-                        DatabaseManager.ActiveSqlConnection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                        DatabaseManager.ActiveSqlConnection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
 
                 #region Parameters
                 cmd.Parameters.AddWithValue("@newest_date", newestDate);
@@ -185,6 +188,52 @@ namespace InventoryManagementDataLayer
                 DatabaseManager.DisconnectToDatabase();
 
                 return salesRecords;
+            }
+
+            /// <summary>
+            /// This function fetches a all sales made by a target user durring a specified time frame
+            /// </summary>
+            /// <param name="username">Username of target user</param>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <returns>A list of all sales made by a user during a given time period</returns>
+            public static List<Sale> ConsultSalesMadeByUserData(String username, DateTime oldestDate, DateTime newestDate)
+            {
+                List<Sale> sales = new List<Sale>();
+
+                SqlCommand cmd = new SqlCommand(
+                        "SP_Fetch_Sales_Made_By_User",
+                        DatabaseManager.ActiveSqlConnection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                #region Parameters
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@newest_date", newestDate);
+                cmd.Parameters.AddWithValue("@oldest_date", oldestDate);
+                #endregion
+
+                SqlDataReader sqlDataReader;
+                sqlDataReader = cmd.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    Sale sale = new Sale()
+                    {
+                        Id = sqlDataReader["fld_sale_id"].ToString(),
+                        TransactionDate = DateTime.Parse(sqlDataReader["fld_sale_date"].ToString()),
+                        NumberItems = FormatToInt(sqlDataReader["fld_sale_quantity_items"].ToString()),
+                        Total = FormatToDecimal(sqlDataReader["fld_sale_total"].ToString()),
+                        Parent = sqlDataReader["fld_sale_parent"].ToString()
+                    };
+
+                    sales.Add(sale);
+                }
+
+                DatabaseManager.DisconnectToDatabase();
+
+                return sales;
             }
             #endregion
 

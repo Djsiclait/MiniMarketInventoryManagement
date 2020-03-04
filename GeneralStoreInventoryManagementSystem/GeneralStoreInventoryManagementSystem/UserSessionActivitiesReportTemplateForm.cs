@@ -36,10 +36,9 @@ namespace GeneralStoreInventoryManagementSystem
             saleMessageLabel.Visible = false;
 
             newestDateTimePicker.Value = DateTime.Now;
-            oldestDateTimePicker.Value = DateTime.Today.AddDays(-1);
+            newestDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
+            oldestDateTimePicker.Value = DateTime.Today.AddMonths(-1);
             oldestDateTimePicker.MaxDate = DateTime.Today.AddDays(-1);
-
-            PopulateSessionLogDataGrid();
         }
         #endregion
 
@@ -47,7 +46,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void SessionsDataGridView_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Up)
-                DisplaySelectedSessionActivities();
+                DisplaySelectedSessionActivities(); // there's a delaly in between the key down and the switch of the selected row
         }
         #endregion
 
@@ -56,9 +55,6 @@ namespace GeneralStoreInventoryManagementSystem
         {
             oldestDateTimePicker.MaxDate = newestDateTimePicker.Value.AddDays(-1); // Required to be first given such a small interval of time
             oldestDateTimePicker.Value = newestDateTimePicker.Value.AddDays(-1);
-
-            PopulateSessionLogDataGrid();
-            DisplaySelectedSessionActivities();
         }
 
         private void OldestDateTimePicker_ValueChanged(object sender, EventArgs e)

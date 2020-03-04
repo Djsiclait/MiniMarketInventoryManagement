@@ -49,12 +49,10 @@ namespace GeneralStoreInventoryManagementSystem
             #region Users' Timesheet Report
             newestTimesheetDateTimePicker.Value = DateTime.Now;
             newestTimesheetDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
-
-            //UpdateTimesheetDataGrid();
             #endregion
 
             #region Users's Sales Record
-            newestSalesRecordDateTimePicker.Value = DateTime.Today;
+            newestSalesRecordDateTimePicker.Value = DateTime.Now;
             newestSalesRecordDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
             #endregion
 
@@ -579,8 +577,6 @@ namespace GeneralStoreInventoryManagementSystem
         {
             oldestTimesheetDateTimePicker.MaxDate = newestTimesheetDateTimePicker.Value.AddDays(-1);
             oldestTimesheetDateTimePicker.Value = newestTimesheetDateTimePicker.Value.AddMonths(-1);
-
-            UpdateTimesheetDataGrid();
         }
 
         private void OldestTimesheetDateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -592,9 +588,6 @@ namespace GeneralStoreInventoryManagementSystem
         {
             oldestSalesRecordDateTimePicker.MaxDate = newestSalesRecordDateTimePicker.Value.AddDays(-1);
             oldestSalesRecordDateTimePicker.Value = newestSalesRecordDateTimePicker.Value.AddMonths(-1);
-
-            if (!requestSalesRecord)
-                UpdateSalesRecordsDataGrid();
         }
 
         private void OldestSalesRecordDateTimePicker_ValueChanged(object sender, EventArgs e)

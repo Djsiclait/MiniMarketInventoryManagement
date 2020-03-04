@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using InventoryManagementDataLayer.ReportData;
 using InventoryManagementEntityLayer.Activity;
 using InventoryManagementEntityLayer.ReportEssentials;
+using InventoryManagementEntityLayer.Sale;
 
 namespace InventoryManagementBusinessLayer
 {
@@ -64,6 +65,18 @@ namespace InventoryManagementBusinessLayer
             public static List<SalesRecord> ConsultUsersSalesRecordsInformation(DateTime oldestDate, DateTime newestDate)
             {
                 return ReportDataManager.ConsultUsersSalesRecordsData(oldestDate, newestDate);
+            }
+
+            /// <summary>
+            /// This function fetches a all sales made by a target user durring a specified time frame
+            /// </summary>
+            /// <param name="username">Username of target user</param>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <returns>A list of all sales made by a user during a given time period</returns>
+            public static List<Sale> ConsultSalesMadeByUserInformation(String username, DateTime oldestDate, DateTime newestDate)
+            {
+                return ReportDataManager.ConsultSalesMadeByUserData(username, oldestDate, newestDate);
             }
             #endregion
         }
