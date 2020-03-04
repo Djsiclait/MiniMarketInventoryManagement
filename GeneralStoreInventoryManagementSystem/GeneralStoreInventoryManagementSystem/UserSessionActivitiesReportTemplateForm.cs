@@ -18,7 +18,7 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class UserSessionActivitiesReportTemplateForm : Form
     {
-        UserProfile user;
+        readonly UserProfile user;
 
         public UserSessionActivitiesReportTemplateForm(String username)
         {
@@ -36,11 +36,9 @@ namespace GeneralStoreInventoryManagementSystem
             saleMessageLabel.Visible = false;
 
             newestDateTimePicker.Value = DateTime.Now;
-            oldestDateTimePicker.Value = DateTime.Today.AddDays(-1);
+            newestDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
+            oldestDateTimePicker.Value = DateTime.Today.AddMonths(-1);
             oldestDateTimePicker.MaxDate = DateTime.Today.AddDays(-1);
-
-            PopulateSessionLogDataGrid();
-            DisplaySelectedSessionActivities();
         }
         #endregion
 
@@ -48,7 +46,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void SessionsDataGridView_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Up)
-                DisplaySelectedSessionActivities();
+                DisplaySelectedSessionActivities(); // there's a delaly in between the key down and the switch of the selected row
         }
         #endregion
 
@@ -57,9 +55,6 @@ namespace GeneralStoreInventoryManagementSystem
         {
             oldestDateTimePicker.MaxDate = newestDateTimePicker.Value.AddDays(-1); // Required to be first given such a small interval of time
             oldestDateTimePicker.Value = newestDateTimePicker.Value.AddDays(-1);
-
-            PopulateSessionLogDataGrid();
-            DisplaySelectedSessionActivities();
         }
 
         private void OldestDateTimePicker_ValueChanged(object sender, EventArgs e)
@@ -114,12 +109,12 @@ namespace GeneralStoreInventoryManagementSystem
             activitiesDataGridView.Columns["Type"].Width = 200;
             activitiesDataGridView.Columns["Timestamp"].Width = 200;
 
-            // TODO: Take into account warnings
-#pragma warning disable CA1305 // Specify IFormatProvider
-            List<Activity> activities = ReportInformationManager.ConsultUserActivitiesDuringSessionInformation(user.Username, DateTime.Parse(sessionsDataGridView.SelectedCells[0].Value.ToString()), DateTime.Parse(sessionsDataGridView.SelectedCells[1].Value.ToString()));
-#pragma warning restore CA1305 // Specify IFormatProvider
+            List<Activity> activities = new List<Activity>();
 
-            //List<Activity> activities = new List<Activity>();
+            // TODO: Take into account warnings
+            if (sessionsDataGridView.RowCount > 0)
+                activities = ReportInformationManager.ConsultUserActivitiesDuringSessionInformation(user.Username, DateTime.Parse(sessionsDataGridView.SelectedCells[0].Value.ToString()), DateTime.Parse(sessionsDataGridView.SelectedCells[1].Value.ToString()));
+          
             activitiesDataGridView.DataSource = activities;
             activitiesDataGridView.Refresh();
 

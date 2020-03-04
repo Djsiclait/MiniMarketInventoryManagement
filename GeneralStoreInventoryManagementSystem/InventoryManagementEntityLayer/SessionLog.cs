@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagementEntityLayer
 {
-    namespace Session
+    namespace ReportEssentials
     {
         public class SessionLog
         {

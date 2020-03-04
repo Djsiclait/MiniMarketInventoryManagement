@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 // Custom Library
-using InventoryManagementEntityLayer.Timesheet;
 using InventoryManagementEntityLayer.Activity;
-using InventoryManagementEntityLayer.Session;
+using InventoryManagementEntityLayer.ReportEssentials;
+using InventoryManagementEntityLayer.Sale;
 
 namespace InventoryManagementDataLayer
 {
@@ -142,6 +142,98 @@ namespace InventoryManagementDataLayer
                 DatabaseManager.DisconnectToDatabase();
 
                 return activities;
+            }
+            #endregion
+
+            #region Sales Records Logic
+            /// <summary>
+            /// This function fetches the sales records of every user for a specific time frame
+            /// </summary>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <returns> A list of the sales record for chosen time interval</returns>
+            public static List<SalesRecord> ConsultUsersSalesRecordsData(DateTime oldestDate, DateTime newestDate)
+            {
+                List<SalesRecord> salesRecords = new List<SalesRecord>();
+
+                SqlCommand cmd = new SqlCommand(
+                        "SP_Generate_Users_Sales_Records",
+                        DatabaseManager.ActiveSqlConnection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                #region Parameters
+                cmd.Parameters.AddWithValue("@newest_date", newestDate);
+                cmd.Parameters.AddWithValue("@oldest_date", oldestDate);
+                #endregion
+
+                SqlDataReader sqlDataReader;
+                sqlDataReader = cmd.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    SalesRecord salesRecord = new SalesRecord()
+                    {
+                        Username = sqlDataReader["fld_sold_by"].ToString(),
+                        Returns = FormatToInt(sqlDataReader["Returns"].ToString()),
+                        ReturnsTotal = FormatToDecimal(sqlDataReader["Returns Total"].ToString()),
+                        Sales = FormatToInt(sqlDataReader["Sales"].ToString()),
+                        SalesTotal = FormatToDecimal(sqlDataReader["Sales Total"].ToString())
+                    };
+
+                    salesRecords.Add(salesRecord);
+                }
+
+                DatabaseManager.DisconnectToDatabase();
+
+                return salesRecords;
+            }
+
+            /// <summary>
+            /// This function fetches a all sales made by a target user durring a specified time frame
+            /// </summary>
+            /// <param name="username">Username of target user</param>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <returns>A list of all sales made by a user during a given time period</returns>
+            public static List<Sale> ConsultSalesMadeByUserData(String username, DateTime oldestDate, DateTime newestDate)
+            {
+                List<Sale> sales = new List<Sale>();
+
+                SqlCommand cmd = new SqlCommand(
+                        "SP_Fetch_Sales_Made_By_User",
+                        DatabaseManager.ActiveSqlConnection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                #region Parameters
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@newest_date", newestDate);
+                cmd.Parameters.AddWithValue("@oldest_date", oldestDate);
+                #endregion
+
+                SqlDataReader sqlDataReader;
+                sqlDataReader = cmd.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    Sale sale = new Sale()
+                    {
+                        Id = sqlDataReader["fld_sale_id"].ToString(),
+                        TransactionDate = DateTime.Parse(sqlDataReader["fld_sale_date"].ToString()),
+                        NumberItems = FormatToInt(sqlDataReader["fld_sale_quantity_items"].ToString()),
+                        Total = FormatToDecimal(sqlDataReader["fld_sale_total"].ToString()),
+                        Parent = sqlDataReader["fld_sale_parent"].ToString()
+                    };
+
+                    sales.Add(sale);
+                }
+
+                DatabaseManager.DisconnectToDatabase();
+
+                return sales;
             }
             #endregion
 
