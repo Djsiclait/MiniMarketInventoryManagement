@@ -46,14 +46,18 @@
             this.logsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewActivityLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // viewCartLabel
             // 
             this.viewCartLabel.AutoSize = true;
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
             this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
             this.viewCartLabel.TabIndex = 9;
@@ -66,7 +70,7 @@
             // 
             this.logOutLabel.AutoSize = true;
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.logOutLabel.Location = new System.Drawing.Point(870, 9);
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(45, 13);
             this.logOutLabel.TabIndex = 8;
@@ -84,7 +88,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GraphsAnalyticsForm_KeyDown);
@@ -164,7 +168,7 @@
             this.viewUsersOption,
             this.registerNewUserOption});
             this.manageUsersMenuSubOption.Name = "manageUsersMenuSubOption";
-            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.manageUsersMenuSubOption.Size = new System.Drawing.Size(161, 22);
             this.manageUsersMenuSubOption.Text = "Manage Users";
             // 
             // viewUsersOption
@@ -187,7 +191,7 @@
             // 
             this.viewReportsMenuSubOption.Name = "viewReportsMenuSubOption";
             this.viewReportsMenuSubOption.ShortcutKeyDisplayString = "F9";
-            this.viewReportsMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.viewReportsMenuSubOption.Size = new System.Drawing.Size(161, 22);
             this.viewReportsMenuSubOption.Text = "View Reports";
             this.viewReportsMenuSubOption.Click += new System.EventHandler(this.ViewReportsMenuSubOption_Click);
             // 
@@ -197,7 +201,7 @@
             this.viewActivityLogsOption,
             this.viewErrorLogsOption});
             this.logsMenuSubOption.Name = "logsMenuSubOption";
-            this.logsMenuSubOption.Size = new System.Drawing.Size(180, 22);
+            this.logsMenuSubOption.Size = new System.Drawing.Size(161, 22);
             this.logsMenuSubOption.Text = "Logs";
             // 
             // viewActivityLogsOption
@@ -216,20 +220,55 @@
             this.viewErrorLogsOption.Text = "View Errors Log";
             this.viewErrorLogsOption.Click += new System.EventHandler(this.ViewErrorLogsOption_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(12, 27);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(903, 523);
+            this.tabControl1.TabIndex = 10;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(895, 497);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // GraphsAnalyticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 462);
+            this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(943, 601);
             this.Name = "GraphsAnalyticsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Analytics --- Graphs";
             this.Load += new System.EventHandler(this.GraphsAnalyticsForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GraphsAnalyticsForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +294,8 @@
         private System.Windows.Forms.ToolStripMenuItem browseProductsMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem registerNewProductMenuSubOption;
         private System.Windows.Forms.ToolStripMenuItem restockProductsMenuSubOption;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

@@ -551,6 +551,8 @@
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(943, 601);
             this.Name = "ReportsAnalyticsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Analytics --- Reports";
