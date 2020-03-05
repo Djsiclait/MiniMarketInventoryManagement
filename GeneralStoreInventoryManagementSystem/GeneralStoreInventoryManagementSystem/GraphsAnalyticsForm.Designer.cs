@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -49,8 +53,18 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.timesheeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.usernamesListBox = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.newestSalesRecordDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.printTimesheetButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timesheeChart)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
@@ -232,12 +246,20 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.printTimesheetButton);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.newestSalesRecordDateTimePicker);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.usernamesListBox);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.timesheeChart);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(895, 497);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Timesheet";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -245,10 +267,92 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.Size = new System.Drawing.Size(895, 497);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // timesheeChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.timesheeChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.timesheeChart.Legends.Add(legend1);
+            this.timesheeChart.Location = new System.Drawing.Point(49, 79);
+            this.timesheeChart.Name = "timesheeChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bubble;
+            series1.Legend = "Legend1";
+            series1.Name = "User";
+            series1.YValuesPerPoint = 2;
+            this.timesheeChart.Series.Add(series1);
+            this.timesheeChart.Size = new System.Drawing.Size(515, 336);
+            this.timesheeChart.TabIndex = 0;
+            this.timesheeChart.Text = "Timesheet Graph";
+            title1.Name = "Title1";
+            title1.Text = "User Timesheet";
+            this.timesheeChart.Titles.Add(title1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(45, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(248, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "User TimeSheet Bubble Chart";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(570, 153);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "User: ";
+            // 
+            // usernamesListBox
+            // 
+            this.usernamesListBox.FormattingEnabled = true;
+            this.usernamesListBox.Location = new System.Drawing.Point(593, 176);
+            this.usernamesListBox.Name = "usernamesListBox";
+            this.usernamesListBox.Size = new System.Drawing.Size(274, 69);
+            this.usernamesListBox.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(611, 150);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(132, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(570, 259);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Last 30 days up to:";
+            // 
+            // newestSalesRecordDateTimePicker
+            // 
+            this.newestSalesRecordDateTimePicker.Location = new System.Drawing.Point(613, 275);
+            this.newestSalesRecordDateTimePicker.Name = "newestSalesRecordDateTimePicker";
+            this.newestSalesRecordDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.newestSalesRecordDateTimePicker.TabIndex = 15;
+            // 
+            // printTimesheetButton
+            // 
+            this.printTimesheetButton.Location = new System.Drawing.Point(613, 315);
+            this.printTimesheetButton.Name = "printTimesheetButton";
+            this.printTimesheetButton.Size = new System.Drawing.Size(200, 23);
+            this.printTimesheetButton.TabIndex = 17;
+            this.printTimesheetButton.Text = "Print Timesheet Graph";
+            this.printTimesheetButton.UseVisualStyleBackColor = true;
             // 
             // GraphsAnalyticsForm
             // 
@@ -269,6 +373,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timesheeChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +404,13 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart timesheeChart;
+        private System.Windows.Forms.ListBox usernamesListBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker newestSalesRecordDateTimePicker;
+        private System.Windows.Forms.Button printTimesheetButton;
     }
 }
