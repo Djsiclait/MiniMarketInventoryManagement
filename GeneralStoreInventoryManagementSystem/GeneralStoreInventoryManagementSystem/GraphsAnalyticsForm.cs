@@ -40,6 +40,13 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             SystemProtocols.ApplyActivityProtocols("GRA1", null, null);
+
+            timeComboBox.Items.Add("24 hours");
+            timeComboBox.Items.Add("72 hours");
+            timeComboBox.Items.Add("week");
+            timeComboBox.Items.Add("2 weeks");
+            timeComboBox.Items.Add("month");
+            timeComboBox.Items.Add("2 months");
         }
         #endregion
 
