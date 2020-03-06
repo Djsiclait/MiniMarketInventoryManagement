@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -298,6 +298,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 20);
             this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // usernamesListBox
             // 
@@ -329,24 +330,24 @@
             // 
             // timesheeChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.timesheeChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.timesheeChart.Legends.Add(legend3);
+            chartArea4.Name = "ChartArea1";
+            this.timesheeChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.timesheeChart.Legends.Add(legend4);
             this.timesheeChart.Location = new System.Drawing.Point(49, 79);
             this.timesheeChart.Name = "timesheeChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bubble;
-            series3.Legend = "Legend1";
-            series3.Name = "User";
-            series3.YValuesPerPoint = 2;
-            this.timesheeChart.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bubble;
+            series4.Legend = "Legend1";
+            series4.Name = "User";
+            series4.YValuesPerPoint = 2;
+            this.timesheeChart.Series.Add(series4);
             this.timesheeChart.Size = new System.Drawing.Size(515, 336);
             this.timesheeChart.TabIndex = 0;
             this.timesheeChart.Text = "Timesheet Graph";
-            title3.Name = "Title1";
-            title3.Text = "User Timesheet";
-            this.timesheeChart.Titles.Add(title3);
+            title4.Name = "Title1";
+            title4.Text = "User Timesheet";
+            this.timesheeChart.Titles.Add(title4);
             // 
             // tabPage2
             // 

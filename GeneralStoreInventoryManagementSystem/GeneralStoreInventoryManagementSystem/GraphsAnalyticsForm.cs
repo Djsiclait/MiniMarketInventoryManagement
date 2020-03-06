@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Library
+using InventoryManagementBusinessLayer.GraphInformation;
 using InventoryManagementBusinessLayer.Protocols;
 
 namespace GeneralStoreInventoryManagementSystem
@@ -47,6 +48,8 @@ namespace GeneralStoreInventoryManagementSystem
             timeComboBox.Items.Add("2 weeks");
             timeComboBox.Items.Add("month");
             timeComboBox.Items.Add("2 months");
+
+            PopulateUsernameListBox();
         }
         #endregion
 
@@ -415,6 +418,20 @@ namespace GeneralStoreInventoryManagementSystem
                 default:
                     break;
             }
+        }
+        #endregion
+
+        #region Text Changed Logic
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            //PopulateUsernameListBox();
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        private void PopulateUsernameListBox()
+        {
+            usernamesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation();
         }
         #endregion
     }
