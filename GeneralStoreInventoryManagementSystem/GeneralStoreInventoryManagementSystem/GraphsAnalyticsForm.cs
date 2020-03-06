@@ -433,6 +433,18 @@ namespace GeneralStoreInventoryManagementSystem
         {
             usernamesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchTextBox.Text);
         }
+
+        private void GenerateTimesheetBubbleChart()
+        {
+            if (usernamesListBox.SelectedItem.ToString() == "ALL")
+            {
+                // TODO: Generate multi series timesheet
+            }
+            else
+            {
+
+            }
+        }
         #endregion
     }
 }
