@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 // Custom Library
 using InventoryManagementBusinessLayer.GraphInformation;
 using InventoryManagementBusinessLayer.Protocols;
+using InventoryManagementEntityLayer.GraphEssentials;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -48,8 +50,12 @@ namespace GeneralStoreInventoryManagementSystem
             timeComboBox.Items.Add("2 weeks");
             timeComboBox.Items.Add("month");
             timeComboBox.Items.Add("2 months");
+            timeComboBox.SelectedIndex = 0;
 
             PopulateUsernameListBox();
+
+            newestBubbleDateTimePicker.Value = DateTime.Now;
+            newestBubbleDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
         }
         #endregion
 
@@ -428,6 +434,27 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #region Value Changed Logic
+        private void NewestBubbleDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (usernamesListBox.Items.Count > 0)
+                GenerateTimesheetBubbleChart();
+        }
+
+        private void TimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (usernamesListBox.Items.Count > 0)
+                GenerateTimesheetBubbleChart();
+        }
+        #endregion
+
+        #region List Box Click Logic
+        private void UsernamesListBox_Click(object sender, EventArgs e)
+        {
+            GenerateTimesheetBubbleChart();
+        }
+        #endregion
+
         #region Auxiliary Functions
         private void PopulateUsernameListBox()
         {
@@ -442,7 +469,44 @@ namespace GeneralStoreInventoryManagementSystem
             }
             else
             {
+                List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());
 
+                timesheetChart.Series.Clear();
+                timesheetChart.Series.Add(usernamesListBox.SelectedItem.ToString()); // Creating the series
+                timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Bubble;
+                timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date";
+                timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day";
+
+                // Adding points
+                foreach (BubblePoint bubble in bubblePoints)
+                {
+                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(DateTime.Parse(bubble.LogInDate), bubble.LogInTime.Split(':')[0]);
+                }
+            }
+        }
+
+        private DateTime CalculateOldestDate()
+        {
+            switch (timeComboBox.Text)
+            {
+                case "72 hours":
+                    return newestBubbleDateTimePicker.Value.AddHours(-24);
+
+                case "week":
+                    return newestBubbleDateTimePicker.Value.AddDays(-7);
+
+                case "2 weeks":
+                    return newestBubbleDateTimePicker.Value.AddDays(-14);
+
+                case "month":
+                    return newestBubbleDateTimePicker.Value.AddMonths(-1);
+
+                case "2 months":
+                    return newestBubbleDateTimePicker.Value.AddMonths(-2);
+
+                case "24 hours":
+                default:
+                    return newestBubbleDateTimePicker.Value.AddHours(-24);
             }
         }
         #endregion
