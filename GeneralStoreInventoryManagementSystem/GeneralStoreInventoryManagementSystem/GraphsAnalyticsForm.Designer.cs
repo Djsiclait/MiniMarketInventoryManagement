@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -52,17 +52,17 @@
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.timesheetTabPage = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.timeComboBox = new System.Windows.Forms.ComboBox();
             this.printTimesheetButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.newestSalesRecordDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.usernamesListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timesheeChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.timeComboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.timesheetTabPage.SuspendLayout();
@@ -253,7 +253,7 @@
             this.timesheetTabPage.Controls.Add(this.printTimesheetButton);
             this.timesheetTabPage.Controls.Add(this.label4);
             this.timesheetTabPage.Controls.Add(this.newestSalesRecordDateTimePicker);
-            this.timesheetTabPage.Controls.Add(this.textBox1);
+            this.timesheetTabPage.Controls.Add(this.searchTextBox);
             this.timesheetTabPage.Controls.Add(this.usernamesListBox);
             this.timesheetTabPage.Controls.Add(this.label2);
             this.timesheetTabPage.Controls.Add(this.label1);
@@ -265,6 +265,25 @@
             this.timesheetTabPage.TabIndex = 0;
             this.timesheetTabPage.Text = "Timesheet";
             this.timesheetTabPage.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(734, 269);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "since: ";
+            // 
+            // timeComboBox
+            // 
+            this.timeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeComboBox.FormattingEnabled = true;
+            this.timeComboBox.Location = new System.Drawing.Point(607, 266);
+            this.timeComboBox.Name = "timeComboBox";
+            this.timeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.timeComboBox.TabIndex = 18;
             // 
             // printTimesheetButton
             // 
@@ -292,13 +311,13 @@
             this.newestSalesRecordDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.newestSalesRecordDateTimePicker.TabIndex = 15;
             // 
-            // textBox1
+            // searchTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(611, 150);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            this.searchTextBox.Location = new System.Drawing.Point(611, 150);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(132, 20);
+            this.searchTextBox.TabIndex = 4;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // usernamesListBox
             // 
@@ -330,24 +349,24 @@
             // 
             // timesheeChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.timesheeChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.timesheeChart.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.timesheeChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.timesheeChart.Legends.Add(legend1);
             this.timesheeChart.Location = new System.Drawing.Point(49, 79);
             this.timesheeChart.Name = "timesheeChart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bubble;
-            series4.Legend = "Legend1";
-            series4.Name = "User";
-            series4.YValuesPerPoint = 2;
-            this.timesheeChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bubble;
+            series1.Legend = "Legend1";
+            series1.Name = "User";
+            series1.YValuesPerPoint = 2;
+            this.timesheeChart.Series.Add(series1);
             this.timesheeChart.Size = new System.Drawing.Size(515, 336);
             this.timesheeChart.TabIndex = 0;
             this.timesheeChart.Text = "Timesheet Graph";
-            title4.Name = "Title1";
-            title4.Text = "User Timesheet";
-            this.timesheeChart.Titles.Add(title4);
+            title1.Name = "Title1";
+            title1.Text = "User Timesheet";
+            this.timesheeChart.Titles.Add(title1);
             // 
             // tabPage2
             // 
@@ -358,25 +377,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // timeComboBox
-            // 
-            this.timeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeComboBox.FormattingEnabled = true;
-            this.timeComboBox.Location = new System.Drawing.Point(607, 266);
-            this.timeComboBox.Name = "timeComboBox";
-            this.timeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.timeComboBox.TabIndex = 18;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(734, 269);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "since: ";
             // 
             // GraphsAnalyticsForm
             // 
@@ -432,7 +432,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart timesheeChart;
         private System.Windows.Forms.ListBox usernamesListBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker newestSalesRecordDateTimePicker;
         private System.Windows.Forms.Button printTimesheetButton;

@@ -422,16 +422,16 @@ namespace GeneralStoreInventoryManagementSystem
         #endregion
 
         #region Text Changed Logic
-        private void TextBox1_TextChanged(object sender, EventArgs e)
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            //PopulateUsernameListBox();
+            PopulateUsernameListBox();
         }
         #endregion
 
         #region Auxiliary Functions
         private void PopulateUsernameListBox()
         {
-            usernamesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation();
+            usernamesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchTextBox.Text);
         }
         #endregion
     }

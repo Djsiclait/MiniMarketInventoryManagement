@@ -17,8 +17,9 @@ namespace InventoryManagementDataLayer
             /// This function fetches all registered usernames
             /// </summary>
             /// <param name="userRole">Access level of the user soliciting this information</param>
+            /// <param name="username">Possible username if filtering is desired</param>
             /// <returns>A list of usernames according to the access level</returns>
-            public static List<String> ConsultAllRegisteredUsernameData(String userRole)
+            public static List<String> ConsultAllRegisteredUsernameData(String userRole, String username)
             {
                 List<String> usernames = new List<string>();
                 usernames.Add("ALL");
@@ -32,6 +33,7 @@ namespace InventoryManagementDataLayer
 
                 #region Paramaters
                 cmd.Parameters.AddWithValue("@user_role", userRole);
+                cmd.Parameters.AddWithValue("@username", username);
                 #endregion
 
                 SqlDataReader sqlDataReader;

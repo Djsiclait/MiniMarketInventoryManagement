@@ -18,10 +18,11 @@ namespace InventoryManagementBusinessLayer
             /// <summary>
             /// This function fetches all registered usernames
             /// </summary>
+            /// <param name="username">Possible username if filtering is desired</param>
             /// <returns>A list of usernames according to the access level</returns>
-            public static List<String> ConsultAllRegisteredUsernameInformation()
+            public static List<String> ConsultAllRegisteredUsernameInformation(String username)
             {
-                return GraphDataManager.ConsultAllRegisteredUsernameData(SystemResources.UserInSession.Role);
+                return GraphDataManager.ConsultAllRegisteredUsernameData(SystemResources.UserInSession.Role, username);
             }
             #endregion
         }
