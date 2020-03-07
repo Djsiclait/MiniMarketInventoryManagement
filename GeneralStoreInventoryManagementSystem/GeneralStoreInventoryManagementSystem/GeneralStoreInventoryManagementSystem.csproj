@@ -341,6 +341,18 @@
     <EmbeddedResource Include="UserInformationTemplateForm.resx">
       <DependentUpon>UserInformationTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserSalesRecordsTemplateForm.es.resx">
+      <DependentUpon>UserSalesRecordsTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSalesRecordsTemplateForm.fr.resx">
+      <DependentUpon>UserSalesRecordsTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSessionActivitiesReportTemplateForm.es.resx">
+      <DependentUpon>UserSessionActivitiesReportTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSessionActivitiesReportTemplateForm.fr.resx">
+      <DependentUpon>UserSessionActivitiesReportTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UsersRegistryForm.es.resx">
       <DependentUpon>UsersRegistryForm.cs</DependentUpon>
     </EmbeddedResource>
