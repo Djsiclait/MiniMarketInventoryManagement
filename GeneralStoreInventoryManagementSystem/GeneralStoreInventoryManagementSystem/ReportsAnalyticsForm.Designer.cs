@@ -321,6 +321,7 @@
             // 
             // newestTimesheetDateTimePicker
             // 
+            this.newestTimesheetDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newestTimesheetDateTimePicker.Location = new System.Drawing.Point(644, 234);
             this.newestTimesheetDateTimePicker.Name = "newestTimesheetDateTimePicker";
             this.newestTimesheetDateTimePicker.Size = new System.Drawing.Size(200, 20);
@@ -340,6 +341,7 @@
             // 
             // oldestTimesheetDateTimePicker
             // 
+            this.oldestTimesheetDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.oldestTimesheetDateTimePicker.Location = new System.Drawing.Point(644, 185);
             this.oldestTimesheetDateTimePicker.Name = "oldestTimesheetDateTimePicker";
             this.oldestTimesheetDateTimePicker.Size = new System.Drawing.Size(200, 20);

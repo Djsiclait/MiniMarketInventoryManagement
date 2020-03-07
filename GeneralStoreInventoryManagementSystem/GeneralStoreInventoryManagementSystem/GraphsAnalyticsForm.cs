@@ -212,7 +212,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.graphsAnaliticsForm.Dispose();
         }
 
-        private void logOutLabel_MouseHover(object sender, EventArgs e)
+        private void LogOutLabel_MouseHover(object sender, EventArgs e)
         {
             FormsMenuList.graphsAnaliticsForm.logOutLabel.ForeColor = Color.Red;
         }
@@ -491,6 +491,59 @@ namespace GeneralStoreInventoryManagementSystem
             if (usernamesListBox.SelectedItem.ToString() == "ALL")
             {
                 // TODO: Generate multi series timesheet
+                timesheetChart.Series.Clear();
+
+                int totalSessions = 0;
+                int shownSessions = 0;
+                int missingSessions = 0;
+
+                foreach (String username in usernamesListBox.Items)
+                {
+                    if (username != "ALL")
+                    {
+                        List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(username, newestBubbleDateTimePicker.Value, CalculateOldestDate());
+
+                        if (bubblePoints.Count > 0)
+                        {
+                            timesheetChart.Series.Add(username); // Creating the series
+                            timesheetChart.Series[username].ChartType = SeriesChartType.Bubble;
+                            timesheetChart.Series[username].MarkerStyle = MarkerStyle.Circle;
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date";
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day";
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.LabelStyle.Format = "00H";
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = 0;
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Maximum = 24;
+
+                            // Adding points
+                            foreach (BubblePoint bubble in bubblePoints)
+                            {
+                                totalSessions++;
+
+                                if (bubble.Minutes > 0)
+                                {
+                                    int position = timesheetChart.Series[username].Points.AddXY(
+                                        DateTime.Parse(bubble.LogInDate),
+                                        FormatToInt(bubble.LogInTime.Split(':')[0]),
+                                        bubble.Seconds);
+
+                                    //timesheetChart.Series[username].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
+
+                                    shownSessions++;
+                                }
+                                else
+                                    missingSessions++;
+                            }
+
+                            // adding invisible ancor point
+                            int i = timesheetChart.Series[username].Points.AddXY(newestBubbleDateTimePicker.Value, 1, 0);
+                            timesheetChart.Series[username].Points[i].Color = Color.Transparent;
+                        }
+                    }
+                }
+
+                totalLabel.Text = totalLabel.Text.Split(':')[0] + ": " + totalSessions;
+                shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
+                missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
             }
             else
             {
