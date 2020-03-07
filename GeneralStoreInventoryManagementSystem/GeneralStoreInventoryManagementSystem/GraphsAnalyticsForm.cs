@@ -44,6 +44,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             SystemProtocols.ApplyActivityProtocols("GRA1", null, null);
 
+            missingMessageLabel.Visible = false;
+            shownMessageLabel.Visible = false;
+
             timeComboBox.Items.Add("24 hours");
             timeComboBox.Items.Add("72 hours");
             timeComboBox.Items.Add("week");
@@ -455,6 +458,28 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #region Message Labels Logic
+        private void MissingLabel_MouseHover(object sender, EventArgs e)
+        {
+            missingMessageLabel.Visible = true;
+        }
+
+        private void MissingLabel_MouseLeave(object sender, EventArgs e)
+        {
+            missingMessageLabel.Visible = false;
+        }
+
+        private void shownLabel_MouseHover(object sender, EventArgs e)
+        {
+            shownMessageLabel.Visible = true;
+        }
+
+        private void shownLabel_MouseLeave(object sender, EventArgs e)
+        {
+            shownMessageLabel.Visible = false;
+        }
+        #endregion
+
         #region Auxiliary Functions
         private void PopulateUsernameListBox()
         {
@@ -473,6 +498,10 @@ namespace GeneralStoreInventoryManagementSystem
 
                 List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());
 
+                int totalSessions = 0;
+                int shownSessions = 0;
+                int missingSessions = 0;
+
                 if (bubblePoints.Count > 0)
                 {
                     timesheetChart.Series.Add(usernamesListBox.SelectedItem.ToString()); // Creating the series
@@ -489,6 +518,8 @@ namespace GeneralStoreInventoryManagementSystem
                     // Adding points
                     foreach (BubblePoint bubble in bubblePoints)
                     {
+                        totalSessions++;
+
                         if (bubble.Minutes > 0)
                         {
                             int position = timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(
@@ -500,7 +531,11 @@ namespace GeneralStoreInventoryManagementSystem
 
                             if (FormatToInt(bubble.LogInTime.Split(':')[0]) < minimum)
                                 minimum = FormatToInt(bubble.LogInTime.Split(':')[0]) - 3;
+
+                            shownSessions++;
                         }
+                        else
+                            missingSessions++;
                     }
 
                     // adding invisible ancor point
@@ -508,6 +543,10 @@ namespace GeneralStoreInventoryManagementSystem
                     timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
                     timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = minimum;
                 }
+
+                totalLabel.Text = totalLabel.Text.Split(':')[0] + ": " + totalSessions;
+                shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
+                missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
             }
         }
 

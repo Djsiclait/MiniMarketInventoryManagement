@@ -252,6 +252,7 @@
             this.reportTabControl.Controls.Add(this.usersTimesheetTabPage);
             this.reportTabControl.Controls.Add(this.usersSalesRecordsTabPage);
             this.reportTabControl.Controls.Add(this.tabPage1);
+            this.reportTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportTabControl.Location = new System.Drawing.Point(12, 27);
             this.reportTabControl.Name = "reportTabControl";
             this.reportTabControl.SelectedIndex = 0;

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -52,6 +52,10 @@
             this.viewErrorLogsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.timesheetTabPage = new System.Windows.Forms.TabPage();
+            this.missingMessageLabel = new System.Windows.Forms.Label();
+            this.missingLabel = new System.Windows.Forms.Label();
+            this.shownLabel = new System.Windows.Forms.Label();
+            this.totalLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timeComboBox = new System.Windows.Forms.ComboBox();
             this.printTimesheetButton = new System.Windows.Forms.Button();
@@ -63,6 +67,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timesheetChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.shownMessageLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.timesheetTabPage.SuspendLayout();
@@ -240,6 +245,7 @@
             // 
             this.tabControl1.Controls.Add(this.timesheetTabPage);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -249,6 +255,11 @@
             // 
             // timesheetTabPage
             // 
+            this.timesheetTabPage.Controls.Add(this.shownMessageLabel);
+            this.timesheetTabPage.Controls.Add(this.missingMessageLabel);
+            this.timesheetTabPage.Controls.Add(this.missingLabel);
+            this.timesheetTabPage.Controls.Add(this.shownLabel);
+            this.timesheetTabPage.Controls.Add(this.totalLabel);
             this.timesheetTabPage.Controls.Add(this.label3);
             this.timesheetTabPage.Controls.Add(this.timeComboBox);
             this.timesheetTabPage.Controls.Add(this.printTimesheetButton);
@@ -266,6 +277,51 @@
             this.timesheetTabPage.TabIndex = 0;
             this.timesheetTabPage.Text = "Timesheet";
             this.timesheetTabPage.UseVisualStyleBackColor = true;
+            // 
+            // missingMessageLabel
+            // 
+            this.missingMessageLabel.AutoSize = true;
+            this.missingMessageLabel.BackColor = System.Drawing.Color.PowderBlue;
+            this.missingMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.missingMessageLabel.Location = new System.Drawing.Point(453, 570);
+            this.missingMessageLabel.Name = "missingMessageLabel";
+            this.missingMessageLabel.Size = new System.Drawing.Size(407, 13);
+            this.missingMessageLabel.TabIndex = 23;
+            this.missingMessageLabel.Text = "These sessions are not shown on the chart given their short timestamp";
+            // 
+            // missingLabel
+            // 
+            this.missingLabel.AutoSize = true;
+            this.missingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.missingLabel.Location = new System.Drawing.Point(597, 586);
+            this.missingLabel.Name = "missingLabel";
+            this.missingLabel.Size = new System.Drawing.Size(152, 13);
+            this.missingLabel.TabIndex = 22;
+            this.missingLabel.Text = "Sessions Under 1 Minute:";
+            this.missingLabel.MouseLeave += new System.EventHandler(this.MissingLabel_MouseLeave);
+            this.missingLabel.MouseHover += new System.EventHandler(this.MissingLabel_MouseHover);
+            // 
+            // shownLabel
+            // 
+            this.shownLabel.AutoSize = true;
+            this.shownLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shownLabel.Location = new System.Drawing.Point(351, 586);
+            this.shownLabel.Name = "shownLabel";
+            this.shownLabel.Size = new System.Drawing.Size(154, 13);
+            this.shownLabel.TabIndex = 21;
+            this.shownLabel.Text = "Sessions Above 1 Minute:";
+            this.shownLabel.MouseLeave += new System.EventHandler(this.shownLabel_MouseLeave);
+            this.shownLabel.MouseHover += new System.EventHandler(this.shownLabel_MouseHover);
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.AutoSize = true;
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Location = new System.Drawing.Point(153, 586);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(94, 13);
+            this.totalLabel.TabIndex = 20;
+            this.totalLabel.Text = "Total Sessions:";
             // 
             // label3
             // 
@@ -359,25 +415,25 @@
             // timesheetChart
             // 
             this.timesheetChart.BackColor = System.Drawing.Color.Gainsboro;
-            chartArea2.Name = "BubbleChartArea";
-            this.timesheetChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.timesheetChart.Legends.Add(legend2);
+            chartArea3.Name = "BubbleChartArea";
+            this.timesheetChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.timesheetChart.Legends.Add(legend3);
             this.timesheetChart.Location = new System.Drawing.Point(42, 63);
             this.timesheetChart.Name = "timesheetChart";
-            series2.ChartArea = "BubbleChartArea";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bubble;
-            series2.Legend = "Legend1";
-            series2.Name = "User";
-            series2.YValuesPerPoint = 2;
-            this.timesheetChart.Series.Add(series2);
+            series3.ChartArea = "BubbleChartArea";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bubble;
+            series3.Legend = "Legend1";
+            series3.Name = "User";
+            series3.YValuesPerPoint = 2;
+            this.timesheetChart.Series.Add(series3);
             this.timesheetChart.Size = new System.Drawing.Size(818, 419);
             this.timesheetChart.TabIndex = 0;
             this.timesheetChart.Text = "Timesheet Graph";
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            title2.Name = "Title1";
-            title2.Text = "User Timesheet";
-            this.timesheetChart.Titles.Add(title2);
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            title3.Name = "Title1";
+            title3.Text = "User Timesheet";
+            this.timesheetChart.Titles.Add(title3);
             this.timesheetChart.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GraphsAnalyticsForm_KeyDown);
             // 
             // tabPage2
@@ -389,6 +445,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // shownMessageLabel
+            // 
+            this.shownMessageLabel.AutoSize = true;
+            this.shownMessageLabel.BackColor = System.Drawing.Color.PowderBlue;
+            this.shownMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shownMessageLabel.Location = new System.Drawing.Point(234, 570);
+            this.shownMessageLabel.Name = "shownMessageLabel";
+            this.shownMessageLabel.Size = new System.Drawing.Size(398, 13);
+            this.shownMessageLabel.TabIndex = 24;
+            this.shownMessageLabel.Text = "These sessions are displayed on the graph (some overlap may occur)";
             // 
             // GraphsAnalyticsForm
             // 
@@ -450,5 +517,10 @@
         private System.Windows.Forms.Button printTimesheetButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox timeComboBox;
+        private System.Windows.Forms.Label missingLabel;
+        private System.Windows.Forms.Label shownLabel;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.Label missingMessageLabel;
+        private System.Windows.Forms.Label shownMessageLabel;
     }
 }
