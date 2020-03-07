@@ -32,6 +32,10 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -62,16 +66,30 @@
             this.printTimesheetButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.newestBubbleDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.usernamesListBox = new System.Windows.Forms.ListBox();
+            this.searchTimesheetTextBox = new System.Windows.Forms.TextBox();
+            this.usernamesTimesheetListBox = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timesheetChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.totalSalesLabel = new System.Windows.Forms.Label();
+            this.numberSalesLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.oldestSalesBarChartDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.newestSalesBarChartDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.searchSalesTextBox = new System.Windows.Forms.TextBox();
+            this.usernamesSalesListBox = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.usersSalesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label13 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.timesheetTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timesheetChart)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersSalesChart)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
@@ -265,8 +283,8 @@
             this.timesheetTabPage.Controls.Add(this.printTimesheetButton);
             this.timesheetTabPage.Controls.Add(this.label4);
             this.timesheetTabPage.Controls.Add(this.newestBubbleDateTimePicker);
-            this.timesheetTabPage.Controls.Add(this.searchTextBox);
-            this.timesheetTabPage.Controls.Add(this.usernamesListBox);
+            this.timesheetTabPage.Controls.Add(this.searchTimesheetTextBox);
+            this.timesheetTabPage.Controls.Add(this.usernamesTimesheetListBox);
             this.timesheetTabPage.Controls.Add(this.label2);
             this.timesheetTabPage.Controls.Add(this.label1);
             this.timesheetTabPage.Controls.Add(this.timesheetChart);
@@ -384,23 +402,23 @@
             this.newestBubbleDateTimePicker.ValueChanged += new System.EventHandler(this.NewestBubbleDateTimePicker_ValueChanged);
             this.newestBubbleDateTimePicker.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GraphsAnalyticsForm_KeyDown);
             // 
-            // searchTextBox
+            // searchTimesheetTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(174, 488);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(132, 20);
-            this.searchTextBox.TabIndex = 4;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
+            this.searchTimesheetTextBox.Location = new System.Drawing.Point(174, 488);
+            this.searchTimesheetTextBox.Name = "searchTimesheetTextBox";
+            this.searchTimesheetTextBox.Size = new System.Drawing.Size(132, 20);
+            this.searchTimesheetTextBox.TabIndex = 4;
+            this.searchTimesheetTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
-            // usernamesListBox
+            // usernamesTimesheetListBox
             // 
-            this.usernamesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernamesListBox.FormattingEnabled = true;
-            this.usernamesListBox.Location = new System.Drawing.Point(156, 514);
-            this.usernamesListBox.Name = "usernamesListBox";
-            this.usernamesListBox.Size = new System.Drawing.Size(274, 69);
-            this.usernamesListBox.TabIndex = 3;
-            this.usernamesListBox.Click += new System.EventHandler(this.UsernamesListBox_Click);
+            this.usernamesTimesheetListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernamesTimesheetListBox.FormattingEnabled = true;
+            this.usernamesTimesheetListBox.Location = new System.Drawing.Point(156, 514);
+            this.usernamesTimesheetListBox.Name = "usernamesTimesheetListBox";
+            this.usernamesTimesheetListBox.Size = new System.Drawing.Size(274, 69);
+            this.usernamesTimesheetListBox.TabIndex = 3;
+            this.usernamesTimesheetListBox.Click += new System.EventHandler(this.UsernamesListBox_Click);
             // 
             // label2
             // 
@@ -447,13 +465,148 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.totalSalesLabel);
+            this.tabPage2.Controls.Add(this.numberSalesLabel);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.oldestSalesBarChartDateTimePicker);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.newestSalesBarChartDateTimePicker);
+            this.tabPage2.Controls.Add(this.searchSalesTextBox);
+            this.tabPage2.Controls.Add(this.usernamesSalesListBox);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.usersSalesChart);
+            this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(895, 614);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Sales";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // totalSalesLabel
+            // 
+            this.totalSalesLabel.AutoSize = true;
+            this.totalSalesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalSalesLabel.Location = new System.Drawing.Point(687, 538);
+            this.totalSalesLabel.Name = "totalSalesLabel";
+            this.totalSalesLabel.Size = new System.Drawing.Size(51, 13);
+            this.totalSalesLabel.TabIndex = 37;
+            this.totalSalesLabel.Text = "Total: $";
+            // 
+            // numberSalesLabel
+            // 
+            this.numberSalesLabel.AutoSize = true;
+            this.numberSalesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberSalesLabel.Location = new System.Drawing.Point(623, 497);
+            this.numberSalesLabel.Name = "numberSalesLabel";
+            this.numberSalesLabel.Size = new System.Drawing.Size(102, 13);
+            this.numberSalesLabel.TabIndex = 36;
+            this.numberSalesLabel.Text = "Total # of Sales:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(626, 575);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 23);
+            this.button1.TabIndex = 35;
+            this.button1.Text = "Print Sales Graph";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(384, 554);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "And: ";
+            // 
+            // oldestSalesBarChartDateTimePicker
+            // 
+            this.oldestSalesBarChartDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oldestSalesBarChartDateTimePicker.Location = new System.Drawing.Point(407, 578);
+            this.oldestSalesBarChartDateTimePicker.Name = "oldestSalesBarChartDateTimePicker";
+            this.oldestSalesBarChartDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.oldestSalesBarChartDateTimePicker.TabIndex = 33;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(384, 497);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Between: ";
+            // 
+            // newestSalesBarChartDateTimePicker
+            // 
+            this.newestSalesBarChartDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newestSalesBarChartDateTimePicker.Location = new System.Drawing.Point(407, 521);
+            this.newestSalesBarChartDateTimePicker.Name = "newestSalesBarChartDateTimePicker";
+            this.newestSalesBarChartDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.newestSalesBarChartDateTimePicker.TabIndex = 31;
+            // 
+            // searchSalesTextBox
+            // 
+            this.searchSalesTextBox.Location = new System.Drawing.Point(106, 494);
+            this.searchSalesTextBox.Name = "searchSalesTextBox";
+            this.searchSalesTextBox.Size = new System.Drawing.Size(132, 20);
+            this.searchSalesTextBox.TabIndex = 30;
+            this.searchSalesTextBox.TextChanged += new System.EventHandler(this.SearchSalesTextBox_TextChanged);
+            // 
+            // usernamesSalesListBox
+            // 
+            this.usernamesSalesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernamesSalesListBox.FormattingEnabled = true;
+            this.usernamesSalesListBox.Location = new System.Drawing.Point(88, 520);
+            this.usernamesSalesListBox.Name = "usernamesSalesListBox";
+            this.usernamesSalesListBox.Size = new System.Drawing.Size(274, 82);
+            this.usernamesSalesListBox.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(65, 497);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "User: ";
+            // 
+            // usersSalesChart
+            // 
+            this.usersSalesChart.BackColor = System.Drawing.Color.Gainsboro;
+            chartArea2.Name = "ChartArea1";
+            this.usersSalesChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.usersSalesChart.Legends.Add(legend2);
+            this.usersSalesChart.Location = new System.Drawing.Point(42, 63);
+            this.usersSalesChart.Name = "usersSalesChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.usersSalesChart.Series.Add(series2);
+            this.usersSalesChart.Size = new System.Drawing.Size(818, 419);
+            this.usersSalesChart.TabIndex = 27;
+            this.usersSalesChart.Text = "chart1";
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            title2.Name = "Title1";
+            title2.Text = "Generated Sales";
+            this.usersSalesChart.Titles.Add(title2);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(38, 40);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(248, 20);
+            this.label13.TabIndex = 26;
+            this.label13.Text = "User TimeSheet Bubble Chart";
             // 
             // GraphsAnalyticsForm
             // 
@@ -477,6 +630,9 @@
             this.timesheetTabPage.ResumeLayout(false);
             this.timesheetTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timesheetChart)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersSalesChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,9 +663,9 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart timesheetChart;
-        private System.Windows.Forms.ListBox usernamesListBox;
+        private System.Windows.Forms.ListBox usernamesTimesheetListBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.TextBox searchTimesheetTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker newestBubbleDateTimePicker;
         private System.Windows.Forms.Button printTimesheetButton;
@@ -520,5 +676,17 @@
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Label missingMessageLabel;
         private System.Windows.Forms.Label shownMessageLabel;
+        private System.Windows.Forms.TextBox searchSalesTextBox;
+        private System.Windows.Forms.ListBox usernamesSalesListBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataVisualization.Charting.Chart usersSalesChart;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker newestSalesBarChartDateTimePicker;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker oldestSalesBarChartDateTimePicker;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label totalSalesLabel;
+        private System.Windows.Forms.Label numberSalesLabel;
     }
 }

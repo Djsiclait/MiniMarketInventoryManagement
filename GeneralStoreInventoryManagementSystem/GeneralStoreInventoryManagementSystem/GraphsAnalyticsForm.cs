@@ -55,7 +55,8 @@ namespace GeneralStoreInventoryManagementSystem
             timeComboBox.Items.Add("2 months");
             timeComboBox.SelectedIndex = 0;
 
-            PopulateUsernameListBox();
+            PopulateUsernameTimesheetListBox();
+            PopulateUsernameSalesListBox();
 
             newestBubbleDateTimePicker.Value = DateTime.Now;
             newestBubbleDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
@@ -433,20 +434,25 @@ namespace GeneralStoreInventoryManagementSystem
         #region Text Changed Logic
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            PopulateUsernameListBox();
+            PopulateUsernameTimesheetListBox();
+        }
+
+        private void SearchSalesTextBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateUsernameSalesListBox();
         }
         #endregion
 
         #region Value Changed Logic
         private void NewestBubbleDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (usernamesListBox.Items.Count > 0)
+            if (usernamesTimesheetListBox.Items.Count > 0)
                 GenerateTimesheetBubbleChart();
         }
 
         private void TimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (usernamesListBox.Items.Count > 0)
+            if (usernamesTimesheetListBox.Items.Count > 0)
                 GenerateTimesheetBubbleChart();
         }
         #endregion
@@ -481,14 +487,19 @@ namespace GeneralStoreInventoryManagementSystem
         #endregion
 
         #region Auxiliary Functions
-        private void PopulateUsernameListBox()
+        private void PopulateUsernameTimesheetListBox()
         {
-            usernamesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchTextBox.Text);
+            usernamesTimesheetListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchTimesheetTextBox.Text);
+        }
+
+        private void PopulateUsernameSalesListBox()
+        {
+            usernamesSalesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchSalesTextBox.Text);
         }
 
         private void GenerateTimesheetBubbleChart()
         {
-            if (usernamesListBox.SelectedItem.ToString() == "ALL")
+            if (usernamesTimesheetListBox.SelectedItem.ToString() == "ALL")
             {
                 // TODO: Generate multi series timesheet
                 timesheetChart.Series.Clear();
@@ -497,7 +508,7 @@ namespace GeneralStoreInventoryManagementSystem
                 int shownSessions = 0;
                 int missingSessions = 0;
 
-                foreach (String username in usernamesListBox.Items)
+                foreach (String username in usernamesTimesheetListBox.Items)
                 {
                     if (username != "ALL")
                     {
@@ -549,7 +560,7 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 timesheetChart.Series.Clear();
 
-                List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());
+                List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesTimesheetListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());
 
                 int totalSessions = 0;
                 int shownSessions = 0;
@@ -557,9 +568,9 @@ namespace GeneralStoreInventoryManagementSystem
 
                 if (bubblePoints.Count > 0)
                 {
-                    timesheetChart.Series.Add(usernamesListBox.SelectedItem.ToString()); // Creating the series
-                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Bubble;
-                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].MarkerStyle = MarkerStyle.Circle;
+                    timesheetChart.Series.Add(usernamesTimesheetListBox.SelectedItem.ToString()); // Creating the series
+                    timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Bubble;
+                    timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].MarkerStyle = MarkerStyle.Circle;
                     timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date";
                     timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day";
                     timesheetChart.ChartAreas["BubbleChartArea"].AxisY.LabelStyle.Format = "00H";
@@ -575,12 +586,12 @@ namespace GeneralStoreInventoryManagementSystem
 
                         if (bubble.Minutes > 0)
                         {
-                            int position = timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(
+                            int position = timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points.AddXY(
                                 DateTime.Parse(bubble.LogInDate),
                                 FormatToInt(bubble.LogInTime.Split(':')[0]),
                                 bubble.Seconds);
 
-                            timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
+                            timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
 
                             if (FormatToInt(bubble.LogInTime.Split(':')[0]) < minimum)
                                 minimum = FormatToInt(bubble.LogInTime.Split(':')[0]) - 3;
@@ -592,8 +603,8 @@ namespace GeneralStoreInventoryManagementSystem
                     }
 
                     // adding invisible ancor point
-                    int i = timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(newestBubbleDateTimePicker.Value, minimum + 1, 0);
-                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
+                    int i = timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points.AddXY(newestBubbleDateTimePicker.Value, minimum + 1, 0);
+                    timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
                     timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = minimum;
                 }
 
