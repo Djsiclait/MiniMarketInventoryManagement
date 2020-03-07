@@ -469,18 +469,44 @@ namespace GeneralStoreInventoryManagementSystem
             }
             else
             {
+                timesheetChart.Series.Clear();
+
                 List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());
 
-                timesheetChart.Series.Clear();
-                timesheetChart.Series.Add(usernamesListBox.SelectedItem.ToString()); // Creating the series
-                timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Bubble;
-                timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date";
-                timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day";
-
-                // Adding points
-                foreach (BubblePoint bubble in bubblePoints)
+                if (bubblePoints.Count > 0)
                 {
-                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(DateTime.Parse(bubble.LogInDate), bubble.LogInTime.Split(':')[0]);
+                    timesheetChart.Series.Add(usernamesListBox.SelectedItem.ToString()); // Creating the series
+                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Bubble;
+                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].MarkerStyle = MarkerStyle.Circle;
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date";
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day";
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.LabelStyle.Format = "00H";
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = 0;
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Maximum = 24;
+
+                    int minimum = 25;
+
+                    // Adding points
+                    foreach (BubblePoint bubble in bubblePoints)
+                    {
+                        if (bubble.Minutes > 0)
+                        {
+                            int position = timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(
+                                DateTime.Parse(bubble.LogInDate),
+                                FormatToInt(bubble.LogInTime.Split(':')[0]),
+                                bubble.Seconds);
+
+                            timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
+
+                            if (FormatToInt(bubble.LogInTime.Split(':')[0]) < minimum)
+                                minimum = FormatToInt(bubble.LogInTime.Split(':')[0]) - 3;
+                        }
+                    }
+
+                    // adding invisible ancor point
+                    int i = timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(newestBubbleDateTimePicker.Value, minimum + 1, 0);
+                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = minimum;
                 }
             }
         }
@@ -508,6 +534,18 @@ namespace GeneralStoreInventoryManagementSystem
                 default:
                     return newestBubbleDateTimePicker.Value.AddHours(-24);
             }
+        }
+
+        /// <summary>
+        /// Function to convert strings to ints
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>An int equivalent of the provided string value</returns>
+        private static int FormatToInt(String value)
+        {
+            int.TryParse(value, out int result);
+
+            return result;
         }
         #endregion
     }
