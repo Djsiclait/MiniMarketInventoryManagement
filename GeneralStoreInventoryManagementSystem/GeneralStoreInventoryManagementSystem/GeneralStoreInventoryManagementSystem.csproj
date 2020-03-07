@@ -215,6 +215,12 @@
     <EmbeddedResource Include="ErrorsLogForm.resx">
       <DependentUpon>ErrorsLogForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GraphsAnalyticsForm.es.resx">
+      <DependentUpon>GraphsAnalyticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphsAnalyticsForm.fr.resx">
+      <DependentUpon>GraphsAnalyticsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GraphsAnalyticsForm.resx">
       <DependentUpon>GraphsAnalyticsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +286,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterNewUserForm.resx">
       <DependentUpon>RegisterNewUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportsAnalyticsForm.es.resx">
+      <DependentUpon>ReportsAnalyticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportsAnalyticsForm.fr.resx">
+      <DependentUpon>ReportsAnalyticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportsAnalyticsForm.resx">
       <DependentUpon>ReportsAnalyticsForm.cs</DependentUpon>

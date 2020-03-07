@@ -117,7 +117,1012 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;returnsTotalLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;usersTimesheetTabPage.Parent" xml:space="preserve">
+    <value>reportTabControl</value>
+  </data>
+  <data name="&gt;&gt;printLastMonthsRecordsButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;printYesterdayRecordsButton.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="&gt;&gt;salesRecordsDataGridView.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="registerNewUserOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="printTimesheetButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;printYesterdayRecordsButton.Name" xml:space="preserve">
+    <value>printYesterdayRecordsButton</value>
+  </data>
+  <data name="logOutLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>870, 9</value>
+  </data>
+  <data name="&gt;&gt;salesTotalLabel.Name" xml:space="preserve">
+    <value>salesTotalLabel</value>
+  </data>
+  <data name="printLastMonthsRecordsButton.Text" xml:space="preserve">
+    <value>Print Last Month's Records</value>
+  </data>
+  <data name="&gt;&gt;newestSalesRecordDateTimePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="printYesterdayTimesheetButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;printYesterdayTimesheetButton.Parent" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="newestSalesRecordDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>648, 192</value>
+  </data>
+  <data name="productsMenuOption.Text" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="printLastMonthTimesheetButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 23</value>
+  </data>
+  <data name="browseProductsMenuSubOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F3</value>
+  </data>
+  <data name="&gt;&gt;salesRecordsDataGridView.Name" xml:space="preserve">
+    <value>salesRecordsDataGridView</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;oldestTimesheetDateTimePicker.Name" xml:space="preserve">
+    <value>oldestTimesheetDateTimePicker</value>
+  </data>
+  <data name="registerNewProductMenuSubOption.Text" xml:space="preserve">
+    <value>Register New Product</value>
+  </data>
+  <data name="printYesterdayTimesheetButton.Text" xml:space="preserve">
+    <value>Print Yesterday's Report</value>
+  </data>
+  <data name="returnsTotalLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 96</value>
+  </data>
+  <data name="&gt;&gt;printSalesRecordsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>601, 218</value>
+  </data>
+  <data name="&gt;&gt;oldestTimesheetDateTimePicker.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="printLastMonthTimesheetButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>358, 379</value>
+  </data>
+  <data name="&gt;&gt;restockProductsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="printTimesheetButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="&gt;&gt;usersTimesheetTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>45, 54</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>895, 497</value>
+  </data>
+  <data name="&gt;&gt;manageUsersMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Analytics --- Reports</value>
+  </data>
+  <data name="viewUsersOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="reportTabControl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="printYesterdayRecordsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <data name="&gt;&gt;viewUsersOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="newestTimesheetDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>644, 234</value>
+  </data>
+  <data name="&gt;&gt;printTimesheetButton.Parent" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <data name="&gt;&gt;numberOfReturnsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="usersTimesheetTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="newestSalesRecordDateTimePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="makeSaleMenuSubOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F2</value>
+  </data>
+  <data name="restockProductsMenuSubOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F5</value>
+  </data>
+  <data name="returnsTotalLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="registerNewProductMenuSubOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F4</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="viewGraphsMenuSubOption.Text" xml:space="preserve">
+    <value>View Graphs</value>
+  </data>
+  <data name="&gt;&gt;viewUsersOption.Name" xml:space="preserve">
+    <value>viewUsersOption</value>
+  </data>
+  <data name="&gt;&gt;printTimesheetButton.Name" xml:space="preserve">
+    <value>printTimesheetButton</value>
+  </data>
+  <data name="printYesterdayRecordsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;viewErrorLogsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;makeSaleMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usersSalesRecordsTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timeSheetDataGridView.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>927, 24</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
+  </data>
+  <data name="&gt;&gt;viewCartLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="printLastMonthsRecordsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <data name="&gt;&gt;productsMenuOption.Name" xml:space="preserve">
+    <value>productsMenuOption</value>
+  </data>
+  <data name="&gt;&gt;numberOfSalesLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="salesRecordsDataGridView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 77</value>
+  </data>
+  <data name="&gt;&gt;printLastMonthsRecordsButton.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="&gt;&gt;oldestSalesRecordDateTimePicker.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="timeSheetDataGridView.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="numberOfReturnsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 17</value>
+  </data>
+  <data name="salesTotalLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>601, 169</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="printSalesRecordsButton.Text" xml:space="preserve">
+    <value>Print Sales Records</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>reportTabControl</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;registerNewUserOption.Name" xml:space="preserve">
+    <value>registerNewUserOption</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="usersSalesRecordsTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>895, 497</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;printYesterdayTimesheetButton.Name" xml:space="preserve">
+    <value>printYesterdayTimesheetButton</value>
+  </data>
+  <data name="&gt;&gt;printYesterdayRecordsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="newestTimesheetDateTimePicker.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="&gt;&gt;viewGraphsMenuSubOption.Name" xml:space="preserve">
+    <value>viewGraphsMenuSubOption</value>
+  </data>
+  <data name="&gt;&gt;makeSaleMenuSubOption.Name" xml:space="preserve">
+    <value>makeSaleMenuSubOption</value>
+  </data>
+  <data name="salesMenuOption.Text" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="salesTotalLabel.Text" xml:space="preserve">
+    <value>Sales Total: $</value>
+  </data>
+  <data name="usersTimesheetTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;oldestSalesRecordDateTimePicker.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="viewActivityLogsOption.Text" xml:space="preserve">
+    <value>View Activities Log</value>
+  </data>
+  <data name="restockProductsMenuSubOption.Text" xml:space="preserve">
+    <value>Restock Products</value>
+  </data>
+  <data name="&gt;&gt;viewActivityLogsOption.Name" xml:space="preserve">
+    <value>viewActivityLogsOption</value>
+  </data>
+  <data name="&gt;&gt;manageUsersMenuSubOption.Name" xml:space="preserve">
+    <value>manageUsersMenuSubOption</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Up to:</value>
+  </data>
+  <data name="viewSalesMenuSubOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F1</value>
+  </data>
+  <data name="numberOfSalesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 17</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;registerNewProductMenuSubOption.Name" xml:space="preserve">
+    <value>registerNewProductMenuSubOption</value>
+  </data>
+  <data name="printTimesheetButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>644, 273</value>
+  </data>
+  <data name="numberOfReturnsLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;viewCartLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>943, 601</value>
+  </data>
+  <data name="&gt;&gt;printYesterdayTimesheetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="numberOfReturnsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 20</value>
+  </data>
+  <data name="viewCartLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 9</value>
+  </data>
+  <data name="returnsTotalLabel.Text" xml:space="preserve">
+    <value>Returns Total: $</value>
+  </data>
+  <data name="&gt;&gt;salesTotalLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="logOutLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="&gt;&gt;viewCartLabel.Name" xml:space="preserve">
+    <value>viewCartLabel</value>
+  </data>
+  <data name="&gt;&gt;returnsTotalLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="usersTimesheetTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>895, 497</value>
+  </data>
+  <data name="oldestTimesheetDateTimePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="&gt;&gt;viewActivityLogsOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="usersSalesRecordsTabPage.Text" xml:space="preserve">
+    <value>Sales Records</value>
+  </data>
+  <data name="newestTimesheetDateTimePicker.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="usersSalesRecordsTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;numberOfSalesLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newestSalesRecordDateTimePicker.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="numberOfReturnsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Users' Timesheets</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="logsMenuSubOption.Text" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 20</value>
+  </data>
+  <data name="logOutLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="numberOfSalesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 334</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="newestTimesheetDateTimePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="oldestSalesRecordDateTimePicker.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="salesTotalLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="numberOfReturnsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 379</value>
+  </data>
+  <data name="&gt;&gt;salesRecordsDataGridView.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;browseProductsMenuSubOption.Name" xml:space="preserve">
+    <value>browseProductsMenuSubOption</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Starting From:</value>
+  </data>
+  <data name="salesRecordsDataGridView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>491, 254</value>
+  </data>
+  <data name="reportTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>903, 523</value>
+  </data>
+  <data name="printYesterdayRecordsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 413</value>
+  </data>
+  <data name="&gt;&gt;salesRecordsDataGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;viewSalesMenuSubOption.Name" xml:space="preserve">
+    <value>viewSalesMenuSubOption</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>605, 127</value>
+  </data>
+  <data name="&gt;&gt;adminMenuOption.Name" xml:space="preserve">
+    <value>adminMenuOption</value>
+  </data>
+  <data name="&gt;&gt;usersTimesheetTabPage.Name" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <data name="&gt;&gt;printLastMonthTimesheetButton.Name" xml:space="preserve">
+    <value>printLastMonthTimesheetButton</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="viewCartLabel.Text" xml:space="preserve">
+    <value>View Cart</value>
+  </data>
+  <data name="&gt;&gt;reportTabControl.Name" xml:space="preserve">
+    <value>reportTabControl</value>
+  </data>
+  <data name="oldestTimesheetDateTimePicker.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;salesTotalLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewSalesMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="reportTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 27</value>
+  </data>
+  <data name="viewActivityLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 22</value>
+  </data>
+  <data name="&gt;&gt;newestTimesheetDateTimePicker.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="returnsTotalLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 17</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Starting From:</value>
+  </data>
+  <data name="viewErrorLogsOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F11</value>
+  </data>
+  <data name="&gt;&gt;oldestTimesheetDateTimePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newestSalesRecordDateTimePicker.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="returnsTotalLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="viewCartLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;oldestSalesRecordDateTimePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewActivityLogsOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F10</value>
+  </data>
+  <data name="printSalesRecordsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 23</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;reportTabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;printLastMonthTimesheetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="reportTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;registerNewUserOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;printSalesRecordsButton.Name" xml:space="preserve">
+    <value>printSalesRecordsButton</value>
+  </data>
+  <data name="salesRecordsDataGridView.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="printLastMonthTimesheetButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="salesMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
+  </data>
+  <data name="logOutLabel.Text" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="makeSaleMenuSubOption.Text" xml:space="preserve">
+    <value>Make Sales</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="printLastMonthTimesheetButton.Text" xml:space="preserve">
+    <value>Print Last Month's Report</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 13</value>
+  </data>
+  <data name="manageUsersMenuSubOption.Text" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="usersTimesheetTabPage.Text" xml:space="preserve">
+    <value>Timesheets</value>
+  </data>
+  <data name="&gt;&gt;printTimesheetButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;printTimesheetButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewErrorLogsOption.Text" xml:space="preserve">
+    <value>View Errors Log</value>
+  </data>
+  <data name="&gt;&gt;printYesterdayRecordsButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;usersTimesheetTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="timeSheetDataGridView.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;salesTotalLabel.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="salesTotalLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 334</value>
+  </data>
+  <data name="registerNewUserOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F7</value>
+  </data>
+  <data name="&gt;&gt;timeSheetDataGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;registerNewProductMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="viewCartLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;usersSalesRecordsTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="printTimesheetButton.Text" xml:space="preserve">
+    <value>Print Timesheet Report</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Up to:</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ReportsAnalyticsForm</value>
+  </data>
+  <data name="&gt;&gt;salesMenuOption.Name" xml:space="preserve">
+    <value>salesMenuOption</value>
+  </data>
+  <data name="adminMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 20</value>
+  </data>
+  <data name="&gt;&gt;usersSalesRecordsTabPage.Parent" xml:space="preserve">
+    <value>reportTabControl</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;returnsTotalLabel.Name" xml:space="preserve">
+    <value>returnsTotalLabel</value>
+  </data>
+  <data name="salesRecordsDataGridView.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="logOutLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;logsMenuSubOption.Name" xml:space="preserve">
+    <value>logsMenuSubOption</value>
+  </data>
+  <data name="&gt;&gt;reportTabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;printSalesRecordsButton.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="viewErrorLogsOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 22</value>
+  </data>
+  <data name="numberOfReturnsLabel.Text" xml:space="preserve">
+    <value>Number of Returns:</value>
+  </data>
+  <data name="&gt;&gt;productsMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;browseProductsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="printYesterdayRecordsButton.Text" xml:space="preserve">
+    <value>Print Yesterday's Records</value>
+  </data>
+  <data name="viewSalesMenuSubOption.Text" xml:space="preserve">
+    <value>View Sales</value>
+  </data>
+  <data name="&gt;&gt;viewCartLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;usersSalesRecordsTabPage.Name" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="restockProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 22</value>
+  </data>
+  <data name="printLastMonthsRecordsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;adminMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="oldestTimesheetDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>644, 185</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="registerNewUserOption.Text" xml:space="preserve">
+    <value>Register New User</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Users' Sales Records</value>
+  </data>
+  <data name="makeSaleMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="usersSalesRecordsTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;printLastMonthTimesheetButton.Parent" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <data name="&gt;&gt;logsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;returnsTotalLabel.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="newestSalesRecordDateTimePicker.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;printSalesRecordsButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="browseProductsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 22</value>
+  </data>
+  <data name="numberOfSalesLabel.Text" xml:space="preserve">
+    <value>Number of Sales:</value>
+  </data>
+  <data name="&gt;&gt;printLastMonthsRecordsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newestTimesheetDateTimePicker.Parent" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <data name="usersTimesheetTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;numberOfSalesLabel.Name" xml:space="preserve">
+    <value>numberOfSalesLabel</value>
+  </data>
+  <data name="&gt;&gt;timeSheetDataGridView.Parent" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;salesMenuOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewUsersOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F6</value>
+  </data>
+  <data name="&gt;&gt;numberOfReturnsLabel.Name" xml:space="preserve">
+    <value>numberOfReturnsLabel</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="usersSalesRecordsTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="oldestTimesheetDateTimePicker.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="viewUsersOption.Text" xml:space="preserve">
+    <value>View Users</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;oldestTimesheetDateTimePicker.Parent" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;numberOfReturnsLabel.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="oldestSalesRecordDateTimePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 20</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewCartLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
+  </data>
+  <data name="&gt;&gt;newestSalesRecordDateTimePicker.Name" xml:space="preserve">
+    <value>newestSalesRecordDateTimePicker</value>
+  </data>
+  <data name="salesTotalLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 17</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="printLastMonthsRecordsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>356, 413</value>
+  </data>
+  <data name="productsMenuOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="numberOfSalesLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="browseProductsMenuSubOption.Text" xml:space="preserve">
+    <value>Product Browser</value>
+  </data>
+  <data name="&gt;&gt;reportTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>usersTimesheetTabPage</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="registerNewProductMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 22</value>
+  </data>
+  <data name="oldestSalesRecordDateTimePicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>648, 143</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;restockProductsMenuSubOption.Name" xml:space="preserve">
+    <value>restockProductsMenuSubOption</value>
+  </data>
+  <data name="manageUsersMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 22</value>
+  </data>
+  <data name="logsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 22</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>927, 563</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;printLastMonthsRecordsButton.Name" xml:space="preserve">
+    <value>printLastMonthsRecordsButton</value>
+  </data>
+  <data name="&gt;&gt;logOutLabel.Name" xml:space="preserve">
+    <value>logOutLabel</value>
+  </data>
+  <data name="printSalesRecordsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>648, 231</value>
+  </data>
+  <data name="timeSheetDataGridView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>491, 254</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="printYesterdayTimesheetButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 379</value>
+  </data>
+  <data name="printSalesRecordsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;viewGraphsMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;printYesterdayTimesheetButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>605, 176</value>
+  </data>
+  <data name="printYesterdayTimesheetButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 23</value>
+  </data>
+  <data name="&gt;&gt;oldestSalesRecordDateTimePicker.Name" xml:space="preserve">
+    <value>oldestSalesRecordDateTimePicker</value>
+  </data>
+  <data name="&gt;&gt;viewErrorLogsOption.Name" xml:space="preserve">
+    <value>viewErrorLogsOption</value>
+  </data>
+  <data name="numberOfSalesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="salesTotalLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="viewGraphsMenuSubOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>158, 22</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="timeSheetDataGridView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 119</value>
+  </data>
+  <data name="adminMenuOption.Text" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="numberOfSalesLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;timeSheetDataGridView.Name" xml:space="preserve">
+    <value>timeSheetDataGridView</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="returnsTotalLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 379</value>
+  </data>
+  <data name="&gt;&gt;newestTimesheetDateTimePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="viewGraphsMenuSubOption.ShortcutKeyDisplayString" xml:space="preserve">
+    <value>F8</value>
+  </data>
+  <data name="&gt;&gt;numberOfReturnsLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;viewSalesMenuSubOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;printLastMonthTimesheetButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;numberOfSalesLabel.Parent" xml:space="preserve">
+    <value>usersSalesRecordsTabPage</value>
+  </data>
+  <data name="&gt;&gt;newestTimesheetDateTimePicker.Name" xml:space="preserve">
+    <value>newestTimesheetDateTimePicker</value>
+  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>

@@ -7,9 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 // Custom Library
+using InventoryManagementBusinessLayer.GraphInformation;
 using InventoryManagementBusinessLayer.Protocols;
+using InventoryManagementEntityLayer.GraphEssentials;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -40,6 +43,22 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             SystemProtocols.ApplyActivityProtocols("GRA1", null, null);
+
+            missingMessageLabel.Visible = false;
+            shownMessageLabel.Visible = false;
+
+            timeComboBox.Items.Add("24 hours");
+            timeComboBox.Items.Add("72 hours");
+            timeComboBox.Items.Add("week");
+            timeComboBox.Items.Add("2 weeks");
+            timeComboBox.Items.Add("month");
+            timeComboBox.Items.Add("2 months");
+            timeComboBox.SelectedIndex = 0;
+
+            PopulateUsernameListBox();
+
+            newestBubbleDateTimePicker.Value = DateTime.Now;
+            newestBubbleDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
         }
         #endregion
 
@@ -193,7 +212,7 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.graphsAnaliticsForm.Dispose();
         }
 
-        private void logOutLabel_MouseHover(object sender, EventArgs e)
+        private void LogOutLabel_MouseHover(object sender, EventArgs e)
         {
             FormsMenuList.graphsAnaliticsForm.logOutLabel.ForeColor = Color.Red;
         }
@@ -408,6 +427,217 @@ namespace GeneralStoreInventoryManagementSystem
                 default:
                     break;
             }
+        }
+        #endregion
+
+        #region Text Changed Logic
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateUsernameListBox();
+        }
+        #endregion
+
+        #region Value Changed Logic
+        private void NewestBubbleDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (usernamesListBox.Items.Count > 0)
+                GenerateTimesheetBubbleChart();
+        }
+
+        private void TimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (usernamesListBox.Items.Count > 0)
+                GenerateTimesheetBubbleChart();
+        }
+        #endregion
+
+        #region List Box Click Logic
+        private void UsernamesListBox_Click(object sender, EventArgs e)
+        {
+            GenerateTimesheetBubbleChart();
+        }
+        #endregion
+
+        #region Message Labels Logic
+        private void MissingLabel_MouseHover(object sender, EventArgs e)
+        {
+            missingMessageLabel.Visible = true;
+        }
+
+        private void MissingLabel_MouseLeave(object sender, EventArgs e)
+        {
+            missingMessageLabel.Visible = false;
+        }
+
+        private void ShownLabel_MouseHover(object sender, EventArgs e)
+        {
+            shownMessageLabel.Visible = true;
+        }
+
+        private void ShownLabel_MouseLeave(object sender, EventArgs e)
+        {
+            shownMessageLabel.Visible = false;
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        private void PopulateUsernameListBox()
+        {
+            usernamesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchTextBox.Text);
+        }
+
+        private void GenerateTimesheetBubbleChart()
+        {
+            if (usernamesListBox.SelectedItem.ToString() == "ALL")
+            {
+                // TODO: Generate multi series timesheet
+                timesheetChart.Series.Clear();
+
+                int totalSessions = 0;
+                int shownSessions = 0;
+                int missingSessions = 0;
+
+                foreach (String username in usernamesListBox.Items)
+                {
+                    if (username != "ALL")
+                    {
+                        List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(username, newestBubbleDateTimePicker.Value, CalculateOldestDate());
+
+                        if (bubblePoints.Count > 0)
+                        {
+                            timesheetChart.Series.Add(username); // Creating the series
+                            timesheetChart.Series[username].ChartType = SeriesChartType.Bubble;
+                            timesheetChart.Series[username].MarkerStyle = MarkerStyle.Circle;
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date";
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day";
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.LabelStyle.Format = "00H";
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = 0;
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Maximum = 24;
+
+                            // Adding points
+                            foreach (BubblePoint bubble in bubblePoints)
+                            {
+                                totalSessions++;
+
+                                if (bubble.Minutes > 0)
+                                {
+                                    int position = timesheetChart.Series[username].Points.AddXY(
+                                        DateTime.Parse(bubble.LogInDate),
+                                        FormatToInt(bubble.LogInTime.Split(':')[0]),
+                                        bubble.Seconds);
+
+                                    //timesheetChart.Series[username].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
+
+                                    shownSessions++;
+                                }
+                                else
+                                    missingSessions++;
+                            }
+
+                            // adding invisible ancor point
+                            int i = timesheetChart.Series[username].Points.AddXY(newestBubbleDateTimePicker.Value, 1, 0);
+                            timesheetChart.Series[username].Points[i].Color = Color.Transparent;
+                        }
+                    }
+                }
+
+                totalLabel.Text = totalLabel.Text.Split(':')[0] + ": " + totalSessions;
+                shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
+                missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
+            }
+            else
+            {
+                timesheetChart.Series.Clear();
+
+                List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());
+
+                int totalSessions = 0;
+                int shownSessions = 0;
+                int missingSessions = 0;
+
+                if (bubblePoints.Count > 0)
+                {
+                    timesheetChart.Series.Add(usernamesListBox.SelectedItem.ToString()); // Creating the series
+                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Bubble;
+                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].MarkerStyle = MarkerStyle.Circle;
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date";
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day";
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.LabelStyle.Format = "00H";
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = 0;
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Maximum = 24;
+
+                    int minimum = 25;
+
+                    // Adding points
+                    foreach (BubblePoint bubble in bubblePoints)
+                    {
+                        totalSessions++;
+
+                        if (bubble.Minutes > 0)
+                        {
+                            int position = timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(
+                                DateTime.Parse(bubble.LogInDate),
+                                FormatToInt(bubble.LogInTime.Split(':')[0]),
+                                bubble.Seconds);
+
+                            timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
+
+                            if (FormatToInt(bubble.LogInTime.Split(':')[0]) < minimum)
+                                minimum = FormatToInt(bubble.LogInTime.Split(':')[0]) - 3;
+
+                            shownSessions++;
+                        }
+                        else
+                            missingSessions++;
+                    }
+
+                    // adding invisible ancor point
+                    int i = timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(newestBubbleDateTimePicker.Value, minimum + 1, 0);
+                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = minimum;
+                }
+
+                totalLabel.Text = totalLabel.Text.Split(':')[0] + ": " + totalSessions;
+                shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
+                missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
+            }
+        }
+
+        private DateTime CalculateOldestDate()
+        {
+            switch (timeComboBox.Text)
+            {
+                case "72 hours":
+                    return newestBubbleDateTimePicker.Value.AddHours(-24);
+
+                case "week":
+                    return newestBubbleDateTimePicker.Value.AddDays(-7);
+
+                case "2 weeks":
+                    return newestBubbleDateTimePicker.Value.AddDays(-14);
+
+                case "month":
+                    return newestBubbleDateTimePicker.Value.AddMonths(-1);
+
+                case "2 months":
+                    return newestBubbleDateTimePicker.Value.AddMonths(-2);
+
+                case "24 hours":
+                default:
+                    return newestBubbleDateTimePicker.Value.AddHours(-24);
+            }
+        }
+
+        /// <summary>
+        /// Function to convert strings to ints
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>An int equivalent of the provided string value</returns>
+        private static int FormatToInt(String value)
+        {
+            int.TryParse(value, out int result);
+
+            return result;
         }
         #endregion
     }
