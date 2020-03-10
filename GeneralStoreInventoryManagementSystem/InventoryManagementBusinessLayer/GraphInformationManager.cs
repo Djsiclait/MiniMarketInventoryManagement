@@ -41,15 +41,27 @@ namespace InventoryManagementBusinessLayer
 
             #region Sales Bar Graph 
             /// <summary>
-            /// This function fetches all neccessary information to generate the sales bar graph achieved buy all users within a peiod of time  
+            /// This function fetches all neccessary information to generate the sales bar graph achieved by all users within a period of time  
             /// </summary>
             /// <param name="userRole">User's access level</param>
             /// <param name="newestDate">The newest date in the given time frame</param>
             /// <param name="oldestDate">The oldest date in the given time frame</param>
-            /// <returns>A list of sales records for all users duering the specified period of time</returns>
+            /// <returns>A list of sales records for all users during the specified period of time</returns>
             public static List<Sale> ConsultSalesBarChartInformation(DateTime newestDate, DateTime oldestDate)
             {
                 return GraphDataManager.ConsultSalesBarChartData(SystemResources.UserInSession.Role, newestDate, oldestDate);
+            }
+
+            /// <summary>
+            /// This function fetches all neccessary information to generate the sales bar graph achieved by one specific target user within a period of time 
+            /// </summary>
+            /// <param name="username">Username of target user</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <returns>A list of sales records for target user during the specified period of time</returns>
+            public static List<Sale> ConsultUserSalesBarChartInformation(String username, DateTime newestDate, DateTime oldestDate)
+            {
+                return GraphDataManager.ConsultUserSalesBarChartData(SystemResources.UserInSession.Role, username, newestDate, oldestDate);
             }
             #endregion
         }

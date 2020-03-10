@@ -10,7 +10,7 @@ AS
 			BEGIN
 				
 				Select 
-					Convert(varchar(10), A.fld_sale_date, 103) as 'Log In Date',
+					Convert(varchar(10), A.fld_sale_date, 103) as 'Transaction Date',
 					COUNT(A.fld_sale_id) as Sales,
 					SUM(A.fld_sale_total) as Total
 				From
@@ -26,7 +26,7 @@ AS
 				Group by 
 					Convert(varchar(10), A.fld_sale_date, 103)
 				Order by 
-					'Log In Date' Desc
+					'Transaction Date' Desc
 
 			END
 

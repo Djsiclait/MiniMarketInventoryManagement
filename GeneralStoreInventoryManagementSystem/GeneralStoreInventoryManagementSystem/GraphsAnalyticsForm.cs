@@ -522,33 +522,34 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void GenerateSalesBarChart()
         {
-            usersSalesChart.Series.Clear();
-
             int numberOfSales = 0;
             Decimal total = 0;
 
             if (usernamesSalesListBox.SelectedItem.ToString() == "ALL")
             {
+                totalSalesChart.Series.Clear();
+                totalSalesChart.Visible = true;
+                userSalesChart.Visible = false;
+
                 List<Sale> salesBar = GraphInformationManager.ConsultSalesBarChartInformation(newestSalesBarChartDateTimePicker.Value, oldestSalesBarChartDateTimePicker.Value);
 
                 if (salesBar.Count > 0)
                 {
                     String seriesName = "Sales between " + oldestSalesBarChartDateTimePicker.Value.ToShortDateString() + " and " + newestSalesBarChartDateTimePicker.Value.ToShortDateString();
 
-                    usersSalesChart.Series.Add(seriesName);
-                    usersSalesChart.Series[seriesName].ChartType = SeriesChartType.Column;
-                    usersSalesChart.ChartAreas["BarChartArea"].AxisX.Title = "Username";
-                    usersSalesChart.ChartAreas["BarChartArea"].AxisY.Title = "Sales Amount ($)";
-                    usersSalesChart.ChartAreas["BarChartArea"].AxisY.LabelStyle.Format = "$0.00";
-                    usersSalesChart.ChartAreas["BarChartArea"].AxisY.Minimum = 0;
+                    totalSalesChart.Series.Add(seriesName);
+                    totalSalesChart.Series[seriesName].ChartType = SeriesChartType.Column;
+                    totalSalesChart.ChartAreas["BarChartArea"].AxisX.Title = "Username";
+                    totalSalesChart.ChartAreas["BarChartArea"].AxisY.Title = "Sales Amount ($)";
+                    totalSalesChart.ChartAreas["BarChartArea"].AxisY.LabelStyle.Format = "$0.00";
+                    totalSalesChart.ChartAreas["BarChartArea"].AxisY.Minimum = 0;
 
                     foreach (Sale bar in salesBar)
                     {
                         numberOfSales += bar.NumberOfSales;
 
-                        int position = usersSalesChart.Series[seriesName].Points.AddXY(bar.Username, bar.Total);
-
-                        usersSalesChart.Series[seriesName].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00");
+                        int position = totalSalesChart.Series[seriesName].Points.AddXY(bar.Username, bar.Total);
+                        totalSalesChart.Series[seriesName].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00");
 
                         total += bar.Total;
                     }
@@ -556,7 +557,31 @@ namespace GeneralStoreInventoryManagementSystem
             }
             else
             {
+                userSalesChart.Series.Clear();
+                userSalesChart.Visible = true;
+                totalSalesChart.Visible = false;
 
+                List<Sale> salesBar = GraphInformationManager.ConsultUserSalesBarChartInformation(usernamesSalesListBox.SelectedItem.ToString(), newestSalesBarChartDateTimePicker.Value, oldestSalesBarChartDateTimePicker.Value);
+
+                if (salesBar.Count > 0)
+                {
+                    userSalesChart.Series.Add(usernamesSalesListBox.SelectedItem.ToString());
+                    userSalesChart.Series[usernamesSalesListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Column;
+                    userSalesChart.ChartAreas["BarChartArea"].AxisX.Title = "Transaction Dates";
+                    userSalesChart.ChartAreas["BarChartArea"].AxisY.Title = "Sales Amount ($)";
+                    userSalesChart.ChartAreas["BarChartArea"].AxisY.LabelStyle.Format = "$0.00";
+                    userSalesChart.ChartAreas["BarChartArea"].AxisY.Minimum = 0;
+
+                    foreach (Sale bar in salesBar)
+                    {
+                        numberOfSales += bar.NumberOfSales;
+
+                        int position = userSalesChart.Series[usernamesSalesListBox.SelectedItem.ToString()].Points.AddXY(bar.TransactionDate, bar.Total);
+                        userSalesChart.Series[usernamesSalesListBox.SelectedItem.ToString()].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00");
+
+                        total += bar.Total;
+                    }
+                }
             }
 
             numberSalesLabel.Text = numberSalesLabel.Text.Split(':')[0] + ": " + numberOfSales;
@@ -572,7 +597,6 @@ namespace GeneralStoreInventoryManagementSystem
             int missingSessions = 0;
 
             if (usernamesTimesheetListBox.SelectedItem.ToString() == "ALL")
-            {
                 foreach (String username in usernamesTimesheetListBox.Items)
                 {
                     if (username != "ALL")
@@ -614,7 +638,6 @@ namespace GeneralStoreInventoryManagementSystem
                         }
                     }
                 }
-            }
             else
             {
                 List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesTimesheetListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());

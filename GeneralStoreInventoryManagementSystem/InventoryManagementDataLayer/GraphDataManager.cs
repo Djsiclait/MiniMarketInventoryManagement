@@ -98,7 +98,7 @@ namespace InventoryManagementDataLayer
 
             #region Sales Bar Chart
             /// <summary>
-            /// This function fetches all neccessary data to generate the sales bar graph achieved buy all users within a peiod of time  
+            /// This function fetches all neccessary data to generate the sales bar graph achieved by all users within a period of time  
             /// </summary>
             /// <param name="userRole">User's access level</param>
             /// <param name="newestDate">The newest date in the given time frame</param>
@@ -129,6 +129,52 @@ namespace InventoryManagementDataLayer
                     Sale sale = new Sale()
                     {
                         Username = sqlDataReader["fld_sold_by"].ToString(),
+                        NumberOfSales = FormatToInt(sqlDataReader["Sales"].ToString()),
+                        Total = FormatToDecimal(sqlDataReader["Total"].ToString())
+                    };
+
+                    sales.Add(sale);
+                }
+
+                DatabaseManager.DisconnectToDatabase();
+
+                return sales;
+            }
+
+            /// <summary>
+            /// This function fetches all neccessary data to generate the sales bar graph achieved by one specific target user within a period of time 
+            /// </summary>
+            /// <param name="userRole">User's access level</param>
+            /// <param name="username">Username of target user</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <returns>A list of sales records for target user during the specified period of time</returns>
+            public static List<Sale> ConsultUserSalesBarChartData(String userRole, String username, DateTime newestDate, DateTime oldestDate)
+            {
+                List<Sale> sales = new List<Sale>();
+
+                SqlCommand cmd = new SqlCommand()
+                {
+                    CommandText = "SP_Generate_User_Total_Sales_Bar_Chart_Components",
+                    Connection = DatabaseManager.ActiveSqlConnection,
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                #region Parameters
+                cmd.Parameters.AddWithValue("@user_role", userRole);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@newest_date", newestDate);
+                cmd.Parameters.AddWithValue("@oldest_date", oldestDate);
+                #endregion
+
+                SqlDataReader sqlDataReader;
+                sqlDataReader = cmd.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    Sale sale = new Sale()
+                    {
+                        TransactionDate = DateTime.Parse(sqlDataReader["Transaction Date"].ToString()),
                         NumberOfSales = FormatToInt(sqlDataReader["Sales"].ToString()),
                         Total = FormatToDecimal(sqlDataReader["Total"].ToString())
                     };
