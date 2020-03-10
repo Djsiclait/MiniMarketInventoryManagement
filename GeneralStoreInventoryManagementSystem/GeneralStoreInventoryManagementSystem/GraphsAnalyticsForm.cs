@@ -432,7 +432,7 @@ namespace GeneralStoreInventoryManagementSystem
         #endregion
 
         #region Text Changed Logic
-        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        private void SearchTimesheetTextBox_TextChanged(object sender, EventArgs e)
         {
             PopulateUsernameTimesheetListBox();
         }

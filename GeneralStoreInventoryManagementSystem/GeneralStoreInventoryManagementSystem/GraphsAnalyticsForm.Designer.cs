@@ -408,7 +408,7 @@
             this.searchTimesheetTextBox.Name = "searchTimesheetTextBox";
             this.searchTimesheetTextBox.Size = new System.Drawing.Size(132, 20);
             this.searchTimesheetTextBox.TabIndex = 4;
-            this.searchTimesheetTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
+            this.searchTimesheetTextBox.TextChanged += new System.EventHandler(this.SearchTimesheetTextBox_TextChanged);
             // 
             // usernamesTimesheetListBox
             // 

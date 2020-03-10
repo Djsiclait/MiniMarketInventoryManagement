@@ -168,4 +168,22 @@ namespace InventoryManagementEntityLayer
             #endregion
         }
     }
+
+    namespace GraphEssentials
+    {
+        public class Sale
+        {
+            private String username;
+            private int numberOfSales;
+            private Decimal total;
+            private DateTime transactionDate;
+
+            #region Getters and Setters
+            public string Username { get => username; set => username = value; }
+            public int NumberOfSales { get => numberOfSales; set => numberOfSales = value; }
+            public decimal Total { get => total; set => total = value; }
+            public DateTime TransactionDate { get => transactionDate; set => transactionDate = value; }
+            #endregion
+        }
+    }
 }
