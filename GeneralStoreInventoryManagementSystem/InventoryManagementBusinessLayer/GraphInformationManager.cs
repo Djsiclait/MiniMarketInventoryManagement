@@ -15,7 +15,6 @@ namespace InventoryManagementBusinessLayer
     {
         public static class GraphInformationManager
         {
-            #region Timesheet
             /// <summary>
             /// This function fetches all registered usernames
             /// </summary>
@@ -26,6 +25,7 @@ namespace InventoryManagementBusinessLayer
                 return GraphDataManager.ConsultAllRegisteredUsernameData(SystemResources.UserInSession.Role, username);
             }
 
+            #region Timesheet Bubble Chart
             /// <summary>
             /// This function fetches information to generate users' timesheet bubble chart
             /// </summary>
@@ -36,6 +36,20 @@ namespace InventoryManagementBusinessLayer
             public static List<BubblePoint> ConsultUserTimesheetBubbleChartInformation(String username, DateTime newestDate, DateTime oldestDate)
             {
                 return GraphDataManager.ConsultUserTimesheetBubbleChartData(username, newestDate, oldestDate);
+            }
+            #endregion
+
+            #region Sales Bar Graph 
+            /// <summary>
+            /// This function fetches all neccessary information to generate the sales bar graph achieved buy all users within a peiod of time  
+            /// </summary>
+            /// <param name="userRole">User's access level</param>
+            /// <param name="newestDate">The newest date in the given time frame</param>
+            /// <param name="oldestDate">The oldest date in the given time frame</param>
+            /// <returns>A list of sales records for all users duering the specified period of time</returns>
+            public static List<Sale> ConsultSalesBarChartInformation(DateTime newestDate, DateTime oldestDate)
+            {
+                return GraphDataManager.ConsultSalesBarChartData(SystemResources.UserInSession.Role, newestDate, oldestDate);
             }
             #endregion
         }

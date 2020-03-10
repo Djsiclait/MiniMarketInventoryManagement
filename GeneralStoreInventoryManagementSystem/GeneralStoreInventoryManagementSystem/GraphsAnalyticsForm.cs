@@ -60,6 +60,9 @@ namespace GeneralStoreInventoryManagementSystem
 
             newestBubbleDateTimePicker.Value = DateTime.Now;
             newestBubbleDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
+
+            newestSalesBarChartDateTimePicker.Value = DateTime.Now;
+            newestSalesBarChartDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
         }
         #endregion
 
@@ -455,12 +458,32 @@ namespace GeneralStoreInventoryManagementSystem
             if (usernamesTimesheetListBox.Items.Count > 0)
                 GenerateTimesheetBubbleChart();
         }
+
+        private void NewestSalesBarChartDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            oldestSalesBarChartDateTimePicker.MaxDate = newestSalesBarChartDateTimePicker.Value.AddDays(-1);
+            oldestSalesBarChartDateTimePicker.Value = newestSalesBarChartDateTimePicker.Value.AddMonths(-1);
+
+            if (usernamesSalesListBox.Items.Count > 0)
+                GenerateSalesBarChart();
+        }
+
+        private void OldestSalesBarChartDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (usernamesSalesListBox.Items.Count > 0)
+                GenerateSalesBarChart();
+        }
         #endregion
 
         #region List Box Click Logic
         private void UsernamesListBox_Click(object sender, EventArgs e)
         {
             GenerateTimesheetBubbleChart();
+        }
+
+        private void UsernamesSalesListBox_Click(object sender, EventArgs e)
+        {
+            GenerateSalesBarChart();
         }
         #endregion
 
@@ -497,17 +520,59 @@ namespace GeneralStoreInventoryManagementSystem
             usernamesSalesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchSalesTextBox.Text);
         }
 
+        private void GenerateSalesBarChart()
+        {
+            usersSalesChart.Series.Clear();
+
+            int numberOfSales = 0;
+            Decimal total = 0;
+
+            if (usernamesSalesListBox.SelectedItem.ToString() == "ALL")
+            {
+                List<Sale> salesBar = GraphInformationManager.ConsultSalesBarChartInformation(newestSalesBarChartDateTimePicker.Value, oldestSalesBarChartDateTimePicker.Value);
+
+                if (salesBar.Count > 0)
+                {
+                    String seriesName = "Sales between " + oldestSalesBarChartDateTimePicker.Value.ToShortDateString() + " and " + newestSalesBarChartDateTimePicker.Value.ToShortDateString();
+
+                    usersSalesChart.Series.Add(seriesName);
+                    usersSalesChart.Series[seriesName].ChartType = SeriesChartType.Column;
+                    usersSalesChart.ChartAreas["BarChartArea"].AxisX.Title = "Username";
+                    usersSalesChart.ChartAreas["BarChartArea"].AxisY.Title = "Sales Amount ($)";
+                    usersSalesChart.ChartAreas["BarChartArea"].AxisY.LabelStyle.Format = "$0.00";
+                    usersSalesChart.ChartAreas["BarChartArea"].AxisY.Minimum = 0;
+
+                    foreach (Sale bar in salesBar)
+                    {
+                        numberOfSales += bar.NumberOfSales;
+
+                        int position = usersSalesChart.Series[seriesName].Points.AddXY(bar.Username, bar.Total);
+
+                        usersSalesChart.Series[seriesName].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00");
+
+                        total += bar.Total;
+                    }
+                }
+            }
+            else
+            {
+
+            }
+
+            numberSalesLabel.Text = numberSalesLabel.Text.Split(':')[0] + ": " + numberOfSales;
+            totalSalesLabel.Text = totalSalesLabel.Text.Split('$')[0] + "$" + total.ToString("0.00");
+        }
+
         private void GenerateTimesheetBubbleChart()
         {
+            timesheetChart.Series.Clear();
+
+            int totalSessions = 0;
+            int shownSessions = 0;
+            int missingSessions = 0;
+
             if (usernamesTimesheetListBox.SelectedItem.ToString() == "ALL")
             {
-                // TODO: Generate multi series timesheet
-                timesheetChart.Series.Clear();
-
-                int totalSessions = 0;
-                int shownSessions = 0;
-                int missingSessions = 0;
-
                 foreach (String username in usernamesTimesheetListBox.Items)
                 {
                     if (username != "ALL")
@@ -532,12 +597,10 @@ namespace GeneralStoreInventoryManagementSystem
 
                                 if (bubble.Minutes > 0)
                                 {
-                                    int position = timesheetChart.Series[username].Points.AddXY(
+                                    timesheetChart.Series[username].Points.AddXY(
                                         DateTime.Parse(bubble.LogInDate),
                                         FormatToInt(bubble.LogInTime.Split(':')[0]),
                                         bubble.Seconds);
-
-                                    //timesheetChart.Series[username].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
 
                                     shownSessions++;
                                 }
@@ -551,20 +614,10 @@ namespace GeneralStoreInventoryManagementSystem
                         }
                     }
                 }
-
-                totalLabel.Text = totalLabel.Text.Split(':')[0] + ": " + totalSessions;
-                shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
-                missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
             }
             else
             {
-                timesheetChart.Series.Clear();
-
                 List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesTimesheetListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());
-
-                int totalSessions = 0;
-                int shownSessions = 0;
-                int missingSessions = 0;
 
                 if (bubblePoints.Count > 0)
                 {
@@ -607,13 +660,17 @@ namespace GeneralStoreInventoryManagementSystem
                     timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
                     timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = minimum;
                 }
-
-                totalLabel.Text = totalLabel.Text.Split(':')[0] + ": " + totalSessions;
-                shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
-                missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
             }
+
+            totalSessionsLabel.Text = totalSessionsLabel.Text.Split(':')[0] + ": " + totalSessions;
+            shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
+            missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private DateTime CalculateOldestDate()
         {
             switch (timeComboBox.Text)
