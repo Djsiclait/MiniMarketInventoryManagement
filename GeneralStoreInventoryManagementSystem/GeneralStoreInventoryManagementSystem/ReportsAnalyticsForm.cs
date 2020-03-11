@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Custom Library
+// Custom Libraries
 using InventoryManagementBusinessLayer.Protocols;
 using InventoryManagementBusinessLayer.ReportInformation;
 using InventoryManagementEntityLayer.ReportEssentials;

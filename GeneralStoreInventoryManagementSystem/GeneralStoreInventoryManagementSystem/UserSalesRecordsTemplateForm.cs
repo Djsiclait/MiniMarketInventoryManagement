@@ -19,37 +19,40 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class UserSalesRecordsTemplateForm : Form
     {
-        readonly UserProfile user;
+        readonly UserProfile user; // user profile object to host target user information
 
         public UserSalesRecordsTemplateForm(String username)
         {
             InitializeComponent();
 
+            // fetching target user information
             user = UserInformationManager.ConsultUserInformationByUsername(username);
         }
 
         #region On Form Load Logic
         private void UserSalesRecordsTemplateForm_Load(object sender, EventArgs e)
         {
+            // Displaying target user information
             usernameLabel.Text = user.Username;
             roleLabel.Text = user.Role;
 
+            // Initializing latest date picker of default time frame
             newestDateTimePicker.Value = DateTime.Now;
             newestDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
-            oldestDateTimePicker.Value = DateTime.Today.AddMonths(-1);
-            oldestDateTimePicker.MaxDate = DateTime.Today.AddDays(-1);
         }
         #endregion
 
         #region Value Changed Logic
         private void NewestDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            // Initializing earliest date picker of default time frame
             oldestDateTimePicker.MaxDate = newestDateTimePicker.Value.AddDays(-1);
             oldestDateTimePicker.Value = newestDateTimePicker.Value.AddDays(-1);
         }
 
         private void OldestDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            // Updating corresponding grids
             PopulateSalesDataGrid();
             DisplaySelectedSalesContentDataGrid();
         }
@@ -58,24 +61,25 @@ namespace GeneralStoreInventoryManagementSystem
         #region Cell Click Logic
         private void SalesDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DisplaySelectedSalesContentDataGrid();
+            DisplaySelectedSalesContentDataGrid(); // updating content list
         }
         #endregion
 
         #region Key Down Logic
         private void SalesDataGridView_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Enter) // replacing the up and down keys for the enter key
                 DisplaySelectedSalesContentDataGrid(); // there's a delaly in between the key down and the switch of the selected row
         }
-
         #endregion
 
         #region Auxiliary Functions
         private void PopulateSalesDataGrid()
         {
+            // Requesting the target user's sales history for the given time frame
             salesDataGridView.DataSource = ReportInformationManager.ConsultSalesMadeByUserInformation(user.Username, oldestDateTimePicker.Value, newestDateTimePicker.Value);
 
+            // Hiding unnecessary fields
             salesDataGridView.Columns["Delivery"].Visible = false;
             salesDataGridView.Columns["Status"].Visible = false;
             salesDataGridView.Columns["Child"].Visible = false;
@@ -85,6 +89,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void DisplaySelectedSalesContentDataGrid()
         {
+            // Initializing the grid before any information has been requested
             salesContentDataGridView.DataSource = new List<Product>();
             salesContentDataGridView.Refresh();
 
@@ -113,17 +118,21 @@ namespace GeneralStoreInventoryManagementSystem
 
             List<Product> content = new List<Product>();
 
+            // Requesting sales content information if at least one sale information is available
             if (salesDataGridView.Rows.Count > 0)
                 content = SaleInformationManager.ConsultTransactionContentInformation(salesDataGridView.SelectedCells[0].Value.ToString());
 
+            // Staging requested information  
             salesContentDataGridView.DataSource = content;
             salesContentDataGridView.Refresh();
 
+            // Counter
             Decimal total = 0;
 
             foreach (Product product in content)
-                total += product.Total;
+                total += product.Total; // Calculating the total dollar amount of the sale
 
+            // Displaying summary information
             totalLabel.Text = totalLabel.Text.Split('$')[0]+ "$ " + total.ToString("0.00");
         }
         #endregion

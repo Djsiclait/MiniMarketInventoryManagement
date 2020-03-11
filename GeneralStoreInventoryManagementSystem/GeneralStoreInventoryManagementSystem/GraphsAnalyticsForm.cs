@@ -521,7 +521,6 @@ namespace GeneralStoreInventoryManagementSystem
         #region Tab enter Logic
         private void SalesTabPage_Enter(object sender, EventArgs e)
         {
-            Console.WriteLine("Ping!");
             if (requestSalesBarGraph)
             {
                 GenerateSalesBarChart(); // requesting sales charts
@@ -552,7 +551,6 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void GenerateSalesBarChart()
         {
-            Console.WriteLine("Pong!");
             // Counters
             int numberOfSales = 0;
             Decimal total = 0;
@@ -637,7 +635,6 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void GenerateTimesheetBubbleChart()
         {
-            Console.WriteLine("Pang!");
             timesheetChart.Series.Clear(); // clearig the bubble chart of any previous information
 
             // Counters
