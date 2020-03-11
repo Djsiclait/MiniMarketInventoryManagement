@@ -20,6 +20,7 @@ namespace GeneralStoreInventoryManagementSystem
     {
         // Trigger
         int assistance = 0;
+        bool requestSalesBarGraph = true;
 
         public GraphsAnalyticsForm()
         {
@@ -478,7 +479,7 @@ namespace GeneralStoreInventoryManagementSystem
 
         private void OldestSalesBarChartDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (usernamesSalesListBox.Items.Count > 0) // ensurring the username list box has been initialized
+            if (usernamesSalesListBox.Items.Count > 0 && !requestSalesBarGraph) // ensurring the username list box has been initialized
                 GenerateSalesBarChart(); // requesting sales charts
         }
         #endregion
@@ -517,6 +518,18 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
+        #region Tab enter Logic
+        private void SalesTabPage_Enter(object sender, EventArgs e)
+        {
+            Console.WriteLine("Ping!");
+            if (requestSalesBarGraph)
+            {
+                GenerateSalesBarChart(); // requesting sales charts
+                requestSalesBarGraph = false;
+            }
+        }
+        #endregion
+
         #region Auxiliary Functions
         /// <summary>
         /// Function to populate the list box with the username of all registered users for the timesheet tab
@@ -539,6 +552,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void GenerateSalesBarChart()
         {
+            Console.WriteLine("Pong!");
             // Counters
             int numberOfSales = 0;
             Decimal total = 0;
@@ -623,6 +637,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void GenerateTimesheetBubbleChart()
         {
+            Console.WriteLine("Pang!");
             timesheetChart.Series.Clear(); // clearig the bubble chart of any previous information
 
             // Counters

@@ -597,7 +597,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void OldestSalesRecordDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             if (!requestSalesRecord)
-                UpdateSalesRecordsDataGrid(); // Requesting sales records if available
+                UpdateSalesRecordsDataGrid(); // Requesting sales records if available (only functional after the user has requested to fetch the sales records information)
         }
         #endregion
 

@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.viewCartLabel = new System.Windows.Forms.Label();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -75,7 +75,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timesheetChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.salesTabPage = new System.Windows.Forms.TabPage();
+            this.userSalesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.totalSalesLabel = new System.Windows.Forms.Label();
             this.numberSalesLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -88,14 +89,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.totalSalesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label13 = new System.Windows.Forms.Label();
-            this.userSalesChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.timesheetTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timesheetChart)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.totalSalesChart)).BeginInit();
+            this.salesTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userSalesChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalSalesChart)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
@@ -268,7 +268,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.timesheetTabPage);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.salesTabPage);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
@@ -449,48 +449,70 @@
             // timesheetChart
             // 
             this.timesheetChart.BackColor = System.Drawing.Color.Gainsboro;
-            chartArea1.Name = "BubbleChartArea";
-            this.timesheetChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.timesheetChart.Legends.Add(legend1);
+            chartArea4.Name = "BubbleChartArea";
+            this.timesheetChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.timesheetChart.Legends.Add(legend4);
             this.timesheetChart.Location = new System.Drawing.Point(42, 63);
             this.timesheetChart.Name = "timesheetChart";
-            series1.ChartArea = "BubbleChartArea";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bubble;
-            series1.Legend = "Legend1";
-            series1.Name = "User";
-            series1.YValuesPerPoint = 2;
-            this.timesheetChart.Series.Add(series1);
+            series4.ChartArea = "BubbleChartArea";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bubble;
+            series4.Legend = "Legend1";
+            series4.Name = "User";
+            series4.YValuesPerPoint = 2;
+            this.timesheetChart.Series.Add(series4);
             this.timesheetChart.Size = new System.Drawing.Size(818, 419);
             this.timesheetChart.TabIndex = 0;
             this.timesheetChart.Text = "Timesheet Graph";
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            title1.Name = "Title1";
-            title1.Text = "User Timesheet";
-            this.timesheetChart.Titles.Add(title1);
+            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            title4.Name = "Title1";
+            title4.Text = "User Timesheet";
+            this.timesheetChart.Titles.Add(title4);
             // 
-            // tabPage2
+            // salesTabPage
             // 
-            this.tabPage2.Controls.Add(this.userSalesChart);
-            this.tabPage2.Controls.Add(this.totalSalesLabel);
-            this.tabPage2.Controls.Add(this.numberSalesLabel);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.oldestSalesBarChartDateTimePicker);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.newestSalesBarChartDateTimePicker);
-            this.tabPage2.Controls.Add(this.searchSalesTextBox);
-            this.tabPage2.Controls.Add(this.usernamesSalesListBox);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.totalSalesChart);
-            this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(895, 614);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Sales";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.salesTabPage.Controls.Add(this.userSalesChart);
+            this.salesTabPage.Controls.Add(this.totalSalesLabel);
+            this.salesTabPage.Controls.Add(this.numberSalesLabel);
+            this.salesTabPage.Controls.Add(this.button1);
+            this.salesTabPage.Controls.Add(this.label7);
+            this.salesTabPage.Controls.Add(this.oldestSalesBarChartDateTimePicker);
+            this.salesTabPage.Controls.Add(this.label6);
+            this.salesTabPage.Controls.Add(this.newestSalesBarChartDateTimePicker);
+            this.salesTabPage.Controls.Add(this.searchSalesTextBox);
+            this.salesTabPage.Controls.Add(this.usernamesSalesListBox);
+            this.salesTabPage.Controls.Add(this.label5);
+            this.salesTabPage.Controls.Add(this.totalSalesChart);
+            this.salesTabPage.Controls.Add(this.label13);
+            this.salesTabPage.Location = new System.Drawing.Point(4, 22);
+            this.salesTabPage.Name = "salesTabPage";
+            this.salesTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.salesTabPage.Size = new System.Drawing.Size(895, 614);
+            this.salesTabPage.TabIndex = 1;
+            this.salesTabPage.Text = "Sales";
+            this.salesTabPage.UseVisualStyleBackColor = true;
+            this.salesTabPage.Enter += new System.EventHandler(this.SalesTabPage_Enter);
+            // 
+            // userSalesChart
+            // 
+            this.userSalesChart.BackColor = System.Drawing.Color.Gainsboro;
+            chartArea5.Name = "BarChartArea";
+            this.userSalesChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.userSalesChart.Legends.Add(legend5);
+            this.userSalesChart.Location = new System.Drawing.Point(42, 63);
+            this.userSalesChart.Name = "userSalesChart";
+            series5.ChartArea = "BarChartArea";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.userSalesChart.Series.Add(series5);
+            this.userSalesChart.Size = new System.Drawing.Size(818, 419);
+            this.userSalesChart.TabIndex = 38;
+            this.userSalesChart.Text = "chart1";
+            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            title5.Name = "Title1";
+            title5.Text = "Sales Generated By User";
+            this.userSalesChart.Titles.Add(title5);
             // 
             // totalSalesLabel
             // 
@@ -590,23 +612,23 @@
             // totalSalesChart
             // 
             this.totalSalesChart.BackColor = System.Drawing.Color.Gainsboro;
-            chartArea3.Name = "BarChartArea";
-            this.totalSalesChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.totalSalesChart.Legends.Add(legend3);
+            chartArea6.Name = "BarChartArea";
+            this.totalSalesChart.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.totalSalesChart.Legends.Add(legend6);
             this.totalSalesChart.Location = new System.Drawing.Point(42, 63);
             this.totalSalesChart.Name = "totalSalesChart";
-            series3.ChartArea = "BarChartArea";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.totalSalesChart.Series.Add(series3);
+            series6.ChartArea = "BarChartArea";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.totalSalesChart.Series.Add(series6);
             this.totalSalesChart.Size = new System.Drawing.Size(818, 419);
             this.totalSalesChart.TabIndex = 27;
             this.totalSalesChart.Text = "chart1";
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            title3.Name = "Title1";
-            title3.Text = "Total Generated Sales";
-            this.totalSalesChart.Titles.Add(title3);
+            title6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            title6.Name = "Title1";
+            title6.Text = "Total Generated Sales";
+            this.totalSalesChart.Titles.Add(title6);
             // 
             // label13
             // 
@@ -617,27 +639,6 @@
             this.label13.Size = new System.Drawing.Size(233, 20);
             this.label13.TabIndex = 26;
             this.label13.Text = "Generated Sales Bar Graph";
-            // 
-            // userSalesChart
-            // 
-            this.userSalesChart.BackColor = System.Drawing.Color.Gainsboro;
-            chartArea2.Name = "BarChartArea";
-            this.userSalesChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.userSalesChart.Legends.Add(legend2);
-            this.userSalesChart.Location = new System.Drawing.Point(42, 63);
-            this.userSalesChart.Name = "userSalesChart";
-            series2.ChartArea = "BarChartArea";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.userSalesChart.Series.Add(series2);
-            this.userSalesChart.Size = new System.Drawing.Size(818, 419);
-            this.userSalesChart.TabIndex = 38;
-            this.userSalesChart.Text = "chart1";
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            title2.Name = "Title1";
-            title2.Text = "Sales Generated By User";
-            this.userSalesChart.Titles.Add(title2);
             // 
             // GraphsAnalyticsForm
             // 
@@ -661,10 +662,10 @@
             this.timesheetTabPage.ResumeLayout(false);
             this.timesheetTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timesheetChart)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.totalSalesChart)).EndInit();
+            this.salesTabPage.ResumeLayout(false);
+            this.salesTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userSalesChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalSalesChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -692,7 +693,7 @@
         private System.Windows.Forms.ToolStripMenuItem restockProductsMenuSubOption;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage timesheetTabPage;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage salesTabPage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataVisualization.Charting.Chart timesheetChart;
         private System.Windows.Forms.ListBox usernamesTimesheetListBox;
