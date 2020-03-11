@@ -18,7 +18,9 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class GraphsAnalyticsForm : Form
     {
+        // Trigger
         int assistance = 0;
+        bool requestSalesBarGraph = true;
 
         public GraphsAnalyticsForm()
         {
@@ -42,11 +44,14 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Enabled = false;
             }
 
+            // Recording user access to this form
             SystemProtocols.ApplyActivityProtocols("GRA1", null, null);
 
+            // Hiding message lables
             missingMessageLabel.Visible = false;
             shownMessageLabel.Visible = false;
 
+            // Initilizing combo box
             timeComboBox.Items.Add("24 hours");
             timeComboBox.Items.Add("72 hours");
             timeComboBox.Items.Add("week");
@@ -55,10 +60,20 @@ namespace GeneralStoreInventoryManagementSystem
             timeComboBox.Items.Add("2 months");
             timeComboBox.SelectedIndex = 0;
 
-            PopulateUsernameListBox();
+            // Populating Graphs
+            PopulateUsernameTimesheetListBox();
+            PopulateUsernameSalesListBox();
 
+            // Initializing date time pickers
+            #region Bubble Chart
             newestBubbleDateTimePicker.Value = DateTime.Now;
             newestBubbleDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
+            #endregion
+
+            #region Sales Bar Chart
+            newestSalesBarChartDateTimePicker.Value = DateTime.Now;
+            newestSalesBarChartDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
+            #endregion
         }
         #endregion
 
@@ -431,30 +446,53 @@ namespace GeneralStoreInventoryManagementSystem
         #endregion
 
         #region Text Changed Logic
-        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        private void SearchTimesheetTextBox_TextChanged(object sender, EventArgs e)
         {
-            PopulateUsernameListBox();
+            PopulateUsernameTimesheetListBox(); // filtering the usernames for the timesheets
+        }
+
+        private void SearchSalesTextBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateUsernameSalesListBox(); // filtering tge usernames for the sales graphs
         }
         #endregion
 
         #region Value Changed Logic
         private void NewestBubbleDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (usernamesListBox.Items.Count > 0)
-                GenerateTimesheetBubbleChart();
+            if (usernamesTimesheetListBox.Items.Count > 0) // ensurring the username list box has been initialized
+                GenerateTimesheetBubbleChart(); // requesting timesheet 
         }
 
         private void TimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (usernamesListBox.Items.Count > 0)
-                GenerateTimesheetBubbleChart();
+            if (usernamesTimesheetListBox.Items.Count > 0) // ensurring the username list box has been initialized
+                GenerateTimesheetBubbleChart(); // requesting timesheet 
+        }
+
+        private void NewestSalesBarChartDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            // Updating the second date time picker to establish an interval of one month
+            oldestSalesBarChartDateTimePicker.MaxDate = newestSalesBarChartDateTimePicker.Value.AddDays(-1);
+            oldestSalesBarChartDateTimePicker.Value = newestSalesBarChartDateTimePicker.Value.AddMonths(-1);
+        }
+
+        private void OldestSalesBarChartDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (usernamesSalesListBox.Items.Count > 0 && !requestSalesBarGraph) // ensurring the username list box has been initialized
+                GenerateSalesBarChart(); // requesting sales charts
         }
         #endregion
 
         #region List Box Click Logic
         private void UsernamesListBox_Click(object sender, EventArgs e)
         {
-            GenerateTimesheetBubbleChart();
+            GenerateTimesheetBubbleChart(); // requesting timesheet 
+        }
+
+        private void UsernamesSalesListBox_Click(object sender, EventArgs e)
+        {
+            GenerateSalesBarChart(); // requesting sales charts
         }
         #endregion
 
@@ -480,58 +518,167 @@ namespace GeneralStoreInventoryManagementSystem
         }
         #endregion
 
-        #region Auxiliary Functions
-        private void PopulateUsernameListBox()
+        #region Tab enter Logic
+        private void SalesTabPage_Enter(object sender, EventArgs e)
         {
-            usernamesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchTextBox.Text);
+            if (requestSalesBarGraph) // enabling the option to request and fetch the sales bar tab information when the user opts in for it
+            {
+                GenerateSalesBarChart(); // requesting sales charts
+                requestSalesBarGraph = false;
+            }
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        /// <summary>
+        /// Function to populate the list box with the username of all registered users for the timesheet tab
+        /// </summary>
+        private void PopulateUsernameTimesheetListBox()
+        {
+            usernamesTimesheetListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchTimesheetTextBox.Text);
         }
 
+        /// <summary>
+        /// Function to populate the list box with the username of all registered users for the sales tab
+        /// </summary>
+        private void PopulateUsernameSalesListBox()
+        {
+            usernamesSalesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchSalesTextBox.Text);
+        }
+
+        /// <summary>
+        /// Function assigned to generate requested sales graph given the chosen congfigurations
+        /// </summary>
+        private void GenerateSalesBarChart()
+        {
+            // Counters
+            int numberOfSales = 0;
+            Decimal total = 0;
+
+            if (usernamesSalesListBox.SelectedItem.ToString() == "ALL") // the user requests to see generated sales made by all registered users
+            {
+                totalSalesChart.Series.Clear(); // clearing the sales chart of previous information
+                totalSalesChart.Visible = true; // Showing the proper graph to display sales made by all users
+                userSalesChart.Visible = false; // Hiding graph designated to view the sales of a single user
+
+                // Requesting the neccessary information to generate the graphs
+                List<Sale> salesBar = GraphInformationManager.ConsultSalesBarChartInformation(newestSalesBarChartDateTimePicker.Value, oldestSalesBarChartDateTimePicker.Value);
+
+                if (salesBar.Count > 0) // assuring at least one graph point exists
+                {
+                    // Establishing series name with the time interval specifications
+                    String seriesName = "Sales between " + oldestSalesBarChartDateTimePicker.Value.ToShortDateString() + " and " + newestSalesBarChartDateTimePicker.Value.ToShortDateString();
+
+                    // Configuring the series
+                    totalSalesChart.Series.Add(seriesName); // specifying the series
+                    totalSalesChart.Series[seriesName].ChartType = SeriesChartType.Column; // specifying what type of graph is desired
+                    totalSalesChart.ChartAreas["BarChartArea"].AxisX.Title = "Username"; // Naming the X-axis
+                    totalSalesChart.ChartAreas["BarChartArea"].AxisY.Title = "Sales Amount ($)"; // Naming the Y-axis
+                    totalSalesChart.ChartAreas["BarChartArea"].AxisY.LabelStyle.Format = "$0.00"; // Formating the scale of the Y-axis
+                    totalSalesChart.ChartAreas["BarChartArea"].AxisY.Minimum = 0; // Establishing the Y-axis minimum
+
+                    // Establishing the data points for the graph
+                    foreach (Sale bar in salesBar)
+                    {
+                        numberOfSales += bar.NumberOfSales; // counting the number of sales preformed
+
+                        // Adding new data point to graph
+                        int position = totalSalesChart.Series[seriesName].Points.AddXY(bar.Username, bar.Total); // X: p.siclait, Y: $1000.00
+                        // Adding a label to provide more accuracy and readability of the graph
+                        totalSalesChart.Series[seriesName].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00");
+
+                        total += bar.Total; // adding the total amount of dollars generated
+                    }
+                }
+            }
+            else // User has chosen to view the sales genenerated by one specific user
+            {
+                userSalesChart.Series.Clear(); // clearing the username's sales chart of previous information
+                userSalesChart.Visible = true; // Showing graph designated to view the sales of a single user
+                totalSalesChart.Visible = false; // Hiding the proper graph to display sales made by all users
+
+                // Requesting the neccessary information to generate the graphs
+                List<Sale> salesBar = GraphInformationManager.ConsultUserSalesBarChartInformation(usernamesSalesListBox.SelectedItem.ToString(), newestSalesBarChartDateTimePicker.Value, oldestSalesBarChartDateTimePicker.Value);
+
+                if (salesBar.Count > 0) // assuring at least one graph point exists
+                {
+                    // Configuring the series
+                    userSalesChart.Series.Add(usernamesSalesListBox.SelectedItem.ToString()); // specifying the series
+                    userSalesChart.Series[usernamesSalesListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Column; // specifying what type of graph is desired
+                    userSalesChart.ChartAreas["BarChartArea"].AxisX.Title = "Transaction Dates"; // Naming the X-axis
+                    userSalesChart.ChartAreas["BarChartArea"].AxisY.Title = "Sales Amount ($)"; // Naming the Y-axis
+                    userSalesChart.ChartAreas["BarChartArea"].AxisY.LabelStyle.Format = "$0.00"; // Formating the scale of the Y-axis
+                    userSalesChart.ChartAreas["BarChartArea"].AxisY.Minimum = 0; // Establishing the Y-axis minimum
+
+                    // Establishing the data points for the graph
+                    foreach (Sale bar in salesBar)
+                    {
+                        numberOfSales += bar.NumberOfSales; // counting the number of sales preformed
+
+                        // Adding new data point to graph
+                        int position = userSalesChart.Series[usernamesSalesListBox.SelectedItem.ToString()].Points.AddXY(bar.TransactionDate, bar.Total); // X: 09-01-2020, Y:$45000.00
+                        // Adding a label to provide more accuracy and readability of the graph
+                        userSalesChart.Series[usernamesSalesListBox.SelectedItem.ToString()].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00");
+
+                        total += bar.Total; // adding the total amount of dollars generated
+                    }
+                }
+            }
+
+            // Updating supplementary summary information 
+            numberSalesLabel.Text = numberSalesLabel.Text.Split(':')[0] + ": " + numberOfSales;
+            totalSalesLabel.Text = totalSalesLabel.Text.Split('$')[0] + "$" + total.ToString("0.00");
+        }
+
+        /// <summary>
+        /// Function assigned to generate requested timesheet graph given the chosen congfigurations
+        /// </summary>
         private void GenerateTimesheetBubbleChart()
         {
-            if (usernamesListBox.SelectedItem.ToString() == "ALL")
-            {
-                // TODO: Generate multi series timesheet
-                timesheetChart.Series.Clear();
+            timesheetChart.Series.Clear(); // clearig the bubble chart of any previous information
 
-                int totalSessions = 0;
-                int shownSessions = 0;
-                int missingSessions = 0;
+            // Counters
+            int totalSessions = 0;
+            int shownSessions = 0;
+            int missingSessions = 0;
 
-                foreach (String username in usernamesListBox.Items)
+            if (usernamesTimesheetListBox.SelectedItem.ToString() == "ALL") // the user requests to see generated timesheets of all registered users
+                foreach (String username in usernamesTimesheetListBox.Items) // generating a timesheet for each reagistered user
                 {
-                    if (username != "ALL")
+                    if (username != "ALL") // ignoring the all option given that this is not a recognized username
                     {
+                        // Requesting a timesheet for the designated username
                         List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(username, newestBubbleDateTimePicker.Value, CalculateOldestDate());
 
-                        if (bubblePoints.Count > 0)
+                        if (bubblePoints.Count > 0) // ensuring at least one graph point exists
                         {
+                            // Configuring the series
                             timesheetChart.Series.Add(username); // Creating the series
-                            timesheetChart.Series[username].ChartType = SeriesChartType.Bubble;
-                            timesheetChart.Series[username].MarkerStyle = MarkerStyle.Circle;
-                            timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date";
-                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day";
-                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.LabelStyle.Format = "00H";
-                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = 0;
-                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Maximum = 24;
+                            timesheetChart.Series[username].ChartType = SeriesChartType.Bubble; // specifying what type of graph is desired
+                            timesheetChart.Series[username].MarkerStyle = MarkerStyle.Circle; // Chosing the shape of the bubbles
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date"; // Naming the X-axis
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day"; // Naming the Y-axis
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.LabelStyle.Format = "00H"; // Formating the scale of the Y-axis
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = 0; // Establishing the Y-axis minimum
+                            timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Maximum = 24; // Establishing the Y-axis maximum
 
                             // Adding points
                             foreach (BubblePoint bubble in bubblePoints)
                             {
-                                totalSessions++;
+                                totalSessions++; // counting the total amount of sessions
 
-                                if (bubble.Minutes > 0)
+                                if (bubble.Minutes > 0) // generating data points only for sessions that last longer than a minute 
                                 {
-                                    int position = timesheetChart.Series[username].Points.AddXY(
-                                        DateTime.Parse(bubble.LogInDate),
-                                        FormatToInt(bubble.LogInTime.Split(':')[0]),
-                                        bubble.Seconds);
+                                    // Adding new data point to graph
+                                    timesheetChart.Series[username].Points.AddXY(
+                                        DateTime.Parse(bubble.LogInDate), // log in date
+                                        FormatToInt(bubble.LogInTime.Split(':')[0]), // the hour at which the user was logged in (VERY INACCURATE)
+                                        bubble.Seconds); // total seconds logged in to establich each bubble's magnitude/area/size
 
-                                    //timesheetChart.Series[username].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
-
-                                    shownSessions++;
+                                    shownSessions++; // counting all sessions at least a minute long
                                 }
                                 else
-                                    missingSessions++;
+                                    missingSessions++; // counting all sessions less than a minute long
                             }
 
                             // adding invisible ancor point
@@ -540,69 +687,68 @@ namespace GeneralStoreInventoryManagementSystem
                         }
                     }
                 }
-
-                totalLabel.Text = totalLabel.Text.Split(':')[0] + ": " + totalSessions;
-                shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
-                missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
-            }
-            else
+            else // User has chosen to view the timesheet of one specific user
             {
-                timesheetChart.Series.Clear();
+                // Requesting a timesheet for the selected username
+                List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesTimesheetListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());
 
-                List<BubblePoint> bubblePoints = GraphInformationManager.ConsultUserTimesheetBubbleChartInformation(usernamesListBox.SelectedItem.ToString(), newestBubbleDateTimePicker.Value, CalculateOldestDate());
-
-                int totalSessions = 0;
-                int shownSessions = 0;
-                int missingSessions = 0;
-
-                if (bubblePoints.Count > 0)
+                if (bubblePoints.Count > 0) // assuring at least one graph point exists
                 {
-                    timesheetChart.Series.Add(usernamesListBox.SelectedItem.ToString()); // Creating the series
-                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Bubble;
-                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].MarkerStyle = MarkerStyle.Circle;
-                    timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date";
-                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day";
-                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.LabelStyle.Format = "00H";
-                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = 0;
-                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Maximum = 24;
+                    // Configuring the series
+                    timesheetChart.Series.Add(usernamesTimesheetListBox.SelectedItem.ToString()); // Creating the series
+                    timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].ChartType = SeriesChartType.Bubble; // specifying what type of graph is desired
+                    timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].MarkerStyle = MarkerStyle.Circle; // Chosing the shape of the bubbles
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisX.Title = "Date"; // Naming the X-axis
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Title = "Hours of the Day"; // Naming the Y-axis
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.LabelStyle.Format = "00H"; // Formating the scale of the Y-axis
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = 0; // Establishing the Y-axis minimum
+                    timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Maximum = 24; // Establishing the Y-axis maximum
 
-                    int minimum = 25;
+                    int minimum = 25; // indicator to limit the individual timesheet
 
                     // Adding points
                     foreach (BubblePoint bubble in bubblePoints)
                     {
-                        totalSessions++;
+                        totalSessions++; // counting the total amount of sessions
 
-                        if (bubble.Minutes > 0)
+                        if (bubble.Minutes > 0) // generating data points only for sessions that last longer than a minute
                         {
-                            int position = timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(
-                                DateTime.Parse(bubble.LogInDate),
-                                FormatToInt(bubble.LogInTime.Split(':')[0]),
+                            // Adding new data point to graph
+                            int position = timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points.AddXY(
+                                DateTime.Parse(bubble.LogInDate), // log in date
+                                FormatToInt(bubble.LogInTime.Split(':')[0]), // the hour at which the user was logged in (VERY INACCURATE)
                                 bubble.Seconds);
-
-                            timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
+                            // Adding label to improve readability of graph
+                            timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
 
                             if (FormatToInt(bubble.LogInTime.Split(':')[0]) < minimum)
-                                minimum = FormatToInt(bubble.LogInTime.Split(':')[0]) - 3;
+                                minimum = FormatToInt(bubble.LogInTime.Split(':')[0]) - 4 > 0 ? FormatToInt(bubble.LogInTime.Split(':')[0]) - 4 : 0;
 
-                            shownSessions++;
+                            shownSessions++; // counting all sessions at least a minute long
                         }
                         else
-                            missingSessions++;
+                            missingSessions++; // counting all sessions less than a minute long
                     }
 
                     // adding invisible ancor point
-                    int i = timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points.AddXY(newestBubbleDateTimePicker.Value, minimum + 1, 0);
-                    timesheetChart.Series[usernamesListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
+                    int i = timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points.AddXY(newestBubbleDateTimePicker.Value, minimum + 1, 0);
+                    timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
+
+                    // Updating chart minimum
                     timesheetChart.ChartAreas["BubbleChartArea"].AxisY.Minimum = minimum;
                 }
-
-                totalLabel.Text = totalLabel.Text.Split(':')[0] + ": " + totalSessions;
-                shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
-                missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
             }
+
+            // Updating supplementary summary information for timesheet tab
+            totalSessionsLabel.Text = totalSessionsLabel.Text.Split(':')[0] + ": " + totalSessions;
+            shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
+            missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
         }
 
+        /// <summary>
+        /// Function to calculte the correct time frame chosen by the user
+        /// </summary>
+        /// <returns></returns>
         private DateTime CalculateOldestDate()
         {
             switch (timeComboBox.Text)

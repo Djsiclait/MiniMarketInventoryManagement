@@ -26,36 +26,42 @@ namespace InventoryManagementDataLayer
             /// <returns>A list of user timesheets with each ones log ins statistics</returns>
             public static List<Timesheet> ConsultTimesheetSummaryData(DateTime newestDate, DateTime oldestDate)
             {
-                List<Timesheet> timesheets = new List<Timesheet>();
+                List<Timesheet> timesheets = new List<Timesheet>(); // Initiating list to host timesheets 
 
-                SqlCommand cmd = new SqlCommand(
-                        "SP_Generate_User_Timesheet",
-                        DatabaseManager.ActiveSqlConnection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                // Creating SQL querry to execute the correct command
+                SqlCommand cmd = new SqlCommand()
+                { 
+                    CommandText = "SP_Generate_User_Timesheet", // Designated stored procedure to execute
+                    Connection = DatabaseManager.ActiveSqlConnection, // Establishing an active connection with the database
+                    CommandType = CommandType.StoredProcedure // Confirmin querry is a recognized stored procedure in the database
+                };
 
                 #region Parameters
-                cmd.Parameters.Add("@newest_date", SqlDbType.DateTime).Value = newestDate;
-                cmd.Parameters.Add("@oldest_date", SqlDbType.DateTime).Value = oldestDate;
+                cmd.Parameters.AddWithValue("@newest_date", newestDate); // latest date in the desired time interval
+                cmd.Parameters.AddWithValue("@oldest_date", oldestDate); // earliest date in the desired time interval
                 #endregion
 
+                // Creating a data reader to fetch corresponding data
                 SqlDataReader sqlDataReader;
-                sqlDataReader = cmd.ExecuteReader();
+                sqlDataReader = cmd.ExecuteReader(); // executing command and retreiving results
 
+                // Reading through the result set of the command
                 while (sqlDataReader.Read())
                 {
-                    Timesheet sheet = new Timesheet();
+                    Timesheet sheet = new Timesheet()
+                    {
+                        Username = sqlDataReader["fld_user_activity_username"].ToString(),
+                        FullName = sqlDataReader["Name"].ToString(),
+                        NumberOfLogIns = FormatToInt(sqlDataReader["Number of Log Ins"].ToString()),
+                        AverageMinutesPerSession = FormatToDecimal(sqlDataReader["Average Minutes"].ToString())
+                    };
 
-                    sheet.Username = sqlDataReader["fld_user_activity_username"].ToString();
-                    sheet.FullName = sqlDataReader["Name"].ToString();
-                    sheet.NumberOfLogIns = FormatToInt(sqlDataReader["Number of Log Ins"].ToString());
-                    sheet.AverageMinutesPerSession = FormatToDecimal(sqlDataReader["Average Minutes"].ToString());
-
-                    timesheets.Add(sheet);
+                    timesheets.Add(sheet); // adding new timesheet
                 }
 
-                DatabaseManager.DisconnectToDatabase();
+                DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database 
 
-                return timesheets;
+                return timesheets; // returning list of timesheets
             }
             #endregion
 
@@ -69,24 +75,30 @@ namespace InventoryManagementDataLayer
             /// <returns>A list of the user's session log</returns>
             public static List<SessionLog> ConsultUserSessionLogData(String username, DateTime oldestDate, DateTime newestDate)
             {
-                List<SessionLog> sessionLogs = new List<SessionLog>();
+                List<SessionLog> sessionLogs = new List<SessionLog>(); // Initiating list to host session logs 
 
-                SqlCommand cmd = new SqlCommand(
-                        "SP_Generate_User_Session_Log",
-                        DatabaseManager.ActiveSqlConnection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                // Creating SQL querry to execute the correct command
+                SqlCommand cmd = new SqlCommand() 
+                { 
+                    CommandText = "SP_Generate_User_Session_Log", // Designated stored procedure to execute
+                    Connection = DatabaseManager.ActiveSqlConnection, // Establishing an active connection with the database
+                    CommandType = CommandType.StoredProcedure // Confirmin querry is a recognized stored procedure in the database
+                };
 
                 #region Parameters
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.Add("@newest_date", SqlDbType.DateTime).Value = newestDate;
-                cmd.Parameters.Add("@oldest_date", SqlDbType.DateTime).Value = oldestDate;
+                cmd.Parameters.AddWithValue("@username", username); // target username
+                cmd.Parameters.AddWithValue("@newest_date", newestDate); // latest date in the desired time interval
+                cmd.Parameters.AddWithValue("@oldest_date", oldestDate); // earliest date in the desired time interval
                 #endregion
 
+                // Creating a data reader to fetch corresponding data
                 SqlDataReader sqlDataReader;
-                sqlDataReader = cmd.ExecuteReader();
+                sqlDataReader = cmd.ExecuteReader(); // executing command and retreiving results
 
+                // Reading through the result set of the command
                 while (sqlDataReader.Read())
                 {
+                    // Creating Session object to host data
                     SessionLog session = new SessionLog
                     {
                         LogIn = DateTime.Parse(sqlDataReader["Log In"].ToString()),
@@ -94,12 +106,12 @@ namespace InventoryManagementDataLayer
                         TotalSessionMinutes = FormatToDecimal(sqlDataReader["Minutes"].ToString())
                     };
 
-                    sessionLogs.Add(session);
+                    sessionLogs.Add(session); // adding new session into list
                 }
 
-                DatabaseManager.DisconnectToDatabase();
+                DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database 
 
-                return sessionLogs;
+                return sessionLogs; // returning list of session log
             }
 
             /// <summary>
@@ -111,24 +123,30 @@ namespace InventoryManagementDataLayer
             /// <returns>A list of all activities generated durring the given time interval</returns>
             public static List<Activity> ConsultUserActivitiesDuringSessionData(String username, DateTime sessionStart, DateTime sessionEnd)
             {
-                List<Activity> activities = new List<Activity>();
+                List<Activity> activities = new List<Activity>(); // Initiating list to host activities
 
-                SqlCommand cmd = new SqlCommand(
-                        "SP_Fetch_Activities_For_Session",
-                        DatabaseManager.ActiveSqlConnection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                // Creating SQL querry to execute the correct command 
+                SqlCommand cmd = new SqlCommand() 
+                { 
+                    CommandText = "SP_Fetch_Activities_For_Session", // Designated stored procedure to execute
+                    Connection = DatabaseManager.ActiveSqlConnection, // Establishing an active connection with the database
+                    CommandType = CommandType.StoredProcedure // Confirmin querry is a recognized stored procedure in the database
+                };
 
                 #region Parameters
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@session_start", sessionStart);
-                cmd.Parameters.AddWithValue("@session_end", sessionEnd);
+                cmd.Parameters.AddWithValue("@username", username); // Target username
+                cmd.Parameters.AddWithValue("@session_start", sessionStart); // Timestamp of the beginning of the session
+                cmd.Parameters.AddWithValue("@session_end", sessionEnd); // Timestamp of the end of the session
                 #endregion
 
+                // Creating a data reader to fetch corresponding data
                 SqlDataReader sqlDataReader;
-                sqlDataReader = cmd.ExecuteReader();
+                sqlDataReader = cmd.ExecuteReader(); // executing command and retreiving results
 
+                // Reading through the result set of the command
                 while (sqlDataReader.Read())
                 {
+                    // Creating new Activity to histt data
                     Activity activity = new Activity
                     {
                         Description = sqlDataReader["fld_user_activity_description"].ToString(),
@@ -136,12 +154,12 @@ namespace InventoryManagementDataLayer
                         Timestamp = DateTime.Parse(sqlDataReader["fld_user_activity_timestamp"].ToString())
                     };
 
-                    activities.Add(activity);
+                    activities.Add(activity); // adding new activity to list
                 }
 
-                DatabaseManager.DisconnectToDatabase();
+                DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database 
 
-                return activities;
+                return activities; // returning the list of activities
             }
             #endregion
 
@@ -154,25 +172,29 @@ namespace InventoryManagementDataLayer
             /// <returns> A list of the sales record for chosen time interval</returns>
             public static List<SalesRecord> ConsultUsersSalesRecordsData(DateTime oldestDate, DateTime newestDate)
             {
-                List<SalesRecord> salesRecords = new List<SalesRecord>();
+                List<SalesRecord> salesRecords = new List<SalesRecord>(); // Initializing list to host sales records
 
-                SqlCommand cmd = new SqlCommand(
-                        "SP_Generate_Users_Sales_Records",
-                        DatabaseManager.ActiveSqlConnection)
+                // Creating SQL querry to execute the correct command 
+                SqlCommand cmd = new SqlCommand()
                 {
-                    CommandType = CommandType.StoredProcedure
+                    CommandText = "SP_Generate_Users_Sales_Records", // Designated stored procedure to execute
+                    Connection = DatabaseManager.ActiveSqlConnection, // Establishing an active connection with the database
+                    CommandType = CommandType.StoredProcedure // Confirmin querry is a recognized stored procedure in the database
                 };
 
                 #region Parameters
-                cmd.Parameters.AddWithValue("@newest_date", newestDate);
-                cmd.Parameters.AddWithValue("@oldest_date", oldestDate);
+                cmd.Parameters.AddWithValue("@newest_date", newestDate); // latest date in the desired time interval
+                cmd.Parameters.AddWithValue("@oldest_date", oldestDate); // earliest date in the desired time interval
                 #endregion
 
+                // Creating a data reader to fetch corresponding data
                 SqlDataReader sqlDataReader;
-                sqlDataReader = cmd.ExecuteReader();
+                sqlDataReader = cmd.ExecuteReader(); // executing command and retreiving results
 
+                // Reading through the result set of the command
                 while (sqlDataReader.Read())
                 {
+                    // Creating new sales record object to host data 
                     SalesRecord salesRecord = new SalesRecord()
                     {
                         Username = sqlDataReader["fld_sold_by"].ToString(),
@@ -182,12 +204,12 @@ namespace InventoryManagementDataLayer
                         SalesTotal = FormatToDecimal(sqlDataReader["Sales Total"].ToString())
                     };
 
-                    salesRecords.Add(salesRecord);
+                    salesRecords.Add(salesRecord); // adding new sales record to the list 
                 }
 
-                DatabaseManager.DisconnectToDatabase();
+                DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database 
 
-                return salesRecords;
+                return salesRecords; // returning the list of sales records
             }
 
             /// <summary>
@@ -199,26 +221,30 @@ namespace InventoryManagementDataLayer
             /// <returns>A list of all sales made by a user during a given time period</returns>
             public static List<Sale> ConsultSalesMadeByUserData(String username, DateTime oldestDate, DateTime newestDate)
             {
-                List<Sale> sales = new List<Sale>();
+                List<Sale> sales = new List<Sale>(); ; // Initializing list to host sales 
 
-                SqlCommand cmd = new SqlCommand(
-                        "SP_Fetch_Sales_Made_By_User",
-                        DatabaseManager.ActiveSqlConnection)
-                {
-                    CommandType = CommandType.StoredProcedure
+                // Creating SQL querry to execute the correct command 
+                SqlCommand cmd = new SqlCommand() 
+                { 
+                    CommandText = "SP_Fetch_Sales_Made_By_User", // Designated stored procedure to execute
+                    Connection = DatabaseManager.ActiveSqlConnection, // Establishing an active connection with the database
+                    CommandType = CommandType.StoredProcedure // Confirmin querry is a recognized stored procedure in the database
                 };
 
                 #region Parameters
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@newest_date", newestDate);
-                cmd.Parameters.AddWithValue("@oldest_date", oldestDate);
+                cmd.Parameters.AddWithValue("@username", username); // target username
+                cmd.Parameters.AddWithValue("@newest_date", newestDate); // latest date in the desired time interval
+                cmd.Parameters.AddWithValue("@oldest_date", oldestDate); // earliest date in the desired time interval
                 #endregion
 
+                // Creating a data reader to fetch corresponding data
                 SqlDataReader sqlDataReader;
-                sqlDataReader = cmd.ExecuteReader();
+                sqlDataReader = cmd.ExecuteReader(); // executing command and retreiving results
 
+                // Reading through the result set of the command
                 while (sqlDataReader.Read())
                 {
+                    // Creating sale object to host corresponding data
                     Sale sale = new Sale()
                     {
                         Id = sqlDataReader["fld_sale_id"].ToString(),
@@ -228,12 +254,12 @@ namespace InventoryManagementDataLayer
                         Parent = sqlDataReader["fld_sale_parent"].ToString()
                     };
 
-                    sales.Add(sale);
+                    sales.Add(sale); // adding new sale to list
                 }
 
-                DatabaseManager.DisconnectToDatabase();
+                DatabaseManager.DisconnectToDatabase(); // Closing the active connection to the database 
 
-                return sales;
+                return sales; // returning the list of sales
             }
             #endregion
 
@@ -245,9 +271,7 @@ namespace InventoryManagementDataLayer
             /// <returns>A decimal equivalent of the provided string value</returns>
             private static decimal FormatToDecimal(String value)
             {
-                decimal result;
-
-                decimal.TryParse(value, out result);
+                decimal.TryParse(value, out decimal result);
 
                 return result;
             }
@@ -259,9 +283,7 @@ namespace InventoryManagementDataLayer
             /// <returns>An int equivalent of the provided string value</returns>
             private static int FormatToInt(String value)
             {
-                int result;
-
-                int.TryParse(value, out result);
+                int.TryParse(value, out int result);
 
                 return result;
             }

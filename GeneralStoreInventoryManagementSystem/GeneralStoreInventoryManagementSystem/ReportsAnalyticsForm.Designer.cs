@@ -402,7 +402,9 @@
             this.salesRecordsDataGridView.ReadOnly = true;
             this.salesRecordsDataGridView.RowHeadersVisible = false;
             this.salesRecordsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.salesRecordsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.salesRecordsDataGridView_CellDoubleClick);
+            this.salesRecordsDataGridView.Size = new System.Drawing.Size(491, 254);
+            this.salesRecordsDataGridView.TabIndex = 10;
+            this.salesRecordsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SalesRecordsDataGridView_CellDoubleClick);
             // 
             // label6
             // 

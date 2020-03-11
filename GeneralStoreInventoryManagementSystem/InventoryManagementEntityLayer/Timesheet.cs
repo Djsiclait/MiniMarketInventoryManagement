@@ -10,10 +10,10 @@ namespace InventoryManagementEntityLayer
     {
         public class Timesheet
         {
-            private String username;
-            private String fullName;
-            private int numberOfLogIns;
-            private decimal averageMinutesPerSession;
+            private String username; // Username of logged in user
+            private String fullName; // A combination of the user's firast and last name
+            private int numberOfLogIns; // Number of times the user has logged inon a given period of time
+            private decimal averageMinutesPerSession; // Average amount of minutes a user spends per session
 
             #region Getters and Setters
             public string Username

@@ -10,11 +10,11 @@ namespace InventoryManagementEntityLayer
     {
         public class SalesRecord
         {
-            private String username;
-            private int returns;
-            private Decimal returnsTotal;
-            private int sales;
-            private Decimal salesTotal;
+            private String username; // Username of user that has preformed the sales and returns
+            private int returns; // Number of returns the user has preformed at a given time 
+            private Decimal returnsTotal; // Total dollar amount of preformed returns durring the specified time 
+            private int sales; // Number of sales the user has preformed at a given time
+            private Decimal salesTotal; // Total dollar amount of preformed sales druing the specified time 
 
             #region Getters and Setters
             public string Username { get => username; set => username = value; }
