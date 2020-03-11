@@ -39,6 +39,9 @@ namespace GeneralStoreInventoryManagementSystem
             // Initializing latest date picker of default time frame
             newestDateTimePicker.Value = DateTime.Now;
             newestDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
+            // Overide latest date picker initial asignment
+            oldestDateTimePicker.Value = DateTime.Today.AddMonths(-1);
+            oldestDateTimePicker.MaxDate = DateTime.Today.AddDays(-1);
         }
         #endregion
 

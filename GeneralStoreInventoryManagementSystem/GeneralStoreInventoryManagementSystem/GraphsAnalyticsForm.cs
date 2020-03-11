@@ -521,7 +521,7 @@ namespace GeneralStoreInventoryManagementSystem
         #region Tab enter Logic
         private void SalesTabPage_Enter(object sender, EventArgs e)
         {
-            if (requestSalesBarGraph)
+            if (requestSalesBarGraph) // enabling the option to request and fetch the sales bar tab information when the user opts in for it
             {
                 GenerateSalesBarChart(); // requesting sales charts
                 requestSalesBarGraph = false;

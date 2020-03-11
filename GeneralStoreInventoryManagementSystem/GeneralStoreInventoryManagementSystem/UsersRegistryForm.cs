@@ -18,8 +18,9 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class UsersRegistryForm : Form
     {
-        UserInformationTemplateForm userInformationForm;
+        UserInformationTemplateForm userInformationForm; // child form to display supplementary information
 
+        // Trigger
         int assistance = 0;
 
         public UsersRegistryForm()
@@ -508,8 +509,9 @@ namespace GeneralStoreInventoryManagementSystem
         private void ProfileButton_Click(object sender, EventArgs e)
         {
             if (userInformationForm != null)
-                userInformationForm.Dispose();
+                userInformationForm.Dispose(); // disposing of any open child form with previous information
 
+            // Requesting new child with updated information
             userInformationForm = new UserInformationTemplateForm(SystemResources.UserInSession.Username);
             userInformationForm.Show();
         }
@@ -519,8 +521,9 @@ namespace GeneralStoreInventoryManagementSystem
         private void UserList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (userInformationForm != null)
-                userInformationForm.Dispose();
+                userInformationForm.Dispose(); // disposing of any open child form with previous information
 
+            // Requesting new child with updated information
             userInformationForm = new UserInformationTemplateForm(userList.SelectedCells[0].Value.ToString());
             userInformationForm.Show();
         }
