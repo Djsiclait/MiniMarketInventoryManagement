@@ -469,9 +469,6 @@ namespace GeneralStoreInventoryManagementSystem
             // Updating the second date time picker to establish an interval of one month
             oldestSalesBarChartDateTimePicker.MaxDate = newestSalesBarChartDateTimePicker.Value.AddDays(-1);
             oldestSalesBarChartDateTimePicker.Value = newestSalesBarChartDateTimePicker.Value.AddMonths(-1);
-
-            if (usernamesSalesListBox.Items.Count > 0) // ensurring the username list box has been initialized
-                GenerateSalesBarChart(); // requesting sales charts
         }
 
         private void OldestSalesBarChartDateTimePicker_ValueChanged(object sender, EventArgs e)
