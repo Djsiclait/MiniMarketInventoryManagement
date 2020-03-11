@@ -17,11 +17,11 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class ReportsAnalyticsForm : Form
     {
-        UserSessionActivitiesReportTemplateForm timesheetChild;
-        UserSalesRecordsTemplateForm salesRecordChild;
+        UserSessionActivitiesReportTemplateForm timesheetChild; // child form to display additional information for timesheets
+        UserSalesRecordsTemplateForm salesRecordChild; // child form to display additional information for sales records
 
+        // Triggers
         int assistance = 0;
-
         bool requestSalesRecord = true;
 
         public ReportsAnalyticsForm()
@@ -46,6 +46,7 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Enabled = false;
             }
 
+            // Initializing latest date time pickers
             #region Users' Timesheet Report
             newestTimesheetDateTimePicker.Value = DateTime.Now;
             newestTimesheetDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
@@ -56,6 +57,7 @@ namespace GeneralStoreInventoryManagementSystem
             newestSalesRecordDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
             #endregion
 
+            // Recording admin access to this form 
             SystemProtocols.ApplyActivityProtocols("REP1", null, null);
         }
         #endregion
@@ -70,10 +72,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.loginForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
 
@@ -90,10 +92,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.salesRecordForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -106,10 +108,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewSaleForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -122,10 +124,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.inventorySearchForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -138,10 +140,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewProduct.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -154,10 +156,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.restockProductsFrom.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -170,10 +172,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.usersRegistryForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -186,10 +188,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.registerNewUserForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -202,10 +204,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.graphsAnaliticsForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -218,10 +220,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.activitiesLogForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -234,10 +236,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.errorsLogForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -250,10 +252,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.viewCartForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             // Closing form while freeing system resources
             FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -277,10 +279,10 @@ namespace GeneralStoreInventoryManagementSystem
             FormsMenuList.loginForm.Show();
 
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing of child timesheet if open
 
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing of child sales record if open
 
             SystemProtocols.ApplyCartManagementProtocol(3, null, 0, null, 0); // clearing the cart before logging out
 
@@ -314,10 +316,10 @@ namespace GeneralStoreInventoryManagementSystem
                     FormsMenuList.salesRecordForm.Show();
 
                     if (timesheetChild != null)
-                        timesheetChild.Dispose();
+                        timesheetChild.Dispose(); // disposing of child timesheet if open
 
                     if (salesRecordChild != null)
-                        salesRecordChild.Dispose();
+                        salesRecordChild.Dispose(); // disposing of child sales record if open
 
                     // Closing form while freeing system resources
                     FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -333,10 +335,10 @@ namespace GeneralStoreInventoryManagementSystem
                     FormsMenuList.registerNewSaleForm.Show();
 
                     if (timesheetChild != null)
-                        timesheetChild.Dispose();
+                        timesheetChild.Dispose(); // disposing of child timesheet if open
 
                     if (salesRecordChild != null)
-                        salesRecordChild.Dispose();
+                        salesRecordChild.Dispose(); // disposing of child sales record if open
 
                     // Closing form while freeing system resources
                     FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -352,10 +354,10 @@ namespace GeneralStoreInventoryManagementSystem
                     FormsMenuList.inventorySearchForm.Show();
 
                     if (timesheetChild != null)
-                        timesheetChild.Dispose();
+                        timesheetChild.Dispose(); // disposing of child timesheet if open
 
                     if (salesRecordChild != null)
-                        salesRecordChild.Dispose();
+                        salesRecordChild.Dispose(); // disposing of child sales record if open
 
                     // Closing form while freeing system resources
                     FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -375,10 +377,10 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.registerNewProduct.Show();
 
                         if (timesheetChild != null)
-                            timesheetChild.Dispose();
+                            timesheetChild.Dispose(); // disposing of child timesheet if open
 
                         if (salesRecordChild != null)
-                            salesRecordChild.Dispose();
+                            salesRecordChild.Dispose(); // disposing of child sales record if open
 
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -398,10 +400,10 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.restockProductsFrom.Show();
 
                         if (timesheetChild != null)
-                            timesheetChild.Dispose();
+                            timesheetChild.Dispose(); // disposing of child timesheet if open
 
                         if (salesRecordChild != null)
-                            salesRecordChild.Dispose();
+                            salesRecordChild.Dispose(); // disposing of child sales record if open
 
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -421,10 +423,10 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.usersRegistryForm.Show();
 
                         if (timesheetChild != null)
-                            timesheetChild.Dispose();
+                            timesheetChild.Dispose(); // disposing of child timesheet if open
 
                         if (salesRecordChild != null)
-                            salesRecordChild.Dispose();
+                            salesRecordChild.Dispose(); // disposing of child sales record if open
 
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -444,10 +446,10 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.registerNewUserForm.Show();
 
                         if (timesheetChild != null)
-                            timesheetChild.Dispose();
+                            timesheetChild.Dispose(); // disposing of child timesheet if open
 
                         if (salesRecordChild != null)
-                            salesRecordChild.Dispose();
+                            salesRecordChild.Dispose(); // disposing of child sales record if open
 
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -467,10 +469,10 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.graphsAnaliticsForm.Show();
 
                         if (timesheetChild != null)
-                            timesheetChild.Dispose();
+                            timesheetChild.Dispose(); // disposing of child timesheet if open
 
                         if (salesRecordChild != null)
-                            salesRecordChild.Dispose();
+                            salesRecordChild.Dispose(); // disposing of child sales record if open
 
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -512,10 +514,10 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.activitiesLogForm.Show();
 
                         if (timesheetChild != null)
-                            timesheetChild.Dispose();
+                            timesheetChild.Dispose(); // disposing of child timesheet if open
 
                         if (salesRecordChild != null)
-                            salesRecordChild.Dispose();
+                            salesRecordChild.Dispose(); // disposing of child sales record if open
 
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -535,10 +537,10 @@ namespace GeneralStoreInventoryManagementSystem
                         FormsMenuList.errorsLogForm.Show();
 
                         if (timesheetChild != null)
-                            timesheetChild.Dispose();
+                            timesheetChild.Dispose(); // disposing of child timesheet if open
 
                         if (salesRecordChild != null)
-                            salesRecordChild.Dispose();
+                            salesRecordChild.Dispose(); // disposing of child sales record if open
 
                         // Closing form while freeing system resources
                         FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -555,10 +557,10 @@ namespace GeneralStoreInventoryManagementSystem
                     FormsMenuList.viewCartForm.Show();
 
                     if (timesheetChild != null)
-                        timesheetChild.Dispose();
+                        timesheetChild.Dispose(); // disposing of child timesheet if open
 
                     if (salesRecordChild != null)
-                        salesRecordChild.Dispose();
+                        salesRecordChild.Dispose(); // disposing of child sales record if open
 
                     // Closing form while freeing system resources
                     FormsMenuList.reportsAnalyticsForm.Dispose();
@@ -575,17 +577,19 @@ namespace GeneralStoreInventoryManagementSystem
         #region Value Changed Logic
         private void NewestTimesheetDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            // Initializing the earliest date in the desired time interval for the timesheet tab
             oldestTimesheetDateTimePicker.MaxDate = newestTimesheetDateTimePicker.Value.AddDays(-1);
             oldestTimesheetDateTimePicker.Value = newestTimesheetDateTimePicker.Value.AddMonths(-1);
         }
 
         private void OldestTimesheetDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            UpdateTimesheetDataGrid();
+            UpdateTimesheetDataGrid(); // Requesting an update to the timesheet records
         }
 
         private void NewestSalesRecordDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            // Initializing the earliest date in the desired time interval for the sales tab
             oldestSalesRecordDateTimePicker.MaxDate = newestSalesRecordDateTimePicker.Value.AddDays(-1);
             oldestSalesRecordDateTimePicker.Value = newestSalesRecordDateTimePicker.Value.AddMonths(-1);
         }
@@ -593,7 +597,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void OldestSalesRecordDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             if (!requestSalesRecord)
-                UpdateSalesRecordsDataGrid();
+                UpdateSalesRecordsDataGrid(); // Requesting sales records if available
         }
         #endregion
 
@@ -601,10 +605,11 @@ namespace GeneralStoreInventoryManagementSystem
         private void TimeSheetDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (timesheetChild != null)
-                timesheetChild.Dispose();
+                timesheetChild.Dispose(); // disposing any previously occupied child
 
-            if (timeSheetDataGridView.Rows.Count > 0)
+            if (timeSheetDataGridView.Rows.Count > 0) // proceed if at least one row exists
             {
+                // Displaying detailed information
                 timesheetChild = new UserSessionActivitiesReportTemplateForm(timeSheetDataGridView.SelectedCells[0].Value.ToString());
                 timesheetChild.Show();
             }
@@ -612,13 +617,14 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("There is no available information at the moment");
         }
 
-        private void salesRecordsDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void SalesRecordsDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (salesRecordChild != null)
-                salesRecordChild.Dispose();
+                salesRecordChild.Dispose(); // disposing any previously occupied child
 
-            if (salesRecordsDataGridView.Rows.Count > 0)
+            if (salesRecordsDataGridView.Rows.Count > 0) // proceed if at least one row exists
             {
+                // Displaying detailed information
                 salesRecordChild = new UserSalesRecordsTemplateForm(salesRecordsDataGridView.SelectedCells[0].Value.ToString());
                 salesRecordChild.Show();
             }
@@ -630,10 +636,10 @@ namespace GeneralStoreInventoryManagementSystem
         #region Tab Enter Logic
         private void UsersSalesRecordsTabPage_Enter(object sender, EventArgs e)
         {
+            // To reduce amount of information requests and memory usage the sales record tabs only fetches the information once the user requests it 
             if (requestSalesRecord)
             {
                 UpdateSalesRecordsDataGrid();
-                
                 requestSalesRecord = false;
             }
         }
@@ -656,14 +662,18 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void UpdateSalesRecordsDataGrid()
         {
+            // Initializing the grid before information is fetched
             salesRecordsDataGridView.DataSource = new List<SalesRecord>();
             salesRecordsDataGridView.Refresh();
 
+            // Requesting sales information
             List<SalesRecord> salesRecords = ReportInformationManager.ConsultUsersSalesRecordsInformation(oldestSalesRecordDateTimePicker.Value, newestSalesRecordDateTimePicker.Value);
 
+            // Staging the requested information 
             salesRecordsDataGridView.DataSource = salesRecords;
             salesRecordsDataGridView.Refresh();
 
+            // Counters
             int sales = 0;
             Decimal salesTotal = 0;
             int returns = 0;
@@ -671,12 +681,13 @@ namespace GeneralStoreInventoryManagementSystem
 
             foreach (SalesRecord record in salesRecords)
             {
-                sales += record.Sales;
-                salesTotal += record.SalesTotal;
-                returns += record.Returns;
-                returnsTotal += record.ReturnsTotal;
+                sales += record.Sales; // adding the number of sales for the current record
+                salesTotal += record.SalesTotal; // adding the total dollar amount of sales for the current record
+                returns += record.Returns; // adding the number of returns of the current record
+                returnsTotal += record.ReturnsTotal; // adding the total dollar amount of returns fot the current record
             }
 
+            // Publishing the records summary
             numberOfSalesLabel.Text = numberOfSalesLabel.Text.Split(':')[0] + ": " + sales;
             salesTotalLabel.Text = salesTotalLabel.Text.Split('$')[0] + "$ " + salesTotal.ToString("0.00");
             numberOfReturnsLabel.Text = numberOfReturnsLabel.Text.Split(':')[0] + ": " + returns;

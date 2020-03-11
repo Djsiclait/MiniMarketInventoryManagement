@@ -18,6 +18,7 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class GraphsAnalyticsForm : Form
     {
+        // Trigger
         int assistance = 0;
 
         public GraphsAnalyticsForm()
@@ -63,11 +64,15 @@ namespace GeneralStoreInventoryManagementSystem
             PopulateUsernameSalesListBox();
 
             // Initializing date time pickers
+            #region Bubble Chart
             newestBubbleDateTimePicker.Value = DateTime.Now;
             newestBubbleDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
+            #endregion
 
+            #region Sales Bar Chart
             newestSalesBarChartDateTimePicker.Value = DateTime.Now;
             newestSalesBarChartDateTimePicker.MaxDate = DateTime.Today.AddDays(1);
+            #endregion
         }
         #endregion
 
