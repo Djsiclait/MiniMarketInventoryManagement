@@ -29,7 +29,7 @@ AS
 				(
 					@last_user,
 					'System Protocol 66 for unsuccessful log out by user, ' + @last_user,
-					@last_timestamp,
+					DATEADD(SECOND, 10, @last_timestamp),
 					'LOG OUT'
 				)
 

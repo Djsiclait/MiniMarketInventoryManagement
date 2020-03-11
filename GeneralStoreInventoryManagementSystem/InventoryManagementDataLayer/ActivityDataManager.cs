@@ -142,6 +142,23 @@ namespace InventoryManagementDataLayer
             #region Updates
             // No updates at this point
             #endregion
+
+            #region Protocol 66
+            /// <summary>
+            /// This function triggers a failsafe to register any missing log out caused by previous system crashes or unsuccessful log out protocols
+            /// </summary>
+            public static void ExecuteProtocol66()
+            {
+                SqlCommand cmd = new SqlCommand()
+                {
+                    CommandText = "SP_Protocol_66",
+                    Connection = DatabaseManager.ActiveSqlConnection,
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                _ = Convert.ToInt32(cmd.ExecuteNonQuery());
+            }
+            #endregion
         }
     }
 }

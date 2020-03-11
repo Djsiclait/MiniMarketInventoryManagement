@@ -29,6 +29,9 @@ namespace InventoryManagementBusinessLayer
             /// <param name="username">Username requesting to log in</param>
             public static void BeginUserSession(String username)
             {
+                // Executing Protocol 66 
+                ActivityInformationManager.ExecuteProtocol66();
+
                 userInSession = UserInformationManager.ConsultUserInformationByUsername(username); // opening an active session
 
                 // Updating the user's last loggin information before finalizing process
