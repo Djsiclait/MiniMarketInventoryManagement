@@ -65,6 +65,30 @@ namespace InventoryManagementBusinessLayer
                             "System failed to create and register a new user profile", // description of activity
                             "CREATION ERROR"); // type of activity
                         break;
+
+                    case "ERR3": // Activity Datagrid IndexOutOfRangeException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Activity datagrid has ceased to function due to an out of range index exception", // description of activity
+                            "ACTIVITY ERROR"); // type of activity
+                        break;
+
+                    case "ERR4": // Activity Datagrid InsufficientMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Activity datagrid has ceased to function due to an insufficient memmory exception", // description of activity
+                            "ACTIVITY ERROR"); // type of activity
+                        break;
+
+                    case "ERR5": // Activity Datagrid Exception
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            meta1, // description of activity
+                            "ACTIVITY ERROR"); // type of activity
+                        break;
                     #endregion
 
                     #region Graphs

@@ -11,11 +11,13 @@ using System.Windows.Forms;
 // Custom Library
 using InventoryManagementBusinessLayer.ActivityInformation;
 using InventoryManagementBusinessLayer.Protocols;
+using InventoryManagementEntityLayer.Activity;
 
 namespace GeneralStoreInventoryManagementSystem
 {
     public partial class ActivitiesLogForm : Form
     {
+        // Trigger
         int assistance = 0;
 
         public ActivitiesLogForm()
@@ -427,8 +429,35 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void PopulateActivityListDataGrid()
         {
-            // Requesting information to populate the activities log
-            activityList.DataSource = ActivityInformationManager.ConsultActivityListInformation(activitySearchBox.Text, false);
+            try
+            {
+                // Requesting information to populate the activities log
+                activityList.DataSource = ActivityInformationManager.ConsultActivityListInformation(activitySearchBox.Text, false);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                // Requesting information to populate the activities log
+                activityList.DataSource = new List<Activity>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR3", null, null);
+            }
+            catch (InsufficientMemoryException)
+            {
+                // Requesting information to populate the activities log
+                activityList.DataSource = new List<Activity>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR4", null, null);
+            }
+            catch (Exception e)
+            {
+                // Requesting information to populate the activities log
+                activityList.DataSource = new List<Activity>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR5", e.Message, null);
+            }
 
             // Hiding unnecessary fields
             activityList.Columns["Description"].Width = 550;
