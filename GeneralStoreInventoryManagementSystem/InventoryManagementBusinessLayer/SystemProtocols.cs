@@ -89,6 +89,38 @@ namespace InventoryManagementBusinessLayer
                             meta1, // description of activity
                             "ACTIVITY ERROR"); // type of activity
                         break;
+
+                    case "ERR6": // Graph Analytics ListBox IndexOutOfRangeException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Graph analytic's list box is unable to display usernames due to out of range index exception in tab: " + meta1, // description of activity
+                            "GRAPH ERROR"); // type of activity
+                        break;
+
+                    case "ERR7": // Graph Analytics ListBox InsufficientMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Graph analytic's list box is unable to display usernames due to insufficient memory exception in tab: " + meta1, // description of activity
+                            "GRAPH ERROR"); // type of activity
+                        break;
+
+                    case "ERR8": // Graph Analytics ListBox OutOfMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Graph analytic's list box is unable to display usernames due to out of memory exception in tab: " + meta1, // description of activity
+                            "GRAPH ERROR"); // type of activity
+                        break;
+
+                    case "ERR9": // Graph Analytics ListBox Exception
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            meta2 + "'s list box has caused: " + meta1, // description of activity
+                            "GRAPH ERROR"); // type of activity
+                        break;
                     #endregion
 
                     #region Graphs

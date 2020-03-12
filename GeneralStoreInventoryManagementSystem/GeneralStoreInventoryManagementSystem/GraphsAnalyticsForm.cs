@@ -535,7 +535,38 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void PopulateUsernameTimesheetListBox()
         {
-            usernamesTimesheetListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchTimesheetTextBox.Text);
+            try
+            {
+                usernamesTimesheetListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchTimesheetTextBox.Text);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                usernamesTimesheetListBox.DataSource = new List<String>();
+                
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR6", "Timesheet Tab", null);
+            }
+            catch (InsufficientMemoryException)
+            {
+                usernamesTimesheetListBox.DataSource = new List<String>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR7", "Timesheet Tab", null);
+            }
+            catch (OutOfMemoryException)
+            {
+                usernamesTimesheetListBox.DataSource = new List<String>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR8", "Timesheet Tab", null);
+            }
+            catch (Exception e)
+            {
+                usernamesTimesheetListBox.DataSource = new List<String>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR9", e.Message, "Timesheet Tab");
+            }
         }
 
         /// <summary>
@@ -543,7 +574,38 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void PopulateUsernameSalesListBox()
         {
-            usernamesSalesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchSalesTextBox.Text);
+            try
+            {
+                usernamesSalesListBox.DataSource = GraphInformationManager.ConsultAllRegisteredUsernameInformation(searchSalesTextBox.Text);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                usernamesSalesListBox.DataSource = new List<String>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR6", "Sales Tab", null);
+            }
+            catch (InsufficientMemoryException)
+            {
+                usernamesSalesListBox.DataSource = new List<String>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR7", "Sales Tab", null);
+            }
+            catch (OutOfMemoryException)
+            {
+                usernamesSalesListBox.DataSource = new List<String>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR8", "Sales Tab", null);
+            }
+            catch (Exception e)
+            {
+                usernamesSalesListBox.DataSource = new List<String>();
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR9", e.Message, "Sales Tab");
+            }
         }
 
         /// <summary>
@@ -745,10 +807,16 @@ namespace GeneralStoreInventoryManagementSystem
             missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
         }
 
+        /// <summary>
+        /// Function tht converts a timestamp's hour and minutes string into its decimal equivilant
+        /// </summary>
+        /// <param name="hour">Hour string of log in timestamp</param>
+        /// <param name="minutes">Minutes string of log in timestamp</param>
+        /// <returns>Decimal equivilant of the timestamp hour and minutes string</returns>
         private static decimal ConvertTimeToDecimal(String hour, String minutes)
         {
-            decimal convertedHour = FormatToDecimal(hour);
-            decimal convertedMinutes = FormatToDecimal(minutes) / 60;
+            decimal convertedHour = FormatToDecimal(hour); // converting the hour to decimal
+            decimal convertedMinutes = FormatToDecimal(minutes) / 60; // converting the minutes to decimal
 
             return convertedHour + convertedMinutes;
         }
@@ -756,13 +824,13 @@ namespace GeneralStoreInventoryManagementSystem
         /// <summary>
         /// Function to calculte the correct time frame chosen by the user
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A datetime of an earlier date in the chosen time frame</returns>
         private DateTime CalculateOldestDate()
         {
             switch (timeComboBox.Text)
             {
                 case "72 hours":
-                    return newestBubbleDateTimePicker.Value.AddHours(-24);
+                    return newestBubbleDateTimePicker.Value.AddHours(-72);
 
                 case "week":
                     return newestBubbleDateTimePicker.Value.AddDays(-7);
@@ -789,9 +857,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// <returns>A decimal equivalent of the provided string value</returns>
         private static decimal FormatToDecimal(String value)
         {
-            decimal result;
-
-            decimal.TryParse(value, out result);
+            _ = decimal.TryParse(value, out decimal result);
 
             return result;
         }
@@ -803,7 +869,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// <returns>An int equivalent of the provided string value</returns>
         private static int FormatToInt(String value)
         {
-            int.TryParse(value, out int result);
+            _ = int.TryParse(value, out int result);
 
             return result;
         }
