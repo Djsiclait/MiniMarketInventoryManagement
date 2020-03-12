@@ -62,8 +62,8 @@ namespace InventoryManagementBusinessLayer
 
                         SystemResources.RecordActivity(
                             SystemResources.UserInSession.Username, // username of user in session 
-                            SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the errors logs", // description of activity
-                            "ADMIN ACCESS"); // type of activity
+                            "System failed to create and register a new user profile", // description of activity
+                            "CREATION ERROR"); // type of activity
                         break;
                     #endregion
 

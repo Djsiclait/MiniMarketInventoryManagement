@@ -39,6 +39,7 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Enabled = false;
             }
 
+            // Recording admin access to current form
             SystemProtocols.ApplyActivityProtocols("ERR1", null, null);
         }
         #endregion
