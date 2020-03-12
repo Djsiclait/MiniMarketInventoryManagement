@@ -15,7 +15,7 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class ChangePasswordMiniForm : Form
     {
-        String username;
+        readonly String username; // target username
 
         public ChangePasswordMiniForm(String username)
         {
@@ -27,6 +27,7 @@ namespace GeneralStoreInventoryManagementSystem
         #region Load Form Logic
         private void ChangePasswordMiniForm_Load(object sender, EventArgs e)
         {
+            // Setting up
             passwordErrorLabel.Text = "Invalid Password";
             passwordErrorLabel.Visible = false;
             confirmationPasswordErrorLabel.Visible = false;
@@ -38,7 +39,9 @@ namespace GeneralStoreInventoryManagementSystem
         {
             passwordTextBox.BackColor = Color.White; // Formating color 
 
-            if (passwordTextBox.Text.Count() < 8) // rejecting password due to length
+            passwordTextBox.Text = passwordTextBox.Text.Trim(' '); // Removing empty spaces
+
+            if (passwordTextBox.Text.Length < 8) // rejecting password due to length
             {
                 passwordErrorLabel.Text = "Invalid Password: Must be at least 8 characters long";
                 passwordErrorLabel.Visible = true;
@@ -60,7 +63,7 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             // Verifying if password and confirmation password are the same
-            if (passwordTextBox.Text != confirmPasswordTextBox.Text)
+            if (passwordTextBox.Text != confirmPasswordTextBox.Text.Trim(' '))
                 confirmationPasswordErrorLabel.Visible = true; // Confirmation is incorrect
             else
                 confirmationPasswordErrorLabel.Visible = false; // passwords are the same
@@ -70,8 +73,10 @@ namespace GeneralStoreInventoryManagementSystem
         {
             confirmPasswordTextBox.BackColor = Color.White; // Formating color
 
+            confirmPasswordTextBox.Text = confirmPasswordTextBox.Text.Trim(' '); // removing empty spaces
+
             // Verifying if password and confirmation password are the same
-            if (passwordTextBox.Text != confirmPasswordTextBox.Text)
+            if (passwordTextBox.Text.Trim(' ') != confirmPasswordTextBox.Text)
                 confirmationPasswordErrorLabel.Visible = true; // Confirmation is incorrect
             else
                 confirmationPasswordErrorLabel.Visible = false; // passwords are the same
@@ -108,7 +113,7 @@ namespace GeneralStoreInventoryManagementSystem
         {
             bool validate = true; // No error has been detected
 
-            if (passwordTextBox.Text == "") // password has been left empty
+            if (passwordTextBox.Text.Length == 0) // password has been left empty
             {
                 validate = false;
                 passwordTextBox.BackColor = Color.Red;
@@ -120,7 +125,7 @@ namespace GeneralStoreInventoryManagementSystem
                 passwordTextBox.BackColor = Color.Red;
             }
 
-            if (confirmPasswordTextBox.Text == "") // confirmation password has been left empty
+            if (confirmPasswordTextBox.Text.Length == 0) // confirmation password has been left empty
             {
                 validate = false;
                 confirmPasswordTextBox.BackColor = Color.Red;
