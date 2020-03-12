@@ -542,13 +542,17 @@ namespace GeneralStoreInventoryManagementSystem
             catch (IndexOutOfRangeException)
             {
                 usernamesTimesheetListBox.DataSource = new List<String>();
-                
+
+                MessageBox.Show("Error: ERR6");
+
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR6", "Timesheet Tab", null);
             }
             catch (InsufficientMemoryException)
             {
                 usernamesTimesheetListBox.DataSource = new List<String>();
+
+                MessageBox.Show("Error: ERR7");
 
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR7", "Timesheet Tab", null);
@@ -557,12 +561,16 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 usernamesTimesheetListBox.DataSource = new List<String>();
 
+                MessageBox.Show("Error: ERR8");
+
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR8", "Timesheet Tab", null);
             }
             catch (Exception e)
             {
                 usernamesTimesheetListBox.DataSource = new List<String>();
+
+                MessageBox.Show("Error: ERR9");
 
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR9", e.Message, "Timesheet Tab");
@@ -582,12 +590,16 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 usernamesSalesListBox.DataSource = new List<String>();
 
+                MessageBox.Show("Error: ERR6");
+
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR6", "Sales Tab", null);
             }
             catch (InsufficientMemoryException)
             {
                 usernamesSalesListBox.DataSource = new List<String>();
+
+                MessageBox.Show("Error: ERR7");
 
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR7", "Sales Tab", null);
@@ -596,12 +608,16 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 usernamesSalesListBox.DataSource = new List<String>();
 
+                MessageBox.Show("Error: ERR8");
+
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR8", "Sales Tab", null);
             }
             catch (Exception e)
             {
                 usernamesSalesListBox.DataSource = new List<String>();
+
+                MessageBox.Show("Error: ERR9");
 
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR9", e.Message, "Sales Tab");
@@ -743,8 +759,10 @@ namespace GeneralStoreInventoryManagementSystem
                                     missingSessions++; // counting all sessions less than a minute long
                             }
 
-                            // adding invisible ancor point
-                            int i = timesheetChart.Series[username].Points.AddXY(newestBubbleDateTimePicker.Value, 1, 0);
+                            // adding invisible ancor points for size refrence
+                            int i = timesheetChart.Series[username].Points.AddXY(newestBubbleDateTimePicker.Value, 1, 0); // smallest sized point
+                            timesheetChart.Series[username].Points[i].Color = Color.Transparent;
+                            i = timesheetChart.Series[username].Points.AddXY(newestBubbleDateTimePicker.Value, 1, 3600); // largest sized point of 1 hour: 60min x 60sec
                             timesheetChart.Series[username].Points[i].Color = Color.Transparent;
                         }
                     }
@@ -792,8 +810,10 @@ namespace GeneralStoreInventoryManagementSystem
                             missingSessions++; // counting all sessions less than a minute long
                     }
 
-                    // adding invisible ancor point
-                    int i = timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points.AddXY(newestBubbleDateTimePicker.Value, minimum + 1, 0);
+                    // adding invisible ancor points for size refrence
+                    int i = timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points.AddXY(newestBubbleDateTimePicker.Value, minimum + 1, 0); // smallest point size
+                    timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
+                    i = timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points.AddXY(newestBubbleDateTimePicker.Value, minimum + 1, 3600); // largest sized point of 1 hour: 60min x 60sec
                     timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[i].Color = Color.Transparent;
 
                     // Updating chart minimum

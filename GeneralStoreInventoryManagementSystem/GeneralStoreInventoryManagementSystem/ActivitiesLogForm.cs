@@ -439,6 +439,8 @@ namespace GeneralStoreInventoryManagementSystem
                 // Requesting information to populate the activities log
                 activityList.DataSource = new List<Activity>();
 
+                MessageBox.Show("Error: ERR3");
+
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR3", null, null);
             }
@@ -447,6 +449,8 @@ namespace GeneralStoreInventoryManagementSystem
                 // Requesting information to populate the activities log
                 activityList.DataSource = new List<Activity>();
 
+                MessageBox.Show("Error: ERR4");
+
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR4", null, null);
             }
@@ -454,6 +458,8 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 // Requesting information to populate the activities log
                 activityList.DataSource = new List<Activity>();
+
+                MessageBox.Show("Error: ERR5");
 
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR5", e.Message, null);
