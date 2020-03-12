@@ -62,6 +62,16 @@ namespace InventoryManagementBusinessLayer
             #region Updates
             // No updates at this point
             #endregion
+
+            #region Protocol 66
+            /// <summary>
+            /// This function triggers a failsafe to register any missing log out caused by previous system crashes or unsuccessful log out protocols
+            /// </summary>
+            public static void ExecuteProtocol66()
+            {
+                ActivityDataManager.ExecuteProtocol66();
+            }
+            #endregion
         }
     }
 }

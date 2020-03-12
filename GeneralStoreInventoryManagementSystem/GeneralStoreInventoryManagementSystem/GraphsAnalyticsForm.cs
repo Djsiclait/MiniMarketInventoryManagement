@@ -672,7 +672,7 @@ namespace GeneralStoreInventoryManagementSystem
                                     // Adding new data point to graph
                                     timesheetChart.Series[username].Points.AddXY(
                                         DateTime.Parse(bubble.LogInDate), // log in date
-                                        FormatToInt(bubble.LogInTime.Split(':')[0]), // the hour at which the user was logged in (VERY INACCURATE)
+                                        ConvertTimeToDecimal(bubble.LogInTime.Split(':')[0], bubble.LogInTime.Split(':')[1]), // the hour at which the user was logged in (VERY INACCURATE)
                                         bubble.Seconds); // total seconds logged in to establich each bubble's magnitude/area/size
 
                                     shownSessions++; // counting all sessions at least a minute long
@@ -716,7 +716,7 @@ namespace GeneralStoreInventoryManagementSystem
                             // Adding new data point to graph
                             int position = timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points.AddXY(
                                 DateTime.Parse(bubble.LogInDate), // log in date
-                                FormatToInt(bubble.LogInTime.Split(':')[0]), // the hour at which the user was logged in (VERY INACCURATE)
+                                ConvertTimeToDecimal(bubble.LogInTime.Split(':')[0], bubble.LogInTime.Split(':')[1]), // the hour at which the user was logged in (VERY INACCURATE)
                                 bubble.Seconds);
                             // Adding label to improve readability of graph
                             timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
@@ -743,6 +743,14 @@ namespace GeneralStoreInventoryManagementSystem
             totalSessionsLabel.Text = totalSessionsLabel.Text.Split(':')[0] + ": " + totalSessions;
             shownLabel.Text = shownLabel.Text.Split(':')[0] + ": " + shownSessions;
             missingLabel.Text = missingLabel.Text.Split(':')[0] + ": " + missingSessions;
+        }
+
+        private static decimal ConvertTimeToDecimal(String hour, String minutes)
+        {
+            decimal convertedHour = FormatToDecimal(hour);
+            decimal convertedMinutes = FormatToDecimal(minutes) / 60;
+
+            return convertedHour + convertedMinutes;
         }
 
         /// <summary>
@@ -772,6 +780,20 @@ namespace GeneralStoreInventoryManagementSystem
                 default:
                     return newestBubbleDateTimePicker.Value.AddHours(-24);
             }
+        }
+
+        /// <summary>
+        /// Function to convert strings to decimals
+        /// </summary>
+        /// <param name="value">String value needed to be converted</param>
+        /// <returns>A decimal equivalent of the provided string value</returns>
+        private static decimal FormatToDecimal(String value)
+        {
+            decimal result;
+
+            decimal.TryParse(value, out result);
+
+            return result;
         }
 
         /// <summary>
