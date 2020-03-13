@@ -530,12 +530,6 @@ namespace GeneralStoreInventoryManagementSystem
                         // Adding product to cart or updating the amount of units of already added product
                         SystemProtocols.ApplyCartManagementProtocol(2, null, 0, product, FormatToInt(row.Cells[10].Value.ToString()));
                     }
-
-                // Updating numeric up down
-                quantityNumericUpDown.Value = 1;
-                quantityNumericUpDown.Maximum = 2;
-
-                UpdateCartSummaryDataGrid(); // updating the cart summary
             }
             catch (ArgumentNullException)
             {
@@ -565,6 +559,12 @@ namespace GeneralStoreInventoryManagementSystem
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR21", e.Message);
             }
+
+            // Updating numeric up down
+            quantityNumericUpDown.Value = 1;
+            quantityNumericUpDown.Maximum = 2;
+
+            UpdateCartSummaryDataGrid(); // updating the cart summary
         }
 
         /// <summary>
