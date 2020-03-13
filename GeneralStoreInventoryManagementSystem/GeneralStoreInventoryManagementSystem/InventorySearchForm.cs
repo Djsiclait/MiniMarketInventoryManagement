@@ -16,7 +16,7 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public partial class InventorySearchForm : Form
     {
-        List<ProductInformationTemplateForm> children = new List<ProductInformationTemplateForm>();
+        readonly List<ProductInformationTemplateForm> children = new List<ProductInformationTemplateForm>();
 
         int assistance = 0;
 

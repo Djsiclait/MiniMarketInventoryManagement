@@ -345,8 +345,8 @@
             this.shownLabel.Size = new System.Drawing.Size(154, 13);
             this.shownLabel.TabIndex = 21;
             this.shownLabel.Text = "Sessions Above 1 Minute:";
-            this.shownLabel.MouseLeave += new System.EventHandler(this.shownLabel_MouseLeave);
-            this.shownLabel.MouseHover += new System.EventHandler(this.shownLabel_MouseHover);
+            this.shownLabel.MouseLeave += new System.EventHandler(this.ShownLabel_MouseLeave);
+            this.shownLabel.MouseHover += new System.EventHandler(this.ShownLabel_MouseHover);
             // 
             // totalSessionsLabel
             // 

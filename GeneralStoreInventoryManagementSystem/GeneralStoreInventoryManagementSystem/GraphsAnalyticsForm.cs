@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -507,12 +508,12 @@ namespace GeneralStoreInventoryManagementSystem
             missingMessageLabel.Visible = false;
         }
 
-        private void shownLabel_MouseHover(object sender, EventArgs e)
+        private void ShownLabel_MouseHover(object sender, EventArgs e)
         {
             shownMessageLabel.Visible = true;
         }
 
-        private void shownLabel_MouseLeave(object sender, EventArgs e)
+        private void ShownLabel_MouseLeave(object sender, EventArgs e)
         {
             shownMessageLabel.Visible = false;
         }
@@ -663,7 +664,8 @@ namespace GeneralStoreInventoryManagementSystem
                         // Adding new data point to graph
                         int position = totalSalesChart.Series[seriesName].Points.AddXY(bar.Username, bar.Total); // X: p.siclait, Y: $1000.00
                         // Adding a label to provide more accuracy and readability of the graph
-                        totalSalesChart.Series[seriesName].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00");
+                        // source code: https://stackoverflow.com/questions/506676/what-does-iformatprovider-do/14194950
+                        totalSalesChart.Series[seriesName].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00", CultureInfo.InvariantCulture);
 
                         total += bar.Total; // adding the total amount of dollars generated
                     }
@@ -696,7 +698,7 @@ namespace GeneralStoreInventoryManagementSystem
                         // Adding new data point to graph
                         int position = userSalesChart.Series[usernamesSalesListBox.SelectedItem.ToString()].Points.AddXY(bar.TransactionDate, bar.Total); // X: 09-01-2020, Y:$45000.00
                         // Adding a label to provide more accuracy and readability of the graph
-                        userSalesChart.Series[usernamesSalesListBox.SelectedItem.ToString()].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00");
+                        userSalesChart.Series[usernamesSalesListBox.SelectedItem.ToString()].Points[position].Label = bar.NumberOfSales + " sale(s) for " + bar.Total.ToString("$0.00", CultureInfo.InvariantCulture);
 
                         total += bar.Total; // adding the total amount of dollars generated
                     }
@@ -705,7 +707,7 @@ namespace GeneralStoreInventoryManagementSystem
 
             // Updating supplementary summary information 
             numberSalesLabel.Text = numberSalesLabel.Text.Split(':')[0] + ": " + numberOfSales;
-            totalSalesLabel.Text = totalSalesLabel.Text.Split('$')[0] + "$" + total.ToString("0.00");
+            totalSalesLabel.Text = totalSalesLabel.Text.Split('$')[0] + "$" + total.ToString("0.00", CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -799,7 +801,7 @@ namespace GeneralStoreInventoryManagementSystem
                                 ConvertTimeToDecimal(bubble.LogInTime.Split(':')[0], bubble.LogInTime.Split(':')[1]), // the hour at which the user was logged in (VERY INACCURATE)
                                 bubble.Seconds);
                             // Adding label to improve readability of graph
-                            timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[position].Label = bubble.Minutes.ToString("0.####") + " min";
+                            timesheetChart.Series[usernamesTimesheetListBox.SelectedItem.ToString()].Points[position].Label = bubble.Minutes.ToString("0.####", CultureInfo.InvariantCulture) + " min";
 
                             if (FormatToInt(bubble.LogInTime.Split(':')[0]) < minimum)
                                 minimum = FormatToInt(bubble.LogInTime.Split(':')[0]) - 4 > 0 ? FormatToInt(bubble.LogInTime.Split(':')[0]) - 4 : 0;
