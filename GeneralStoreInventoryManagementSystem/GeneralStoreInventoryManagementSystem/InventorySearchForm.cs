@@ -11,6 +11,7 @@ using System.Windows.Forms;
 // Custom Libraries
 using InventoryManagementBusinessLayer.ProductInformation;
 using InventoryManagementBusinessLayer.Protocols;
+using InventoryManagementEntityLayer.Product;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -518,7 +519,46 @@ namespace GeneralStoreInventoryManagementSystem
         private void PopulateProductListDataGrid()
         {
             // Requesting information to populate the product list 
-            productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false);
+            try
+            {
+                productList.DataSource = ProductInformationManager.ConsultProductListInformation(inventorySearchBox.Text, false);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                productList.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR10");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR10");
+            }
+            catch (InsufficientMemoryException)
+            {
+                productList.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR7");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR7", "Sales Tab", null);
+            }
+            catch (OutOfMemoryException)
+            {
+                productList.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR8");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR8", "Sales Tab", null);
+            }
+            catch (Exception e)
+            {
+                productList.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR9");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR9", e.Message, "Sales Tab");
+            }
 
             //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
             //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;

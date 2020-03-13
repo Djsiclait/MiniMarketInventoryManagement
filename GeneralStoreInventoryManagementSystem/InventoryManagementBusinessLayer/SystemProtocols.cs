@@ -19,10 +19,30 @@ namespace InventoryManagementBusinessLayer
         public static class SystemProtocols
         {
             /// <summary>
-            /// Function to register systema and user activity durring an active session
+            /// PROXY function to register systema and user activity durring an active session
+            /// </summary>
+            /// <param name="code">Code to execute and register correct activity</param>
+            public static void ApplyActivityProtocols(String code)
+            {
+                ApplyActivityProtocols(code, null, null);
+            }
+
+            /// <summary>
+            /// PROXY function to register systema and user activity durring an active session
             /// </summary>
             /// <param name="code">Code to execute and register correct activity</param>
             /// <param name="meta1">Auxiliary information for certain activities</param>
+            public static void ApplyActivityProtocols(String code, String meta1)
+            {
+                ApplyActivityProtocols(code, meta1, null);
+            }
+
+            /// <summary>
+            /// ORIGINAL Function to register systema and user activity durring an active session
+            /// </summary>
+            /// <param name="code">Code to execute and register correct activity</param>
+            /// <param name="meta1">Auxiliary information for certain activities</param>
+            /// <param name="meta2">Auxiliary information for certain activities</param>
             public static void ApplyActivityProtocols(String code, String meta1, String meta2)
             {
                 switch (code)
@@ -120,6 +140,14 @@ namespace InventoryManagementBusinessLayer
                             SystemResources.UserInSession.Username, // username of user in session 
                             meta2 + "'s list box has caused: " + meta1, // description of activity
                             "GRAPH ERROR"); // type of activity
+                        break;
+
+                    case "ERR10": // Inventory Datagrid IndexOutOfRangeException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Inventory datagrid has ceased to function due to an out of range index exception", // description of activity
+                            "INVENTORY ERROR"); // type of activity
                         break;
                     #endregion
 
