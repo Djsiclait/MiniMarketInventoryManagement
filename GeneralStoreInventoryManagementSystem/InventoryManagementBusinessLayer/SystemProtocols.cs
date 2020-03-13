@@ -173,6 +173,39 @@ namespace InventoryManagementBusinessLayer
                             meta1, // description of activity
                             "INVENTORY ERROR"); // type of activity
                         break;
+
+                    case "ERR14": // Register New Product ListBox IndexOutOfRangeException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Register new product form's" + meta1 + " list box is unable to display information due to out of range index exception", // description of activity
+                            "PRODUCT ERROR"); // type of activity
+                        break;
+
+                    case "ERR15": // Register New Product ListBox InsufficientMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Register new product form's" + meta1 + " list box is unable to display information due to insufficient memory exception", // description of activity
+                            "PRODUCT ERROR"); // type of activity
+                        break;
+
+                    case "ERR16": // Register New Product ListBox OutOfMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Register new product form's" + meta1 + " list box is unable to display information due to out of memory exception", // description of activity
+                            "PRODUCT ERROR"); // type of activity
+                        break;
+
+                    case "ERR17": // Register New Product ListBox Exception
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            meta2 + " list box has caused: " + meta1, // description of activity
+                            "PRODUCT ERROR"); // type of activity
+                        break;
+
                     #endregion
 
                     #region Graphs
