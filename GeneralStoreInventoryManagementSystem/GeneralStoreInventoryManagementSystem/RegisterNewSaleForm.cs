@@ -539,8 +539,6 @@ namespace GeneralStoreInventoryManagementSystem
             }
             catch (ArgumentNullException)
             {
-                productDataGridView.DataSource = new List<Product>();
-
                 MessageBox.Show("Error: ERR18");
 
                 // Recording error 
@@ -548,8 +546,6 @@ namespace GeneralStoreInventoryManagementSystem
             }
             catch (ArgumentOutOfRangeException)
             {
-                productDataGridView.DataSource = new List<Product>();
-
                 MessageBox.Show("Error: ERR19");
 
                 // Recording error 
@@ -557,8 +553,6 @@ namespace GeneralStoreInventoryManagementSystem
             }
             catch (IndexOutOfRangeException)
             {
-                productDataGridView.DataSource = new List<Product>();
-
                 MessageBox.Show("Error: ERR20");
 
                 // Recording error 
@@ -566,8 +560,6 @@ namespace GeneralStoreInventoryManagementSystem
             }
             catch (Exception e)
             {
-                productDataGridView.DataSource = new List<Product>();
-
                 MessageBox.Show("Error: ERR21");
 
                 // Recording error 
