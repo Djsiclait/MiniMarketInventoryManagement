@@ -15,7 +15,6 @@ namespace InventoryManagementDataLayer
     {
         public static class GraphDataManager
         {
-            #region Timesheet
             /// <summary>
             /// This function fetches all registered usernames
             /// </summary>
@@ -29,8 +28,8 @@ namespace InventoryManagementDataLayer
 
                 SqlCommand cmd = new SqlCommand(
                         "SP_Fetch_All_Username",
-                        DatabaseManager.ActiveSqlConnection) 
-                { 
+                        DatabaseManager.ActiveSqlConnection)
+                {
                     CommandType = CommandType.StoredProcedure
                 };
 
@@ -50,6 +49,7 @@ namespace InventoryManagementDataLayer
                 return usernames;
             }
 
+            #region Timesheet Bubble Chart
             /// <summary>
             /// This function fetches data to generate users' timesheet bubble chart
             /// </summary>
@@ -94,6 +94,10 @@ namespace InventoryManagementDataLayer
 
                 return bubblePoints;
             }
+            #endregion
+
+            #region Sales Bar Chart
+            //public static List<Sale> Consult
             #endregion
 
             #region Auxiliary Functions
