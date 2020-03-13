@@ -509,30 +509,70 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void AddItemsToCart()
         {
-            // Capturing the data of multiple selected products
-            foreach (DataGridViewRow row in productDataGridView.SelectedRows)
-                if (FormatToInt(row.Cells[10].Value.ToString()) > 0) // only works if the product in the inventory has atleast 1 unit in existence
-                {
-                    Product product = new Product(); // creating new product
+            try
+            {
+                // Capturing the data of multiple selected products
+                foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+                    if (FormatToInt(row.Cells[10].Value.ToString()) > 0) // only works if the product in the inventory has atleast 1 unit in existence
+                    {
+                        Product product = new Product() // creating new product
+                        {
+                            Id = row.Cells[0].Value.ToString(), // getting the selected product's id
+                            Name = row.Cells[2].Value.ToString(), // getting the selected product's name
+                            Brand = row.Cells[3].Value.ToString(), // getting the selected product's brand
+                            Unit = row.Cells[5].Value.ToString(), // getting the selected product's unit
+                            UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()), // getting the selected product's price
+                            Quantity = quantityNumericUpDown.Value < FormatToInt(row.Cells[10].Value.ToString()) ?  // getting the desired quantity of the selected product
+                            (int)quantityNumericUpDown.Value : // the client desires less units than the limit in existence
+                            FormatToInt(row.Cells[10].Value.ToString()) // the client wants all units in existence
+                        };
 
-                    product.Id = row.Cells[0].Value.ToString(); // getting the selected product's id
-                    product.Name = row.Cells[2].Value.ToString(); // getting the selected product's name
-                    product.Brand = row.Cells[3].Value.ToString(); // getting the selected product's brand
-                    product.Unit = row.Cells[5].Value.ToString(); // getting the selected product's unit
-                    product.UnitPrice = FormatToDecimal(row.Cells[9].Value.ToString()); // getting the selected product's price
-                    product.Quantity = quantityNumericUpDown.Value < FormatToInt(row.Cells[10].Value.ToString()) ?  // getting the desired quantity of the selected product
-                        (int)quantityNumericUpDown.Value : // the client desires less units than the limit in existence
-                        FormatToInt(row.Cells[10].Value.ToString()); // the client wants all units in existence
+                        // Adding product to cart or updating the amount of units of already added product
+                        SystemProtocols.ApplyCartManagementProtocol(2, null, 0, product, FormatToInt(row.Cells[10].Value.ToString()));
+                    }
 
-                    // Adding product to cart or updating the amount of units of already added product
-                    SystemProtocols.ApplyCartManagementProtocol(2, null, 0, product, FormatToInt(row.Cells[10].Value.ToString()));
-                }
+                // Updating numeric up down
+                quantityNumericUpDown.Value = 1;
+                quantityNumericUpDown.Maximum = 2;
 
-            // Updating numeric up down
-            quantityNumericUpDown.Value = 1;
-            quantityNumericUpDown.Maximum = 2;
+                UpdateCartSummaryDataGrid(); // updating the cart summary
+            }
+            catch (ArgumentNullException)
+            {
+                productDataGridView.DataSource = new List<Product>();
 
-            UpdateCartSummaryDataGrid(); // updating the cart summary
+                MessageBox.Show("Error: ERR18");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR18");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR19");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR19");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR20");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR20");
+            }
+            catch (Exception e)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR21");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR21", e.Message);
+            }
         }
 
         /// <summary>
@@ -541,12 +581,13 @@ namespace GeneralStoreInventoryManagementSystem
         /// <returns>A sales object with user submitted input</returns>
         private Sale CreateSalesObject()
         {
-            Sale sale = new Sale();
-
-            sale.NumberItems = FormatToInt(numberLabel.Text.Split(':')[1]);
-            sale.Total = FormatToDecimal(totalLabel.Text.Split('$')[1]);
-            sale.Delivery = deliveryCheckBox.Checked;
-
+            Sale sale = new Sale()
+            {
+                NumberItems = FormatToInt(numberLabel.Text.Split(':')[1]),
+                Total = FormatToDecimal(totalLabel.Text.Split('$')[1]),
+                Delivery = deliveryCheckBox.Checked
+            };
+            
             return sale;
         }
 
@@ -588,7 +629,7 @@ namespace GeneralStoreInventoryManagementSystem
             cartSummaryDataGridView.Refresh(); // refreshing the data grid to clean any old information an update it with the new one
 
             List<Product> summary = SystemProtocols.ApplyCartManagementProtocol(1, null, 0, null, 0); // fetching the cart            
-            if (summary.Count() > 0)
+            if (summary.Count > 0)
             {
                 cartSummaryDataGridView.DataSource = summary; // feeding the grid view with the new information on the cart summary
                 cartSummaryDataGridView.Refresh(); // refreshing the data grid to clean any old information an update it with the new one
@@ -643,9 +684,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// <returns>A decimal equivalent of the provided string value</returns>
         private static decimal FormatToDecimal(String value)
         {
-            decimal result;
-
-            decimal.TryParse(value, out result);
+            _ = decimal.TryParse(value, out decimal result);
 
             return result;
         }
@@ -657,9 +696,7 @@ namespace GeneralStoreInventoryManagementSystem
         /// <returns>An int equivalent of the provided string value</returns>
         private static int FormatToInt(String value)
         {
-            int result;
-
-            int.TryParse(value, out result);
+            _ = int.TryParse(value, out int result);
 
             return result;
         }
