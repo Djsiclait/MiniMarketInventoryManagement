@@ -41,7 +41,7 @@ namespace GeneralStoreInventoryManagementSystem
                 changePasswordButton.Visible = false;
                 changePasswordButton.Enabled = false;
             }
-            else if (SystemProtocols.ApplySessionsProtocols(3, user.Username, null)) // If the target user the one with the current open sesison
+            else if (SystemProtocols.ApplySessionsProtocols(3, user.Username)) // If the target user the one with the current open sesison
             {
                 changeAccessLevelButtom.Visible = false;
                 changeAccessLevelButtom.Enabled = false;

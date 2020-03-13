@@ -33,7 +33,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ProductInformationTemplateForm_Load(object sender, EventArgs e)
         {
             // Limiting user features to prevent non admins to edit a product's information
-            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
+            if (SystemProtocols.ApplySessionsProtocols(1))
             {
                 // Disabling the text fields and combo boxes for basic users
                 keyTextBox.Enabled = false;

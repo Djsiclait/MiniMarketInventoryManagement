@@ -49,7 +49,7 @@ namespace GeneralStoreInventoryManagementSystem
         #endregion
 
         #region Key Down Logic
-        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 InitiateLogInProtocols();

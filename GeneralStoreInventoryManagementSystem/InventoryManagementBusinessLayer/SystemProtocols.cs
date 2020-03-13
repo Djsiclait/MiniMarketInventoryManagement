@@ -149,6 +149,30 @@ namespace InventoryManagementBusinessLayer
                             "Inventory datagrid has ceased to function due to an out of range index exception", // description of activity
                             "INVENTORY ERROR"); // type of activity
                         break;
+
+                    case "ERR11": // Inventory Datagrid InsufficientMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Inventory datagrid has ceased to function due to insufficient memory exception", // description of activity
+                            "INVENTORY ERROR"); // type of activity
+                        break;
+
+                    case "ERR12": // Inventory Datagrid OutOfMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Inventory datagrid has ceased to function due to out of memory exception", // description of activity
+                            "INVENTORY ERROR"); // type of activity
+                        break;
+
+                    case "ERR13": // Inventory Datagrid Exception
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            meta1, // description of activity
+                            "INVENTORY ERROR"); // type of activity
+                        break;
                     #endregion
 
                     #region Graphs
@@ -451,7 +475,7 @@ namespace InventoryManagementBusinessLayer
                     return "INVALID USER";
                 else if (message == "User profile is currently inactive")
                 {
-                    ApplyActivityProtocols("LOG0", username, null); // registering correct activity for given case
+                    ApplyActivityProtocols("LOG0", username); // registering correct activity for given case
                     return "INACTIVE USER";
                 }
                 else if (message == "Password is incorrect")
@@ -497,7 +521,7 @@ namespace InventoryManagementBusinessLayer
                         foreach (Product item in remainingProducts)
                             SaleInformationManager.CreateNewSalesTransactionContentInformation(item, saleId);
 
-                        ApplyActivityProtocols("SAL5", saleId, null);
+                        ApplyActivityProtocols("SAL5", saleId);
 
                         // 3. Register old sale as returned (type of void)
                         SaleInformationManager.UpdateTransactionStatusDataToReturned(sale.Id, saleId);
@@ -537,7 +561,7 @@ namespace InventoryManagementBusinessLayer
 
                             SystemResources.EmptyCart();
 
-                            ApplyActivityProtocols("SAL5", saleId, null);
+                            ApplyActivityProtocols("SAL5", saleId);
 
                             return "SUCCESS";
                         }
@@ -550,8 +574,30 @@ namespace InventoryManagementBusinessLayer
             }
 
             /// <summary>
-            /// Function to restrict or activate certain features depending on the user's access level 
+            /// PROXY function to restrict or activate certain features depending on the user's access level 
             /// </summary>
+            /// <returns>True or False</returns>
+            public static bool ApplySessionsProtocols(int protocol)
+            {
+                return ApplySessionsProtocols(protocol, null, null);
+            }
+
+            /// <summary>
+            /// PROXY function to restrict or activate certain features depending on the user's access level 
+            /// </summary>
+            /// <param name="meta1">Auxiliary information for certain protocols</param>
+            /// <returns>True or False</returns>
+            public static bool ApplySessionsProtocols(int protocol, String meta1)
+            {
+                return ApplySessionsProtocols(protocol, meta1, null);
+            }
+
+            /// <summary>
+            /// ORIGINAL function to restrict or activate certain features depending on the user's access level 
+            /// </summary>
+            /// <param name="protocol">Protocol code to execute</param>
+            /// <param name="meta1">Auxiliary information for certain protocols</param>
+            /// <param name="meta2">Auxiliary information for certain protocols</param>
             /// <returns>True or False</returns>
             public static bool ApplySessionsProtocols(int protocol, String meta1, String meta2)
             {

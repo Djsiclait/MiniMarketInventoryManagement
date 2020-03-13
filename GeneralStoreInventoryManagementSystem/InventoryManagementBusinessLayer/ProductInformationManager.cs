@@ -118,7 +118,7 @@ namespace InventoryManagementBusinessLayer
 
                 if (message == "Supplier has been registered successfully!")
                 {
-                    SystemProtocols.ApplyActivityProtocols("SPE4", name, null); // Quick (incomplete) registration of new supplier
+                    SystemProtocols.ApplyActivityProtocols("SPE4", name); // Quick (incomplete) registration of new supplier
 
                     return "SUCCESS";
                 }
@@ -139,7 +139,7 @@ namespace InventoryManagementBusinessLayer
                 if (message == "Brand has been registered successfully!")
                 {
                     // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("PRO3", name, null);
+                    SystemProtocols.ApplyActivityProtocols("PRO3", name);
                     return "SUCCESS";
                 }
                 else
@@ -162,7 +162,7 @@ namespace InventoryManagementBusinessLayer
                 if (message == "Product created successfully!")
                 {
                     // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("PRO4", product.Name, null);
+                    SystemProtocols.ApplyActivityProtocols("PRO4", product.Name);
                     return "SUCCESS";
                 }
                 else
@@ -184,7 +184,7 @@ namespace InventoryManagementBusinessLayer
                 if (message == "Product updated successfully!") // Update was succesful
                 {
                     // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("PRO5", product.Name, null);
+                    SystemProtocols.ApplyActivityProtocols("PRO5", product.Name);
                     return "SUCCESS";
                 }
                 else

@@ -29,7 +29,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void RegisterNewUserForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
-            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
+            if (SystemProtocols.ApplySessionsProtocols(1))
             {
                 // Disabling the other Products option 
                 registerNewProductMenuSubOption.Visible = false;
@@ -50,7 +50,7 @@ namespace GeneralStoreInventoryManagementSystem
             confirmationPasswordErrorLabel.Visible = false;
 
             // Executing correct activity according to given code
-            SystemProtocols.ApplyActivityProtocols("USE2", null, null);
+            SystemProtocols.ApplyActivityProtocols("USE2");
         }
         #endregion
 
@@ -265,7 +265,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Register New Product
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         FormsMenuList.registerNewProduct = new RegisterNewProductForm();
                         FormsMenuList.registerNewProduct.Show();
@@ -281,7 +281,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Restock Products
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Restock Products Form
                         FormsMenuList.restockProductsFrom = new RestockProductsForm();
@@ -298,7 +298,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Users
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Users Registry Form
                         FormsMenuList.usersRegistryForm = new UsersRegistryForm();
@@ -337,7 +337,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Graphs
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Graphs Analytics Form
                         FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
@@ -354,7 +354,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Reports
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Reports Analytics Form
                         FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
@@ -371,7 +371,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Activities Log
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Activity Logs Form
                         FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
@@ -388,7 +388,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Errors Log
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Error Logs Form
                         FormsMenuList.errorsLogForm = new ErrorsLogForm();
@@ -505,7 +505,7 @@ namespace GeneralStoreInventoryManagementSystem
                 else
                 {
                     // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("ERR2", null, null);
+                    SystemProtocols.ApplyActivityProtocols("ERR2");
                     messageLabel.Text = "A Fatal Error has occured!"; // The new user profile has not been created due to en error
                 }
             }
@@ -534,7 +534,7 @@ namespace GeneralStoreInventoryManagementSystem
                 else
                 {
                     // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("ERR2", null, null);
+                    SystemProtocols.ApplyActivityProtocols("ERR2");
                     messageLabel.Text = "A Fatal Error has occured!"; // The new user profile has not been created due to en error
                 }
             }

@@ -32,7 +32,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void GraphsAnalyticsForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
-            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
+            if (SystemProtocols.ApplySessionsProtocols(1))
             {
                 // Disabling the entire Products option given the remainder of options are prohibited for a basic user
                 registerNewProductMenuSubOption.Visible = false;
@@ -46,7 +46,7 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             // Recording user access to this form
-            SystemProtocols.ApplyActivityProtocols("GRA1", null, null);
+            SystemProtocols.ApplyActivityProtocols("GRA1");
 
             // Hiding message lables
             missingMessageLabel.Visible = false;
@@ -290,7 +290,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Register New User
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Register New Product Form
                         FormsMenuList.registerNewProduct = new RegisterNewProductForm();
@@ -307,7 +307,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Restock Product
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Restock Products Form
                         FormsMenuList.restockProductsFrom = new RestockProductsForm();
@@ -324,7 +324,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Users
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Users Registry Form
                         FormsMenuList.usersRegistryForm = new UsersRegistryForm();
@@ -341,7 +341,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Register New User
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Register New User Form
                         FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
@@ -380,7 +380,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Reports
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Reports Analytics Form
                         FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
@@ -397,7 +397,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Activities Log
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Activity Logs Form
                         FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
@@ -414,7 +414,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Errors Log
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Error Logs Form
                         FormsMenuList.errorsLogForm = new ErrorsLogForm();
@@ -547,7 +547,7 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR6");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR6", "Timesheet Tab", null);
+                SystemProtocols.ApplyActivityProtocols("ERR6", "Timesheet Tab");
             }
             catch (InsufficientMemoryException)
             {
@@ -556,7 +556,7 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR7");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR7", "Timesheet Tab", null);
+                SystemProtocols.ApplyActivityProtocols("ERR7", "Timesheet Tab");
             }
             catch (OutOfMemoryException)
             {
@@ -565,7 +565,7 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR8");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR8", "Timesheet Tab", null);
+                SystemProtocols.ApplyActivityProtocols("ERR8", "Timesheet Tab");
             }
             catch (Exception e)
             {
@@ -594,7 +594,7 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR6");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR6", "Sales Tab", null);
+                SystemProtocols.ApplyActivityProtocols("ERR6", "Sales Tab");
             }
             catch (InsufficientMemoryException)
             {
@@ -603,7 +603,7 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR7");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR7", "Sales Tab", null);
+                SystemProtocols.ApplyActivityProtocols("ERR7", "Sales Tab");
             }
             catch (OutOfMemoryException)
             {
@@ -612,7 +612,7 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR8");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR8", "Sales Tab", null);
+                SystemProtocols.ApplyActivityProtocols("ERR8", "Sales Tab");
             }
             catch (Exception e)
             {

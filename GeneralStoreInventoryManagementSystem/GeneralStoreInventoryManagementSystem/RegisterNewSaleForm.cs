@@ -29,7 +29,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void RegisterNewSaleFrom_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
-            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
+            if (SystemProtocols.ApplySessionsProtocols(1))
             {
                 // Disabling the other Products option 
                 registerNewProductMenuSubOption.Visible = false;
@@ -41,10 +41,10 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Visible = false;
                 adminMenuOption.Enabled = false;
 
-                SystemProtocols.ApplyActivityProtocols("SAL1", null, null);
+                SystemProtocols.ApplyActivityProtocols("SAL1");
             }
             else
-                SystemProtocols.ApplyActivityProtocols("SAL4", null, null);
+                SystemProtocols.ApplyActivityProtocols("SAL4");
 
             PopulateProductDataGrid();
             UpdateCartSummaryDataGrid();
@@ -296,7 +296,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Register New Product
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Register New Product Form
                         FormsMenuList.registerNewProduct = new RegisterNewProductForm();
@@ -312,7 +312,7 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F5:
 
                     #region Restock Products 
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Restock Products Form
                         FormsMenuList.restockProductsFrom = new RestockProductsForm();
@@ -328,7 +328,7 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F6:
 
                     #region View Users
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Users Registry Form
                         FormsMenuList.usersRegistryForm = new UsersRegistryForm();
@@ -344,7 +344,7 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F7:
 
                     #region Register New User
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Register New User Form
                         FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
@@ -360,7 +360,7 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F8:
 
                     #region View Graphs
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Graphs Analytics Form
                         FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
@@ -376,7 +376,7 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F9:
 
                     #region View Reports
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Reports Analytics Form
                         FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
@@ -392,7 +392,7 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F10:
 
                     #region View Activities Log
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Activity Logs Form
                         FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
@@ -408,7 +408,7 @@ namespace GeneralStoreInventoryManagementSystem
                 case Keys.F11:
 
                     #region View Errors Log
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Error Logs Form
                         FormsMenuList.errorsLogForm = new ErrorsLogForm();

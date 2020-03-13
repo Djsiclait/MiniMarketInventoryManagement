@@ -77,7 +77,7 @@ namespace InventoryManagementBusinessLayer
                 if (message == "User created")
                 {
                     // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("USE3", newUser.Username, null);
+                    SystemProtocols.ApplyActivityProtocols("USE3", newUser.Username);
                     return "SUCCESS";
                 }
                 else
@@ -137,7 +137,7 @@ namespace InventoryManagementBusinessLayer
                 UserDataManager.UpdateUserPasswordData(username, newPassword);
 
                 // Executing correct activity according to given code
-                SystemProtocols.ApplyActivityProtocols("SPE1", null, null);
+                SystemProtocols.ApplyActivityProtocols("SPE1");
             }
             #endregion
         }

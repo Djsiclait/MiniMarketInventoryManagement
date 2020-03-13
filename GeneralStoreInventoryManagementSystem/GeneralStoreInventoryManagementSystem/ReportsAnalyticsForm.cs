@@ -33,7 +33,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ReportsAnalyticsForm_Load(object sender, EventArgs e)
         {
             // Identifying correct protocol for current user in session
-            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
+            if (SystemProtocols.ApplySessionsProtocols(1))
             {
                 // Disabling the other Products option 
                 registerNewProductMenuSubOption.Visible = false;
@@ -58,7 +58,7 @@ namespace GeneralStoreInventoryManagementSystem
             #endregion
 
             // Recording admin access to this form 
-            SystemProtocols.ApplyActivityProtocols("REP1", null, null);
+            SystemProtocols.ApplyActivityProtocols("REP1");
         }
         #endregion
 
@@ -370,7 +370,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Register New Product
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Register New Product Form
                         FormsMenuList.registerNewProduct = new RegisterNewProductForm();
@@ -393,7 +393,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Restock Product
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Restock Products Form
                         FormsMenuList.restockProductsFrom = new RestockProductsForm();
@@ -416,7 +416,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Users
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Users Registry Form
                         FormsMenuList.usersRegistryForm = new UsersRegistryForm();
@@ -439,7 +439,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Register New User
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Register New User Form
                         FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
@@ -462,7 +462,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Graphs
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Graphs Analytics Form
                         FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
@@ -507,7 +507,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Activities Log
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Activity Logs Form
                         FormsMenuList.activitiesLogForm = new ActivitiesLogForm();
@@ -530,7 +530,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Errors Log
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Error Logs Form
                         FormsMenuList.errorsLogForm = new ErrorsLogForm();

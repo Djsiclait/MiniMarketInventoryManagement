@@ -29,7 +29,7 @@ namespace GeneralStoreInventoryManagementSystem
         private void ActivitiesLogForm_Load(object sender, EventArgs e)
         {
             // Limiting option according to current user's access level
-            if (SystemProtocols.ApplySessionsProtocols(1, null, null))
+            if (SystemProtocols.ApplySessionsProtocols(1))
             {
                 // Disabling the entire Products option given the remainder of options are prohibited for a basic user
                 registerNewProductMenuSubOption.Visible = false;
@@ -43,7 +43,7 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             // Executing correct activity according to given code
-            SystemProtocols.ApplyActivityProtocols("ACT1", null, null);
+            SystemProtocols.ApplyActivityProtocols("ACT1");
 
             PopulateActivityListDataGrid();
         }
@@ -260,7 +260,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Register New Product
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Register New Product Form
                         FormsMenuList.registerNewProduct = new RegisterNewProductForm();
@@ -277,7 +277,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Restock Products
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Restock Products Form
                         FormsMenuList.restockProductsFrom = new RestockProductsForm();
@@ -294,7 +294,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Users
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Users Registry Form
                         FormsMenuList.usersRegistryForm = new UsersRegistryForm();
@@ -311,7 +311,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Register New User
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Register New User Form
                         FormsMenuList.registerNewUserForm = new RegisterNewUserForm();
@@ -328,7 +328,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Graphs
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Graphs Analytics Form
                         FormsMenuList.graphsAnaliticsForm = new GraphsAnalyticsForm();
@@ -345,7 +345,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region View Reports
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Reports Analytics Form
                         FormsMenuList.reportsAnalyticsForm = new ReportsAnalyticsForm();
@@ -384,7 +384,7 @@ namespace GeneralStoreInventoryManagementSystem
 
                     #region Errors Log
                     // Identifying correct protocol for current user in session
-                    if (!SystemProtocols.ApplySessionsProtocols(1, null, null))
+                    if (!SystemProtocols.ApplySessionsProtocols(1))
                     {
                         // Summon Error Logs Form
                         FormsMenuList.errorsLogForm = new ErrorsLogForm();
@@ -442,7 +442,7 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR3");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR3", null, null);
+                SystemProtocols.ApplyActivityProtocols("ERR3");
             }
             catch (InsufficientMemoryException)
             {
@@ -452,7 +452,7 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR4");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR4", null, null);
+                SystemProtocols.ApplyActivityProtocols("ERR4");
             }
             catch (Exception e)
             {
@@ -462,7 +462,7 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR5");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR5", e.Message, null);
+                SystemProtocols.ApplyActivityProtocols("ERR5", e.Message);
             }
 
             // Hiding unnecessary fields
