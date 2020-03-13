@@ -253,9 +253,9 @@ namespace InventoryManagementDataLayer
                 #endregion
 
                 Int32 reply;
-                reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+                reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
 
-                DatabaseManager.DisconnectToDatabase();
+                DatabaseManager.DisconnectToDatabase(); // Closing connection with database
             }
 
             /// <summary>
@@ -277,9 +277,9 @@ namespace InventoryManagementDataLayer
                 #endregion
 
                 Int32 reply;
-                reply = Convert.ToInt32(cmd.ExecuteNonQuery());
+                reply = Convert.ToInt32(cmd.ExecuteNonQuery()); // executing the stored procedure
 
-                DatabaseManager.DisconnectToDatabase();
+                DatabaseManager.DisconnectToDatabase(); // Closing connection with database
             }
             #endregion
 
