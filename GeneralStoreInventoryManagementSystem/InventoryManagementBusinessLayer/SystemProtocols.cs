@@ -70,7 +70,7 @@ namespace InventoryManagementBusinessLayer
                     #endregion
 
                     #region Errors
-                    case "ERR1": // Registering user access to error logs
+                    case "ERR": // Registering user access to error logs
 
                         SystemResources.RecordActivity(
                             SystemResources.UserInSession.Username, // username of user in session 
@@ -78,28 +78,17 @@ namespace InventoryManagementBusinessLayer
                             "ADMIN ACCESS"); // type of activity
                         break;
 
-                    case "ERR2": // Registering user account creation error
+                    case "ERR0": // Registering an activity error
 
                         SystemResources.RecordActivity(
                             SystemResources.UserInSession.Username, // username of user in session 
-                            "System failed to create and register a new user profile", // description of activity
-                            "CREATION ERROR"); // type of activity
+                            SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has encountered an error during their session", // description of activity
+                            "ERROR"); // type of activity
                         break;
 
-                    case "ERR3": // Activity Datagrid IndexOutOfRangeException
+                    case "ERR3": 
 
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Activity datagrid has ceased to function due to an out of range index exception", // description of activity
-                            "ACTIVITY ERROR"); // type of activity
-                        break;
-
-                    case "ERR4": // Activity Datagrid InsufficientMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Activity datagrid has ceased to function due to an insufficient memmory exception", // description of activity
-                            "ACTIVITY ERROR"); // type of activity
+                    case "ERR4": 
                         break;
 
                     case "ERR5": // Activity Datagrid Exception
