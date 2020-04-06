@@ -588,27 +588,68 @@ namespace GeneralStoreInventoryManagementSystem
         /// </summary>
         private void PopulateProductDataGrid()
         {
-            // TODO: Create a separate fetchproduct list for this form
-            productDataGridView.DataSource = ProductInformationManager.ConsultProductListInformation(productSearchTextBox.Text, true);
+            try
+            {
+                // TODO: Create a separate fetchproduct list for this form
+                productDataGridView.DataSource = ProductInformationManager.ConsultProductListInformation(productSearchTextBox.Text, true);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                productDataGridView.DataSource = new List<Product>();
 
-            // Hidding unnecessary fields
-            productDataGridView.Columns["Id"].Visible = false;
-            productDataGridView.Columns["Supplier"].Visible = false;
-            productDataGridView.Columns["Category"].Visible = false;
-            productDataGridView.Columns["Type"].Visible = false;
-            productDataGridView.Columns["UnitCost"].Visible = false;
-            productDataGridView.Columns["MinimumQuantity"].Visible = false;
-            productDataGridView.Columns["MaximumQuantity"].Visible = false;
-            productDataGridView.Columns["RegisteredBy"].Visible = false;
-            productDataGridView.Columns["RegistrationDate"].Visible = false;
-            productDataGridView.Columns["ModifiedBy"].Visible = false;
-            productDataGridView.Columns["ModificationDate"].Visible = false;
-            productDataGridView.Columns["Discontinued"].Visible = false;
-            productDataGridView.Columns["Total"].Visible = false;
+                MessageBox.Show("Error: ERR22");
 
-            // Formationg columns
-            productDataGridView.Columns["Brand"].Width = 70;
-            productDataGridView.Columns["Unit"].Width = 70;
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR22");
+            }
+            catch (InsufficientMemoryException)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR23");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR23");
+            }
+            catch (OutOfMemoryException)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR24");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR24");
+            }
+            catch (Exception e)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR25");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR25", e.Message);
+            }
+            finally
+            {
+                // Hidding unnecessary fields
+                productDataGridView.Columns["Id"].Visible = false;
+                productDataGridView.Columns["Supplier"].Visible = false;
+                productDataGridView.Columns["Category"].Visible = false;
+                productDataGridView.Columns["Type"].Visible = false;
+                productDataGridView.Columns["UnitCost"].Visible = false;
+                productDataGridView.Columns["MinimumQuantity"].Visible = false;
+                productDataGridView.Columns["MaximumQuantity"].Visible = false;
+                productDataGridView.Columns["RegisteredBy"].Visible = false;
+                productDataGridView.Columns["RegistrationDate"].Visible = false;
+                productDataGridView.Columns["ModifiedBy"].Visible = false;
+                productDataGridView.Columns["ModificationDate"].Visible = false;
+                productDataGridView.Columns["Discontinued"].Visible = false;
+                productDataGridView.Columns["Total"].Visible = false;
+
+                // Formationg columns
+                productDataGridView.Columns["Brand"].Width = 70;
+                productDataGridView.Columns["Unit"].Width = 70;
+            }
         }
 
         /// <summary>
@@ -619,8 +660,49 @@ namespace GeneralStoreInventoryManagementSystem
             // Code needed to refresh the cart summary
             cartSummaryDataGridView.DataSource = new List<Product>(); // reseting the datasource as a clean and empty list
             cartSummaryDataGridView.Refresh(); // refreshing the data grid to clean any old information an update it with the new one
+            List<Product> summary = new List<Product>();
 
-            List<Product> summary = SystemProtocols.ApplyCartManagementProtocol(1, null, 0, null, 0); // fetching the cart            
+            try
+            {
+                summary = SystemProtocols.ApplyCartManagementProtocol(1, null, 0, null, 0); // fetching the cart     
+            }
+            catch (IndexOutOfRangeException)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR26");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR26");
+            }
+            catch (InsufficientMemoryException)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR27");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR27");
+            }
+            catch (OutOfMemoryException)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR28");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR28");
+            }
+            catch (Exception e)
+            {
+                productDataGridView.DataSource = new List<Product>();
+
+                MessageBox.Show("Error: ERR29");
+
+                // Recording error 
+                SystemProtocols.ApplyActivityProtocols("ERR29", e.Message);
+            }
+
             if (summary.Count > 0)
             {
                 cartSummaryDataGridView.DataSource = summary; // feeding the grid view with the new information on the cart summary

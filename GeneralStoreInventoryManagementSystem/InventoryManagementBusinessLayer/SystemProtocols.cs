@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Custom Library
+// Custom Libraries
 using InventoryManagementBusinessLayer.ProductInformation;
 using InventoryManagementBusinessLayer.Resources;
 using InventoryManagementBusinessLayer.SaleInformation;
@@ -238,6 +238,69 @@ namespace InventoryManagementBusinessLayer
                             "CART ERROR"); // type of activity
                         break;
 
+                    case "ERR22": // Product Datagrid IndexOutOfRangeException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Product datagrid has ceased to function due to an out of range index exception", // description of activity
+                            "NEW SALE ERROR"); // type of activity
+                        break;
+
+                    case "ERR23": // Product Datagrid InsufficientMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Product datagrid has ceased to function due to insufficient memory exception", // description of activity
+                            "NEW SALE ERROR"); // type of activity
+                        break;
+
+                    case "ERR24": // Product Datagrid OutOfMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Product datagrid has ceased to function due to out of memory exception", // description of activity
+                            "NEW SALE ERROR"); // type of activity
+                        break;
+
+                    case "ERR25": // Product Datagrid Exception
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            meta1, // description of activity
+                            "NEW SALE ERROR"); // type of activity
+                        break;
+
+                    case "ERR26": // Cart Summary Datagrid IndexOutOfRangeException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Cart summary datagrid has ceased to function due to an out of range index exception", // description of activity
+                            "NEW SALE ERROR"); // type of activity
+                        break;
+
+                    case "ERR27": // Cart Summary Datagrid InsufficientMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Cart summary datagrid has ceased to function due to insufficient memory exception", // description of activity
+                            "NEW SALE ERROR"); // type of activity
+                        break;
+
+                    case "ERR28": // Cart Summary Datagrid OutOfMemoryException
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            "Cart Summary datagrid has ceased to function due to out of memory exception", // description of activity
+                            "NEW SALE ERROR"); // type of activity
+                        break;
+
+                    case "ERR29": // Cart Summary Datagrid Exception
+
+                        SystemResources.RecordActivity(
+                            SystemResources.UserInSession.Username, // username of user in session 
+                            meta1, // description of activity
+                            "NEW SALE ERROR"); // type of activity
+                        break;
                     #endregion
 
                     #region Graphs

@@ -559,28 +559,30 @@ namespace GeneralStoreInventoryManagementSystem
                 // Recording error 
                 SystemProtocols.ApplyActivityProtocols("ERR13", e.Message);
             }
+            finally
+            {
+                //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
+                //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
+                //productList.Columns["Name"].SortMode = DataGridViewColumnSortMode.Automatic;
+                //productList.Columns["Brand"].SortMode = DataGridViewColumnSortMode.Automatic;
+                //productList.Columns["Supplier"].SortMode = DataGridViewColumnSortMode.Automatic;
 
-            //productList.Sort(productList.Columns["Key"], ListSortDirection.Ascending);
-            //productList.Columns["Key"].SortMode = DataGridViewColumnSortMode.Automatic;
-            //productList.Columns["Name"].SortMode = DataGridViewColumnSortMode.Automatic;
-            //productList.Columns["Brand"].SortMode = DataGridViewColumnSortMode.Automatic;
-            //productList.Columns["Supplier"].SortMode = DataGridViewColumnSortMode.Automatic;
+                // TODO: Fix sortable mode on inventory browser
+                foreach (DataGridViewColumn column in productList.Columns)
+                    column.SortMode = DataGridViewColumnSortMode.Automatic;
 
-            // TODO: Fix sortable mode on inventory browser
-            foreach (DataGridViewColumn column in productList.Columns)
-                column.SortMode = DataGridViewColumnSortMode.Automatic;
-
-            // Remove unnecesary information from the datagrid display
-            productList.Columns["Id"].Visible = false;
-            productList.Columns["Category"].Visible = false;
-            productList.Columns["Type"].Visible = false;
-            productList.Columns["MinimumQuantity"].Visible = false;
-            productList.Columns["MaximumQuantity"].Visible = false;
-            productList.Columns["RegisteredBy"].Visible = false;
-            productList.Columns["RegistrationDate"].Visible = false;
-            productList.Columns["ModifiedBy"].Visible = false;
-            productList.Columns["ModificationDate"].Visible = false;
-            productList.Columns["Total"].Visible = false;
+                // Remove unnecesary information from the datagrid display
+                productList.Columns["Id"].Visible = false;
+                productList.Columns["Category"].Visible = false;
+                productList.Columns["Type"].Visible = false;
+                productList.Columns["MinimumQuantity"].Visible = false;
+                productList.Columns["MaximumQuantity"].Visible = false;
+                productList.Columns["RegisteredBy"].Visible = false;
+                productList.Columns["RegistrationDate"].Visible = false;
+                productList.Columns["ModifiedBy"].Visible = false;
+                productList.Columns["ModificationDate"].Visible = false;
+                productList.Columns["Total"].Visible = false;
+            }
 
         }
 
