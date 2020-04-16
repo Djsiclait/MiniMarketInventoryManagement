@@ -1,4 +1,4 @@
-CREATE PROC SP_Fetch_Product_List_For_Browsing
+Alter PROC SP_Fetch_Product_List_For_Browsing
 	@user_permission varchar(100), ---- variable to determine which columns the uer has access to
 	@key_word varchar(300), ---- key word used to filter the result set during a search for specific products
 	@format varchar(10) ---- inventory management accounting system to organize the catalog according to LIFO and FIFO 
@@ -34,7 +34,8 @@ AS
 				A.fld_product_name,
 				B.fld_brand_name,
 				A.fld_product_unit
-			Order By 
+			Order By  
+				(LEN(A.fld_product_name) - LEN(@key_word)) Asc, -- search optimization by prioritized names that more likely resemble the search word
 				A.fld_product_name
 
 		ELSE IF @user_permission = 'Admin' or @user_permission = 'Super'
@@ -60,7 +61,8 @@ AS
 				B.fld_brand_name Like '%' + @key_word + '%' or
 				S.fld_supplier_name Like '%' + @key_word + '%'
 				)
-			Order By 
+			Order By  
+				(LEN(A.fld_product_name) - LEN(@key_word)) Asc, -- search optimization by prioritized names that more likely resemble the search word
 				A.fld_product_name,
 				CASE 
 					WHEN @format = 'LIFO' THEN A.fld_product_registration_date 

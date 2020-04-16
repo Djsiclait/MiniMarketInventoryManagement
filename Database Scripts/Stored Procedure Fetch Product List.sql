@@ -1,4 +1,4 @@
-CREATE PROC SP_Fetch_Product_List
+Alter PROC SP_Fetch_Product_List
 	@user_permission varchar(100), ---- variable to determine which columns the uer has access to
 	@key_word varchar(300) ---- key word used to filter the result set during a search for specific products
 AS
@@ -24,7 +24,8 @@ AS
 				B.fld_brand_name Like '%' + @key_word + '%'
 				)
 			Order By 
-				fld_product_name
+				(LEN(A.fld_product_name) - LEN(@key_word)) Asc, -- search optimization by prioritized names that more likely resemble the search word
+				A.fld_product_name
 
 		ELSE IF @user_permission = 'Admin' or @user_permission = 'Super'
 			Select 
@@ -49,13 +50,13 @@ AS
 				S.fld_supplier_name Like '%' + @key_word + '%'
 				)
 			Order By 
-				fld_product_name
-
+				(LEN(A.fld_product_name) - LEN(@key_word)) Asc, -- search optimization by prioritized names that more likely resemble the search word
+				A.fld_product_name
 	END
 
 go
 
-Exec SP_Fetch_Product_List 'Admin', ''
+Exec SP_Fetch_Product_List 'Admin', 'US'
 
 
 
