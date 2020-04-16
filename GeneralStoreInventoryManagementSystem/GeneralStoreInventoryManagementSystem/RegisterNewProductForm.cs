@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Libraries
+using InventoryManagementBusinessLayer.Errors;
 using InventoryManagementBusinessLayer.ProductInformation;
 using InventoryManagementBusinessLayer.Protocols;
 using InventoryManagementEntityLayer.Product;
@@ -602,37 +603,45 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 brandListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR14 BRAND");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR13 BRAND");
+                SystemErrors.ExecuteError13("BRAND");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR14", "BRAND");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
                 brandListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR15 BRAND");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR14 BRAND");
+                SystemErrors.ExecuteError14("BRAND");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR15", "BRAND");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
                 brandListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR16 BRAND");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR15 BRAND");
+                SystemErrors.ExecuteError15("BRAND");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR16", "BRAND");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
                 brandListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR17 BRAND");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR16 BRAND");
+                SystemErrors.ExecuteError16(e.Message, "BRAND");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR17", e.Message, "BRAND");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 
@@ -649,37 +658,45 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 categoryComboBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR14 CATEGORY");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR13 CATEGORY");
+                SystemErrors.ExecuteError13("CATEGORY");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR14", "CATEGORY");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
                 categoryComboBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR15 CATEGORY");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR14 CATEGORY");
+                SystemErrors.ExecuteError14("CATEGORY");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR15", "CATEGORY");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
                 categoryComboBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR16 CATEGORY");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR15 CATEGORY");
+                SystemErrors.ExecuteError15("CATEGORY");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR16", "CATEGORY");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
                 categoryComboBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR17 CATEGORY");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR16 CATEGORY");
+                SystemErrors.ExecuteError16(e.Message, "CATEGORY");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR17", e.Message, "CATEGORY");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 
@@ -696,37 +713,45 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 supplierListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR14 SUPPLIER");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR13 SUPPLIER");
+                SystemErrors.ExecuteError13("SUPPLIER");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR14", "SUPPLIER");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
                 supplierListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR15 SUPPLIER");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR14 SUPPLIER");
+                SystemErrors.ExecuteError14("SUPPLIER");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR15", "SUPPLIER");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
                 supplierListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR16 SUPPLIER");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR15 SUPPLIER");
+                SystemErrors.ExecuteError15("SUPPLIER");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR16", "SUPPLIER");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
                 supplierListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR17 SUPPLIER");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR16 SUPPLIER");
+                SystemErrors.ExecuteError16(e.Message, "SUPPLIER");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR17", e.Message, "SUPPLIER");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 
@@ -743,37 +768,45 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 typeComboBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR14 TYPE");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR13 TYPE");
+                SystemErrors.ExecuteError13("TYPE");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR14", "TYPE");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
                 typeComboBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR15 TYPE");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR14 TYPE");
+                SystemErrors.ExecuteError14("TYPE");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR15", "TYPE");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
                 typeComboBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR16 TYPE");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR15 TYPE");
+                SystemErrors.ExecuteError15("TYPE");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR16", "TYPE");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
                 typeComboBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR17 TYPE");
+                // Signaling that an error has occured 
+                MessageBox.Show("Error: ERR16 TYPE");
+                SystemErrors.ExecuteError16(e.Message, "TYPE");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR17", e.Message, "TYPE");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 

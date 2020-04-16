@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 // Custom Library
 using InventoryManagementBusinessLayer.ActivityInformation;
+using InventoryManagementBusinessLayer.Errors;
 using InventoryManagementBusinessLayer.Protocols;
 using InventoryManagementEntityLayer.Activity;
 
@@ -439,30 +440,36 @@ namespace GeneralStoreInventoryManagementSystem
                 // Requesting information to populate the activities log
                 activityList.DataSource = new List<Activity>();
 
-                MessageBox.Show("Error: ERR3");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR2");
+                SystemErrors.ExecuteError2();
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR3");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
                 // Requesting information to populate the activities log
                 activityList.DataSource = new List<Activity>();
 
-                MessageBox.Show("Error: ERR4");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR3");
+                SystemErrors.ExecuteError3();
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR4");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
                 // Requesting information to populate the activities log
                 activityList.DataSource = new List<Activity>();
 
-                MessageBox.Show("Error: ERR5");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR4");
+                SystemErrors.ExecuteError4(e.Message);
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR5", e.Message);
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
 
             // Hiding unnecessary fields

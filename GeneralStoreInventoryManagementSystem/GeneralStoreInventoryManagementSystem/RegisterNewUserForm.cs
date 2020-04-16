@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Libraries
+using InventoryManagementBusinessLayer.Errors;
 using InventoryManagementBusinessLayer.Protocols;
 using InventoryManagementBusinessLayer.Resources;
 using InventoryManagementBusinessLayer.UserInformation;
@@ -504,8 +505,11 @@ namespace GeneralStoreInventoryManagementSystem
                 }
                 else
                 {
+                    // Signaling that an error has occured
+                    SystemErrors.ExecuteError1();
+
                     // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("ERR2");
+                    SystemProtocols.ApplyActivityProtocols("ERR0");
                     messageLabel.Text = "A Fatal Error has occured!"; // The new user profile has not been created due to en error
                 }
             }
@@ -533,8 +537,11 @@ namespace GeneralStoreInventoryManagementSystem
                 }
                 else
                 {
+                    // Signaling that an error has occured
+                    SystemErrors.ExecuteError1();
+
                     // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("ERR2");
+                    SystemProtocols.ApplyActivityProtocols("ERR0");
                     messageLabel.Text = "A Fatal Error has occured!"; // The new user profile has not been created due to en error
                 }
             }

@@ -91,108 +91,43 @@ namespace InventoryManagementBusinessLayer
                     case "ERR4": 
                         break;
 
-                    case "ERR5": // Activity Datagrid Exception
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            meta1, // description of activity
-                            "ACTIVITY ERROR"); // type of activity
+                    case "ERR5": 
                         break;
 
-                    case "ERR6": // Graph Analytics ListBox IndexOutOfRangeException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Graph analytic's list box is unable to display usernames due to out of range index exception in tab: " + meta1, // description of activity
-                            "GRAPH ERROR"); // type of activity
+                    case "ERR6": 
                         break;
 
-                    case "ERR7": // Graph Analytics ListBox InsufficientMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Graph analytic's list box is unable to display usernames due to insufficient memory exception in tab: " + meta1, // description of activity
-                            "GRAPH ERROR"); // type of activity
+                    case "ERR7": 
                         break;
 
-                    case "ERR8": // Graph Analytics ListBox OutOfMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Graph analytic's list box is unable to display usernames due to out of memory exception in tab: " + meta1, // description of activity
-                            "GRAPH ERROR"); // type of activity
+                    case "ERR8": 
                         break;
 
-                    case "ERR9": // Graph Analytics ListBox Exception
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            meta2 + "'s list box has caused: " + meta1, // description of activity
-                            "GRAPH ERROR"); // type of activity
+                    case "ERR9": 
                         break;
 
-                    case "ERR10": // Inventory Datagrid IndexOutOfRangeException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Inventory datagrid has ceased to function due to an out of range index exception", // description of activity
-                            "INVENTORY ERROR"); // type of activity
+                    case "ERR10": 
                         break;
 
-                    case "ERR11": // Inventory Datagrid InsufficientMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Inventory datagrid has ceased to function due to insufficient memory exception", // description of activity
-                            "INVENTORY ERROR"); // type of activity
+                    case "ERR11": 
                         break;
 
-                    case "ERR12": // Inventory Datagrid OutOfMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Inventory datagrid has ceased to function due to out of memory exception", // description of activity
-                            "INVENTORY ERROR"); // type of activity
+                    case "ERR12": 
                         break;
 
-                    case "ERR13": // Inventory Datagrid Exception
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            meta1, // description of activity
-                            "INVENTORY ERROR"); // type of activity
+                    case "ERR13": 
                         break;
 
-                    case "ERR14": // Register New Product ListBox IndexOutOfRangeException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Register new product form's" + meta1 + " list box is unable to display information due to out of range index exception", // description of activity
-                            "PRODUCT ERROR"); // type of activity
+                    case "ERR14": 
                         break;
 
-                    case "ERR15": // Register New Product ListBox InsufficientMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Register new product form's" + meta1 + " list box is unable to display information due to insufficient memory exception", // description of activity
-                            "PRODUCT ERROR"); // type of activity
+                    case "ERR15": 
                         break;
 
-                    case "ERR16": // Register New Product ListBox OutOfMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Register new product form's" + meta1 + " list box is unable to display information due to out of memory exception", // description of activity
-                            "PRODUCT ERROR"); // type of activity
+                    case "ERR16": 
                         break;
 
-                    case "ERR17": // Register New Product ListBox Exception
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            meta2 + " list box has caused: " + meta1, // description of activity
-                            "PRODUCT ERROR"); // type of activity
+                    case "ERR17": 
                         break;
 
                     case "ERR18": // Cart ArgumentNullException

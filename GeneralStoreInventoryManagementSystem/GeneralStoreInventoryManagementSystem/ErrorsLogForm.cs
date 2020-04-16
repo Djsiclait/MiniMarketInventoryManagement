@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Library
+using InventoryManagementBusinessLayer.Errors;
 using InventoryManagementBusinessLayer.Protocols;
 
 namespace GeneralStoreInventoryManagementSystem
@@ -40,7 +41,7 @@ namespace GeneralStoreInventoryManagementSystem
             }
 
             // Recording admin access to current form
-            SystemProtocols.ApplyActivityProtocols("ERR1");
+            SystemProtocols.ApplyActivityProtocols("ERR");
         }
         #endregion
 

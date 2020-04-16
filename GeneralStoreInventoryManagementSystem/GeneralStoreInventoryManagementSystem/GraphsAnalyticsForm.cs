@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 // Custom Library
+using InventoryManagementBusinessLayer.Errors;
 using InventoryManagementBusinessLayer.GraphInformation;
 using InventoryManagementBusinessLayer.Protocols;
 using InventoryManagementEntityLayer.GraphEssentials;
@@ -544,37 +545,45 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 usernamesTimesheetListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR6");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR5");
+                SystemErrors.ExecuteError5("Timesheet Tab");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR6", "Timesheet Tab");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
                 usernamesTimesheetListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR7");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR6");
+                SystemErrors.ExecuteError6("Timesheet Tab");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR7", "Timesheet Tab");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
                 usernamesTimesheetListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR8");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR7");
+                SystemErrors.ExecuteError7("Timesheet Tab");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR8", "Timesheet Tab");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
                 usernamesTimesheetListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR9");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR8");
+                SystemErrors.ExecuteError8(e.Message, "Timesheet Tab");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR9", e.Message, "Timesheet Tab");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 
@@ -591,37 +600,45 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 usernamesSalesListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR6");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR5");
+                SystemErrors.ExecuteError5("Sales Tab");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR6", "Sales Tab");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
                 usernamesSalesListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR7");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR6");
+                SystemErrors.ExecuteError6("Sales Tab");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR7", "Sales Tab");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
                 usernamesSalesListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR8");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR7");
+                SystemErrors.ExecuteError7("Sales Tab");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR8", "Sales Tab");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
                 usernamesSalesListBox.DataSource = new List<String>();
 
-                MessageBox.Show("Error: ERR9");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR8");
+                SystemErrors.ExecuteError8(e.Message, "Sales Tab");
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR9", e.Message, "Sales Tab");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 

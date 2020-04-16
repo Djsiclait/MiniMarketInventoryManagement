@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Libraries
+using InventoryManagementBusinessLayer.Errors;
 using InventoryManagementBusinessLayer.ProductInformation;
 using InventoryManagementBusinessLayer.Protocols;
 using InventoryManagementEntityLayer.Product;
@@ -527,37 +528,45 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 productList.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR10");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR9");
+                SystemErrors.ExecuteError9();
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR10");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
                 productList.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR11");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR10");
+                SystemErrors.ExecuteError10();
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR11");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
                 productList.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR12");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR11");
+                SystemErrors.ExecuteError11();
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR12");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
                 productList.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR13");
+                // Signaling that an error has occured
+                MessageBox.Show("Error: ERR12");
+                SystemErrors.ExecuteError12(e.Message);
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR13", e.Message);
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             finally
             {
