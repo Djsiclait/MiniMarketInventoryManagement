@@ -663,37 +663,33 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 productDataGridView.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR26");
-
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR26");
+                MessageBox.Show("Error: ERR25");
+                SystemErrors.ExecuteError25();
             }
             catch (InsufficientMemoryException)
             {
                 productDataGridView.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR27");
-
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR27");
+                MessageBox.Show("Error: ERR26");
+                SystemErrors.ExecuteError26();
             }
             catch (OutOfMemoryException)
             {
                 productDataGridView.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR28");
-
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR28");
+                MessageBox.Show("Error: ERR27");
+                SystemErrors.ExecuteError27();
             }
             catch (Exception e)
             {
                 productDataGridView.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR29");
-
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR29", e.Message);
+                MessageBox.Show("Error: ERR28");
+                SystemErrors.ExecuteError28(e.Message);
             }
 
             if (summary.Count > 0)

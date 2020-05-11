@@ -69,93 +69,13 @@ namespace InventoryManagementBusinessLayer
                         break;
                     #endregion
 
-                    #region Errors
+                    #region Error Log Access
                     case "ERR": // Registering user access to error logs
 
                         SystemResources.RecordActivity(
                             SystemResources.UserInSession.Username, // username of user in session 
                             SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has accessed the errors logs", // description of activity
                             "ADMIN ACCESS"); // type of activity
-                        break;
-
-                    case "ERR0":
-
-                    case "ERR3": 
-
-                    case "ERR4": 
-
-                    case "ERR5": 
-
-                    case "ERR6": 
-
-                    case "ERR7": 
-
-                    case "ERR8": 
-
-                    case "ERR9": 
-
-                    case "ERR10": 
-
-                    case "ERR11": 
-
-                    case "ERR12": 
-
-                    case "ERR13": 
-
-                    case "ERR14": 
-
-                    case "ERR15": 
-
-                    case "ERR16": 
-
-                    case "ERR17": 
-
-                    case "ERR18": 
-
-                    case "ERR19": 
-
-                    case "ERR20":
-
-                    case "ERR21":
-
-                    case "ERR22": 
-
-                    case "ERR23":
-
-                    case "ERR24": 
-
-                    case "ERR25":
-
-                    case "ERR26": // Cart Summary Datagrid IndexOutOfRangeException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Cart summary datagrid has ceased to function due to an out of range index exception", // description of activity
-                            "NEW SALE ERROR"); // type of activity
-                        break;
-
-                    case "ERR27": // Cart Summary Datagrid InsufficientMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Cart summary datagrid has ceased to function due to insufficient memory exception", // description of activity
-                            "NEW SALE ERROR"); // type of activity
-                        break;
-
-                    case "ERR28": // Cart Summary Datagrid OutOfMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Cart Summary datagrid has ceased to function due to out of memory exception", // description of activity
-                            "NEW SALE ERROR"); // type of activity
-                        break;
-
-                    case "ERR29": // Cart Summary Datagrid Exception
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            meta1, // description of activity
-                            "NEW SALE ERROR"); // type of activity
                         break;
                     #endregion
 
