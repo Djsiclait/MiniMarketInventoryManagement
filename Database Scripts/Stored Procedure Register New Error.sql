@@ -22,6 +22,9 @@ AS
 
 	END
 
+go
+
+--exec SP_Register_New_Error 'TEST ERROR', 'This is a test error', 'super.admin'
 
 
 
