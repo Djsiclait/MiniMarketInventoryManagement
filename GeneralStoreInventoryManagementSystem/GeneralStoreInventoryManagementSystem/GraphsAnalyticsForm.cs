@@ -548,9 +548,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR5");
                 SystemErrors.ExecuteError5("Timesheet Tab");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
@@ -558,10 +555,6 @@ namespace GeneralStoreInventoryManagementSystem
 
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR6");
-                SystemErrors.ExecuteError6("Timesheet Tab");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
@@ -570,9 +563,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR7");
                 SystemErrors.ExecuteError7("Timesheet Tab");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
@@ -581,9 +571,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR8");
                 SystemErrors.ExecuteError8(e.Message, "Timesheet Tab");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 
@@ -603,9 +590,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR5");
                 SystemErrors.ExecuteError5("Sales Tab");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
@@ -614,9 +598,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR6");
                 SystemErrors.ExecuteError6("Sales Tab");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
@@ -625,9 +606,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR7");
                 SystemErrors.ExecuteError7("Sales Tab");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
@@ -636,9 +614,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR8");
                 SystemErrors.ExecuteError8(e.Message, "Sales Tab");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 

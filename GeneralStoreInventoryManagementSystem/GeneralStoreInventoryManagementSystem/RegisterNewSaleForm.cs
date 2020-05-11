@@ -534,39 +534,27 @@ namespace GeneralStoreInventoryManagementSystem
             }
             catch (ArgumentNullException)
             {
+                // Recording error
                 MessageBox.Show("Error: ERR17");
-
                 SystemErrors.ExecuteError17();
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (ArgumentOutOfRangeException)
             {
+                // Recording error
                 MessageBox.Show("Error: ERR18");
-
                 SystemErrors.ExecuteError18();
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (IndexOutOfRangeException)
             {
+                // Recording error
                 MessageBox.Show("Error: ERR19");
-
                 SystemErrors.ExecuteError19();
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
+                // Recording error
                 MessageBox.Show("Error: ERR20");
-
                 SystemErrors.ExecuteError20(e.Message);
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
 
             // Updating numeric up down
@@ -606,37 +594,33 @@ namespace GeneralStoreInventoryManagementSystem
             {
                 productDataGridView.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR22");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR22");
+                // Recording error
+                MessageBox.Show("Error: ERR21");
+                SystemErrors.ExecuteError21();
             }
             catch (InsufficientMemoryException)
             {
                 productDataGridView.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR23");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR23");
+                // Recording error
+                MessageBox.Show("Error: ERR22");
+                SystemErrors.ExecuteError22();
             }
             catch (OutOfMemoryException)
             {
                 productDataGridView.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR24");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR24");
+                // Recording error
+                MessageBox.Show("Error: ERR23");
+                SystemErrors.ExecuteError23();
             }
             catch (Exception e)
             {
                 productDataGridView.DataSource = new List<Product>();
 
-                MessageBox.Show("Error: ERR25");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR25", e.Message);
+                // Recording error
+                MessageBox.Show("Error: ERR24");
+                SystemErrors.ExecuteError24(e.Message);
             }
             finally
             {

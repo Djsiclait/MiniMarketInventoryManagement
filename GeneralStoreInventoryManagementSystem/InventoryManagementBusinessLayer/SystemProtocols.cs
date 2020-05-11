@@ -78,57 +78,37 @@ namespace InventoryManagementBusinessLayer
                             "ADMIN ACCESS"); // type of activity
                         break;
 
-                    case "ERR0": // Registering an activity error
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has encountered an error during their session", // description of activity
-                            "ERROR"); // type of activity
-                        break;
+                    case "ERR0":
 
                     case "ERR3": 
 
                     case "ERR4": 
-                        break;
 
                     case "ERR5": 
-                        break;
 
                     case "ERR6": 
-                        break;
 
                     case "ERR7": 
-                        break;
 
                     case "ERR8": 
-                        break;
 
                     case "ERR9": 
-                        break;
 
                     case "ERR10": 
-                        break;
 
                     case "ERR11": 
-                        break;
 
                     case "ERR12": 
-                        break;
 
                     case "ERR13": 
-                        break;
 
                     case "ERR14": 
-                        break;
 
                     case "ERR15": 
-                        break;
 
                     case "ERR16": 
-                        break;
 
                     case "ERR17": 
-                        break;
 
                     case "ERR18": 
 
@@ -138,37 +118,13 @@ namespace InventoryManagementBusinessLayer
 
                     case "ERR21":
 
-                    case "ERR22": // Product Datagrid IndexOutOfRangeException
+                    case "ERR22": 
 
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Product datagrid has ceased to function due to an out of range index exception", // description of activity
-                            "NEW SALE ERROR"); // type of activity
-                        break;
+                    case "ERR23":
 
-                    case "ERR23": // Product Datagrid InsufficientMemoryException
+                    case "ERR24": 
 
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Product datagrid has ceased to function due to insufficient memory exception", // description of activity
-                            "NEW SALE ERROR"); // type of activity
-                        break;
-
-                    case "ERR24": // Product Datagrid OutOfMemoryException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Product datagrid has ceased to function due to out of memory exception", // description of activity
-                            "NEW SALE ERROR"); // type of activity
-                        break;
-
-                    case "ERR25": // Product Datagrid Exception
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            meta1, // description of activity
-                            "NEW SALE ERROR"); // type of activity
-                        break;
+                    case "ERR25":
 
                     case "ERR26": // Cart Summary Datagrid IndexOutOfRangeException
 
