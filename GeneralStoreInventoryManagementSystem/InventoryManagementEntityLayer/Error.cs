@@ -8,7 +8,7 @@ namespace InventoryManagementEntityLayer
 {
     namespace Error
     {
-        class Error
+        public class Error
         {
             // Fields
             private String code;

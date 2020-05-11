@@ -8,6 +8,8 @@ namespace GeneralStoreInventoryManagementSystem
 {
     public static class FormsMenuList
     {
+        // TODO Refactor this class to have only getters with defaukt insantiation 
+
         // This form displays all activities that have transpired durring a session, also displays errors
         // Only available to admins
         public static ActivitiesLogForm activitiesLogForm = new ActivitiesLogForm();
