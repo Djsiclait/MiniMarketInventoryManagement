@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Library
+using InventoryManagementBusinessLayer.Errors;
 using InventoryManagementBusinessLayer.ProductInformation;
 using InventoryManagementBusinessLayer.Protocols;
 using InventoryManagementEntityLayer.Product;
@@ -533,31 +534,39 @@ namespace GeneralStoreInventoryManagementSystem
             }
             catch (ArgumentNullException)
             {
-                MessageBox.Show("Error: ERR18");
+                MessageBox.Show("Error: ERR17");
+
+                SystemErrors.ExecuteError17();
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR18");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Error: ERR19");
+                MessageBox.Show("Error: ERR18");
+
+                SystemErrors.ExecuteError18();
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR19");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (IndexOutOfRangeException)
             {
-                MessageBox.Show("Error: ERR20");
+                MessageBox.Show("Error: ERR19");
+
+                SystemErrors.ExecuteError19();
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR20");
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
-                MessageBox.Show("Error: ERR21");
+                MessageBox.Show("Error: ERR20");
+
+                SystemErrors.ExecuteError20(e.Message);
 
                 // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR21", e.Message);
+                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
 
             // Updating numeric up down

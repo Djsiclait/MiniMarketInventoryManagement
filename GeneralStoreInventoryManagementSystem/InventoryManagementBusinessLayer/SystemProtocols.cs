@@ -130,37 +130,13 @@ namespace InventoryManagementBusinessLayer
                     case "ERR17": 
                         break;
 
-                    case "ERR18": // Cart ArgumentNullException
+                    case "ERR18": 
 
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Cart has malffunctioned due to null arrgument exception while adding a product", // description of activity
-                            "CART ERROR"); // type of activity
-                        break;
+                    case "ERR19": 
 
-                    case "ERR19": // Cart ArgumentOutOfRangeException
+                    case "ERR20":
 
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Cart has malffunctioned due to arrgument out of range exception while adding a product", // description of activity
-                            "CART ERROR"); // type of activity
-                        break;
-
-                    case "ERR20": // Cart ArgumentOutOfRangeException
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Cart has malffunctioned due to arrgument out of range exception while adding a product", // description of activity
-                            "CART ERROR"); // type of activity
-                        break;
-
-                    case "ERR21": // Cart Exception
-
-                        SystemResources.RecordActivity(
-                            SystemResources.UserInSession.Username, // username of user in session 
-                            "Cart has malffunctioned while adding a product due to: " + meta1, // description of activity
-                            "CART ERROR"); // type of activity
-                        break;
+                    case "ERR21":
 
                     case "ERR22": // Product Datagrid IndexOutOfRangeException
 

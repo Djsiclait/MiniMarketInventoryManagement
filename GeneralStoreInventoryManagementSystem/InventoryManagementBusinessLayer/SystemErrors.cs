@@ -156,6 +156,42 @@ namespace InventoryManagementBusinessLayer
                     meta2 + " list box has caused: " + meta1, // description of activity
                     "PRODUCT ERROR"); // type of activity
             }
+
+            public static void ExecuteError17()
+            {
+                // Cart ArgumentNullException
+                SystemResources.RecordActivity(
+                    SystemResources.UserInSession.Username, // username of user in session 
+                    "Cart has malfunctioned due to null argument exception while adding a product", // description of activity
+                    "CART ERROR"); // type of activity
+            }
+
+            public static void ExecuteError18()
+            {
+                // Cart ArgumentOutOfRangeException
+                SystemResources.RecordActivity(
+                    SystemResources.UserInSession.Username, // username of user in session 
+                    "Cart has malfunctioned due to argument out of range exception while adding a product", // description of activity
+                    "CART ERROR"); // type of activity
+            }
+
+            public static void ExecuteError19()
+            { 
+                // Cart IndexOutOfRangeException
+                SystemResources.RecordActivity(
+                    SystemResources.UserInSession.Username, // username of user in session 
+                    "Cart has malfunctioned due to index out of range exception while adding a product", // description of activity
+                    "CART ERROR"); // type of activity
+            }
+
+            public static void ExecuteError20(String meta)
+            {
+                // Cart Exception
+                SystemResources.RecordActivity(
+                    SystemResources.UserInSession.Username, // username of user in session 
+                    "Cart has malffunctioned while adding a product due to: " + meta, // description of activity
+                    "CART ERROR"); // type of activity
+            }
         }
     }
 }
