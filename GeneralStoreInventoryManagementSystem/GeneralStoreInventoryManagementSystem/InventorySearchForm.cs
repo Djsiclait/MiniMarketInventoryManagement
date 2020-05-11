@@ -531,9 +531,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR9");
                 SystemErrors.ExecuteError9();
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
@@ -542,9 +539,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR10");
                 SystemErrors.ExecuteError10();
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
@@ -553,9 +547,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR11");
                 SystemErrors.ExecuteError11();
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
@@ -564,9 +555,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured
                 MessageBox.Show("Error: ERR12");
                 SystemErrors.ExecuteError12(e.Message);
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             finally
             {

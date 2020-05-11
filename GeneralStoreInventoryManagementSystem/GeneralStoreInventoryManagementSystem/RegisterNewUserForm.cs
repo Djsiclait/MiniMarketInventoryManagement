@@ -508,9 +508,7 @@ namespace GeneralStoreInventoryManagementSystem
                     // Signaling that an error has occured
                     SystemErrors.ExecuteError1();
 
-                    // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("ERR0");
-                    messageLabel.Text = "A Fatal Error has occured!"; // The new user profile has not been created due to en error
+                    messageLabel.Text = "A Fatal Error has occured! (ERR1)"; // The new user profile has not been created due to en error
                 }
             }
             else
@@ -541,8 +539,7 @@ namespace GeneralStoreInventoryManagementSystem
                     SystemErrors.ExecuteError1();
 
                     // Executing correct activity according to given code
-                    SystemProtocols.ApplyActivityProtocols("ERR0");
-                    messageLabel.Text = "A Fatal Error has occured!"; // The new user profile has not been created due to en error
+                    messageLabel.Text = "A Fatal Error has occured! (ERR1)"; // The new user profile has not been created due to en error
                 }
             }
             else

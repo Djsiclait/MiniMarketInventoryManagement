@@ -606,9 +606,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR13 BRAND");
                 SystemErrors.ExecuteError13("BRAND");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
@@ -617,9 +614,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR14 BRAND");
                 SystemErrors.ExecuteError14("BRAND");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
@@ -628,9 +622,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR15 BRAND");
                 SystemErrors.ExecuteError15("BRAND");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
@@ -639,9 +630,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR16 BRAND");
                 SystemErrors.ExecuteError16(e.Message, "BRAND");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 
@@ -661,9 +649,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR13 CATEGORY");
                 SystemErrors.ExecuteError13("CATEGORY");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
@@ -672,9 +657,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR14 CATEGORY");
                 SystemErrors.ExecuteError14("CATEGORY");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
@@ -683,9 +665,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR15 CATEGORY");
                 SystemErrors.ExecuteError15("CATEGORY");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
@@ -694,9 +673,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR16 CATEGORY");
                 SystemErrors.ExecuteError16(e.Message, "CATEGORY");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 
@@ -716,9 +692,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR13 SUPPLIER");
                 SystemErrors.ExecuteError13("SUPPLIER");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
@@ -727,9 +700,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR14 SUPPLIER");
                 SystemErrors.ExecuteError14("SUPPLIER");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
@@ -738,9 +708,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR15 SUPPLIER");
                 SystemErrors.ExecuteError15("SUPPLIER");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
@@ -749,9 +716,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR16 SUPPLIER");
                 SystemErrors.ExecuteError16(e.Message, "SUPPLIER");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 
@@ -771,9 +735,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR13 TYPE");
                 SystemErrors.ExecuteError13("TYPE");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (InsufficientMemoryException)
             {
@@ -782,9 +743,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR14 TYPE");
                 SystemErrors.ExecuteError14("TYPE");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (OutOfMemoryException)
             {
@@ -793,9 +751,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR15 TYPE");
                 SystemErrors.ExecuteError15("TYPE");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
             catch (Exception e)
             {
@@ -804,9 +759,6 @@ namespace GeneralStoreInventoryManagementSystem
                 // Signaling that an error has occured 
                 MessageBox.Show("Error: ERR16 TYPE");
                 SystemErrors.ExecuteError16(e.Message, "TYPE");
-
-                // Recording error 
-                SystemProtocols.ApplyActivityProtocols("ERR0");
             }
         }
 
@@ -818,13 +770,13 @@ namespace GeneralStoreInventoryManagementSystem
         {
             bool validated = true;
 
-            if (nameTextBox.Text == "")
+            if (nameTextBox.Text.Length == 0) // TODO: test this theory
             {
                 validated = false;
                 nameTextBox.BackColor = Color.Red;
             }
 
-            if (unitTextBox.Text == "")
+            if (unitTextBox.Text.Length == 0)
             {
                 validated = false;
                 unitTextBox.BackColor = Color.Red;
