@@ -46,14 +46,19 @@
             this.viewGraphsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewReportsOption = new System.Windows.Forms.ToolStripMenuItem();
             this.viewActivityLogsMenuSubOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchLabel = new System.Windows.Forms.Label();
+            this.errorList = new System.Windows.Forms.DataGridView();
+            this.activityFormTitle = new System.Windows.Forms.Label();
+            this.errorSearchBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorList)).BeginInit();
             this.SuspendLayout();
             // 
             // viewCartLabel
             // 
             this.viewCartLabel.AutoSize = true;
             this.viewCartLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.viewCartLabel.Location = new System.Drawing.Point(522, 9);
+            this.viewCartLabel.Location = new System.Drawing.Point(765, 9);
             this.viewCartLabel.Name = "viewCartLabel";
             this.viewCartLabel.Size = new System.Drawing.Size(52, 13);
             this.viewCartLabel.TabIndex = 12;
@@ -66,7 +71,7 @@
             // 
             this.logOutLabel.AutoSize = true;
             this.logOutLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.logOutLabel.Location = new System.Drawing.Point(627, 9);
+            this.logOutLabel.Location = new System.Drawing.Point(870, 9);
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(45, 13);
             this.logOutLabel.TabIndex = 11;
@@ -84,7 +89,7 @@
             this.adminMenuOption});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(684, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(927, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ErrorsLogForm_KeyDown);
@@ -216,20 +221,68 @@
             this.viewActivityLogsMenuSubOption.Text = "View Activities Log";
             this.viewActivityLogsMenuSubOption.Click += new System.EventHandler(this.viewActivityLogsMenuSubOption_Click);
             // 
+            // searchLabel
+            // 
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Location = new System.Drawing.Point(540, 49);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(84, 13);
+            this.searchLabel.TabIndex = 17;
+            this.searchLabel.Text = "Search For Error";
+            // 
+            // errorList
+            // 
+            this.errorList.AllowUserToAddRows = false;
+            this.errorList.AllowUserToDeleteRows = false;
+            this.errorList.AllowUserToResizeColumns = false;
+            this.errorList.AllowUserToResizeRows = false;
+            this.errorList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.errorList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.errorList.Location = new System.Drawing.Point(12, 73);
+            this.errorList.MultiSelect = false;
+            this.errorList.Name = "errorList";
+            this.errorList.RowHeadersVisible = false;
+            this.errorList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.errorList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.errorList.Size = new System.Drawing.Size(903, 444);
+            this.errorList.TabIndex = 16;
+            // 
+            // activityFormTitle
+            // 
+            this.activityFormTitle.AutoSize = true;
+            this.activityFormTitle.Location = new System.Drawing.Point(66, 49);
+            this.activityFormTitle.Name = "activityFormTitle";
+            this.activityFormTitle.Size = new System.Drawing.Size(69, 13);
+            this.activityFormTitle.TabIndex = 15;
+            this.activityFormTitle.Text = "Errors History";
+            // 
+            // errorSearchBox
+            // 
+            this.errorSearchBox.Location = new System.Drawing.Point(642, 46);
+            this.errorSearchBox.Name = "errorSearchBox";
+            this.errorSearchBox.Size = new System.Drawing.Size(273, 20);
+            this.errorSearchBox.TabIndex = 14;
+            // 
             // ErrorsLogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 462);
+            this.ClientSize = new System.Drawing.Size(927, 562);
+            this.Controls.Add(this.searchLabel);
+            this.Controls.Add(this.errorList);
+            this.Controls.Add(this.activityFormTitle);
+            this.Controls.Add(this.errorSearchBox);
             this.Controls.Add(this.viewCartLabel);
             this.Controls.Add(this.logOutLabel);
             this.Controls.Add(this.menuStrip1);
+            this.MinimumSize = new System.Drawing.Size(943, 601);
             this.Name = "ErrorsLogForm";
             this.Text = "Error Logs";
             this.Load += new System.EventHandler(this.ErrorsLogForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ErrorsLogForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +308,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewGraphsOption;
         private System.Windows.Forms.ToolStripMenuItem viewReportsOption;
         private System.Windows.Forms.ToolStripMenuItem viewActivityLogsMenuSubOption;
+        private System.Windows.Forms.Label searchLabel;
+        private System.Windows.Forms.DataGridView errorList;
+        private System.Windows.Forms.Label activityFormTitle;
+        private System.Windows.Forms.TextBox errorSearchBox;
     }
 }
