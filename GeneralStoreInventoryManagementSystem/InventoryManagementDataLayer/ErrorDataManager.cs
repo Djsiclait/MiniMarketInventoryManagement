@@ -20,6 +20,10 @@ namespace InventoryManagementDataLayer
             #endregion
 
             #region Creates
+            /// <summary>
+            /// This function is in charge of registering all new error data generated during a session
+            /// </summary>
+            /// <param name="error">An error entity with all necessary data</param>
             public static void RegisterNewErrorData(Error error)
             {
                 // Define which query command will be executed 
@@ -28,6 +32,18 @@ namespace InventoryManagementDataLayer
                     Connection = DatabaseManager.ActiveSqlConnection,
                     CommandType = CommandType.StoredProcedure,
                 };
+
+                #region Parameters
+                cmd.Parameters.AddWithValue("@code", error.Code);
+                cmd.Parameters.AddWithValue("@description", error.Description);
+                cmd.Parameters.AddWithValue("@username", error.Username);
+                #endregion
+
+                // executing the stored procedure
+                Convert.ToInt32(cmd.ExecuteNonQuery());
+
+                // Closing connection with database
+                DatabaseManager.DisconnectToDatabase(); 
             }
             #endregion
 

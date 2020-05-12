@@ -16,10 +16,17 @@ namespace InventoryManagementEntityLayer
             private String description;
             private DateTime timestamp;
 
-            // Constructor 
+            // Constructors 
             public Error()
             {
 
+            }
+
+            public Error(String code, String description, String username)
+            {
+                this.code = code;
+                this.description = description;
+                this.username = username;
             }
 
             // Getters and Setters
