@@ -12,10 +12,18 @@ namespace InventoryManagementBusinessLayer
 {
     namespace ErrorInformation
     {
-        class ErrorInformationManager
+        public static class ErrorInformationManager
         {
             #region Consults
-
+            /// <summary>
+            /// THis function retrieves all registered errors 
+            /// </summary>
+            /// <param name="keyWord">Key word used to filter errors by code or username</param>
+            /// <returns>A list of all registered errors</returns>
+            public static List<Error> ConsultErrorListInformation(String keyWord)
+            {
+                return ErrorDataManager.ConsultErrorListData(keyWord);
+            }
             #endregion
 
             #region Creates

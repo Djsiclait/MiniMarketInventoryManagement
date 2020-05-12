@@ -462,10 +462,11 @@ namespace GeneralStoreInventoryManagementSystem
                 MessageBox.Show("Error: ERR4");
                 SystemErrors.ExecuteError4(e.Message);
             }
-
-            // Hiding unnecessary fields
-            activityList.Columns["Description"].Width = 550;
-            activityList.Columns["Timestamp"].Width = 200;
+            finally
+            {
+                activityList.Columns["Description"].Width = 550;
+                activityList.Columns["Timestamp"].Width = 200;
+            }
         }
         #endregion
     }

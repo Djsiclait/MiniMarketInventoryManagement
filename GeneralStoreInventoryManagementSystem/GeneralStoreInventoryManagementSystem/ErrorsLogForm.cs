@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Custom Library
-using InventoryManagementBusinessLayer.Errors;
+using InventoryManagementBusinessLayer.ErrorInformation;
 using InventoryManagementBusinessLayer.Protocols;
+using InventoryManagementEntityLayer.Error;
 
 namespace GeneralStoreInventoryManagementSystem
 {
@@ -39,6 +40,8 @@ namespace GeneralStoreInventoryManagementSystem
                 adminMenuOption.Visible = false;
                 adminMenuOption.Enabled = false;
             }
+
+            PopulateErrorListDatagrid();
 
             // Recording admin access to current form
             SystemProtocols.ApplyActivityProtocols("ERR");
@@ -405,6 +408,60 @@ namespace GeneralStoreInventoryManagementSystem
 
                 default:
                     break;
+            }
+        }
+        #endregion
+
+        #region Text Change Logic
+        private void ErrorSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            PopulateErrorListDatagrid();
+        }
+        #endregion
+
+        #region Auxiliary Functions
+        private void PopulateErrorListDatagrid()
+        {
+            try
+            {
+                errorList.DataSource = ErrorInformationManager.ConsultErrorListInformation(errorSearchBox.Text);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                errorList.DataSource = new List<Error>();
+
+                // Signaling that an error has occured
+                //MessageBox.Show("Error: ERR9");
+                //SystemErrors.ExecuteError9();
+            }
+            catch (InsufficientMemoryException)
+            {
+                errorList.DataSource = new List<Error>();
+
+                // Signaling that an error has occured
+                //MessageBox.Show("Error: ERR10");
+                //SystemErrors.ExecuteError10();
+            }
+            catch (OutOfMemoryException)
+            {
+                errorList.DataSource = new List<Error>();
+
+                // Signaling that an error has occured
+                //MessageBox.Show("Error: ERR11");
+                //SystemErrors.ExecuteError11();
+            }
+            catch (Exception e)
+            {
+                errorList.DataSource = new List<Error>();
+
+                // Signaling that an error has occured
+                //MessageBox.Show("Error: ERR12");
+                //SystemErrors.ExecuteError12(e.Message);
+            }
+            finally
+            {
+                errorList.Columns["Description"].Width = 500;
+                errorList.Columns["Timestamp"].Width = 200;
             }
         }
         #endregion

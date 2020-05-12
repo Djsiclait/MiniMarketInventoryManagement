@@ -246,6 +246,7 @@
             this.errorList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.errorList.Size = new System.Drawing.Size(903, 444);
             this.errorList.TabIndex = 16;
+            this.errorList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ErrorsLogForm_KeyDown);
             // 
             // activityFormTitle
             // 
@@ -262,6 +263,8 @@
             this.errorSearchBox.Name = "errorSearchBox";
             this.errorSearchBox.Size = new System.Drawing.Size(273, 20);
             this.errorSearchBox.TabIndex = 14;
+            this.errorSearchBox.TextChanged += new System.EventHandler(this.ErrorSearchBox_TextChanged);
+            this.errorSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ErrorsLogForm_KeyDown);
             // 
             // ErrorsLogForm
             // 
@@ -277,6 +280,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MinimumSize = new System.Drawing.Size(943, 601);
             this.Name = "ErrorsLogForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Error Logs";
             this.Load += new System.EventHandler(this.ErrorsLogForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ErrorsLogForm_KeyDown);

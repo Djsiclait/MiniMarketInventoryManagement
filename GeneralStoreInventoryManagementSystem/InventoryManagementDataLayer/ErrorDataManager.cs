@@ -17,6 +17,46 @@ namespace InventoryManagementDataLayer
         public static class ErrorDataManager
         {
             #region Consults
+            /// <summary>
+            /// THis function retrieves all registered errors 
+            /// </summary>
+            /// <param name="keyWord">Key word used to filter errors by code or username</param>
+            /// <returns>A list of all registered errors</returns>
+            public static List<Error> ConsultErrorListData(String keyWord)
+            {
+                List<Error> errors = new List<Error>();
+
+                SqlCommand cmd = new SqlCommand()
+                {
+                    CommandText = "SP_Fetch_Error_Logs",
+                    Connection = DatabaseManager.ActiveSqlConnection,
+                    CommandType = CommandType.StoredProcedure,
+                };
+
+                #region Parameters
+                cmd.Parameters.AddWithValue("@key_word", keyWord);
+                #endregion
+
+                SqlDataReader sqlDataReader;
+                sqlDataReader = cmd.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    Error error = new Error() {
+                        Code = sqlDataReader["fld_error_code"].ToString(),
+                        Description = sqlDataReader["fld_error_description"].ToString(),
+                        Username = sqlDataReader["fld_error_username"].ToString(),
+                        Timestamp = DateTime.Parse(sqlDataReader["fld_error_timestamp"].ToString()), 
+                    };
+
+                    errors.Add(error);
+                }
+
+                // Closing connection with database
+                DatabaseManager.DisconnectToDatabase();
+
+                return errors;
+            }
             #endregion
 
             #region Creates

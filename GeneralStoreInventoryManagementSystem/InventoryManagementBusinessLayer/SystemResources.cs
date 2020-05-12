@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 // Custom Libraries
 using InventoryManagementBusinessLayer.ActivityInformation;
-using InventoryManagementBusinessLayer.ErrorInformation;
 using InventoryManagementBusinessLayer.UserInformation;
 using InventoryManagementEntityLayer.Activity;
-using InventoryManagementEntityLayer.Error;
 using InventoryManagementEntityLayer.Product;
 using InventoryManagementEntityLayer.UserProfile;
 

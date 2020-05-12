@@ -12,6 +12,9 @@ AS
 			Tbl_Error_Logs
 		Where
 			fld_error_code Like '%' + @key_word + '%'
+		or
+			fld_error_username Like '%' + @key_word + '%'
+			
 
 	END
 

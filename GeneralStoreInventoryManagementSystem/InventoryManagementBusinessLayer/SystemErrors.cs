@@ -22,8 +22,10 @@ namespace InventoryManagementBusinessLayer
             /// <param name="description">Description of error</param>
             private static void RecordError(String code, String description)
             {
+                // Registering new error via the business layer
                 ErrorInformationManager.RegisterNewErrorInformation(new Error(code, description, SystemResources.UserInSession.Username));
 
+                // Requesting the erro activity to be registered as well
                 SystemResources.RecordActivity(
                     SystemResources.UserInSession.Username, // username of user in session 
                     SystemResources.UserInSession.Role + ", " + SystemResources.UserInSession.Username + ", has encountered an error during their session", // description of error

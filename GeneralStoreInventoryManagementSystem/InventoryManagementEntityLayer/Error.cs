@@ -30,9 +30,9 @@ namespace InventoryManagementEntityLayer
             }
 
             // Getters and Setters
-            public string Code { get => code; set => code = value; }
             public string Username { get => username; set => username = value; }
             public string Description { get => description; set => description = value; }
+            public string Code { get => code; set => code = value; }
             public DateTime Timestamp { get => timestamp; set => timestamp = value; }
         }
     }
