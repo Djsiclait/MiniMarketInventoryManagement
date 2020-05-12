@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 // Custom Library
 using InventoryManagementBusinessLayer.ErrorInformation;
+using InventoryManagementBusinessLayer.Errors;
 using InventoryManagementBusinessLayer.Protocols;
 using InventoryManagementEntityLayer.Error;
 
@@ -431,32 +432,32 @@ namespace GeneralStoreInventoryManagementSystem
                 errorList.DataSource = new List<Error>();
 
                 // Signaling that an error has occured
-                //MessageBox.Show("Error: ERR9");
-                //SystemErrors.ExecuteError9();
+                MessageBox.Show("Error: ERR29");
+                SystemErrors.ExecuteError29();
             }
             catch (InsufficientMemoryException)
             {
                 errorList.DataSource = new List<Error>();
 
                 // Signaling that an error has occured
-                //MessageBox.Show("Error: ERR10");
-                //SystemErrors.ExecuteError10();
+                MessageBox.Show("Error: ERR30");
+                SystemErrors.ExecuteError30();
             }
             catch (OutOfMemoryException)
             {
                 errorList.DataSource = new List<Error>();
 
                 // Signaling that an error has occured
-                //MessageBox.Show("Error: ERR11");
-                //SystemErrors.ExecuteError11();
+                MessageBox.Show("Error: ERR31");
+                SystemErrors.ExecuteError31();
             }
             catch (Exception e)
             {
                 errorList.DataSource = new List<Error>();
 
                 // Signaling that an error has occured
-                //MessageBox.Show("Error: ERR12");
-                //SystemErrors.ExecuteError12(e.Message);
+                MessageBox.Show("Error: ERR32");
+                SystemErrors.ExecuteError32(e.Message);
             }
             finally
             {

@@ -269,6 +269,41 @@ namespace InventoryManagementBusinessLayer
                     meta); // description of error
             }
             #endregion
+
+            #region Error Log Errors
+
+            public static void ExecuteError29()
+            {
+                // IndexOutOfRangeException
+                RecordError(
+                    "ERROR LOG ERROR", // error code
+                    "Error log datagrid has ceased to function due to index out of range error"); // description of error
+            }
+
+            public static void ExecuteError30()
+            {
+                // InsufficientMemoryException
+                RecordError(
+                    "ERROR LOG ERROR", // error code
+                    "Error log datagrid has ceased to function due to insufficient memory error"); // description of error
+            }
+
+            public static void ExecuteError31()
+            {
+                // OutOfMemoryException
+                RecordError(
+                    "ERROR LOG ERROR", // error code
+                    "Error log datagrid has ceased to function due to out of memory error"); // description of error
+            }
+
+            public static void ExecuteError32(String meta)
+            {
+                // General Exception
+                RecordError(
+                    "ERROR LOG ERROR", // error code
+                    meta); // description of error
+            }
+            #endregion
         }
     }
 }
